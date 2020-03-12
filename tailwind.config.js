@@ -6,6 +6,10 @@
 */
 module.exports = {
   theme: {
+    container: {
+      center: true,
+      padding:'15px',
+    },
     extend: {
       colors: {
         'josa-blue': {
@@ -21,6 +25,11 @@ module.exports = {
           'josa-black': '#2e3436',
         }
       }
+        },
+        maxWidth: {
+          '240': '240px',
+        }
+      },
     },
   variants: {},
   plugins: []
