@@ -23,6 +23,8 @@ module.exports = {
             'dark': '#aea79f',
           },
           'josa-black': '#2e3436',
+        }
+      }
         },
         maxWidth: {
           '240': '240px',
