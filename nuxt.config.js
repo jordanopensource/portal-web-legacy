@@ -14,7 +14,11 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href:'https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap' },
-    ]
+    ],
+    script: [
+      { src: 'https://use.fontawesome.com/releases/v5.12.1/js/solid.js', defer: true, integrity:"sha384-OSCcNUu98kEBVxq0vZaBr0wdmmd2ojuJwvWuSRKD0V10PWmvTetja8mxGfZm5PsV", crossorigin:'anonymous' },
+      { src: 'https://use.fontawesome.com/releases/v5.12.1/js/fontawesome.js', defer: true, integrity:"sha384-H4naMsxnUrIT8qihjWfwIKXi5biIYnqUsQ+vIJGZIKfA+7/O3FxgvMrdH77X+aID", crossorigin:'anonymous' }
+    ],
   },
   /*
   ** Customize the progress-bar color
