@@ -29,6 +29,8 @@ module.exports = {
       },
       fontFamily: {
         'aleoLight': 'aleo-light',
+        'aleo': 'aleo',
+        'lato': 'lato',
       },
       padding: {
         '15px': '15px',
