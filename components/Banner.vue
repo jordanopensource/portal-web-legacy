@@ -1,9 +1,9 @@
 <template>
   <div id="banner" class="bg-josa-blue-dark pt-12">
     <div class="container">
-      <div class="flex flex-col md:flex-row">
-        <div class="w-full md:w-4/12 flex items-center">
-        <h2 class="display-light text-3xl lg:text-4xl pb-2">Building an open-technology, digitally-enabled Jordan.</h2>
+      <div class="flex flex-col md:flex-row px-15px">
+        <div class="w-full md:w-4/12 flex items-center pr-15px pb-15px">
+        <h2 class="display-light text-3xl lg:text-4xl pb-2 text-center md:text-left">Building an open-technology, digitally-enabled Jordan.</h2>
         </div>
         <div class="w-full md:w-8/12 relative">
           <img class="banner-img" src="~assets/images/bots/bots.svg" alt="JOSA Bots">
