@@ -27,6 +27,10 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/fonts/aleo.css',
+    '@/assets/css/typography.css',
+    '@/assets/css/layout.css',
+    '@/assets/css/global.css',
   ],
   /*
   ** Plugins to load before mounting the App
