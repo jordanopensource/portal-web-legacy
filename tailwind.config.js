@@ -29,7 +29,10 @@ module.exports = {
       },
       fontFamily: {
         'aleoLight': 'aleo-light',
-}
+      },
+      padding: {
+        '15px': '15px',
+      },
     }
   },
   variants: {},
