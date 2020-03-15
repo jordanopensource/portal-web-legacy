@@ -2,7 +2,7 @@
   <div>
     <app-header />
     <banner />
-    <nuxt />
+    <nuxt class="bg-josa-warm-grey-light" />
   </div>
 </template>
 
