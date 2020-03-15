@@ -26,7 +26,10 @@ module.exports = {
           'dark': '#aea79f',
         },
         'josa-black': '#2e3436',
-      }
+      },
+      fontFamily: {
+        'aleoLight': 'aleo-light',
+}
     }
   },
   variants: {},
