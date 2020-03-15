@@ -4,4 +4,10 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: 'aleo';
+  line-height: 1.2;
+}
+
+.display-light {
+  @apply font-aleoLight font-light text-left text-josa-warm-grey  
+
 }
