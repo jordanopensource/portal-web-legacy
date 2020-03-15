@@ -1,5 +1,5 @@
 <template>
-<div class="w-full md:w-1/2 p-12 bg-white">
+<div class="">
 
     <div class="display-lead pb-8">The Jordan Open Source Association (JOSA) is a non-profit organization that works for the promotion and implementation of the Open Source principles in Jordan.</div>
 
