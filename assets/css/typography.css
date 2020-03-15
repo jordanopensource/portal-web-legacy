@@ -1,11 +1,13 @@
 /* Typography Styles */
 body {
-  font-family: 'lato';
+  @apply font-lato text-josa-black leading-normal;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'aleo';
-  line-height: 1.2;
+  @apply font-aleo leading-tight;
 }
 .display-light {
   @apply font-aleoLight font-light text-josa-warm-grey
+}
+.display-lead {
+  @apply text-xl font-light
 }
