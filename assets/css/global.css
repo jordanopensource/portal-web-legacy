@@ -1,0 +1,7 @@
+body {
+    @apply bg-josa-warm-grey-light;
+}
+
+.button-primary {
+   @apply border border-josa-blue border-solid rounded text-josa-blue uppercase py-2 px-4 w-auto inline-block;
+}
