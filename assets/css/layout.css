@@ -1,0 +1,6 @@
+
+@media (max-width: 640px) {
+    #banner .container {
+        @apply p-0
+    }
+  }
