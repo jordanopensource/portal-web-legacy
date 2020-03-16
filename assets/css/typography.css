@@ -9,7 +9,7 @@ h2 {
   @apply font-medium text-4xl mb-2
 }
 h3 {
-  @apply font-normal text-xl;
+  @apply font-normal text-xl font-lato;
 }
 .display-light {
   @apply font-aleoLight font-light text-josa-warm-grey
