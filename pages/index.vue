@@ -1,12 +1,16 @@
 <template>
   <div class="container my-8">
-    <div class="row ">
+    <div class="row">
       <impactBox class="w-full md:w-1/2 p-12"/>
       <instagramFeed class="w-full md:w-1/2"/>
     </div>
 
-    <div class="row ">
+    <div class="row">
       <ourWork class="w-full md:w-1/2 p-12"/>
+    </div>
+
+    <div class="row">
+      <joinUs class="w-full md:w-1/2"/>
     </div>
   </div>
 </template>
@@ -15,12 +19,14 @@
 import ImpactBox from '~/components/ImpactBox';
 import InstagramFeed from '~/components/InstagramFeed';
 import OurWork from '~/components/programs/OurWork';
+import JoinUs from '~/components/join-us/JoinUs';
 
 export default {
   components: {
     'impactBox': ImpactBox,
     'instagramFeed': InstagramFeed,
     'ourWork': OurWork,
+    'joinUs': JoinUs,
   }
 }
 </script>
