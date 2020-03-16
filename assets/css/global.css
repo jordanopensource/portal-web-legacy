@@ -7,3 +7,6 @@ body {
 .button-primary {
    @apply border border-josa-blue border-solid rounded text-josa-blue uppercase py-2 px-4 w-auto inline-block;
 }
+.button-info {
+  @apply border border-josa-warm-grey-dark border-solid rounded-md text-josa-warm-grey-dark uppercase py-2 px-4 w-auto inline-block;
+}
