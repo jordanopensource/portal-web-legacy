@@ -11,6 +11,7 @@
 
     <div class="row">
       <joinUs class="w-full md:w-1/2"/>
+      <ourCommunity class="w-full md:w-1/2 p-12"/>
     </div>
   </div>
 </template>
@@ -20,6 +21,7 @@ import ImpactBox from '~/components/ImpactBox';
 import InstagramFeed from '~/components/InstagramFeed';
 import OurWork from '~/components/programs/OurWork';
 import JoinUs from '~/components/join-us/JoinUs';
+import OurCommunity from '~/components/our-community/OurCommunity';
 
 export default {
   components: {
@@ -27,6 +29,7 @@ export default {
     'instagramFeed': InstagramFeed,
     'ourWork': OurWork,
     'joinUs': JoinUs,
+    'ourCommunity': OurCommunity,
   }
 }
 </script>
