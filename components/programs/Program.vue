@@ -11,6 +11,28 @@
 
 <script>
 export default {
+    props: {
+        id: {
+            type: String,
+            required: true
+        },
+        thumbnail: {
+            type: String,
+            required: true
+        },
+        title: {
+            type: String,
+            required: true
+        },
+        subtitle: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true  
+        }
+    },
 }
 </script>
 
