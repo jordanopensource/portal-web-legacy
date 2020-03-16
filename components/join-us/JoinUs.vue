@@ -34,9 +34,14 @@ export default {
     border-top: 10px solid #3897c0;
     }
     #bot-1 {
-        @apply m-auto p-5;
+        @apply w-full m-auto p-5;
         max-width: 250px;
         right: -20px;
         bottom: 0;
+    }
+    @screen md {
+        #bot-1 {
+            max-width: 500px;
+        }
     }
 </style>
