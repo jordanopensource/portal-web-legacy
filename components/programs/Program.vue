@@ -5,7 +5,7 @@
             <h3>{{ title }}</h3>
             <p class="font-bold block">{{ subtitle}}</p>
             <p class="mb-6">{{ description }}</p>
-            <nuxt-link to="#" tag="a" class="button-info">Know More</nuxt-link>
+            <nuxt-link to="#" tag="a" class="button button-grey">Know More</nuxt-link>
         </div>
     </div>
 </template>

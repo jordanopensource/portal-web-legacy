@@ -5,7 +5,7 @@
 
     <p>JOSA organizes activities and lead initiatives in different fields, including Open Source software and hardware, Open Content and Free Culture, and digital rights.</p>
 
-    <nuxt-link to="/" tag="a" class="button-primary">Know more about our impact</nuxt-link>
+    <nuxt-link to="/" tag="a" class="button button-blue">Know more about our impact</nuxt-link>
 
 </div>
 </template>
