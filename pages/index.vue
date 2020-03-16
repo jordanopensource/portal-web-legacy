@@ -10,7 +10,7 @@
     </div>
 
     <div class="row">
-      <joinUs class="w-full md:w-1/2 p-12"/>
+      <joinUs class="w-full md:w-1/2"/>
     </div>
   </div>
 </template>
