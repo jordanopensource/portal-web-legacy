@@ -4,9 +4,12 @@ body {
 .row {
     @apply w-full bg-white flex flex-wrap mt-12;
   }
-.button-primary {
-   @apply border border-josa-blue border-solid rounded text-josa-blue uppercase py-2 px-4 w-auto inline-block;
+.button {
+  @apply border border-solid rounded-md uppercase py-2 px-4 w-auto inline-block;
 }
-.button-info {
-  @apply border border-josa-warm-grey-dark border-solid rounded-md text-josa-warm-grey-dark uppercase py-2 px-4 w-auto inline-block;
+.button-blue {
+   @apply border-josa-blue text-josa-blue;
+}
+.button-grey {
+  @apply border-josa-warm-grey-dark text-josa-warm-grey-dark;
 }
