@@ -1,12 +1,13 @@
 <template>
-<div class="flex items-start">
-    <img class="block max-w-full mr-4 w-20 h-auto flex-shrink-0" :src="thumbnail" alt="">
-    <div class="mb-6 flex-grow">
-        <h3>{{ title }}</h3>
-        <p class="font-bold block">{{ subtitle}}</p>
-        <p>{{ description }}</p>
+    <div class="flex items-start">
+        <img class="block max-w-full mr-4 w-20 h-auto flex-shrink-0" :src="thumbnail" alt="">
+        <div class="mb-6 flex-grow">
+            <h3>{{ title }}</h3>
+            <p class="font-bold block">{{ subtitle}}</p>
+            <p class="mb-6">{{ description }}</p>
+            <nuxt-link to="#" tag="a" class="button-info">Know More</nuxt-link>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
