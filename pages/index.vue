@@ -14,7 +14,7 @@
 <script>
 import ImpactBox from '~/components/ImpactBox';
 import InstagramFeed from '~/components/InstagramFeed';
-import OurWork from '~/components/our-work/OurWork';
+import OurWork from '~/components/programs/OurWork';
 
 export default {
   components: {
