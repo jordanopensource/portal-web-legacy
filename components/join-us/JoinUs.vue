@@ -1,8 +1,9 @@
 <template>
-<div class="bg-josa-blue-dark text-white flex flex-wrap pb-20">
+<div class="bg-josa-blue-dark text-white pb-20">
     <div class="pt-12 pl-12 pr-4 w-full">
         <h2 class="title">Join Us</h2>
     </div>
+    <div class="flex flex-wrap">
     <div class="px-12 w-full lg:w-1/2">
     <p class="mb-4"><strong>JOSA is made by the efforts of members and volunteers like you!</strong></p>
     <p class="mb-4">Do you love Open Source? Lead the change in Jordan by joining us:</p>
@@ -10,6 +11,7 @@
     </div>
     <div class="w-full px-12 lg:w-1/2 lg:pr-0 lg:pl-15px relative">
         <img id="bot-1" class="lg:absolute" src="~/static/images/bots/bot-1.svg" alt="bot-1">
+    </div>
     </div>
 </div>
 </template>
