@@ -13,3 +13,6 @@ body {
 .button-grey {
   @apply border-josa-warm-grey-dark text-josa-warm-grey-dark;
 }
+.button-blue-full {
+  @apply border-josa-blue text-white bg-josa-blue;
+}
