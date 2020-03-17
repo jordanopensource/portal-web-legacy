@@ -13,6 +13,10 @@
       <joinUs class="w-full md:w-1/2"/>
       <ourCommunity class="w-full md:w-1/2 p-12"/>
     </div>
+
+    <div class="row">
+      <stayInTouch class="w-full md:w-1/2"/>
+    </div>
   </div>
 </template>
 
@@ -22,6 +26,7 @@ import InstagramFeed from '~/components/InstagramFeed';
 import OurWork from '~/components/programs/OurWork';
 import JoinUs from '~/components/join-us/JoinUs';
 import OurCommunity from '~/components/our-community/OurCommunity';
+import StayInTouch from '~/components/stay-in-touch/StayInTouch';
 
 export default {
   components: {
@@ -30,6 +35,7 @@ export default {
     'ourWork': OurWork,
     'joinUs': JoinUs,
     'ourCommunity': OurCommunity,
+    'stayInTouch': StayInTouch,
   }
 }
 </script>
