@@ -32,6 +32,23 @@ export default {
     isEmailValid() {
       return this.reg.test(this.email);
     },
+    subscribe() {
+      if (this.isEmailValid()) {
+        alert("You have successfully subscribed to JOSA\'s newsletter.\nEmail: " + this.email + "\nLanguage: " + this.language);
+        this.email= '';
+      } else {
+        alert('Please enter a valid email')
+      }
+
+    },
+    unsubscribe() {
+      if (this.isEmailValid()) {
+        alert("You have successfully unsubscribed from JOSA\'s newsletter.\nEmail: " + this.email + "\nLanguage: " + this.language);
+        this.email= '';
+      } else {
+        alert('Please enter a valid email')
+      }
+    },
   }
 }
 </script>
