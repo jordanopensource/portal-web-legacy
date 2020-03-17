@@ -3,11 +3,10 @@
   <input type="email" id="email" placeholder="Email" v-model.lazy.trim="email">
 
   <div id="select-language" class="block">
-    <radioButton id="english" value="English" label="English" :model="language" 
-    @onUpdate="updateActiveLanguage" />
-    <radioButton id="arabic" value="Arabic" label="Arabic" :model="language" 
-    @onUpdate="updateActiveLanguage" />
-
+    <radioButton id="english" value="English" label="English"
+    v-model="language"/>
+    <radioButton id="arabic" value="Arabic" label="Arabic"
+    v-model="language"/>
   </div>
 </form>
 </template>
@@ -25,11 +24,6 @@ export default {
       language: 'English',
     }
   },
-  methods: {
-      updateActiveLanguage(val) {
-          this.language = val;
-      }
-  }
 }
 </script>
 

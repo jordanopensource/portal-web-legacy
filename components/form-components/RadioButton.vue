@@ -9,6 +9,10 @@
 <script>
 export default {
   name: 'RadioButton',
+  model: {
+      prop: 'model',
+      event: 'onUpdate'
+  },
   props: {
     id: {
       type: String,
