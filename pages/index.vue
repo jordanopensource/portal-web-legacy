@@ -16,6 +16,7 @@
 
     <div class="row">
       <stayInTouch class="w-full md:w-1/2"/>
+      <ourNewsletter class="w-full md:w-1/2 p-12"/>
     </div>
   </div>
 </template>
@@ -27,6 +28,7 @@ import OurWork from '~/components/programs/OurWork';
 import JoinUs from '~/components/join-us/JoinUs';
 import OurCommunity from '~/components/our-community/OurCommunity';
 import StayInTouch from '~/components/stay-in-touch/StayInTouch';
+import OurNewsletter from '~/components/newsletter/OurNewsletter';
 
 export default {
   components: {
@@ -36,6 +38,7 @@ export default {
     'joinUs': JoinUs,
     'ourCommunity': OurCommunity,
     'stayInTouch': StayInTouch,
+    'ourNewsletter': OurNewsletter,
   }
 }
 </script>
