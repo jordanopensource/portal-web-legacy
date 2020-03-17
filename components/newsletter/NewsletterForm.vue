@@ -2,11 +2,10 @@
 <form class="flex flex-col">
   <input required type="email" id="email" placeholder="Email" v-model.lazy.trim="email">
 
-  <div id="select-language" class="block">
-    <radioButton id="english" value="English" label="English"
-    v-model="language"/>
-    <radioButton id="arabic" value="Arabic" label="Arabic"
-    v-model="language"/>
+  <div id="select-language" class="block mb-8">
+    <radioButton id="english" value="English" label="English" v-model="language" />
+    <radioButton id="arabic" value="Arabic" label="Arabic" v-model="language" />
+  </div>
 
   <div class="flex justify-between flex-wrap">
     <button class="button button-blue-full mb-4" @click.prevent="subscribe">subscribe</button>
