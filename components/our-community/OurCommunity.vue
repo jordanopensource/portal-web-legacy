@@ -1,5 +1,5 @@
 <template>
-<div class="bg-josa-warm-grey pb-20">
+<div class="bg-josa-warm-grey pb-12">
     <h2 class="title ">Our Community</h2>
 
     <div class="grid grid-cols-5 grid-rows-2 gap-4 pb-8"> 
