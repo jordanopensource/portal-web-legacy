@@ -1,5 +1,5 @@
 <template>
-<div class="bg-josa-blue-dark text-white pb-20">
+<div class="bg-josa-blue-dark text-white pb-12">
   <div class="pt-12 pl-12 pr-4 w-full">
     <h2 class="title">Stay In Touch</h2>
   </div>

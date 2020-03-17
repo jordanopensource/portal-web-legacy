@@ -1,5 +1,5 @@
 <template>
-<div class="bg-josa-warm-grey pb-20">
+<div class="bg-josa-warm-grey">
     <h2 class="title ">Our Newsletter</h2>
 
     <div class="pb-8">
