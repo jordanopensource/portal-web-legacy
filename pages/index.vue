@@ -16,7 +16,10 @@
 
     <div class="row">
       <stayInTouch class="w-full md:w-1/2"/>
-      <ourNewsletter class="w-full md:w-1/2 p-12"/>
+      <div class="w-full md:w-1/2">
+      <ourNewsletter class="pb-0 p-12"/>
+      <joinSlack class="p-12"/>
+      </div>
     </div>
   </div>
 </template>
@@ -29,6 +32,7 @@ import JoinUs from '~/components/join-us/JoinUs';
 import OurCommunity from '~/components/our-community/OurCommunity';
 import StayInTouch from '~/components/stay-in-touch/StayInTouch';
 import OurNewsletter from '~/components/newsletter/OurNewsletter';
+import JoinSlack from '~/components/join-us/JoinSlack';
 
 export default {
   components: {
@@ -39,6 +43,7 @@ export default {
     'ourCommunity': OurCommunity,
     'stayInTouch': StayInTouch,
     'ourNewsletter': OurNewsletter,
+    'joinSlack': JoinSlack,
   }
 }
 </script>
