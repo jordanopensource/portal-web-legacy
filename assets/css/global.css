@@ -16,3 +16,6 @@ body {
 .button-blue-full {
   @apply border-josa-blue text-white bg-josa-blue;
 }
+.button-light {
+  @apply border-josa-warm-grey text-josa-warm-grey;
+}
