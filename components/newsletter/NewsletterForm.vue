@@ -1,6 +1,6 @@
 <template>
-<form>
-  <input type="email" id="email" placeholder="Email" v-model.lazy.trim="email">
+<form class="flex flex-col">
+  <input required type="email" id="email" placeholder="Email" v-model.lazy.trim="email">
 
   <div id="select-language" class="block">
     <radioButton id="english" value="English" label="English"
