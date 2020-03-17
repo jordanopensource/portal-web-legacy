@@ -7,6 +7,10 @@
     v-model="language"/>
     <radioButton id="arabic" value="Arabic" label="Arabic"
     v-model="language"/>
+
+  <div class="flex justify-between flex-wrap">
+    <button class="button button-blue-full mb-4" @click.prevent="subscribe">subscribe</button>
+    <button class="button button-blue mb-4" @click.prevent="unsubscribe">unsubscribe</button>
   </div>
 </form>
 </template>
