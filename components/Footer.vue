@@ -43,12 +43,15 @@
 
     <section>
       <h6>Connect</h6>
-      <ul class="links">
+      <ul class="links pb-4 md:pb-0">
         <nuxt-link v-for="(link, label) in connectLinks" :key="label" tag="li" :to='link' active-class="active"><a>{{ label }}</a></nuxt-link>
       </ul>
       <div class="hidden md:block py-4">
         <hr>
       </div>
+       <ul class="links">
+        <li v-for="link in socialMediaLinks" :key="link.id"><a class="whitespace-no-wrap" :href="link.path" target="_blank"><font-awesome-icon class="mr-2" :icon="['fab', link.icon ]"/>{{ link.id }}</a></li>
+         </ul>
     </section>
 
   </div>
@@ -108,6 +111,11 @@ export default {
         'Join Slack': '/',
         'Newsletter': '/',
       },
+      socialMediaLinks: [
+        { icon: 'facebook-square', path: 'https://facebook.com/jordanopensource', id: '/jordanopensource'},
+        { icon: 'twitter', path: 'https://twitter.com/jo_osa', id: '@jo_osa'},
+        { icon: 'instagram', path: 'https://instagram.com/jordanopensource', id: '/jordanopensource'},
+      ]
     }
   }
 }
