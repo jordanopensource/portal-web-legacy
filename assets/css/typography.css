@@ -6,10 +6,13 @@ h1, h2, h3, h4, h5, h6 {
   @apply font-aleoLight leading-tight;
 }
 h2 {
-  @apply font-medium text-4xl mb-2
+  @apply font-medium text-4xl mb-2;
 }
 h3 {
   @apply font-normal text-xl font-lato;
+}
+h6 {
+  @apply font-bold font-lato;
 }
 .display-light {
   @apply font-aleoLight font-light text-josa-warm-grey
