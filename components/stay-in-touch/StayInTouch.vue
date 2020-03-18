@@ -8,10 +8,22 @@
       <p class="mb-4"><strong>Do you want to be always up-to-date with our activities and events? Discover like-minded people in our great community? Or just ask for help and support?</strong></p>
       <p class="mb-4">There are several online channels to be in touch with JOSA and our community. You are more than welcome to join us:</p>
       <div class="social-media-links">
-        <a class="mb-4 button button-light" href="https://facebook.com/jordanopensource" target="_blank">Facebook Page</a>
-        <a class="mb-4 button button-light" href="https://facebook.com/groups/jordanopensource/" target="_blank">Facebook Group</a>
-        <a class="mb-4 button button-light" href="https://twitter.com/jo_osa" target="_blank">Twitter</a>
-        <a class="mb-4 button button-light" href="https://instagram.com/jordanopensource" target="_blank">Instagram</a>
+        <a class="mb-4 button button-light" 
+        href="https://facebook.com/jordanopensource" target="_blank"> 
+        <font-awesome-icon class="mr-2" :icon="['fab', 'facebook-square']"/>
+        Facebook Page</a>
+        <a class="mb-4 button button-light" 
+        href="https://facebook.com/groups/jordanopensource/" target="_blank">
+        <font-awesome-icon class="mr-2" :icon="['fab', 'facebook-square']"/>
+        Facebook Group</a>
+        <a class="mb-4 button button-light" 
+        href="https://twitter.com/jo_osa" target="_blank">
+        <font-awesome-icon class="mr-2" :icon="['fab', 'twitter']"/>
+        Twitter</a>
+        <a class="mb-4 button button-light" 
+        href="https://instagram.com/jordanopensource" target="_blank">
+        <font-awesome-icon class="mr-2" :icon="['fab', 'instagram']"/>
+        Instagram</a>
       </div>
     </div>
     <div class="w-full px-12 lg:w-1/2 lg:pr-0 lg:pl-15px relative">
