@@ -16,9 +16,9 @@
 
     <div class="row">
       <stayInTouch class="w-full md:w-1/2"/>
-      <div class="w-full md:w-1/2">
+      <div class="w-full md:w-1/2 flex flex-col">
       <ourNewsletter class="pb-0 p-12"/>
-      <joinSlack class="p-12"/>
+      <joinSlack class="p-12 flex-grow"/>
       </div>
     </div>
   </div>
