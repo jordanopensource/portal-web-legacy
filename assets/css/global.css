@@ -6,12 +6,8 @@ body {
   }
 .button {
   @apply border border-solid rounded-md uppercase py-2 px-4 w-auto inline-block;
-  transition: background-color 0.25s linear;
-  -webkit-transition: background-color 0.25s linear;
-  transition: color 0.25s linear;
-  -webkit-transition: color 0.25s linear;
-  transition: border-color 0.25s linear;
-  -webkit-transition: border-color 0.25s linear;
+  transition: background-color, color, border-color, 0.25s linear;
+  -webkit-transition: background-color, color, border-color, 0.25s linear;
 }
 .button-blue {
    @apply border-josa-blue text-josa-blue ;
@@ -39,6 +35,10 @@ body {
 }
 .button-light:hover {
   @apply bg-josa-warm-grey text-josa-black !important;
+}
+a {
+  transition: color 0.25s linear;
+  -webkit-transition: color 0.25s linear;
 }
 a:hover, a.active {
   @apply text-josa-blue;
