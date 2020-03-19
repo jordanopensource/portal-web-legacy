@@ -36,6 +36,10 @@ body {
 .button-light:hover {
   @apply bg-josa-warm-grey text-josa-black !important;
 }
+a {
+  transition: color 0.25s linear;
+  -webkit-transition: color 0.25s linear;
+}
 a:hover, a.active {
   @apply text-josa-blue;
 }
