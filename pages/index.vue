@@ -7,6 +7,7 @@
 
     <div class="row">
       <ourWork class="w-full md:w-1/2 p-12"/>
+      <latestJOSA class="w-full md:w-1/2 p-12"/>
     </div>
 
     <div class="row">
@@ -33,6 +34,7 @@ import OurCommunity from '~/components/our-community/OurCommunity';
 import StayInTouch from '~/components/stay-in-touch/StayInTouch';
 import OurNewsletter from '~/components/newsletter/OurNewsletter';
 import JoinSlack from '~/components/join-us/JoinSlack';
+import LatestJOSA from '~/components/social-media-feed/LatestJOSA';
 
 export default {
   components: {
@@ -44,6 +46,7 @@ export default {
     'stayInTouch': StayInTouch,
     'ourNewsletter': OurNewsletter,
     'joinSlack': JoinSlack,
+    'latestJOSA': LatestJOSA,
   }
 }
 </script>
