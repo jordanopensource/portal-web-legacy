@@ -1,12 +1,28 @@
 <template>
   <div class="bg-josa-warm-grey">
         <h2 class="title">{{ $t('socialFeed.title') }}</h2>
+        <socialFeed v-for="post in loadedPosts" 
+        :key="post.id" 
+        :id="post.id" 
+        :src="post.src" 
+        :text="post.text" 
+        :imageUrl="post.imageUrl" 
+        :time="post.time"/>
   </div>
 </template>
 
 <script>
+import SocialFeed from '@/components/social-media-feed/SocialFeed';
 export default {
     name: 'LatestJOSA',
+    components: {
+        'socialFeed': SocialFeed
+    },
+    computed: {
+        loadedPosts() {
+            return this.$store.getters.loadedPosts
+        }
+    }
 }
 </script>
 
