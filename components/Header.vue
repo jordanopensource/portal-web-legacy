@@ -3,7 +3,7 @@
   <div class="container">
     <div class="container flex items-center justify-between flex-wrap sm:flex-no-wrap">
       <div class="flex items-center flex-shrink-0">
-          <nuxt-link id="brand" tag="div" :to="homePath">
+          <nuxt-link id="brand" tag="div" :to="localePath('index')">
             <a><img class="max-w-240" src="~/static/logo/logo.svg" alt="Jordan Open Source Association Logo"></a>
           </nuxt-link>
       </div>
@@ -29,11 +29,6 @@ export default {
   data () {
     return {
       isOpen: false,
-    }
-  },
-  methods: {
-    homePath({ app }) {
-      return app.localePath('index')
     }
   },
   components: {
