@@ -61,8 +61,31 @@ export default {
          icons: ['fab']
        }
      ]
-    }]
+    }],
+    'nuxt-i18n',
   ],
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en',
+        file: 'en.js',
+        name: 'En'
+      },
+      {
+        code: 'ar',
+        iso: 'ar-jo',
+        file: 'ar.js',
+        name: 'ع'
+      }
+    ],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+    },
+    lazy: true,
+    langDir: 'lang/'
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
