@@ -13,6 +13,19 @@
   import Footer from '~/components/Footer';
 
   export default {
+    head () {
+      const i18nSeo = this.$nuxtI18nSeo()
+      return {
+        meta: [
+          {
+            hid: 'home-page',
+            name: 'Home Page',
+            content: 'JOSA Portal Web App'
+          },
+          ...i18nSeo.meta
+        ]
+      }
+    },
     components: {
       'app-header': Header,
       'banner': Banner,
