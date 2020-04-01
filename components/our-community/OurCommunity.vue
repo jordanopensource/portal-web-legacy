@@ -1,19 +1,19 @@
 <template>
 <div class="bg-josa-warm-grey pb-12">
-    <h2 class="title ">Our Community</h2>
+    <h2 class="title ">{{ $t('ourCommunity.title') }}</h2>
 
     <div class="grid grid-cols-5 grid-rows-2 gap-4 pb-8"> 
-        <img class="thumbs" v-for="i in 10" src="~/static/instagram-feed/4.jpg" alt="">
+        <img class="thumbs" v-for="i in 10" :key="i" src="~/static/instagram-feed/4.jpg" alt="">
     </div>
 
     <div class="pb-8">
-    <p><strong>Our community is built by JOSAns, formidable members who own diverse skills, interests and experiences, all working for an open-technology, digitally-enabled Jordan.</strong></p>
-    <p>Know more about our awesome community on JOSA Members’ Hub.</p>
+    <p><strong>{{ $t('ourCommunity.text1') }}</strong></p>
+    <p>{{ $t('ourCommunity.text2') }}</p>
     </div>
     
     <div class="flex flex-wrap justify-between">
-    <nuxt-link class="mb-4 button button-blue-full" to="#" tag="a">Members Hub</nuxt-link>
-    <nuxt-link class="mb-4 button button-blue" to="#" tag="a">Login</nuxt-link>
+    <nuxt-link class="mb-4 button button-blue-full" to="#" tag="a">{{ $t('button.membersHub') }}</nuxt-link>
+    <nuxt-link class="mb-4 button button-blue" to="#" tag="a">{{ $t('button.login') }}</nuxt-link>
     </div>
 </div>
 </template>

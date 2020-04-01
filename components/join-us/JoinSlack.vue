@@ -1,13 +1,13 @@
 <template>
 <div class="bg-josa-warm-grey">
-    <h2 class="title ">Our Slack</h2>
+    <h2 class="title ">{{ $t('joinSlack.title') }}</h2>
 
     <div class="pb-8">
-    <p>Our Slack is open to everyone interested in Open Source in Jordan. If you would like to join JOSA’s Slack (where most of our internal communications happen) please fill the form:</p>
+    <p>{{ $t('joinSlack.text') }}</p>
     </div>
 
     <a class="mb-4 button button-blue-full" href="https://docs.google.com/forms/d/e/1FAIpQLScAHhgfIM19skn1PejQkmojqzI_a3uF-qgMrDQD16Ge-miGBQ/viewform" target="_blank"><font-awesome-icon class="mr-2" :icon="['fab', 'slack']"/>
-    Join JOSA's Slack</a>
+    {{ $t('button.joinSlack') }}</a>
 </div>
 </template>
 

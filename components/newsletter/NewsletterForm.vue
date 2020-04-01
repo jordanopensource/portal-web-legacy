@@ -4,12 +4,12 @@
 
   <div id="select-language" class="block mb-8">
     <radioButton id="english" value="English" label="English" v-model="language" />
-    <radioButton id="arabic" value="Arabic" label="Arabic" v-model="language" />
+    <radioButton id="arabic" value="Arabic" label="العربية" v-model="language" />
   </div>
 
   <div class="flex justify-between flex-wrap">
-    <button class="button button-blue-full mb-4" @click.prevent="subscribe">subscribe</button>
-    <button class="button button-blue mb-4" @click.prevent="unsubscribe">unsubscribe</button>
+    <button class="button button-blue-full mb-4" @click.prevent="subscribe">{{ $t('button.subscribe') }}</button>
+    <button class="button button-blue mb-4" @click.prevent="unsubscribe">{{ $t('button.unsubscribe') }}</button>
   </div>
 </form>
 </template>

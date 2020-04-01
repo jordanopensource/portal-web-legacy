@@ -1,9 +1,7 @@
 <template lang="html">
   <nav>
-    <nuxt-link class="nav-link" tag="a" to="#">About JOSA</nuxt-link>
-    <nuxt-link class="nav-link" tag="a" to="#">Our work</nuxt-link>
-    <nuxt-link class="nav-link" tag="a" to="#">Take Action!</nuxt-link>
-    <nuxt-link class="nav-link" tag="a" to="#">Connect</nuxt-link>
+    <nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.aboutJosa') }}</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.ourWork') }}</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.takeAction') }}</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.connect') }}</nuxt-link>
+    <span class="inline-flex"><nuxt-link class="nav-link lang" tag="a" :to="switchLocalePath('en')">En</nuxt-link><span class="vertical-line"></span><nuxt-link class="nav-link lang" tag="a" :to="switchLocalePath('ar')">ع</nuxt-link></span>
   </nav>
 </template>
 
@@ -24,5 +22,13 @@ export default {
     @apply inline-block;
   }
 }
-
+.lang {
+  @apply text-sm opacity-50
+}
+.lang.nuxt-link-active {
+@apply opacity-100
+}
+.vertical-line {
+  @apply border-l my-2
+}
 </style>

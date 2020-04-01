@@ -1,11 +1,11 @@
 <template>
 <div class="">
 
-    <div class="display-lead pb-8">The Jordan Open Source Association (JOSA) is a non-profit organization that works for the promotion and implementation of the Open Source principles in Jordan.</div>
+    <div class="display-lead pb-8">{{ $t('impactBox.text1') }}</div>
 
-    <p>JOSA organizes activities and lead initiatives in different fields, including Open Source software and hardware, Open Content and Free Culture, and digital rights.</p>
+    <p>{{ $t('impactBox.text2') }}</p>
 
-    <nuxt-link to="/" tag="a" class="button button-blue">Know more about our impact</nuxt-link>
+    <nuxt-link to="/" tag="a" class="button button-blue">{{ $t('button.knowMoreImpact') }}</nuxt-link>
 
 </div>
 </template>
