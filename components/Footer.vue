@@ -3,9 +3,9 @@
   <div class="container flex flex-col md:flex-row flex-wrap md:flex-no-wrap justify-between ">
 
     <section>
-      <h6>About JOSA</h6>
+      <h6>{{ $t('pages.aboutJosa') }}</h6>
       <ul class="links">
-        <nuxt-link v-for="(link, label) in aboutLinks" :key="label" tag="li" :to='link' active-class="active"><a>{{ label }}</a></nuxt-link>
+        <nuxt-link v-for="(link, label) in aboutLinks" :key="label" tag="li" :to='link' active-class="active"><a>{{ $t('pages.'+label) }}</a></nuxt-link>
       </ul>
     </section>
 
@@ -14,15 +14,15 @@
     </div>
 
     <section>
-      <h6>Our Work</h6>
+      <h6>{{ $t('pages.ourWork') }}</h6>
       <ul class="links pb-4 md:pb-0">
-        <nuxt-link v-for="(link, label) in workLinks1" :key="label" tag="li" :to='link' active-class="active"><a>{{ label }}</a></nuxt-link>
+        <nuxt-link v-for="(link, label) in workLinks1" :key="label" tag="li" :to='link' active-class="active"><a>{{ $t('pages.'+label) }}</a></nuxt-link>
       </ul>
       <div class="hidden md:block py-4">
         <hr>
       </div>
       <ul class="links">
-        <nuxt-link v-for="(link, label) in workLinks2" :key="label" tag="li" :to='link' active-class="active"><a>{{ label }}</a></nuxt-link>
+        <nuxt-link v-for="(link, label) in workLinks2" :key="label" tag="li" :to='link' active-class="active"><a>{{ $t('pages.'+label) }}</a></nuxt-link>
       </ul>
     </section>
 
@@ -31,9 +31,9 @@
     </div>
 
     <section>
-      <h6>Take Action</h6>
+      <h6>{{ $t('pages.takeAction') }}</h6>
       <ul class="links">
-        <nuxt-link v-for="(link, label) in actionLinks" :key="label" tag="li" :to='link' active-class="active"><a>{{ label }}</a></nuxt-link>
+        <nuxt-link v-for="(link, label) in actionLinks" :key="label" tag="li" :to='link' active-class="active"><a>{{ $t('pages.'+label) }}</a></nuxt-link>
       </ul>
     </section>
 
@@ -42,9 +42,9 @@
     </div>
 
     <section>
-      <h6>Connect</h6>
+      <h6>{{ $t('pages.connect') }}</h6>
       <ul class="links pb-4 md:pb-0">
-        <nuxt-link v-for="(link, label) in connectLinks" :key="label" tag="li" :to='link' active-class="active"><a>{{ label }}</a></nuxt-link>
+        <nuxt-link v-for="(link, label) in connectLinks" :key="label" tag="li" :to='link' active-class="active"><a>{{ $t('pages.'+label) }}</a></nuxt-link>
       </ul>
       <div class="hidden md:block py-4">
         <hr>
@@ -66,7 +66,7 @@
       </div>
       <div id="copyright-info" class="">
         <img class="cc-logo pr-4" src="~/static/logo/cc.svg" alt="">
-        <p class="text-sm text-josa-warm-grey-dark">All the content on this website is licensed under a Creative Commons Attribution-ShareAlike Unported license, except where otherwise mentioned.</p>
+        <p class="text-sm text-josa-warm-grey-dark">{{ $t('copyright.info') }}</p>
       </div>
     </div>
   </div>
@@ -80,36 +80,36 @@ export default {
   data() {
     return {
       aboutLinks: {
-        'News': '/',
-        'Blog': '/',
-        'Partners and Supporters': '/',
-        'Board and Staff': '/',
-        'Annual Reports': '/',
-        'Code of Conduct': '/',
+        'news': '/',
+        'blog': '/',
+        'partners': '/',
+        'boardStaff': '/',
+        'annualReports': '/',
+        'CodeOfConduct': '/',
       },
       workLinks1: {
-        'Open Source Software': '/',
-        'Open Source Hardware': '/',
-        'Open Data': '/',
-        'Open Internet': '/',
-        'Open Content': '/',
+        'openSourceSoftware': '/',
+        'openSourceHardware': '/',
+        'openData': '/',
+        'openInternet': '/',
+        'openContent': '/',
       },
       workLinks2: {
-        'Projects and Initiaves': '/',
-        'Events': '/',
-        'Publications': '/',
+        'projectsAndInitiaves': '/',
+        'events': '/',
+        'publications': '/',
       },
       actionLinks: {
-        'Become a Member': '/',
-        "Member's Hub": '/',
-        'Volunteer': '/',
-        'Suggest a Speaker': '/',
-        'Donate': '/',
+        'becomeAMember': '/',
+        "membersHub": '/',
+        'volunteer': '/',
+        'suggestASpeaker': '/',
+        'donate': '/',
       },
       connectLinks: {
-        'Contact Us': '/',
-        'Join Slack': '/',
-        'Newsletter': '/',
+        'contactUs': '/',
+        'joinSlack': '/',
+        'newsletter': '/',
       },
       socialMediaLinks: [
         { icon: 'facebook-square', path: 'https://facebook.com/jordanopensource', id: '/jordanopensource'},

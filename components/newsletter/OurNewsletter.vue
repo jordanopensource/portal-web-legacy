@@ -1,9 +1,9 @@
 <template>
 <div class="bg-josa-warm-grey">
-    <h2 class="title ">Our Newsletter</h2>
+    <h2 class="title ">{{ $t('newsletter.title') }}</h2>
 
     <div class="pb-8">
-    <p>We send a weekly newsletter with all JOSA’s activities, events and blog posts, in addition to several hand-picked content for our members and supporters.</p>
+    <p>{{ $t('newsletter.text') }}</p>
     </div>
     
     <newsletterForm />

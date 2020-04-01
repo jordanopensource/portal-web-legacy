@@ -1,6 +1,6 @@
 <template lang="html">
   <nav>
-    <nuxt-link class="nav-link" tag="a" to="#">About JOSA</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">Our work</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">Take Action!</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">Connect</nuxt-link><nuxt-link class="nav-link lang" tag="a" :to="switchLocalePath('en')">En</nuxt-link><span class="vertical-line"></span><nuxt-link class="nav-link lang" tag="a" :to="switchLocalePath('ar')">ع</nuxt-link>
+    <nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.aboutJosa') }}</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.ourWork') }}</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.takeAction') }}</nuxt-link><nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.connect') }}</nuxt-link><nuxt-link class="nav-link lang" tag="a" :to="switchLocalePath('en')">En</nuxt-link><span class="vertical-line"></span><nuxt-link class="nav-link lang" tag="a" :to="switchLocalePath('ar')">ع</nuxt-link>
   </nav>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-josa-warm-grey">
-        <h2 class="title">Latest from JOSA</h2>
+        <h2 class="title">{{ $t('socialFeed.title') }}</h2>
   </div>
 </template>
 
