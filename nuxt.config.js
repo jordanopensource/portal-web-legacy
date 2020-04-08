@@ -92,6 +92,9 @@ export default {
   */
   axios: {
   },
+  env: {
+    social_proxy_api: 'http://0.0.0.0:5000/all'
+  },
   /*
   ** Build configuration
   */
