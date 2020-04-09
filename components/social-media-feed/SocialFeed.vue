@@ -4,7 +4,7 @@
         <img v-if="src == 'tw'" class="block max-w-full mr-4 w-20 h-auto flex-shrink-0" src="@/static/images/icons/tw.svg" alt="icon">
         <div class="mb-6 flex-grow">
             <p>{{ text }}</p>
-            <img :src="imageUrl">
+            <img v-if="imageUrl" :src="imageUrl">
             <p class="opacity-50">{{ localizedTime }}</p>
         </div>
     </div>
@@ -40,7 +40,7 @@ export default {
         localizedTime() {
             var date = moment(new Date(this.time)).locale(this.$i18n.locale).format('ddd, DD MMM YYYY');
             return date
-    }
+        }
     },
 }
 </script>
