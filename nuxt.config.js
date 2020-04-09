@@ -63,6 +63,7 @@ export default {
      ]
     }],
     'nuxt-i18n',
+    '@nuxtjs/moment'
   ],
   i18n: {
     locales: [
@@ -91,6 +92,9 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+  env: {
+    social_proxy_api: 'http://0.0.0.0:5000/all'
   },
   /*
   ** Build configuration
