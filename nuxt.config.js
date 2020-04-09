@@ -63,6 +63,7 @@ export default {
      ]
     }],
     'nuxt-i18n',
+    '@nuxtjs/moment'
   ],
   i18n: {
     locales: [
