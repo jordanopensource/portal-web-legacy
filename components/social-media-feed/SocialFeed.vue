@@ -5,12 +5,13 @@
         <div class="mb-6 flex-grow">
             <p>{{ text }}</p>
             <img :src="imageUrl">
-            <p class="opacity-50">{{ time }}</p>
+            <p class="opacity-50">{{ localizedTime }}</p>
         </div>
     </div>
 </template>
 
 <script>
+import moment from 'moment';
 export default {
     name: 'SocialFeed',
     props: {
@@ -34,7 +35,13 @@ export default {
             type: String,
             required: false
         }
+    },
+    computed: {
+        localizedTime() {
+            var date = moment(new Date(this.time)).locale(this.$i18n.locale).format('ddd, DD MMM YYYY');
+            return date
     }
+    },
 }
 </script>
 
