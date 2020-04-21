@@ -35,6 +35,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/datetimepicker' },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -63,7 +64,7 @@ export default {
      ]
     }],
     'nuxt-i18n',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
   ],
   i18n: {
     locales: [
@@ -94,7 +95,7 @@ export default {
   axios: {
   },
   env: {
-    social_proxy_api: 'http://0.0.0.0:5000/all'
+    baseUrl: process.env.BASE_URL || 'http://0.0.0.0:5000'
   },
   /*
   ** Build configuration
