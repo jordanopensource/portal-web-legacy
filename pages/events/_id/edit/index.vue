@@ -15,13 +15,14 @@ export default {
   components: {
     EventForm
   },
-  computed: {
-    event() {
-      const id = this.$route.params.id
-      const events = this.$store.getters.loadedEvents
-      const event = events.find( obj => obj.id == id )
-      return event
-    }
+  asyncData(context) {
+    return axios.get(process.env.baseUrl + '/event/' + context.params.id)
+      .then(res => {
+        return {
+          event: res.data
+        }
+      })
+      .catch(e => context.error(e))
   },
   methods: {
     onSubmitted(editedEvent) {
