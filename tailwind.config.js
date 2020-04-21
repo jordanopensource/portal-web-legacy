@@ -26,6 +26,7 @@ module.exports = {
           'dark': '#aea79f',
         },
         'josa-black': '#2e3436',
+        'grey90': '#e5e5e5'
       },
       fontFamily: {
         'aleoLight': 'aleo-light',
