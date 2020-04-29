@@ -7,7 +7,8 @@
       :name="event.name"
       :date="event.date"
       :location="event.location"
-      :description="event.description" />
+      :description="event.description"
+      :thumbnail="event.thumbnail" />
   </section>
 </template>
 

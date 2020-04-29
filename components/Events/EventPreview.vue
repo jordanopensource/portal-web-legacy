@@ -1,5 +1,7 @@
 <template>
   <div class="card">
+    <appImage :image="thumbnail" 
+    size="small" />
     <nuxt-link :to="eventLink">
       <h3>{{ name }}</h3>
     </nuxt-link>
@@ -10,8 +12,12 @@
 </template>
 
 <script>
+import appImage from '~/components/UI/appImage';
 export default {
   name: 'EventPreview',
+  components: {
+    appImage
+  },
   props: {
     id: {
       type: Number,
@@ -32,6 +38,9 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    thumbnail: {
+      type: Object
     }
   },
   computed: {

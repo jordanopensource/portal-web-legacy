@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <appImage :image="event.thumbnail" size="medium" />
       <h2 class="event-name inline-block pr-2">{{ event.name }}</h2>
       <div class="event-details">
         <div>Event Date: {{ event.date }}</div>
@@ -12,7 +13,7 @@
 
 <script>
 import axios from 'axios';
-
+import appImage from '~/components/UI/appImage';
 export default {
   layout: "general",
     asyncData(context) {
@@ -23,7 +24,10 @@ export default {
         }
       })
       .catch(e => context.error(e))
-  }
+  },
+  components: {
+    appImage
+  },
 };
 </script>
 
