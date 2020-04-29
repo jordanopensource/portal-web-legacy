@@ -95,7 +95,7 @@ export default {
   axios: {
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'http://0.0.0.0:5000'
+    baseUrl: 'https://api.cms.jordanopensource.org'
   },
   /*
   ** Build configuration
