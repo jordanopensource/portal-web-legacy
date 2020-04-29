@@ -29,7 +29,7 @@ const mutations = {
 const actions = {
     fetchEvents(vuexContext, context) {
         return axios
-          .get(process.env.baseUrl + "/event/all")
+          .get(process.env.baseUrl + "/events")
           .then(res => {
             const eventsArray = res.data;
             vuexContext.commit("setEvents", eventsArray);

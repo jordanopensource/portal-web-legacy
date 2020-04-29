@@ -24,7 +24,7 @@ import axios from 'axios';
 export default {
   layout: "general",
     asyncData(context) {
-    return axios.get(process.env.baseUrl + '/event/' + context.params.id)
+    return axios.get(process.env.baseUrl + '/events/' + context.params.id)
       .then(res => {
         console.log(res.data)
         return {
