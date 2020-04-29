@@ -5,7 +5,7 @@
     <nuxt-link :to="eventLink">
       <h3>{{ name }}</h3>
     </nuxt-link>
-      <div>{{ date }}</div>
+      <div>{{ date | dateTime }}</div>
       <div>{{ location }}</div>
       <div>{{ description }}</div>
   </div>
@@ -46,7 +46,7 @@ export default {
   computed: {
     eventLink() {
       return '/events/' + this.id
-    }
+    },
   }
 }
 </script>

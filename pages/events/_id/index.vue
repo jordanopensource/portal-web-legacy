@@ -3,7 +3,7 @@
     <appImage :image="event.thumbnail" size="medium" />
       <h2 class="event-name inline-block pr-2">{{ event.name }}</h2>
       <div class="event-details">
-        <div>Event Date: {{ event.date }}</div>
+        <div>Event Date: {{ event.date | dateTime }}</div>
         <div>Location: {{ event.location }}</div>
         <div>Description:</div>
         <div>{{ event.description }}</div>
