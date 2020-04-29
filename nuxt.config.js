@@ -36,6 +36,7 @@ export default {
   */
   plugins: [
     { src: '~/plugins/datetimepicker' },
+    { src: '~/plugins/datetime-filter' }
   ],
   /*
   ** Nuxt.js dev-modules
