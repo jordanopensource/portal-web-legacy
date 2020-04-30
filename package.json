@@ -20,7 +20,9 @@
     "luxon": "^1.23.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
-    "nuxt-i18n": "^6.8.1"
+    "nuxt-i18n": "^6.8.1",
+    "vue-datetime": "^1.0.0-beta.11",
+    "weekstart": "^1.0.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0",

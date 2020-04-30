@@ -35,6 +35,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/datetimepicker' },
+    { src: '~/plugins/datetime-filter' }
   ],
   /*
   ** Nuxt.js dev-modules
