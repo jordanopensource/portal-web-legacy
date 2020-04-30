@@ -96,7 +96,7 @@ export default {
       },
       workLinks2: {
         'projectsAndInitiaves': '/',
-        'events': '/',
+        'events': '/events',
         'publications': '/',
       },
       actionLinks: {
