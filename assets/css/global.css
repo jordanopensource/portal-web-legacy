@@ -1,9 +1,12 @@
 body {
-    @apply bg-josa-warm-grey-light;
+  @apply bg-josa-warm-grey-light;
 }
 .row {
-    @apply w-full bg-white flex flex-wrap mt-12;
-  }
+  @apply w-full bg-white flex flex-wrap mt-12;
+}
+.card {
+  @apply flex flex-col border rounded bg-white p-6 border-grey90;
+}
 .button {
   @apply border border-solid rounded-md uppercase py-2 px-4 w-auto inline-block;
   transition: background-color, color, border-color, 0.25s linear;
@@ -11,7 +14,6 @@ body {
 }
 .button-blue {
    @apply border-josa-blue text-josa-blue ;
-
 }
 .button-blue:hover {
   @apply bg-josa-blue text-white !important;
