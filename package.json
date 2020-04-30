@@ -20,12 +20,12 @@
     "luxon": "^1.23.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
-    "nuxt-i18n": "^6.8.1"
-  },
-  "devDependencies": {
-    "@nuxtjs/tailwindcss": "^1.0.0",
+    "nuxt-i18n": "^6.8.1",
     "@nuxtjs/markdownit": "^1.2.9",
     "markdown-it-attrs": "^3.0.2",
     "markdown-it-div": "^1.1.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^1.0.0"
   }
 }
