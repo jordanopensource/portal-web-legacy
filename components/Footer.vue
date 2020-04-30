@@ -81,7 +81,7 @@ export default {
     return {
       aboutLinks: {
         'news': '/',
-        'blog': '/',
+        'blog': '/blogs',
         'partners': '/',
         'boardStaff': '/',
         'annualReports': '/',

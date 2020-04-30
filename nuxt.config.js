@@ -66,6 +66,7 @@ export default {
     }],
     'nuxt-i18n',
     '@nuxtjs/moment',
+    '@nuxtjs/markdownit',
   ],
   i18n: {
     locales: [
@@ -88,6 +89,16 @@ export default {
     },
     lazy: true,
     langDir: 'lang/'
+  },
+  markdownit: {
+    injected: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: [
+      'markdown-it-div',
+      'markdown-it-attrs'
+    ]
   },
   /*
   ** Axios module configuration
