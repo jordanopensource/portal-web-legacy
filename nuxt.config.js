@@ -63,7 +63,8 @@ export default {
      ]
     }],
     'nuxt-i18n',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    '@nuxtjs/markdownit',
   ],
   i18n: {
     locales: [
@@ -87,6 +88,16 @@ export default {
     lazy: true,
     langDir: 'lang/'
   },
+  markdownit: {
+    injected: true,
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: [
+      'markdown-it-div',
+      'markdown-it-attrs'
+    ]
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -94,7 +105,7 @@ export default {
   axios: {
   },
   env: {
-    social_proxy_api: 'http://0.0.0.0:5000/all'
+    baseUrl: 'https://api.cms.jordanopensource.org'
   },
   /*
   ** Build configuration
