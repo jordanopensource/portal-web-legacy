@@ -36,7 +36,8 @@ export default {
   */
   plugins: [
     { src: '~/plugins/datetimepicker' },
-    { src: '~/plugins/datetime-filter' }
+    { src: '~/plugins/datetime-filter' },
+    { src: '~/plugins/vue2-filters' }
   ],
   /*
   ** Nuxt.js dev-modules
