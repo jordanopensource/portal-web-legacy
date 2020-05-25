@@ -36,6 +36,9 @@ module.exports = {
       padding: {
         '15px': '15px',
       },
+      opacity: {
+        '90': '.9'
+      }
     }
   },
   variants: {},
