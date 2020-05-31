@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <appImage :image="thumbnail" 
+    <appImage v-if="thumbnail" :image="thumbnail" 
     size="small" />
     <nuxt-link :to="eventLink">
       <h3>{{ name }}</h3>
