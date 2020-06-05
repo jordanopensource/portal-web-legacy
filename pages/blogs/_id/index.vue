@@ -1,23 +1,10 @@
 <template>
-  <div class="container">
-    <h2 class="blog-name inline-block pr-2">{{ blog.title }}</h2>
-    <span>
-      <nuxt-link to="edit" append>
-        <font-awesome-icon class="mr-2" :icon="['fas', 'edit']" />
-      </nuxt-link>
-      <span @click="deleteBlog">
-        <font-awesome-icon class="mr-2" :icon="['fas', 'trash-alt']" />
-      </span>
-    </span>
-    <div class="blog-details">
-      <div>Published at: {{ blog.created_at | dateTime }}</div>
-      <div v-html="$md.render(blog.body)"></div>
-    </div>
-  </div>
+  <BlogSingle :article="blog"/>
 </template>
 
 <script>
   import axios from 'axios';
+  import BlogSingle from '~/components/Blogs/BlogSingle';
   export default {
     layout: "general",
     asyncData(context) {
@@ -29,19 +16,9 @@
         })
         .catch(e => context.error(e))
     },
-    methods: {
-      deleteBlog() {
-        const blogId = this.$route.params.id
-        this.$store.dispatch("deleteBlog", blogId).then(() => {
-          this.$router.push("/blogs");
-        });
-      }
+    components: {
+      BlogSingle
     }
   };
 
 </script>
-
-
-<style scoped>
-
-</style>
