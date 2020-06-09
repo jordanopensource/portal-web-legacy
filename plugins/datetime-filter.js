@@ -5,9 +5,9 @@ const formatDateTime = dt => {
     return moment(dt).format("dddd, MMMM Do YYYY, h:mm a");
 };
 
-const date = dt => {
-    return moment(dt).format("MMMM D, YYYY");
-};
+const monthYear = dt => {
+    return moment(dt).format("MMM YYYY");
+}
 
+Vue.filter('monthYear', monthYear)
 Vue.filter('dateTime', formatDateTime)
-Vue.filter('date', date)

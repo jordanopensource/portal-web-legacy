@@ -4,6 +4,18 @@ body {
 .row {
   @apply w-full bg-white flex flex-wrap mt-12;
 }
+.title {
+  @apply relative w-full py-6;
+}
+.title::before {
+content: '';
+position: absolute;
+width: 20%;
+height: 10px;
+left: 0;
+top: 0;
+border-top: 10px solid #3897c0;
+}
 .card {
   @apply flex flex-col border rounded bg-white p-6 border-grey90;
 }
