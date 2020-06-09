@@ -54,13 +54,8 @@ a:hover, a.active {
 @screen md {
   .preview .thumbnail {
     @apply mr-6 mb-0;
-    width: 200px;
+    min-width: 250px;
+    width: 250px;
     height: 175px;
-  }
-}
-
-@screen lg {
-  .preview .thumbnail {
-    width: 275px;
   }
 }
