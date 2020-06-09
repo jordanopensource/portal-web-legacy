@@ -117,6 +117,13 @@ export default {
   },
   // Meta
   meta: {
-    writtenBy: 'written by'
+    writtenBy: 'written by',
+    readTheReport: 'Read the Report'
+  },
+  blog: {
+    lists: {
+      latest: 'Latest from JOSA',
+      community: 'From our Writers'
+    }
   }
 }

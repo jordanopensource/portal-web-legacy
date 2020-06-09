@@ -15,8 +15,8 @@ h6 {
   @apply font-bold font-lato;
 }
 .display-light {
-  @apply font-aleoLight font-light text-josa-warm-grey
+  @apply font-aleoLight font-light text-josa-warm-grey;
 }
 .display-lead {
-  @apply text-xl font-light
+  @apply text-xl font-light;
 }

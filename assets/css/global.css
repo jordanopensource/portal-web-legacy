@@ -45,3 +45,22 @@ a {
 a:hover, a.active {
   @apply text-josa-blue;
 }
+
+/* Images */
+.preview .thumbnail {
+  @apply w-full object-cover mb-4;
+}
+
+@screen md {
+  .preview .thumbnail {
+    @apply mr-6 mb-0;
+    width: 200px;
+    height: 175px;
+  }
+}
+
+@screen lg {
+  .preview .thumbnail {
+    width: 275px;
+  }
+}
