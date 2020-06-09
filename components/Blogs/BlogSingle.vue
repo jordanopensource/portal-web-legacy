@@ -1,6 +1,7 @@
 <template>
   <article>
     <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
+    <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
 
     <div ref="content" class="container content">
       <h2 ref="title" class="title">{{ article.title }}</h2>
@@ -52,6 +53,11 @@
   import appImage from '~/components/UI/appImage';
   export default {
     name: 'BlogSingle',
+    data() {
+      return {
+        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
+      }
+    },
     components: {
       appImage
     },
