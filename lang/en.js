@@ -110,5 +110,20 @@ export default {
     title: 'Join Us',
     text1: 'JOSA is made by the efforts of members and volunteers like you!',
     text2: 'Do you love Open Source? Lead the change in Jordan by joining us:'
+  },
+  // About JOSA
+  josa: {
+    who: 'The Jordan Open Source Association (JOSA) is a non-profit organization that works for the promotion and implementation of the Open Source principles in Jordan.'
+  },
+  // Meta
+  meta: {
+    writtenBy: 'written by',
+    readTheReport: 'Read the Report'
+  },
+  blog: {
+    lists: {
+      latest: 'Latest from JOSA',
+      community: 'From our Writers'
+    }
   }
 }

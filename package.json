@@ -16,16 +16,17 @@
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/vue-fontawesome": "^0.1.9",
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/markdownit": "^1.2.9",
     "@nuxtjs/moment": "^1.6.0",
     "luxon": "^1.23.0",
+    "markdown-it-attrs": "^3.0.2",
+    "markdown-it-div": "^1.1.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.8.1",
     "vue-datetime": "^1.0.0-beta.11",
-    "weekstart": "^1.0.1",
-    "@nuxtjs/markdownit": "^1.2.9",
-    "markdown-it-attrs": "^3.0.2",
-    "markdown-it-div": "^1.1.0"
+    "vue2-filters": "^0.11.0",
+    "weekstart": "^1.0.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.0.0"

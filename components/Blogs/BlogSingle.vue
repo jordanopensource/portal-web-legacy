@@ -1,0 +1,148 @@
+<template>
+  <article>
+    <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
+    <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
+
+    <div ref="content" class="container content">
+      <h2 ref="title" class="title">{{ article.title }}</h2>
+
+      <span>
+        <nuxt-link to="edit" append>
+          <font-awesome-icon class="mr-2" :icon="['fas', 'edit']" />
+        </nuxt-link>
+        <span @click="deleteBlog">
+          <font-awesome-icon class="mr-2" :icon="['fas', 'trash-alt']" />
+        </span>
+      </span>
+
+      <p class="josa-who">{{ $t('josa.who') }}</p>
+
+      <div class="meta">
+        <nuxt-link :to="authorProfile">
+          <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
+        </nuxt-link>
+        <div>
+          <nuxt-link :to="authorProfile">
+            <p class="font-bold">{{ article.author.fullName }}</p>
+          </nuxt-link>
+          <div class="text-josa-warm-grey-dark">{{ article.created_at | date }}</div>
+        </div>
+      </div>
+
+      <div class="body" v-html="$md.render(article.body)"></div>
+
+      <hr>
+
+      <div class="meta">
+        <nuxt-link :to="authorProfile">
+          <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
+        </nuxt-link>
+        <div class="opacity-90">
+          <p class="text-xs uppercase">{{ $t('meta.writtenBy')}}</p>
+          <nuxt-link :to="authorProfile">
+            <h3 class="font-bold">{{ article.author.fullName }}</h3>
+          </nuxt-link>
+        </div>
+      </div>
+
+    </div>
+  </article>
+</template>
+
+<script>
+  import appImage from '~/components/UI/appImage';
+  export default {
+    name: 'BlogSingle',
+    data() {
+      return {
+        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
+      }
+    },
+    components: {
+      appImage
+    },
+    props: {
+      article: {
+        type: Object,
+        required: true
+      }
+    },
+    mounted() {
+      var w = window.innerWidth;
+      if (w > 640) {
+        this.setContentNegMargin();
+      }
+    },
+    computed: {
+      authorProfile() {
+        return '/members/' + this.article.author.id
+      },
+    },
+    methods: {
+      deleteBlog() {
+        const articleId = this.$route.params.id
+        this.$store.dispatch("deleteBlog", articleId).then(() => {
+          this.$router.push("/blogs");
+        });
+      },
+      setContentNegMargin() {
+        let rem = this.getRem();
+        let element = this.$refs.title;
+        let height = element.offsetHeight;
+        let value = (parseInt(height) / rem) + 3;
+        let content = this.$refs.content;
+        content.style.marginTop = "-" + value + "rem";
+
+      },
+      getRem() {
+        var html = document.getElementsByTagName('html')[0];
+        return parseInt(window.getComputedStyle(html)['fontSize']);
+      }
+    }
+  }
+
+</script>
+
+<style scoped>
+  article {
+    @apply bg-white;
+  }
+
+  .thumbnail {
+    @apply w-full;
+  }
+
+  .content {
+    @apply bg-white p-12 relative z-50;
+  }
+
+  .josa-who {
+    opacity: 0.9;
+    @apply font-bold my-8;
+  }
+
+  .meta {
+    @apply flex items-center mb-12 text-sm
+  }
+
+  .profilePicture {
+    display: inline;
+    width: 50px;
+    max-height: 60px;
+    border-radius: 45%;
+    margin-right: 1rem;
+  }
+
+  .body>>>p {
+    @apply py-2;
+  }
+
+  .body>>>h3 {
+    @apply py-2 font-bold opacity-90;
+  }
+
+  hr {
+    @apply my-12 border-solid border-josa-warm-grey-dark
+  }
+
+</style>
