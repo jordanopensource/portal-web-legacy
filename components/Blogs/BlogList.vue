@@ -1,23 +1,30 @@
 <!-- Fetch and list blog articles based on blog categories-->
 <template>
   <section>
-    <h3>{{ title }}</h3>
-    <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
-  </section>
+    <div v-if="featured">
+      <articleFeatured v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
+    </div>
+    <div v-else>
+      <h3>{{ title }}</h3>
+      <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
+    </div>
+    </section>
 </template>
 
 <script>
   import articlePreview from '@/components/Blogs/ArticlePreview';
+  import articleFeatured from '@/components/Blogs/ArticleFeatured';
   import axios from 'axios';
   export default {
     data() {
       return {
         sortBy: 'created_at:DESC',
-        loadedArticles: []
+        loadedArticles: [],
       }
     },
     components: {
-      articlePreview
+      articlePreview,
+      articleFeatured
     },
     props: {
       title: {
@@ -30,7 +37,11 @@
       },
       numberOfArticles: {
         type: Number,
-        required: true
+        default: 1
+      },
+      featured: {
+        type: Boolean,
+        default: false
       }
     },
     created() {
@@ -51,8 +62,12 @@
           let q = "_sort=" + this.sortBy;
           args.push(q)
         }
-        if (this.category) {
+        if (this.category && this.category!="all") {
           let q = "category.name=" + this.category;
+          args.push(q)
+        }
+        if (this.featured) {
+          let q = "tags_contains=featured"
           args.push(q)
         }
         query = args.join("&")

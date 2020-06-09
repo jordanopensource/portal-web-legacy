@@ -4,13 +4,15 @@
     <img v-else class="thumbnail" :src="placeholderImage" />
     <div class="flex-grow">
       <h3 class="uppercase py-2 md:pt-0 text-sm">advocacy</h3>
-      <h2 class="display-lead mb-4">{{ article.title }}</h2>
-      <p v-if="article.excerpt" class="text-sm">{{article.excerpt}}
-      <p v-else class="text-sm">{{article.body | truncate(200) }}</p>
-      <nuxt-link :to="articleLink" class="block py-4 text-josa-blue font-bold text-sm">
-      {{ $t('meta.readTheReport') }}
-      <font-awesome-icon class="ml-2 align-middle" :icon="['fas', 'long-arrow-alt-right']" />
+      <nuxt-link :to="articleLink">
+        <h2 class="display-lead mb-4">{{ article.title }}</h2>
       </nuxt-link>
+      <p v-if="article.excerpt" class="text-sm">{{article.excerpt}}
+        <p v-else class="text-sm">{{article.body | truncate(200) }}</p>
+        <nuxt-link :to="articleLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
+          {{ $t('meta.readTheReport') }}
+          <font-awesome-icon class="ml-2 align-middle" :icon="['fas', 'long-arrow-alt-right']" />
+        </nuxt-link>
     </div>
   </div>
 </template>
@@ -39,8 +41,21 @@
       },
     }
   }
+
 </script>
 
-<style>
+<style scoped>
+  .preview .thumbnail {
+    @apply w-full object-cover mb-4;
+  }
+
+  @screen md {
+    .preview .thumbnail {
+      @apply mr-6 mb-0;
+      min-width: 250px;
+      width: 250px;
+      height: 175px;
+    }
+  }
 
 </style>
