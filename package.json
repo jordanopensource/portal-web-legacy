@@ -19,6 +19,8 @@
     "@nuxtjs/markdownit": "^1.2.9",
     "@nuxtjs/moment": "^1.6.0",
     "luxon": "^1.23.0",
+    "markdown-it-attrs": "^3.0.2",
+    "markdown-it-div": "^1.1.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.8.1",

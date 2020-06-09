@@ -1,8 +1,8 @@
 <template>
   <div>
     <app-header />
-    <div class="p-12 md:px-0">
-    <nuxt class="bg-josa-warm-grey-light" />
+    <div class="md:px-0">
+    <nuxt />
     </div>
     <appFooter />
   </div>
