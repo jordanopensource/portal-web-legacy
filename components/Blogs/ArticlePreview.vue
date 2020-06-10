@@ -3,7 +3,11 @@
     <appImage v-if="article.thumbnail" class="thumbnail" :image="article.thumbnail" size="small" />
     <img v-else class="thumbnail" :src="placeholderImage" />
     <div class="flex-grow">
-      <h3 class="uppercase py-2 md:pt-0 text-sm">advocacy</h3>
+      <h3 class="uppercase py-2 md:pt-0 text-sm">
+          <span v-for="(topic, index) in article.topics" :key="topic.id">
+            {{ topic.name }}{{ index != Object.keys(article.topics).length - 1 ? ', ' : ''}}
+          </span>
+      </h3>
       <nuxt-link :to="articleLink">
         <h2 class="display-lead mb-4">{{ article.title }}</h2>
       </nuxt-link>
