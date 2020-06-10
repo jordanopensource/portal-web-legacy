@@ -18,7 +18,7 @@
             <nuxt-link :to="authorProfile">
               <p class="font-bold">{{ article.author.fullName }}</p>
             </nuxt-link>
-            <div class="text-josa-warm-grey-dark">{{ article.created_at | date }}</div>
+            <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate }}</div>
           </div>
         </div>
 

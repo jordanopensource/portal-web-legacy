@@ -9,5 +9,10 @@ const monthYear = dt => {
     return moment(dt).format("MMM YYYY");
 }
 
+const fullDate = dt => {
+    return moment(dt).format("MMM D, YYYY");
+}
+
 Vue.filter('monthYear', monthYear)
 Vue.filter('dateTime', formatDateTime)
+Vue.filter('fullDate', fullDate)

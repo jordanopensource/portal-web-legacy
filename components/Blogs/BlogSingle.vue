@@ -4,7 +4,7 @@
     <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
 
     <div ref="content" class="container content">
-      <h2 ref="title" class="title">{{ article.title }}</h2>
+      <h2 ref="title">{{ article.title }}</h2>
 
       <span>
         <nuxt-link to="edit" append>
@@ -25,7 +25,7 @@
           <nuxt-link :to="authorProfile">
             <p class="font-bold">{{ article.author.fullName }}</p>
           </nuxt-link>
-          <div class="text-josa-warm-grey-dark">{{ article.created_at | date }}</div>
+          <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate }}</div>
         </div>
       </div>
 
