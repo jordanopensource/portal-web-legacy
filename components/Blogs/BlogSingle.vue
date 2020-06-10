@@ -6,15 +6,6 @@
     <div ref="content" class="container content">
       <h2 ref="title">{{ article.title }}</h2>
 
-      <span>
-        <nuxt-link to="edit" append>
-          <font-awesome-icon class="mr-2" :icon="['fas', 'edit']" />
-        </nuxt-link>
-        <span @click="deleteBlog">
-          <font-awesome-icon class="mr-2" :icon="['fas', 'trash-alt']" />
-        </span>
-      </span>
-
       <p class="josa-who">{{ $t('josa.who') }}</p>
 
       <div class="meta">
