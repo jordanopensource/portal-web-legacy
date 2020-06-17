@@ -58,7 +58,7 @@
       @apply mr-6 mb-0;
       min-width: 250px;
       width: 250px;
-      height: 175px;
+      height: auto;
     }
   }
 
