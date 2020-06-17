@@ -9,7 +9,7 @@
       <p v-if="article.excerpt" class="text-sm">{{article.excerpt}}
         <p v-else class="text-sm">{{article.body | truncate(200) }}</p>
 
-        <div class="meta py-4">
+        <div class="meta py-6">
           <nuxt-link :to="authorProfile">
             <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
           </nuxt-link>
@@ -57,7 +57,7 @@
 
 <style scoped>
   .thumbnail {
-    @apply mb-4 w-full
+    @apply mb-6 w-full
   }
   .meta {
     @apply flex items-center mb-12 text-sm
