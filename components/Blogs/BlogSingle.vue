@@ -70,12 +70,6 @@
       },
     },
     methods: {
-      deleteBlog() {
-        const articleId = this.$route.params.id
-        this.$store.dispatch("deleteBlog", articleId).then(() => {
-          this.$router.push("/blogs");
-        });
-      },
       setContentNegMargin() {
         let rem = this.getRem();
         let element = this.$refs.title;
