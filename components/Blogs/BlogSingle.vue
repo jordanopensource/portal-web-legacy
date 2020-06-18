@@ -4,16 +4,7 @@
     <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
 
     <div ref="content" class="container content">
-      <h2 ref="title" class="title">{{ article.title }}</h2>
-
-      <span>
-        <nuxt-link to="edit" append>
-          <font-awesome-icon class="mr-2" :icon="['fas', 'edit']" />
-        </nuxt-link>
-        <span @click="deleteBlog">
-          <font-awesome-icon class="mr-2" :icon="['fas', 'trash-alt']" />
-        </span>
-      </span>
+      <h2 ref="title">{{ article.title }}</h2>
 
       <p class="josa-who">{{ $t('josa.who') }}</p>
 
@@ -25,7 +16,7 @@
           <nuxt-link :to="authorProfile">
             <p class="font-bold">{{ article.author.fullName }}</p>
           </nuxt-link>
-          <div class="text-josa-warm-grey-dark">{{ article.created_at | date }}</div>
+          <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate }}</div>
         </div>
       </div>
 
@@ -79,12 +70,6 @@
       },
     },
     methods: {
-      deleteBlog() {
-        const articleId = this.$route.params.id
-        this.$store.dispatch("deleteBlog", articleId).then(() => {
-          this.$router.push("/blogs");
-        });
-      },
       setContentNegMargin() {
         let rem = this.getRem();
         let element = this.$refs.title;

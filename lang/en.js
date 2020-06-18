@@ -120,10 +120,15 @@ export default {
     writtenBy: 'written by',
     readTheReport: 'Read the Report'
   },
-  blog: {
-    lists: {
-      latest: 'Latest from JOSA',
+  // Blog
+  blogCats: {
+    title: {
+      press_releases: 'Latest from JOSA',
       community: 'From our Writers'
+    },
+    menu: {
+      press_releases: 'Press Releases',
+      community: 'From JOSA Writers'
     }
   }
 }

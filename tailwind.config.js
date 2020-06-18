@@ -1,9 +1,9 @@
 /*
-** TailwindCSS Configuration File
-**
-** Docs: https://tailwindcss.com/docs/configuration
-** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
-*/
+ ** TailwindCSS Configuration File
+ **
+ ** Docs: https://tailwindcss.com/docs/configuration
+ ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
+ */
 module.exports = {
   theme: {
     maxWidth: {
@@ -11,15 +11,15 @@ module.exports = {
     },
     container: {
       center: true,
-      padding:'15px',
+      padding: '15px',
     },
     extend: {
       colors: {
         'josa-blue': {
           default: '#3897c0',
           'dark': '#1a485b',
-          'veryDark' : '#163e4e',
-          },
+          'veryDark': '#163e4e',
+        },
         'josa-warm-grey': {
           'light': '#f7f6f5',
           default: '#efedec',
@@ -38,6 +38,10 @@ module.exports = {
       },
       opacity: {
         '90': '0.9'
+      },
+      maxWidth: {
+        '1/4': '25%',
+        '1/2': '50%'
       }
     }
   },
