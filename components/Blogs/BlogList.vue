@@ -47,9 +47,6 @@
     created() {
       this.fetchArticles()
     },
-    updated() {
-      this.fetchArticles()
-    },
     methods: {
       query() {
         var args = []
