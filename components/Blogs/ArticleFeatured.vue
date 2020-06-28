@@ -6,8 +6,8 @@
       <nuxt-link :to="articleLink">
         <h2 class="mb-4">{{ article.title }}</h2>
       </nuxt-link>
-      <p v-if="article.excerpt" class="text-sm">{{article.excerpt}}
-        <p v-else class="text-sm">{{article.body | truncate(200) }}</p>
+      <p v-if="article.excerpt" class="excerpt">{{article.excerpt}}
+        <p v-else class="excerpt">{{article.body | truncate(200) }}</p>
 
         <div class="meta py-6">
           <nuxt-link :to="authorProfile">
@@ -57,10 +57,11 @@
 
 <style scoped>
   .thumbnail {
-    @apply mb-6 w-full
+    @apply mb-6 w-full;
   }
+
   .meta {
-    @apply flex items-center mb-12 text-sm
+    @apply flex items-center mb-12 text-sm;
   }
 
   .profilePicture {
@@ -69,5 +70,9 @@
     max-height: 60px;
     border-radius: 45%;
     margin-right: 1rem;
+  }
+
+  .excerpt {
+    @apply font-bold opacity-80 leading-tight;
   }
 </style>

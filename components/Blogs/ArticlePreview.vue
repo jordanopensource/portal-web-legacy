@@ -9,7 +9,7 @@
           </span>
       </h3>
       <nuxt-link :to="articleLink">
-        <h2 class="display-lead mb-4 italic">{{ article.title }}</h2>
+        <h2 class="display-lead mb-4 font-aleoLightItalic">{{ article.title }}</h2>
       </nuxt-link>
       <p v-if="article.excerpt" class="text-sm">{{article.excerpt}}
         <p v-else class="text-sm">{{article.body | truncate(200) }}</p>
