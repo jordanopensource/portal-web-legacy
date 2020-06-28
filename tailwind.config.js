@@ -31,17 +31,24 @@ module.exports = {
       fontFamily: {
         'aleoLight': 'aleo-light',
         'aleo': 'aleo',
+        'aleoItalic': 'aleo-italic',
+        'aleoLightItalic': 'aleo-light-italic',
         'lato': 'lato',
+        'merriweather': 'Merriweather'
       },
       padding: {
         '15px': '15px',
       },
       opacity: {
-        '90': '0.9'
+        '90': '0.9',
+        '80': '0.8'
       },
       maxWidth: {
         '1/4': '25%',
         '1/2': '50%'
+      },
+      lineHeight: {
+        'golden': '1.1618'
       }
     }
   },

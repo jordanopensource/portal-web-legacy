@@ -1,10 +1,10 @@
 <template>
-<div class="flex flex-row justify-between align-middle flex-wrap sm:flex-no-wrap py-12 px-12">
+<div class="flex flex-row justify-between align-middle flex-wrap sm:flex-no-wrap pt-20 pb-40">
   <div class="my-auto sm:max-w-1/2 lg:max-w-1/4">
-  <h2 class="italic mb-6">{{ pageMeta.title | capitalize }}</h2>
-  <p class="text-xs mb-8">{{ pageMeta.description }}</p>
+  <h4 class="font-aleoLightItalic mb-16">{{ pageMeta.title | capitalize }}</h4>
+  <p class="leading-none">{{ pageMeta.description }}</p>
   </div>
-  <appImage :image="pageMeta.image" class="bot mx-auto sm:mx-0"/>
+  <appImage :image="pageMeta.image" class="bot mx-auto sm:mx-0 mt-12 sm:mt-0"/>
   </div>
 </template>
 
@@ -26,11 +26,12 @@
 
 <style scoped>
   .bot {
-    width: 200px;
+    width: 350px;
+    height: auto;
   }
   @screen lg {
     .bot {
-      width: 250px;
+      width: 400px;
     }
   }
 </style>

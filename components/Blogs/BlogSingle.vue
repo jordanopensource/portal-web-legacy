@@ -98,7 +98,8 @@
   }
 
   .content {
-    @apply bg-white p-12 relative z-50;
+    @apply bg-white p-12 relative z-50 mx-auto;
+    max-width: 766px;
   }
 
   .josa-who {
@@ -107,7 +108,7 @@
   }
 
   .meta {
-    @apply flex items-center mb-12 text-sm
+    @apply flex items-center mb-12 text-sm;
   }
 
   .profilePicture {
@@ -119,11 +120,12 @@
   }
 
   .body>>>p {
-    @apply py-2;
+    @apply text-lg font-normal mb-10 font-merriweather;
+    line-height: 2;
   }
 
   .body>>>h3 {
-    @apply py-2 font-bold opacity-90;
+    @apply text-2xl py-2 font-bold opacity-90;
   }
 
   hr {

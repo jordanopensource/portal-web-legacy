@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container pb-20">
       <blogList v-if="activeCat=='all'" class="blog-list" title="featured" category="all" featured />
       <div v-for="cat in blogCategories" :key="cat.id">
         <blogList v-if="activeCat=='all' || activeCat==cat.name" class="blog-list" :numberOfArticles="numArticles"
@@ -81,16 +81,13 @@
 </script>
 
 <style scoped>
-  .blog-page {
-    @apply mb-20
-  }
 
   .blog-list {
     @apply px-12 mt-20;
   }
 
   .cat-link {
-    @apply px-4 py-2 mr-2 my-1 text-xs text-white cursor-pointer;
+    @apply px-4 py-2 mr-2 my-1 text-white cursor-pointer;
   }
 
   .active,

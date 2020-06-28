@@ -6,10 +6,13 @@ h1, h2, h3, h4, h5, h6 {
   @apply font-aleoLight leading-tight;
 }
 h2 {
-  @apply font-medium text-4xl mb-2;
+  @apply font-medium text-4xl mb-2 leading-golden;
 }
 h3 {
   @apply font-normal text-xl font-lato;
+}
+h4 {
+  @apply font-medium text-5xl mb-2 leading-none;
 }
 h5 {
   @apply font-normal text-xs font-lato font-medium uppercase text-josa-warm-grey-dark;
