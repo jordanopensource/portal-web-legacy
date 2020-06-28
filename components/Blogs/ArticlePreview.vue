@@ -1,6 +1,6 @@
 <template>
   <div class="preview my-8 flex flex-wrap md:flex-no-wrap">
-    <appImage v-if="article.thumbnail" class="thumbnail" :image="article.thumbnail" size="small" />
+    <appImage v-if="article.thumbnail" class="thumbnail" :image="article.thumbnail" size="medium" />
     <img v-else class="thumbnail" :src="placeholderImage" />
     <div class="flex-grow">
       <h3 class="uppercase py-2 md:pt-0 text-sm">
@@ -9,10 +9,10 @@
           </span>
       </h3>
       <nuxt-link :to="articleLink">
-        <h2 class="display-lead mb-4 font-aleoLightItalic">{{ article.title }}</h2>
+        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ article.title }}</h2>
       </nuxt-link>
-      <p v-if="article.excerpt" class="text-sm">{{article.excerpt}}
-        <p v-else class="text-sm">{{article.body | truncate(200) }}</p>
+      <p v-if="article.excerpt">{{article.excerpt}}
+        <p v-else>{{article.body | truncate(200) }}</p>
         <nuxt-link :to="articleLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
           {{ $t('meta.readTheReport') }}
           <font-awesome-icon class="ml-2 align-middle" :icon="['fas', 'long-arrow-alt-right']" />
@@ -53,12 +53,16 @@
     @apply w-full object-cover mb-4;
   }
 
+  p {
+    @apply leading-golden;
+  }
+
   @screen md {
     .preview .thumbnail {
-      @apply mr-6 mb-0;
+      @apply pr-6 mb-0;
       min-width: 250px;
-      width: 250px;
-      height: auto;
+      width: 40%;
+      flex-shrink: 0;
     }
   }
 

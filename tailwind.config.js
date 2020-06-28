@@ -46,6 +46,9 @@ module.exports = {
       maxWidth: {
         '1/4': '25%',
         '1/2': '50%'
+      },
+      lineHeight: {
+        'golden': '1.1618'
       }
     }
   },
