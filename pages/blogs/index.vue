@@ -87,7 +87,7 @@
   }
 
   .cat-link {
-    @apply px-4 py-2 mr-2 my-1 text-xs text-white cursor-pointer;
+    @apply px-4 py-2 mr-2 my-1 text-white cursor-pointer;
   }
 
   .active,
