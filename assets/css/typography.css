@@ -7,6 +7,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h2 {
   @apply font-medium text-4xl mb-2;
+  line-height: 1;
 }
 h3 {
   @apply font-normal text-xl font-lato;

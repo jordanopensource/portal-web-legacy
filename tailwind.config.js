@@ -32,6 +32,7 @@ module.exports = {
         'aleoLight': 'aleo-light',
         'aleo': 'aleo',
         'lato': 'lato',
+        'merriweather': 'Merriweather'
       },
       padding: {
         '15px': '15px',
