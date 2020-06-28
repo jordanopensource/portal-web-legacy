@@ -1,5 +1,5 @@
 <template>
-<div class="flex flex-row justify-between align-middle flex-wrap sm:flex-no-wrap pt-20 pb-40">
+<div class="flex flex-row justify-between align-middle flex-wrap sm:flex-no-wrap pt-20 pb-40 px-12">
   <div class="my-auto sm:max-w-1/2 lg:max-w-1/4">
   <h4 class="font-aleoLightItalic mb-16">{{ pageMeta.title | capitalize }}</h4>
   <p class="leading-none">{{ pageMeta.description }}</p>
