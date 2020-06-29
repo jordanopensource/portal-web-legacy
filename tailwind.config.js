@@ -49,6 +49,10 @@ module.exports = {
       },
       lineHeight: {
         'golden': '1.1618'
+      },
+      width: {
+        '175': '175px',
+        '240': '240px'
       }
     }
   },

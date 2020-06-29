@@ -1,9 +1,5 @@
-
 @media (max-width: 640px) {
-    .container {
-        @apply p-0;
-    }
-    header > .container {
-        @apply px-12 pb-12;
-    }
+  .container {
+    @apply p-0;
   }
+}

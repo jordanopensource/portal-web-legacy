@@ -30,17 +30,7 @@
 
 </script>
 
-<style lang="css" scoped>
-  .nav-link {
-    @apply text-white p-2 uppercase block;
-  }
-
-  @screen sm {
-    .nav-link {
-      @apply inline-block;
-    }
-  }
-
+<style scoped>
   .lang {
     @apply text-sm opacity-50
   }
@@ -52,5 +42,4 @@
   .vertical-line {
     @apply border-l my-2
   }
-
 </style>

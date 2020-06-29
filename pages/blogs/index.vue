@@ -1,8 +1,7 @@
 <template>
   <div class="blog-page">
-    <div class="container">
-      <pageBanner :pageMeta="blogMeta" />
-    </div>
+    
+    <pageBanner :pageMeta="blogMeta" />
 
     <div class="bg-josa-black py-8">
       <div class="container">
