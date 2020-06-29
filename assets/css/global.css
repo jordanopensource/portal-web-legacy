@@ -1,59 +1,89 @@
 body {
   @apply bg-josa-warm-grey-light;
 }
+
 .row {
   @apply w-full bg-white flex flex-wrap mt-12;
 }
+
 .title {
   @apply relative w-full py-6;
 }
+
 .title::before {
-content: '';
-position: absolute;
-width: 20%;
-height: 10px;
-left: 0;
-top: 0;
-border-top: 10px solid #3897c0;
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 10px;
+  left: 0;
+  top: 0;
+  border-top: 10px solid #3897c0;
 }
+
 .card {
   @apply flex flex-col border rounded bg-white p-6 border-grey90;
 }
+
 .button {
   @apply border border-solid rounded-md uppercase py-2 px-4 w-auto inline-block;
   transition: background-color, color, border-color, 0.25s linear;
   -webkit-transition: background-color, color, border-color, 0.25s linear;
 }
+
 .button-blue {
-   @apply border-josa-blue text-josa-blue ;
+  @apply border-josa-blue text-josa-blue;
 }
+
 .button-blue:hover {
   @apply bg-josa-blue text-white !important;
 }
+
 .button-grey {
   @apply border-josa-warm-grey-dark text-josa-warm-grey-dark;
 }
+
 .button-grey:hover {
   @apply bg-josa-warm-grey-dark text-josa-warm-grey !important;
 }
+
 .button-blue-full {
   @apply border-josa-blue bg-josa-blue;
   color: #fff !important;
 }
+
 .button-blue-full:hover {
   background-color: #2f80a2;
   border-color: #2f80a2;
 }
+
 .button-light {
-  @apply border-josa-warm-grey text-josa-warm-grey ;
+  @apply border-josa-warm-grey text-josa-warm-grey;
 }
+
 .button-light:hover {
   @apply bg-josa-warm-grey text-josa-black !important;
 }
+
 a {
   transition: color 0.25s linear;
   -webkit-transition: color 0.25s linear;
 }
-a:hover, a.active {
+
+a:hover,
+a.active {
   @apply text-josa-blue;
+}
+
+.nav-link {
+  @apply p-2 uppercase block;
+}
+
+.nav-link:last-child {
+  @apply pr-0;
+}
+
+@screen lg {
+  .nav-link {
+    @apply inline-block py-0;
+  }
 }

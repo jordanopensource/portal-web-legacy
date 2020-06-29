@@ -19,16 +19,3 @@
   }
 
 </script>
-
-<style scoped>
-  .nav-link {
-    @apply text-white p-2 uppercase block;
-  }
-
-  @screen sm {
-    .nav-link {
-      @apply inline-block;
-    }
-  }
-
-</style>
