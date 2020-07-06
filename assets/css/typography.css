@@ -12,7 +12,7 @@ h3 {
   @apply font-normal text-xl font-lato;
 }
 h4 {
-  @apply font-medium text-5xl mb-2 leading-none;
+  @apply font-aleoLightItalic font-medium text-5xl mb-2 leading-none;
 }
 h5 {
   @apply font-normal text-xs font-lato font-medium uppercase text-josa-warm-grey-dark;

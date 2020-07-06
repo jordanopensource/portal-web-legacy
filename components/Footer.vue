@@ -114,7 +114,7 @@
           'donate': '/',
         },
         connectLinks: {
-          'contactUs': '/',
+          'contactUs': '/contact-us',
           'joinSlack': '/',
           'newsletter': '/',
         },

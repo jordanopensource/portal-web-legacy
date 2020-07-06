@@ -155,4 +155,10 @@ export default {
       meetups: 'Community Meetups'
     }
   },
+  contact: {
+    address: 'Address',
+    workingHours: 'Working Hours',
+    voice: 'Voice',
+    email: 'Email'
+  }
 }
