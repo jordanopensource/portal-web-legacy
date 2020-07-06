@@ -17,6 +17,7 @@ export default {
       { rel: 'stylesheet', href:'https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap' }
     ],
     script: [
+      { src:'/js/owa.js' }
     ],
   },
   /*
