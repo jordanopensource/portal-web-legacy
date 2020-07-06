@@ -1,24 +1,24 @@
 <template>
-  <article>
+  <section>
     <div class="container">
       <div class="p-12">
-        <div class="text-josa-blue font-bold mb-2">{{ article.startDate | dayDate }} </div>
-        <h2>{{ article.name }}</h2>
+        <div class="text-josa-blue text-xl mb-2">{{ event.startDate | dayDate }} </div>
+        <h2>{{ event.name }}</h2>
         <div class="content flex flex-wrap md:flex-no-wrap mt-12">
           <div class="w-full md:w-3/5 mr-8 mb-8">
-            <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
+            <appImage v-if="event.thumbnail" :image="event.thumbnail" size="large" class="thumbnail" />
             <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
-            <div class=" description py-8" v-html="$md.render(article.description)"></div>
-            <speakers :speakers="article.speakers" />
+            <div v-if="event.description" class="description py-8" v-html="$md.render(event.description)"></div>
+            <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
-            <timeCard class="mb-8" :from="article.startDate" :to="article.endDate" />
-            <locationCard :location="article.location" />
+            <timeCard class="mb-8" :from="event.startDate" :to="event.endDate" />
+            <locationCard :location="event.location" />
           </div>
         </div>
       </div>
     </div>
-  </article>
+  </section>
 </template>
 
 <script>
@@ -41,7 +41,7 @@
       locationCard
     },
     props: {
-      article: {
+      event: {
         type: Object,
         required: true
       }
@@ -51,8 +51,7 @@
 </script>
 
 <style scoped>
-
-  article {
+  section {
     @apply bg-white;
   }
 

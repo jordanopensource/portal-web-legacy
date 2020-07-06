@@ -77,7 +77,6 @@
         let value = (parseInt(height) / rem) + 3;
         let content = this.$refs.content;
         content.style.marginTop = "-" + value + "rem";
-
       },
       getRem() {
         var html = document.getElementsByTagName('html')[0];

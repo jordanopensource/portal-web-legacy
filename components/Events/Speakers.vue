@@ -1,7 +1,6 @@
 <template>
   <div>
     <h3>Speakers</h3>
-
     <div class="info" v-for="speaker in speakers" :key='speaker.id'>
       <appImage class="profilePicture" :image="speaker.picture" />
       <div>
@@ -9,7 +8,6 @@
         <p>{{ speaker.title }}</p>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -27,10 +25,12 @@
       appImage
     }
   }
+
 </script>
 
 <style scoped>
   .info {
     @apply flex flex-no-wrap mt-4;
   }
+
 </style>

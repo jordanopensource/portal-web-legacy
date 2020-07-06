@@ -1,5 +1,5 @@
 <template>
-  <EventSingle :article="event"/>
+  <EventSingle :event="event" />
 </template>
 
 <script>
