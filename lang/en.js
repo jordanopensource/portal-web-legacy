@@ -56,32 +56,32 @@ export default {
     instagram: 'Instagram'
   },
   // Components
-  banner:{
+  banner: {
     text: 'Building an open-technology, digitally-enabled Jordan.'
   },
   impactBox: {
     text1: 'The Jordan Open Source Association (JOSA) is a non-profit organization that works for the promotion and implementation of the Open Source principles in Jordan.',
     text2: 'JOSA organizes activities and lead initiatives in different fields, including Open Source software and hardware, Open Content and Free Culture, and digital rights.',
   },
-  programs:{
+  programs: {
     digitalrights: {
       title: 'Digital Rights',
       subtitle: 'JOSA is defending Jordanians’ rights online and promoting an Open Internet in Jordan.',
       desc: 'JOSA\'s hacktivists, civic engaged techies and policy wonks are working on advocacy, policy recommendations, and promoting the adoption of security and privacy-enhancing technologies.'
     },
     openJordan: {
-      title:'Open Jordan',
-      subtitle:'JOSA is building a more open, collaborative Jordan.',
+      title: 'Open Jordan',
+      subtitle: 'JOSA is building a more open, collaborative Jordan.',
       desc: 'From artists to creators, from makers to coders, JOSA is promoting openness, collaboration, sharing and crowdsourcing.'
     },
     techCommunity: {
-      title:'Tech Community',
-      subtitle:'JOSA is pushing the technical skillset for the tech community in Jordan to a global caliber.',
+      title: 'Tech Community',
+      subtitle: 'JOSA is pushing the technical skillset for the tech community in Jordan to a global caliber.',
       desc: 'Several sub-communities that adopts open technologies for web/mobile development, data science and DevOps.'
     },
     uniStudents: {
-      title:'ICT University Students',
-      subtitle:'JOSA is ensuring readiness of ICT graduates for the local and global markets.',
+      title: 'ICT University Students',
+      subtitle: 'JOSA is ensuring readiness of ICT graduates for the local and global markets.',
       desc: 'JOSA organizes technical trainings and by promoting Open Source technologies to help IT and Engineering students in Jordanian universities.'
     }
   },
@@ -93,7 +93,7 @@ export default {
     text1: 'Do you want to be always up-to-date with our activities and events? Discover like-minded people in our great community? Or just ask for help and support?',
     text2: 'There are several online channels to be in touch with JOSA and our community. You are more than welcome to join us:',
   },
-  ourCommunity : {
+  ourCommunity: {
     title: 'Our Community',
     text1: 'Our community is built by JOSAns, formidable members who own diverse skills, interests and experiences, all working for an open-technology, digitally-enabled Jordan.',
     text2: 'Know more about our awesome community on JOSA Members’ Hub.'
@@ -118,7 +118,8 @@ export default {
   // Meta
   meta: {
     writtenBy: 'written by',
-    readTheReport: 'Read the Report'
+    readTheReport: 'Read the Report',
+    knowMore: 'Know More'
   },
   // Blog
   blogCats: {
@@ -130,5 +131,28 @@ export default {
       press_releases: 'Press Releases',
       community: 'From JOSA Writers'
     }
-  }
+  },
+  // Time Card
+  timeCard: {
+    title: 'Date and Time',
+    from: 'From',
+    to: 'To'
+  },
+  locationCard: {
+    title: 'Location'
+  },
+  // Event
+  eventCats: {
+    title: {
+      techtalks: 'JOSA TechTalks',
+      workshops: 'Workshops',
+      meetups: 'Community Meetups'
+    },
+    menu: {
+      all: 'All Events',
+      techtalks: 'JOSA TechTalks',
+      workshops: 'Workshops',
+      meetups: 'Community Meetups'
+    }
+  },
 }
