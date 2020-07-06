@@ -87,3 +87,11 @@ a.active {
     @apply inline-block py-0;
   }
 }
+
+.profilePicture {
+  display: inline;
+  width: 50px;
+  max-height: 60px;
+  border-radius: 45%;
+  margin-right: 1rem;
+}

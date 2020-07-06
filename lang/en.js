@@ -130,5 +130,15 @@ export default {
       press_releases: 'Press Releases',
       community: 'From JOSA Writers'
     }
+  },
+  // Time Card
+  timeCard: {
+    title: 'Date and Time',
+    from: 'From',
+    to: 'To'
+  },
+  locationCard: {
+    title: 'Location'
   }
 }
+
