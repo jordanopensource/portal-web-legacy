@@ -2,13 +2,16 @@
   <div id="contact-us">
     <pageBanner :pageMeta="contactUsMeta" />
     <addressCard :info="contactInfo" />
+    <feedback />
   </div>
 </template>
 
 <script>
   import axios from 'axios';
   import pageBanner from "~/components/UI/PageBanner";
-  import addressCard from '~/components/Contact/AddressCard.vue'
+  import addressCard from '~/components/Contact/AddressCard';
+  import feedback from '~/components/Contact/Feedback';
+
   export default {
     data() {
       return {
@@ -27,7 +30,8 @@
     layout: "general",
     components: {
       pageBanner,
-      addressCard
+      addressCard,
+      feedback
     },
     async asyncData(context) {
       const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?title=contact-us');

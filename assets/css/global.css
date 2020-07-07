@@ -64,6 +64,14 @@ body {
   @apply bg-josa-warm-grey text-josa-black !important;
 }
 
+.button-flat {
+  @apply rounded-none normal-case py-3 px-6 text-josa-black border-josa-black font-bold;
+}
+
+.button-flat:hover {
+  @apply opacity-75
+}
+
 a {
   transition: color 0.25s linear;
   -webkit-transition: color 0.25s linear;
