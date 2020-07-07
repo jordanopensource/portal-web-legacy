@@ -54,7 +54,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    ['nuxt-fontawesome', 
+    ['nuxt-fontawesome',
     {
       imports: [
        {
@@ -70,6 +70,7 @@ export default {
     'nuxt-i18n',
     '@nuxtjs/moment',
     '@nuxtjs/markdownit',
+    'nuxt-leaflet',
   ],
   i18n: {
     locales: [

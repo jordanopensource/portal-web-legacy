@@ -1,6 +1,7 @@
 <template>
   <div id="contact-us">
     <pageBanner :pageMeta="contactUsMeta" />
+    <locationMap :latitude="josaOfficeMap.latitude" :longitude="josaOfficeMap.longitude" :mapHeight="josaOfficeMap.mapHeight" :mLongitude="josaOfficeMap.mLongitude" :mLatitude="josaOfficeMap.mLatitude" />
     <addressCard :info="contactInfo" />
     <feedback />
   </div>
@@ -11,11 +12,19 @@
   import pageBanner from "~/components/UI/PageBanner";
   import addressCard from '~/components/Contact/AddressCard';
   import feedback from '~/components/Contact/Feedback';
+  import locationMap from '~/components/Map/LocationMap';
 
   export default {
     data() {
       return {
-        title: "Contact Us"
+        title: "Contact Us",
+        josaOfficeMap: {
+          longitude: 35.83403721614927,
+          latitude: 31.9722036,
+          mLatitude: 31.970757285413548,
+          mLongitude: 35.834006667137146,
+          mapHeight: '500px'
+        }
       }
     },
     head() {
@@ -31,7 +40,8 @@
     components: {
       pageBanner,
       addressCard,
-      feedback
+      feedback,
+      locationMap
     },
     async asyncData(context) {
       const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?title=contact-us');
