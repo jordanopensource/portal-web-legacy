@@ -1,6 +1,7 @@
 <template>
   <div id="contact-us">
     <pageBanner :pageMeta="contactUsMeta" />
+    <locationMap :latitude="contactInfo.address.latitude" :longitude="contactInfo.address.longitude" :mLongitude="contactInfo.address.markerLongitude" :mLatitude="contactInfo.address.markerLatitude" mapHeight="500px"/>
     <addressCard :info="contactInfo" />
     <feedback />
   </div>
@@ -11,6 +12,7 @@
   import pageBanner from "~/components/UI/PageBanner";
   import addressCard from '~/components/Contact/AddressCard';
   import feedback from '~/components/Contact/Feedback';
+  import locationMap from '~/components/Map/LocationMap';
 
   export default {
     data() {
@@ -31,7 +33,8 @@
     components: {
       pageBanner,
       addressCard,
-      feedback
+      feedback,
+      locationMap
     },
     async asyncData(context) {
       const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?title=contact-us');

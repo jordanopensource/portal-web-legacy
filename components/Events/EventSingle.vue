@@ -13,7 +13,7 @@
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <timeCard class="mb-8" :from="event.startDate" :to="event.endDate" />
-            <locationCard :location="event.location" />
+            <locationCard :address="event.address" />
           </div>
         </div>
       </div>

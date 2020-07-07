@@ -14,7 +14,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href:'https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap' },
-      { rel: 'stylesheet', href:'https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap' }
+      { rel: 'stylesheet', href:'https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap' },
+      { rel: 'stylesheet', href:'https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap' },
+      { rel: 'stylesheet', href:"https://unpkg.com/leaflet@1.6.0/dist/leaflet.css", integrity:"sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==", crossorigin:"" }
     ],
     script: [
     ],
@@ -54,7 +56,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    ['nuxt-fontawesome', 
+    ['nuxt-fontawesome',
     {
       imports: [
        {
@@ -70,6 +72,7 @@ export default {
     'nuxt-i18n',
     '@nuxtjs/moment',
     '@nuxtjs/markdownit',
+    'nuxt-leaflet',
   ],
   i18n: {
     locales: [
