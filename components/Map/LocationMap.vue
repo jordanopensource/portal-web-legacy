@@ -1,10 +1,5 @@
 <template>
-  <div id="map-wrap">
-    <style>
-      :root {
-        --mapHeigh: {{ mapHeight }};
-      }
-    </style>
+  <div id="map-wrap" ref="mapWrap">
     <client-only>
       <l-map :zoom="zoom" :center="[latitude, longitude]">
         <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
@@ -53,13 +48,10 @@
       mLatitudeComputed() {
         return this.mLatitude || this.latitude
       }
+    },
+    mounted() {
+      this.$refs.mapWrap.style.height = this.mapHeight
     }
   }
 
 </script>
-
-<style>
-  #map-wrap {
-    height: var(--mapHeigh);
-  }
-</style>
