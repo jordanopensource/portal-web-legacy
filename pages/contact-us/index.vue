@@ -1,7 +1,7 @@
 <template>
   <div id="contact-us">
     <pageBanner :pageMeta="contactUsMeta" />
-    <locationMap :latitude="josaOfficeMap.latitude" :longitude="josaOfficeMap.longitude" :mapHeight="josaOfficeMap.mapHeight" :mLongitude="josaOfficeMap.mLongitude" :mLatitude="josaOfficeMap.mLatitude" />
+    <locationMap :latitude="contactInfo.address.latitude" :longitude="contactInfo.address.longitude" :mLongitude="contactInfo.address.markerLongitude" :mLatitude="contactInfo.address.markerLatitude" mapHeight="500px"/>
     <addressCard :info="contactInfo" />
     <feedback />
   </div>
@@ -17,14 +17,7 @@
   export default {
     data() {
       return {
-        title: "Contact Us",
-        josaOfficeMap: {
-          longitude: 35.83403721614927,
-          latitude: 31.9722036,
-          mLatitude: 31.970757285413548,
-          mLongitude: 35.834006667137146,
-          mapHeight: '500px'
-        }
+        title: "Contact Us"
       }
     },
     head() {
