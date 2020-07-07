@@ -5,26 +5,23 @@
         --mapHeigh: {{ mapHeight }};
       }
     </style>
-    <no-ssr>
+    <client-only>
       <l-map :zoom="zoom" :center="[latitude, longitude]">
         <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
-        <l-marker :lat-lng="[mLatitudeComputed, mLongitudeComputed]" :icon="icon"></l-marker>
+        <l-marker :lat-lng="[mLatitudeComputed, mLongitudeComputed]" >
+          <l-icon
+          :icon-size="[32, 32]"
+          :icon-anchor="[16, 16]"
+          icon-url="/logo/favicon.png"
+        />
+        </l-marker>
       </l-map>
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 
 <script>
   export default {
-    data() {
-      return {
-      icon: L.icon({
-        iconUrl: '/logo/favicon.png',
-        iconSize: [32, 32],
-        iconAnchor: [16, 16]
-      }),
-      }
-    },
     props: {
       longitude: {
         type: Number,
