@@ -10,7 +10,7 @@ const monthYear = dt => {
 }
 
 const fullDate = dt => {
-    return moment(dt).format("MMM D, YYYY");
+    return moment(dt).format("MMMM D, YYYY");
 }
 
 const dayDate = dt => {
