@@ -119,7 +119,9 @@ export default {
   meta: {
     writtenBy: 'written by',
     readTheReport: 'Read the Report',
-    knowMore: 'Know More'
+    knowMore: 'Know More',
+    by: 'By',
+    download: 'Download'
   },
   // Blog
   blogCats: {
@@ -166,5 +168,17 @@ export default {
     title: 'Feedback and Inquiries',
     description: 'Whoever you are, whether you are happy or unhappy about any aspect of our activity or work, we value you feedback.',
     fillForm: 'If you have a comment or complaint, please fill in our online feedback form below.'
+  },
+  // Publications
+  publication: {
+    publishDate: 'Publication Date:'
+  },
+  publicationCats: {
+    title: {
+      all: 'All Publications',
+      policySubmissions: 'Policy Submissions',
+      researchPapers: 'Reseach Papers',
+      positionStatements: 'Position Statements'
+    }
   }
 }
