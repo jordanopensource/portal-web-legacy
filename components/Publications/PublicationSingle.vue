@@ -11,14 +11,13 @@
         <h3 class="mt-2">{{ $t('meta.by') }} {{ publication.author}}</h3>
         <div class="content flex flex-wrap md:flex-no-wrap mt-12">
           <div class="w-full md:w-3/5 md:mr-8 mb-8">
-            <appImage v-if="publication.thumbnail" :image="publication.thumbnail" size="large" class="thumbnail" />
-            <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
+            <div v-if="publication.description" class="description py-8" v-html="$md.render(publication.description)"></div>
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <publishDateCard class="mb-8" :date="publication.publishDate" />
-            <downloadCard :fileLink="publication.report.url" />
-            <div v-if="publication.description" class="description py-8" v-html="$md.render(publication.description)">
-            </div>
+            <downloadCard class="mb-8" :fileLink="publication.report.url" />
+            <appImage v-if="publication.thumbnail" :image="publication.thumbnail" size="large" class="thumbnail" />
+            <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
           </div>
         </div>
       </div>
