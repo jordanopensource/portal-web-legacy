@@ -180,5 +180,11 @@ export default {
       researchPapers: 'Reseach Papers',
       positionStatements: 'Position Statements'
     }
+  },
+  // Board & Staff
+  boardStaff: {
+    board: 'Board of Directors',
+    staff: 'Staff',
+    previousBoard: 'Previous Board Members'
   }
 }

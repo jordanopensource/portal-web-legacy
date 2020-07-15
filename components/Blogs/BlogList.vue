@@ -8,7 +8,7 @@
       <h3>{{ title }}</h3>
       <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
     </div>
-    </section>
+  </section>
 </template>
 
 <script>
@@ -59,7 +59,7 @@
           let q = "_sort=" + this.sortBy;
           args.push(q)
         }
-        if (this.category && this.category!="all") {
+        if (this.category && this.category != "all") {
           let q = "category.name=" + this.category;
           args.push(q)
         }
