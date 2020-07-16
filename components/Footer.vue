@@ -1,68 +1,51 @@
 <template>
   <div id="footer">
-    <div class="container flex flex-col md:flex-row flex-wrap md:flex-no-wrap justify-between ">
-
-      <section>
-        <h6>{{ $t('pages.aboutJosa') }}</h6>
-        <ul class="links">
-          <nuxt-link v-for="(link, label) in aboutLinks" :key="label" tag="li" :to='link' active-class="active">
-            <a>{{ $t('pages.'+label) }}</a></nuxt-link>
-        </ul>
-      </section>
-
-      <div class="block md:hidden py-8">
-        <hr>
-      </div>
-
-      <section>
-        <h6>{{ $t('pages.ourWork') }}</h6>
-        <ul class="links pb-4 md:pb-0">
-          <nuxt-link v-for="(link, label) in workLinks1" :key="label" tag="li" :to='link' active-class="active">
-            <a>{{ $t('pages.'+label) }}</a></nuxt-link>
-        </ul>
-        <div class="hidden md:block py-4">
+    <!-- Primary Footer - Menus -->
+    <div class="container flex flex-col md:flex-row flex-wrap md:flex-no-wrap justify-between">
+      <!-- About Menu -->
+      <section :id="'footer-menu-' + menus.about.menuId">
+        <h6>{{ $t('menus.'+ menus.about.menuId) }}</h6>
+        <footerMenu :menu="menus.about" />
+        <div class="block md:hidden py-8">
           <hr>
         </div>
-        <ul class="links">
-          <nuxt-link v-for="(link, label) in workLinks2" :key="label" tag="li" :to='link' active-class="active">
-            <a>{{ $t('pages.'+label) }}</a></nuxt-link>
-        </ul>
       </section>
-
-      <div class="block md:hidden py-8">
-        <hr>
-      </div>
-
-      <section>
-        <h6>{{ $t('pages.takeAction') }}</h6>
-        <ul class="links">
-          <nuxt-link v-for="(link, label) in actionLinks" :key="label" tag="li" :to='link' active-class="active">
-            <a>{{ $t('pages.'+label) }}</a></nuxt-link>
-        </ul>
-      </section>
-
-      <div class="block md:hidden py-8">
-        <hr>
-      </div>
-
-      <section>
-        <h6>{{ $t('pages.connect') }}</h6>
-        <ul class="links pb-4 md:pb-0">
-          <nuxt-link v-for="(link, label) in connectLinks" :key="label" tag="li" :to='link' active-class="active">
-            <a>{{ $t('pages.'+label) }}</a></nuxt-link>
-        </ul>
-        <div class="hidden md:block py-4">
+      <!-- Impact Menu -->
+      <section :id="'footer-menu-' + menus.impact1.menuId">
+        <h6>{{ $t('menus.'+ menus.impact1.menuId) }}</h6>
+        <footerMenu :menu="menus.impact1" />
+        <!-- <div class="block py-4">
           <hr>
         </div>
+        <footerMenu :menu="menus.impact2" /> -->
+        <div class="block md:hidden py-8">
+          <hr>
+        </div>
+      </section>
+      <!-- Support Menu -->
+      <!-- <section :id="'footer-menu-' + menus.support.menuId">
+        <h6>{{ $t('menus.'+ menus.support.menuId) }}</h6>
+        <footerMenu :menu="menus.support" />
+        <div class="block md:hidden py-8">
+          <hr>
+        </div>
+      </section> -->
+      <!-- Connect Menu -->
+      <section :id="'footer-menu-' + menus.connect.menuId">
+        <h6>{{ $t('menus.'+ menus.connect.menuId) }}</h6>
+        <footerMenu :menu="menus.connect" />
+        <div class="block py-4">
+          <hr>
+        </div>
+        <!-- Social Media Links -->
         <ul class="links">
           <li v-for="link in socialMediaLinks" :key="link.id"><a class="whitespace-no-wrap" :href="link.path"
               target="_blank">
               <font-awesome-icon class="mr-2" :icon="['fab', link.icon ]" />{{ link.id }}</a></li>
         </ul>
       </section>
-
     </div>
-
+    <!-- Secondery Footer -->
     <div id="site-info">
       <div class="container flex flex-col md:flex-row">
         <div class="logo">
@@ -77,47 +60,15 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
+  import footerMenu from '~/components/Footer/FooterMenu';
   export default {
     name: 'Footer',
     data() {
       return {
-        aboutLinks: {
-          'news': '/',
-          'blog': '/blogs',
-          'partners': '/',
-          'boardStaff': '/',
-          'annualReports': '/',
-          'CodeOfConduct': '/',
-        },
-        workLinks1: {
-          'openSourceSoftware': '/',
-          'openSourceHardware': '/',
-          'openData': '/',
-          'openInternet': '/',
-          'openContent': '/',
-        },
-        workLinks2: {
-          'projectsAndInitiaves': '/',
-          'events': '/events',
-          'publications': '/',
-        },
-        actionLinks: {
-          'becomeAMember': '/',
-          "membersHub": '/',
-          'volunteer': '/',
-          'suggestASpeaker': '/',
-          'donate': '/',
-        },
-        connectLinks: {
-          'contactUs': '/contact-us',
-          'joinSlack': '/',
-          'newsletter': '/',
-        },
         socialMediaLinks: [{
             icon: 'facebook-square',
             path: 'https://facebook.com/jordanopensource',
@@ -134,6 +85,14 @@
             id: '/jordanopensource'
           },
         ]
+      }
+    },
+    components: {
+      footerMenu
+    },
+    computed: {
+      menus() {
+        return this.$store.getters.loadedMenus
       }
     }
   }
@@ -175,7 +134,7 @@
   }
 
   hr {
-    @apply border-dotted
+    @apply border-dotted;
   }
 
   img {
