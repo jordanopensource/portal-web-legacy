@@ -3,9 +3,9 @@
     <div class="px-12 py-20">
       <h4 class="mb-12">{{ $t('contact.address') }}</h4>
 
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap md:flex-no-wrap justify-between">
 
-        <div class="mb-6 w-full md:w-auto md:mr-20">
+        <div class="mb-6 w-full sm:pr-12 md:pr-20 lg:pr-32">
           <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
           <div class="pl-8">
             <p>{{ info.address.addressOne }}</p>
@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <div class="mb-6 w-full md:w-auto">
+        <div class="mb-6 w-full">
 
           <div class="mb-6">
             <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
