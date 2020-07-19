@@ -18,6 +18,20 @@
     },
     components: {
       publicationSingle
+    },
+    head() {
+      return {
+        title: this.pageTitle,
+        meta: [{
+          hid: 'publication',
+          name: 'Publication'
+        }]
+      }
+    },
+    computed: {
+      pageTitle() {
+        return this.publication.title
+      }
     }
   };
 

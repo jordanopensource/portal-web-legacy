@@ -30,13 +30,13 @@
 <script>
   import axios from 'axios';
   import eventList from "@/components/Events/EventList";
-  import appButton from '@/components/form-components/AppButton';
+  import appButton from '@/components/FormComponents/AppButton';
   import pageBanner from "@/components/UI/PageBanner";
 
   export default {
     data() {
       return {
-        title: "Events",
+        title: "JOSA's Events",
         activeCat: 'all'
       }
     },

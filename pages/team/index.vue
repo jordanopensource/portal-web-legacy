@@ -22,7 +22,7 @@
   export default {
     data() {
       return {
-        title: "Board & Staff"
+        title: "JOSA's Board & Staff"
       }
     },
     head() {

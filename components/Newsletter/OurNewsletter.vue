@@ -5,8 +5,8 @@
     <div class="pb-8">
     <p>{{ $t('newsletter.text') }}</p>
     </div>
-    
-    <newsletterForm />
+
+    <NewsletterForm />
 </div>
 </template>
 
@@ -15,7 +15,7 @@ import NewsletterForm from './NewsletterForm';
 export default {
     name: 'OurNewsletter',
     components: {
-        'newsletterForm': NewsletterForm,
+        'NewsletterForm': NewsletterForm,
     }
 }
 </script>

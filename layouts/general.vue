@@ -1,25 +1,25 @@
 <template>
   <div>
-    <app-header />
+    <mainHeader />
     <div class="md:px-0 bg-white">
-    <nuxt />
+      <nuxt />
     </div>
-    <appFooter />
+    <mainFooter />
   </div>
 </template>
 
 <script>
-  import Header from '~/components/Header';
-  import Footer from '~/components/Footer';
+  import mainHeader from '~/components/UI/Header';
+  import mainFooter from '~/components/UI/Footer';
 
   export default {
-    head () {
+    head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        meta: [
-          {
-            hid: 'JOSAPortal',
-            name: 'JOSA Portal Web App',
+        title: 'Jordan Open Source Association',
+        meta: [{
+            hid: 'home-page',
+            name: 'Home Page',
             content: 'JOSA Portal Web App'
           },
           ...i18nSeo.meta
@@ -27,10 +27,11 @@
       }
     },
     components: {
-      'app-header': Header,
-      'appFooter': Footer,
+      mainHeader,
+      mainFooter
     },
   }
+
 </script>
 <style>
 

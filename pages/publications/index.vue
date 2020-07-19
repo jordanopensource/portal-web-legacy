@@ -29,13 +29,13 @@
 <script>
   import axios from 'axios';
   import publicationList from "@/components/Publications/PublicationList";
-  import appButton from '@/components/form-components/AppButton';
+  import appButton from '@/components/FormComponents/AppButton';
   import pageBanner from "@/components/UI/PageBanner";
 
   export default {
     data() {
       return {
-        title: "Publications",
+        title: "JOSA's Publications",
         activeCat: 'all'
       }
     },

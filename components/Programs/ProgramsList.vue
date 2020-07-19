@@ -1,7 +1,7 @@
 <template>
     <div>
-            <Program 
-            v-for="program in programs" 
+            <Program
+            v-for="program in programs"
             :key="program.id"
             :id="program.id"
             :thumbnail="program.thumbnail"
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Program from '@/components/programs/Program';
+import Program from '@/components/Programs/Program';
 export default {
     name: 'ProgramsList',
     components: {

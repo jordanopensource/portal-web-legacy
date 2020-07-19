@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import ProgramList from '@/components/programs/ProgramsList';
+import programList from '@/components/Programs/ProgramsList';
 export default {
     name: 'OurWork',
     components: {
-        'programList': ProgramList,
+        programList,
     },
     data () {
         return {
@@ -20,28 +20,28 @@ export default {
             {
                 id: '1',
                 thumbnail:'https://jordanopensource.org/wp-content/uploads/2019/02/program-digital-rights.svg',
-                title: this.$t('programs.digitalrights.title'), 
+                title: this.$t('programs.digitalrights.title'),
                 subtitle: this.$t('programs.digitalrights.subtitle'),
                 description: this.$t('programs.digitalrights.desc')
             },
              {
                 id: '2',
                 thumbnail:'https://jordanopensource.org/wp-content/uploads/2019/02/program-open-jordan.svg',
-                title: this.$t('programs.openJordan.title'), 
+                title: this.$t('programs.openJordan.title'),
                 subtitle: this.$t('programs.openJordan.subtitle'),
                 description: this.$t('programs.openJordan.desc')
             },
             {
                 id: '3',
                 thumbnail:'https://jordanopensource.org/wp-content/uploads/2019/02/program-tech-community.svg',
-                title: this.$t('programs.techCommunity.title'), 
+                title: this.$t('programs.techCommunity.title'),
                 subtitle: this.$t('programs.techCommunity.subtitle'),
                 description: this.$t('programs.techCommunity.desc')
             },
             {
                 id: '4',
                 thumbnail:'https://jordanopensource.org/wp-content/uploads/2019/02/program-ict-university-students.svg',
-                title: this.$t('programs.uniStudents.title'), 
+                title: this.$t('programs.uniStudents.title'),
                 subtitle: this.$t('programs.uniStudents.subtitle'),
                 description: this.$t('programs.uniStudents.desc')
             },

@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <header class="header">
     <div class="container">
       <div class="px-12 flex items-end justify-between flex-wrap lg:flex-no-wrap">
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import Navbar from './Navbar';
+  import navbar from '~/components/UI/Navbar';
   export default {
     data() {
       return {
@@ -38,7 +38,7 @@
       }
     },
     components: {
-      'navbar': Navbar
+      navbar
     },
   }
 

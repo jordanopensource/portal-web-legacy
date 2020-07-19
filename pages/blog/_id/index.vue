@@ -1,10 +1,10 @@
 <template>
-  <BlogSingle :article="blog"/>
+  <BlogSingle :article="blog" />
 </template>
 
 <script>
   import axios from 'axios';
-  import BlogSingle from '~/components/Blogs/BlogSingle';
+  import BlogSingle from '~/components/Blog/BlogSingle';
   export default {
     layout: "general",
     asyncData(context) {
@@ -18,6 +18,20 @@
     },
     components: {
       BlogSingle
+    },
+    head() {
+      return {
+        title: this.pageTitle,
+        meta: [{
+          hid: 'blog',
+          name: 'Blog'
+        }]
+      }
+    },
+    computed: {
+      pageTitle() {
+        return this.blog.title
+      }
     }
   };
 

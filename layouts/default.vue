@@ -1,23 +1,23 @@
 <template>
   <div>
-    <app-header />
+    <mainHeader />
     <banner />
     <nuxt class="bg-josa-warm-grey-light" />
-    <appFooter />
+    <mainFooter />
   </div>
 </template>
 
 <script>
-  import Header from '~/components/Header';
-  import Banner from '~/components/Banner';
-  import Footer from '~/components/Footer';
+  import mainHeader from '~/components/UI/Header';
+  import banner from '~/components/UI/Banner';
+  import mainFooter from '~/components/UI/Footer';
 
   export default {
-    head () {
+    head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        meta: [
-          {
+        title: 'Jordan Open Source Association',
+        meta: [{
             hid: 'home-page',
             name: 'Home Page',
             content: 'JOSA Portal Web App'
@@ -27,11 +27,12 @@
       }
     },
     components: {
-      'app-header': Header,
-      'banner': Banner,
-      'appFooter': Footer,
+      mainHeader,
+      banner,
+      mainFooter,
     },
   }
+
 </script>
 <style>
 
