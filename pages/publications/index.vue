@@ -35,7 +35,7 @@
   export default {
     data() {
       return {
-        title: "Publications",
+        title: "JOSA's Publications",
         activeCat: 'all'
       }
     },

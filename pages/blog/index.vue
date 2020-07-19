@@ -34,7 +34,7 @@
   export default {
     data() {
       return {
-        title: "Blog",
+        title: "JOSA's Blog",
         activeCat: 'all'
       }
     },

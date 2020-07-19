@@ -18,6 +18,20 @@
     },
     components: {
       EventSingle
+    },
+    head() {
+      return {
+        title: this.pageTitle,
+        meta: [{
+          hid: 'event',
+          name: 'Event'
+        }]
+      }
+    },
+    computed: {
+      pageTitle() {
+        return this.event.name
+      }
     }
   };
 

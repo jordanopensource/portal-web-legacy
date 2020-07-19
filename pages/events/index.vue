@@ -36,7 +36,7 @@
   export default {
     data() {
       return {
-        title: "Events",
+        title: "JOSA's Events",
         activeCat: 'all'
       }
     },

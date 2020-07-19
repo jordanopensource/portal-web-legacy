@@ -13,11 +13,11 @@
   import mainFooter from '~/components/UI/Footer';
 
   export default {
-    head () {
+    head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        meta: [
-          {
+        title: 'Jordan Open Source Association',
+        meta: [{
             hid: 'home-page',
             name: 'Home Page',
             content: 'JOSA Portal Web App'
@@ -32,6 +32,7 @@
       mainFooter,
     },
   }
+
 </script>
 <style>
 
