@@ -12,8 +12,8 @@
 </template>
 
 <script>
-  import articlePreview from '@/components/Blogs/ArticlePreview';
-  import articleFeatured from '@/components/Blogs/ArticleFeatured';
+  import articlePreview from '@/components/Blog/ArticlePreview';
+  import articleFeatured from '@/components/Blog/ArticleFeatured';
   import axios from 'axios';
   export default {
     data() {

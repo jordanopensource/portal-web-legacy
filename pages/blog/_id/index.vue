@@ -4,7 +4,7 @@
 
 <script>
   import axios from 'axios';
-  import BlogSingle from '~/components/Blogs/BlogSingle';
+  import BlogSingle from '~/components/Blog/BlogSingle';
   export default {
     layout: "general",
     asyncData(context) {

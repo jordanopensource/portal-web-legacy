@@ -1,6 +1,6 @@
 import Vuex from 'vuex';
 import socialFeed from './modules/social-feed';
-import blogs from './modules/blogs';
+import blog from './modules/blog';
 import events from './modules/events';
 import members from './modules/members';
 import auth from './modules/auth';
@@ -11,7 +11,7 @@ const createStore = () => {
     modules: {
         socialFeed,
         events,
-        blogs,
+        blog,
         members,
         auth,
         menus

@@ -41,7 +41,7 @@
     },
     computed: {
       articleLink() {
-        return '/blogs/' + this.article.id
+        return '/blog/' + this.article.id
       },
     }
   }

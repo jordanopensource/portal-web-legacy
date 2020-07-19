@@ -1,4 +1,4 @@
-// Blogs Store
+// Blog Store
 import axios from 'axios';
 
 const state = {

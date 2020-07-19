@@ -1,14 +1,14 @@
 <template>
   <div>
-    <app-header />
+    <mainHeader />
     <nuxt />
-    <appFooter />
+    <mainFooter />
   </div>
 </template>
 
 <script>
-  import Header from '~/components/Header';
-  import Footer from '~/components/Footer';
+  import mainHeader from '~/components/UI/Header';
+  import mainFooter from '~/components/UI/Footer';
 
   export default {
     head () {
@@ -25,8 +25,8 @@
       }
     },
     components: {
-      'app-header': Header,
-      'appFooter': Footer,
+      mainHeader,
+      mainFooter
     },
   }
 </script>

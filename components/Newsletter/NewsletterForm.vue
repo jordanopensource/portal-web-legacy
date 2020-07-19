@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import RadioButton from '~/components/form-components/RadioButton.vue'
+import RadioButton from '~/components/FormComponents/RadioButton.vue'
 export default {
   name: 'NewsletterForm',
   components: {

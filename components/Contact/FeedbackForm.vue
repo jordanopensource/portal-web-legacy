@@ -12,8 +12,8 @@
 
 <script>
   import axios from 'axios'
-  import AppControlInput from "@/components/form-components/AppControlInput";
-  import AppButton from "@/components/form-components/AppButton";
+  import AppControlInput from "@/components/FormComponents/AppControlInput";
+  import AppButton from "@/components/FormComponents/AppButton";
 
   export default {
     data() {

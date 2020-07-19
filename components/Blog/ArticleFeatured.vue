@@ -45,7 +45,7 @@
     },
     computed: {
       articleLink() {
-        return '/blogs/' + this.article.id
+        return '/blog/' + this.article.id
       },
       authorProfile() {
         return '/members/' + this.article.author.id

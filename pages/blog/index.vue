@@ -1,6 +1,6 @@
 <template>
   <div class="blog-page">
-    
+
     <pageBanner :pageMeta="blogMeta" />
 
     <div class="bg-josa-black py-8">
@@ -27,8 +27,8 @@
 
 <script>
   import axios from 'axios';
-  import blogList from "@/components/Blogs/BlogList";
-  import appButton from '@/components/form-components/AppButton';
+  import blogList from "@/components/Blog/BlogList";
+  import appButton from '@/components/FormComponents/AppButton';
   import pageBanner from "@/components/UI/PageBanner";
 
   export default {
@@ -43,7 +43,7 @@
         title: this.title,
         meta: [{
           hid: 'blog',
-          name: 'blog'
+          name: 'Blog'
         }]
       }
     },
