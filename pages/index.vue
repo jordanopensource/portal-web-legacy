@@ -1,22 +1,22 @@
 <template>
   <div class="container my-8">
     <div class="row">
-      <impactBox class="w-full md:w-1/2 p-12"/>
+      <impactBox id="impact" class="w-full md:w-1/2 p-12"/>
       <instagramFeed class="w-full md:w-1/2"/>
     </div>
 
     <div class="row">
-      <ourWork class="w-full md:w-1/2 p-12"/>
+      <ourWork id="ourwork" class="w-full md:w-1/2 p-12"/>
       <latestJOSA class="w-full md:w-1/2 p-12"/>
     </div>
 
     <div class="row">
-      <joinUs class="w-full md:w-1/2"/>
+      <joinUs id="action" class="w-full md:w-1/2"/>
       <ourCommunity class="w-full md:w-1/2 p-12"/>
     </div>
 
     <div class="row">
-      <stayInTouch class="w-full md:w-1/2"/>
+      <stayInTouch id="connect" class="w-full md:w-1/2"/>
       <div class="w-full md:w-1/2 flex flex-col">
       <ourNewsletter class="pb-0 p-12"/>
       <joinSlack class="p-12 flex-grow"/>

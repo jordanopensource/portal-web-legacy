@@ -1,13 +1,10 @@
 <template lang="html">
   <nav>
-    <!-- Menu Links -->
-    <nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.aboutJosa') }}</nuxt-link>
-    <nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.ourWork') }}</nuxt-link>
-    <nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.takeAction') }}</nuxt-link>
-    <nuxt-link class="nav-link" tag="a" to="#">{{ $t('pages.connect') }}</nuxt-link>
+    <!-- Main Menu -->
+    <menuItems :menu="mainMenu" menuItemClass="nav-link" class="inline-block" />
 
     <!-- Login/Logout -->
-    <LogInOut />
+    <logInOutMenu />
 
     <!-- Language Switcher -->
     <span class="inline-flex">
@@ -20,11 +17,18 @@
 </template>
 
 <script>
-  import LogInOut from '@/components/Auth/LogInOutMenu';
+  import logInOutMenu from '@/components/Auth/LogInOutMenu';
+  import menuItems from '@/components/Menu/MenuItems';
   export default {
     name: 'Navbar',
     components: {
-      LogInOut
+      logInOutMenu,
+      menuItems
+    },
+    computed: {
+      mainMenu() {
+        return this.$store.getters.loadedMenus.mainMenu;
+      }
     }
   }
 

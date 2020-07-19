@@ -207,6 +207,10 @@ export default {
     'University Students': 'University Students',
     'Become a member': 'Become a member',
     'Donate': 'Donate',
-    'Contact Us': 'Contact Us'
+    'Contact Us': 'Contact Us',
+    'About JOSA':'About JOSA',
+    'Our Work': 'Our Work',
+    'Take Action': 'Take Action!',
+    'Connect': 'Connect'
   }
 }
