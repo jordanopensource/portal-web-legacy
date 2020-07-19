@@ -5,7 +5,7 @@
       <!-- About Menu -->
       <section :id="'footer-menu-' + menus.about.menuId">
         <h6>{{ $t('menus.'+ menus.about.menuId) }}</h6>
-        <footerMenu :menu="menus.about" />
+        <menuItems :menu="menus.about" />
         <div class="block md:hidden py-8">
           <hr>
         </div>
@@ -13,11 +13,11 @@
       <!-- Impact Menu -->
       <section :id="'footer-menu-' + menus.impact1.menuId">
         <h6>{{ $t('menus.'+ menus.impact1.menuId) }}</h6>
-        <footerMenu :menu="menus.impact1" />
+        <menuItems :menu="menus.impact1" />
         <!-- <div class="block py-4">
           <hr>
         </div>
-        <footerMenu :menu="menus.impact2" /> -->
+        <menuItems :menu="menus.impact2" /> -->
         <div class="block md:hidden py-8">
           <hr>
         </div>
@@ -25,7 +25,7 @@
       <!-- Support Menu -->
       <!-- <section :id="'footer-menu-' + menus.support.menuId">
         <h6>{{ $t('menus.'+ menus.support.menuId) }}</h6>
-        <footerMenu :menu="menus.support" />
+        <menuItems :menu="menus.support" />
         <div class="block md:hidden py-8">
           <hr>
         </div>
@@ -33,7 +33,7 @@
       <!-- Connect Menu -->
       <section :id="'footer-menu-' + menus.connect.menuId">
         <h6>{{ $t('menus.'+ menus.connect.menuId) }}</h6>
-        <footerMenu :menu="menus.connect" />
+        <menuItems :menu="menus.connect" />
         <div class="block py-4">
           <hr>
         </div>
@@ -64,7 +64,7 @@
 </template>
 
 <script>
-  import footerMenu from '~/components/Footer/FooterMenu';
+  import menuItems from '~/components/Menu/MenuItems';
   export default {
     name: 'Footer',
     data() {
@@ -88,7 +88,7 @@
       }
     },
     components: {
-      footerMenu
+      menuItems
     },
     computed: {
       menus() {
