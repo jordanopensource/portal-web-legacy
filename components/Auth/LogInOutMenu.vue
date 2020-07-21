@@ -1,8 +1,8 @@
 <!-- Login/Logout Menu Item -->
 <template>
   <span class="nav-link">
-    <button v-if="$store.getters.auth" @click="logout">LOGOUT</button>
-    <NuxtLink v-else to="/login">LOGIN</NuxtLink>
+    <button v-if="$store.getters.auth" @click="logout">{{ $t('auth.logout') }}</button>
+    <NuxtLink v-else to="/login">{{ $t('auth.login') }}</NuxtLink>
   </span>
 </template>
 

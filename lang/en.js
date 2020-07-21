@@ -187,30 +187,9 @@ export default {
     staff: 'Staff',
     previousBoard: 'Previous Board Members'
   },
-  // Menus
-  menus: {
-    about: 'About JOSA',
-    impact1: 'Impact',
-    impact2: 'Impact',
-    support: 'Support',
-    connect: 'Connect'
-  },
-  menuItems: {
-    'Our Team': 'Our Team',
-    'JOSA Blog': 'JOSA\'s Blog',
-    'Events': 'Events',
-    'Research and Publications': 'Research and Publications',
-    'Projects and Initiatives': 'Projects and Initiatives',
-    'Digital Rights': 'Digital Rights',
-    'Open Knowledge': 'Open Knowledge',
-    'Tech Community': 'Tech Community',
-    'University Students': 'University Students',
-    'Become a member': 'Become a member',
-    'Donate': 'Donate',
-    'Contact Us': 'Contact Us',
-    'About JOSA':'About JOSA',
-    'Our Work': 'Our Work',
-    'Take Action': 'Take Action!',
-    'Connect': 'Connect'
+  // Auth
+  auth: {
+    login: "Login",
+    logout: "Logout"
   }
 }

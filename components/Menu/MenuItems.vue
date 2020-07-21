@@ -1,8 +1,8 @@
 <template>
   <ul class="links">
-    <nuxt-link v-for="item in orderBy(menu.menuItems, 'weight')" :key="item.id" tag="li" :to='item.path'
+    <nuxt-link v-for="item in orderBy(menu.menuItems, 'weight')" :key="item.id" tag="li" :to="localePath(item.path)"
       active-class="active" :class="menuItemClass">
-      <a>{{ $t('menuItems.'+ item.text) }}</a></nuxt-link>
+      <a>{{ item['label_' + $i18n.locale] }}</a></nuxt-link>
   </ul>
 </template>
 
