@@ -20,18 +20,16 @@
   import boardStaffList from '@/components/BoardStaff/BoardStaffList';
 
   export default {
-    data() {
-      return {
-        title: "JOSA's Board & Staff"
-      }
-    },
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.title,
+        title: this.boardStaffMeta['title_' + this.$i18n.locale],
         meta: [{
-          hid: 'boardAndStaff',
-          name: 'Board and Staff'
-        }]
+            hid: 'boardAndStaff',
+            name: 'Board and Staff'
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     layout: "general",
@@ -40,7 +38,7 @@
       boardStaffList
     },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?title=boardandstaff');
+      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=boardandstaff');
       return {
         boardStaffMeta: pageMeta.data[0]
       }

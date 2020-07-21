@@ -4,7 +4,7 @@
     <div class="container flex flex-col md:flex-row flex-wrap md:flex-no-wrap justify-between">
       <!-- About Menu -->
       <section :id="'footer-menu-' + menus.about.menuId">
-        <h6>{{ $t('menus.'+ menus.about.menuId) }}</h6>
+        <h6>{{ menus.about['menuName_' + $i18n.locale] }}</h6>
         <menuItems :menu="menus.about" />
         <div class="block md:hidden py-8">
           <hr>
@@ -12,7 +12,7 @@
       </section>
       <!-- Impact Menu -->
       <section :id="'footer-menu-' + menus.impact1.menuId">
-        <h6>{{ $t('menus.'+ menus.impact1.menuId) }}</h6>
+        <h6>{{ menus.impact1['menuName_' + $i18n.locale] }}</h6>
         <menuItems :menu="menus.impact1" />
         <!-- <div class="block py-4">
           <hr>
@@ -24,7 +24,7 @@
       </section>
       <!-- Support Menu -->
       <!-- <section :id="'footer-menu-' + menus.support.menuId">
-        <h6>{{ $t('menus.'+ menus.support.menuId) }}</h6>
+        <h6>{{ menus.support['menuName_' + $i18n.locale] }}</h6>
         <menuItems :menu="menus.support" />
         <div class="block md:hidden py-8">
           <hr>
@@ -32,7 +32,7 @@
       </section> -->
       <!-- Connect Menu -->
       <section :id="'footer-menu-' + menus.connect.menuId">
-        <h6>{{ $t('menus.'+ menus.connect.menuId) }}</h6>
+        <h6>{{ menus.connect['menuName_' + $i18n.locale] }}</h6>
         <menuItems :menu="menus.connect" />
         <div class="block py-4">
           <hr>

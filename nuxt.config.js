@@ -95,7 +95,11 @@ export default {
       fallbackLocale: 'en',
     },
     lazy: true,
-    langDir: 'lang/'
+    langDir: 'lang/',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected'
+    }
   },
   markdownit: {
     injected: true,

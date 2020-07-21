@@ -3,7 +3,7 @@
   <section>
     <h3 class="font-bold">{{ title }}</h3>
     <div class="mt-8" v-if="compact">
-      <div v-for="personnel in loadedPersonnels" :key="personnel.id" :id="personnel.id">{{ personnel.fullName }}</div>
+      <div v-for="personnel in loadedPersonnels" :key="personnel.id" :id="personnel.id">{{ personnel['fullName_' + $i18n.locale] }}</div>
     </div>
     <div v-else class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
       <boardStaffSingle v-for="personnel in loadedPersonnels" :key="personnel.id" :id="personnel.id"

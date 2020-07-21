@@ -5,7 +5,7 @@
     <div class="flex-grow">
       <h3 class="uppercase py-2 md:pt-0 text-sm">
         <span v-for="(topic, index) in article.topics" :key="topic.id">
-          {{ topic.name }}{{ index != Object.keys(article.topics).length - 1 ? ', ' : ''}}
+          {{ topic['title_' + $i18n.locale] }}{{ index != Object.keys(article.topics).length - 1 ? ', ' : ''}}
         </span>
       </h3>
       <nuxt-link :to="articleLink">
