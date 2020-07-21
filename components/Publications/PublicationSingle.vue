@@ -4,7 +4,7 @@
       <div class="p-12">
         <div class="text-josa-blue text-xl mb-2 uppercase">
           <span v-for="(topic, index) in publication.topics" :key="topic.id">
-            {{ topic.name }}{{ index != Object.keys(publication.topics).length - 1 ? ', ' : ''}}
+            {{ topic['title_' + $i18n.locale] }}{{ index != Object.keys(publication.topics).length - 1 ? ', ' : ''}}
           </span>
         </div>
         <h2>{{ publication.title }}</h2>

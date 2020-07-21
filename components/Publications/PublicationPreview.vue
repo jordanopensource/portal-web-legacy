@@ -8,7 +8,7 @@
 
       <h3 class="uppercase py-2 md:pt-0 text-sm">
         <span v-for="(topic, index) in publication.topics" :key="topic.id">
-          {{ topic.name }}{{ index != Object.keys(publication.topics).length - 1 ? ', ' : ''}}
+          {{ topic['title_' + $i18n.locale] }}{{ index != Object.keys(publication.topics).length - 1 ? ', ' : ''}}
         </span>
       </h3>
 
