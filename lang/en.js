@@ -175,10 +175,7 @@ export default {
   },
   publicationCats: {
     title: {
-      all: 'All Publications',
-      policySubmissions: 'Policy Submissions',
-      researchPapers: 'Reseach Papers',
-      positionStatements: 'Position Statements'
+      all: 'All Publications'
     }
   },
   // Board & Staff

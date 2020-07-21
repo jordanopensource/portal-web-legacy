@@ -1,4 +1,9 @@
 export default {
+  publicationCats: {
+    title: {
+      all: 'جميع الأبحاث والمنشورات'
+    }
+  },
   // Board & Staff
   boardStaff: {
     board: 'مجلس الإدارة',

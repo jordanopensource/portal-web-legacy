@@ -20,17 +20,20 @@
       publicationSingle
     },
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
         title: this.pageTitle,
         meta: [{
-          hid: 'publication',
-          name: 'Publication'
-        }]
+            hid: 'publication',
+            name: 'Publication'
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     computed: {
       pageTitle() {
-        return this.publication.title
+        return this.publication['title_' + this.$i18n.locale]
       }
     }
   };

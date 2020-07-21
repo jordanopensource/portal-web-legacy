@@ -10,7 +10,7 @@
         <div class="px-12 flex flex-col sm:flex-row">
           <span :class="activeCat == 'all' ? 'active': ''" class="cat-link" @click="setActiveCat('all')">{{ $t('publicationCats.title.all') }}</span>
           <span :class="activeCat == cat.name ? 'active': ''" class="cat-link" v-for="cat in publicationCategories"
-            :key="cat.id" @click="setActiveCat(cat.name)">{{ $t('publicationCats.title.' + cat.name) }}</span>
+            :key="cat.id" @click="setActiveCat(cat.name)">{{ cat['title_' + $i18n.locale] }}</span>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="container pb-20">
       <div v-for="cat in publicationCategories" :key="cat.id">
         <publicationList v-if="activeCat=='all' || activeCat==cat.name" class="publication-list" :numberOfArticles="numArticles"
-          :category="cat.name" :title="$t('publicationCats.title.' + cat.name)" />
+          :category="cat.name" :title="cat['title_' + $i18n.locale]" />
       </div>
     </div>
 

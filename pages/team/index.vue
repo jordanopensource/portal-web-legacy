@@ -25,10 +25,11 @@
       return {
         title: this.boardStaffMeta['title_' + this.$i18n.locale],
         meta: [{
-          hid: 'boardAndStaff',
-          name: 'Board and Staff'
-        }],
-        ...i18nSeo.meta
+            hid: 'boardAndStaff',
+            name: 'Board and Staff'
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     layout: "general",

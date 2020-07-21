@@ -13,11 +13,11 @@
       </h3>
 
       <nuxt-link :to="publicationLink">
-        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ publication.title }}</h2>
+        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ publication['title_' + $i18n.locale] }}</h2>
       </nuxt-link>
 
       <div class="publication-info flex flex-wrap md:flex-no-wrap">
-        <span class="mr-12">{{ $t('meta.by') }} {{ publication.author}}</span>
+        <span class="mr-12">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</span>
         <span>
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />{{ $t('publication.publishDate') }}
           {{ publication.publishDate | fullDate }}</span>
@@ -53,7 +53,7 @@
     },
     computed: {
       publicationLink() {
-        return '/publications/' + this.publication.id
+        return this.localePath('/publications/' + this.publication.id)
       }
     }
   }
