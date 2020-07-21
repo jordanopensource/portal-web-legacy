@@ -3,8 +3,8 @@
       <appImage class="picture-background" v-if="personnel.picture" :image="personnel.picture" />
       <div v-else class="picture-background pb"></div>
     <div class="px-4 pt-8 relative">
-      <p class="font-bold">{{ personnel.fullName }}</p>
-      <p class="uppercase text-sm">{{ personnel.position }}</p>
+      <p class="font-bold">{{ personnel['fullName_' + $i18n.locale] }}</p>
+      <p class="uppercase text-sm">{{ personnel['position_' + $i18n.locale] }}</p>
       <socialAccounts class="bottom-0 relative sm:absolute" v-if="personnel.socialAccounts" :accounts="personnel.socialAccounts" />
     </div>
   </div>
