@@ -40,7 +40,7 @@
       boardStaffList
     },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?title=boardandstaff');
+      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=boardandstaff');
       return {
         boardStaffMeta: pageMeta.data[0]
       }

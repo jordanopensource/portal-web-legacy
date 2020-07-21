@@ -37,7 +37,7 @@
       locationMap
     },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?title=contact-us');
+      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=contact-us');
       const contactData = await axios.get(process.env.baseUrl + '/contact-info');
       return {
         contactUsMeta: pageMeta.data[0],

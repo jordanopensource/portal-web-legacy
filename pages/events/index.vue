@@ -56,7 +56,7 @@
       pageBanner
     },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?title=event');
+      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=event');
       const cats = await axios.get(process.env.baseUrl + '/event-categories');
       return {
         eventMeta: pageMeta.data[0],
