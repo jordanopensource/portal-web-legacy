@@ -1,32 +1,33 @@
 import Vue from 'vue';
 import moment from 'moment';
 
-const formatDateTime = dt => {
-    return moment(dt).format("dddd, MMMM Do YYYY, h:mm a");
+
+const dateTime = (dt, lang) => {
+    return moment(dt).locale(lang).format("dddd, D MMMM YYYY, h:mm a");
 };
 
-const monthYear = dt => {
-    return moment(dt).format("MMM YYYY");
+const monthYear = (dt, lang) => {
+    return moment(dt).locale(lang).format("MMM YYYY");
 }
 
-const fullDate = dt => {
-    return moment(dt).format("MMMM D, YYYY");
+const fullDate = (dt, lang) => {
+    return moment(dt).locale(lang).format("D MMMM, YYYY");
 }
 
-const dayDate = dt => {
-  return moment(dt).format("dddd - D MMMM");
+const dayDate = (dt, lang) => {
+  return moment(dt).locale(lang).format("dddd - D MMMM");
 }
 
-const dayFullDate = dt => {
-  return moment(dt).format("dddd, MMM D YYYY");
+const dayFullDate = (dt, lang) => {
+  return moment(dt).locale(lang).format("dddd, D MMM YYYY");
 }
 
-const time = dt => {
-  return moment(dt).format("H:mm A");
+const time = (dt, lang) => {
+  return moment(dt).locale(lang).format("H:mm A");
 }
 
 Vue.filter('monthYear', monthYear)
-Vue.filter('dateTime', formatDateTime)
+Vue.filter('dateTime', dateTime)
 Vue.filter('fullDate', fullDate)
 Vue.filter('dayDate', dayDate)
 Vue.filter('dayFullDate', dayFullDate)

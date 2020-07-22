@@ -16,7 +16,7 @@
           </div>
           <div>
             <h5>member since</h5>
-            <p class="member-since">{{ member.memberSince | monthYear }}</p>
+            <p class="member-since">{{ member.memberSince | monthYear($i18n.locale) }}</p>
           </div>
         </section>
       </div>
@@ -65,7 +65,7 @@
       appImage
     },
     computed: {
-      titles() {        
+      titles() {
         return this.$options.filters.stringToArray(this.member.titles)
       },
       interests() {
