@@ -26,9 +26,14 @@ const time = (dt, lang) => {
   return moment(dt).locale(lang).format("H:mm A");
 }
 
+const day = (dt, lang) => {
+  return moment(dt).locale(lang).format("dddd");
+}
+
 Vue.filter('monthYear', monthYear)
 Vue.filter('dateTime', dateTime)
 Vue.filter('fullDate', fullDate)
 Vue.filter('dayDate', dayDate)
 Vue.filter('dayFullDate', dayFullDate)
 Vue.filter('time', time)
+Vue.filter('day', day)

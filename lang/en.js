@@ -151,7 +151,14 @@ export default {
   feedback: {
     title: 'Feedback and Inquiries',
     description: 'Whoever you are, whether you are happy or unhappy about any aspect of our activity or work, we value you feedback.',
-    fillForm: 'If you have a comment or complaint, please fill in our online feedback form below.'
+    fillForm: 'If you have a comment or complaint, please fill in our online feedback form below.',
+    form: {
+      subject: 'What is your feedback or inquiry about?',
+      inquiry: 'Please describe it in details.',
+      name: 'Your Name',
+      email: 'Your Email',
+      submit: 'Submit'
+    }
   },
   // Publications
   publication: {

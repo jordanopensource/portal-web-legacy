@@ -1,11 +1,11 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <AppControlInput v-model="form.subject">What is your feedback or inquiry about?</AppControlInput>
-    <AppControlInput v-model="form.inquiry" control-type="textarea">Please describe it in details.</AppControlInput>
-    <AppControlInput v-model="form.name">Your Name</AppControlInput>
-    <AppControlInput v-model="form.email" controlType="email">Your Email</AppControlInput>
+    <AppControlInput v-model="form.subject">{{ $t('feedback.form.subject') }}</AppControlInput>
+    <AppControlInput v-model="form.inquiry" control-type="textarea">{{ $t('feedback.form.inquiry') }}</AppControlInput>
+    <AppControlInput v-model="form.name">{{ $t('feedback.form.name') }}</AppControlInput>
+    <AppControlInput v-model="form.email" controlType="email">{{ $t('feedback.form.email') }}</AppControlInput>
     <div class="text-right">
-      <AppButton btn-style="button-flat" type="submit">Submit</AppButton>
+      <AppButton btn-style="button-flat" type="submit">{{ $t('feedback.form.submit') }}</AppButton>
     </div>
   </form>
 </template>
