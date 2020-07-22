@@ -20,12 +20,15 @@
       EventSingle
     },
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
         title: this.pageTitle,
         meta: [{
-          hid: 'event',
-          name: 'Event'
-        }]
+            hid: 'event',
+            name: 'Event'
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     computed: {

@@ -140,22 +140,13 @@ export default {
     from: 'From',
     to: 'To'
   },
+  // Location Card
   locationCard: {
     title: 'Location'
   },
   // Event
   eventCats: {
-    title: {
-      techtalks: 'JOSA TechTalks',
-      workshops: 'Workshops',
-      meetups: 'Community Meetups'
-    },
-    menu: {
-      all: 'All Events',
-      techtalks: 'JOSA TechTalks',
-      workshops: 'Workshops',
-      meetups: 'Community Meetups'
-    }
+    all: 'All Events',
   },
   // Contact Us
   contact: {
@@ -188,5 +179,7 @@ export default {
   auth: {
     login: "Login",
     logout: "Logout"
-  }
+  },
+  // Speakers
+  speakers: 'Speakers'
 }

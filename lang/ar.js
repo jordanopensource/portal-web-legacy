@@ -1,4 +1,18 @@
 export default {
+  // Time Card
+  timeCard: {
+    title: 'التاريخ والوقت',
+    from: 'من',
+    to: 'إلى'
+  },
+  // Location Card
+  locationCard: {
+    title: 'الموقع'
+  },
+  // Event
+  eventCats: {
+    all: 'جميع الفعاليات'
+  },
   publicationCats: {
     title: {
       all: 'جميع الأبحاث والمنشورات'
@@ -14,5 +28,7 @@ export default {
   auth: {
     login: "تسجيل الدخول",
     logout: "تسجيل الخروج"
-  }
+  },
+  // Speakers
+  speakers: 'المتحدثين'
 }

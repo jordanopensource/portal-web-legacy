@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h3>Speakers</h3>
+    <h3>{{ $t('speakers') }}</h3>
     <div class="info" v-for="speaker in speakers" :key='speaker.id'>
       <appImage class="profilePicture" :image="speaker.picture" />
       <div>
-        <p class="font-bold">{{ speaker.fullName }}</p>
-        <p>{{ speaker.title }}</p>
+        <p class="font-bold">{{ speaker['fullName_' + $i18n.locale] }}</p>
+        <p>{{ speaker['title_' + $i18n.locale] }}</p>
       </div>
     </div>
   </div>
