@@ -45,10 +45,10 @@
     },
     computed: {
       articleLink() {
-        return '/blog/' + this.article.id
+        return this.localePath('/blog/' + this.article.id)
       },
       authorProfile() {
-        return '/members/' + this.article.author.id
+        return this.localePath('/members/' + this.article.author.id)
       },
     }
   }

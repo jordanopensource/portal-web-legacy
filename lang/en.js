@@ -124,15 +124,8 @@ export default {
     download: 'Download'
   },
   // Blog
-  blogCats: {
-    title: {
-      press_releases: 'Latest from JOSA',
-      community: 'From our Writers'
-    },
-    menu: {
-      press_releases: 'Press Releases',
-      community: 'From JOSA Writers'
-    }
+  blog: {
+    all: 'All Posts'
   },
   // Time Card
   timeCard: {

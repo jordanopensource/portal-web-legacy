@@ -41,7 +41,7 @@
     },
     computed: {
       articleLink() {
-        return '/blog/' + this.article.id
+        return this.localePath('/blog/' + this.article.id)
       },
     }
   }

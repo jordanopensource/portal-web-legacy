@@ -1,4 +1,8 @@
 export default {
+  // Blog
+  blog: {
+    all: 'جميع المقالات'
+  },
   // Time Card
   timeCard: {
     title: 'التاريخ والوقت',

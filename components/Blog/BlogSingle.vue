@@ -66,7 +66,7 @@
     },
     computed: {
       authorProfile() {
-        return '/members/' + this.article.author.id
+        return this.localePath('/members/' + this.article.author.id)
       },
     },
     methods: {
