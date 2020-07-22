@@ -20,7 +20,7 @@
         <span class="mr-12">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</span>
         <span>
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />{{ $t('publication.publishDate') }}
-          {{ publication.publishDate | fullDate }}</span>
+          {{ publication.publishDate | fullDate($i18n.locale) }}</span>
 
       </div>
 

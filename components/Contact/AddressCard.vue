@@ -8,9 +8,9 @@
         <div class="mb-6 w-full sm:pr-12 md:pr-20 lg:pr-32">
           <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
           <div class="pl-8">
-            <p>{{ info.address.addressOne }}</p>
-            <p>{{ info.address.addressTwo }}</p>
-            <p class="mt-4">{{ info.address.street }}, {{ info.address.city }}</p>
+            <p>{{ info.address['addressOne_' + $i18n.locale] }}</p>
+            <p>{{ info.address['addressTwo_' + $i18n.locale] }}</p>
+            <p class="mt-4">{{ info.address['street_' + $i18n.locale] }}, {{ info.address['city_' + $i18n.locale] }}</p>
           </div>
         </div>
 
@@ -20,8 +20,8 @@
             <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
             <div class="pl-8">
               <p class="font-bold">{{ $t('contact.workingHours') }}:</p>
-              <p>{{ info.workingDays }}</p>
-              <p>{{ info.workingHours }}</p>
+              <p>{{ info.workingTime.from | day($i18n.locale) }} - {{ info.workingTime.to | day($i18n.locale) }}</p>
+              <p>{{ $t('timeCard.from') }} {{ info.workingTime.from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ info.workingTime.to | time($i18n.locale) }}</p>
             </div>
           </div>
 
@@ -29,7 +29,7 @@
             <font-awesome-icon class="icon" :icon="['fas', 'phone-alt']" />
             <span>
               <span class="font-bold">{{ $t('contact.voice') }}:</span>
-              <span>+{{ info.phone }}</span>
+              <span>{{ info.phone }}</span>
             </span>
           </div>
 
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import moment from 'moment';
   export default {
     props: {
       info: {

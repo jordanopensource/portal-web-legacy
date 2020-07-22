@@ -9,9 +9,9 @@
       <div class="container">
         <div class="px-12 flex flex-col sm:flex-row">
           <span :class="activeCat == 'all' ? 'active': ''" class="cat-link"
-            @click="setActiveCat('all')">{{ $t('eventCats.menu.all') }}</span>
+            @click="setActiveCat('all')">{{ $t('eventCats.all') }}</span>
           <span :class="activeCat == cat.name ? 'active': ''" class="cat-link" v-for="cat in eventCategories"
-            :key="cat.id" @click="setActiveCat(cat.name)">{{ $t('eventCats.menu.' + cat.name) }}</span>
+            :key="cat.id" @click="setActiveCat(cat.name)">{{ cat['title_' + $i18n.locale] }}</span>
         </div>
       </div>
     </div>
@@ -41,12 +41,15 @@
       }
     },
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.title,
+        title: this.eventMeta['title_'+ this.$i18n.locale],
         meta: [{
-          hid: 'events',
-          name: 'events'
-        }]
+            hid: 'events',
+            name: 'events'
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     layout: "general",

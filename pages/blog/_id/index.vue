@@ -20,12 +20,15 @@
       BlogSingle
     },
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
         title: this.pageTitle,
         meta: [{
-          hid: 'blog',
-          name: 'Blog'
-        }]
+            hid: 'blog',
+            name: 'Blog'
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     computed: {

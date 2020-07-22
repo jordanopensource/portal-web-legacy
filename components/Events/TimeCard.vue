@@ -3,8 +3,8 @@
     <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
     <div>
       <p class="font-bold leading-none">{{ $t('timeCard.title') }}</p>
-      <p>{{ from | dayFullDate }}</p>
-      <p>{{ $t('timeCard.from') }} {{ from | time }} {{ $t('timeCard.to') }} {{ to | time }}</p>
+      <p>{{ from | dayFullDate($i18n.locale) }}</p>
+      <p>{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }}</p>
     </div>
   </div>
 </template>

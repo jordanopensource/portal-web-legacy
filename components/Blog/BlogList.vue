@@ -1,6 +1,6 @@
 <!-- Fetch and list blog articles based on blog categories-->
 <template>
-  <section>
+  <section v-if="ifNotEmpty()">
     <div v-if="featured">
       <articleFeatured v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
     </div>
@@ -42,7 +42,11 @@
       featured: {
         type: Boolean,
         default: false
-      }
+      },
+      language: {
+        type: String,
+        required: true
+      },
     },
     created() {
       this.fetchArticles()
@@ -67,6 +71,10 @@
           let q = "tags_contains=featured"
           args.push(q)
         }
+        if (this.language) {
+          let q = "language=" + this.language;
+          args.push(q)
+        }
         query = args.join("&")
         return query
       },
@@ -84,8 +92,14 @@
             this.loadedArticles = articlesArray
           })
           .catch(e => this.context.error(e));
+      },
+      ifNotEmpty() {
+        if (Array.isArray(this.loadedArticles) && this.loadedArticles.length)
+          return true;
+        else
+          return false;
       }
-    }
+    },
   }
 
 </script>

@@ -111,6 +111,10 @@ export default {
       'markdown-it-attrs'
     ]
   },
+  moment: {
+    defaultLocale: 'en',
+    locales: ['ar']
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

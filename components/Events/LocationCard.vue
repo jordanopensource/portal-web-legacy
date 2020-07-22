@@ -6,9 +6,10 @@
       <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
       <div>
         <p class="font-bold leading-none">{{ $t('locationCard.title') }}</p>
-        <p v-if="address.addressOne">{{ address.addressOne }}</p>
-        <p v-if="address.addressTwo" class="pt-1">{{ address.addressTwo }}</p>
-        <p v-if="address.street" class="pt-2">{{ address.street }}<span v-if="address.city">, {{ address.city }}</span></p>
+        <p v-if="address['addressOne_' + $i18n.locale]">{{ address['addressOne_' + $i18n.locale] }}</p>
+        <p v-else>{{ address['addressOne_en'] }}</p>
+        <p v-if="address['addressTwo_' + $i18n.locale]" class="pt-1">{{ address['addressTwo_' + $i18n.locale] }}</p>
+        <p v-if="address['street_' + $i18n.locale]" class="pt-2">{{ address['street_' + $i18n.locale] }}<span v-if="address['city_' + $i18n.locale]">, {{ address['city_' + $i18n.locale] }}</span><span v-else>, {{ address['city_en'] }}</span></p>
       </div>
     </div>
   </div>

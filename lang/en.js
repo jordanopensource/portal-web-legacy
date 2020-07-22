@@ -124,15 +124,8 @@ export default {
     download: 'Download'
   },
   // Blog
-  blogCats: {
-    title: {
-      press_releases: 'Latest from JOSA',
-      community: 'From our Writers'
-    },
-    menu: {
-      press_releases: 'Press Releases',
-      community: 'From JOSA Writers'
-    }
+  blog: {
+    all: 'All Posts'
   },
   // Time Card
   timeCard: {
@@ -140,22 +133,13 @@ export default {
     from: 'From',
     to: 'To'
   },
+  // Location Card
   locationCard: {
     title: 'Location'
   },
   // Event
   eventCats: {
-    title: {
-      techtalks: 'JOSA TechTalks',
-      workshops: 'Workshops',
-      meetups: 'Community Meetups'
-    },
-    menu: {
-      all: 'All Events',
-      techtalks: 'JOSA TechTalks',
-      workshops: 'Workshops',
-      meetups: 'Community Meetups'
-    }
+    all: 'All Events',
   },
   // Contact Us
   contact: {
@@ -167,7 +151,14 @@ export default {
   feedback: {
     title: 'Feedback and Inquiries',
     description: 'Whoever you are, whether you are happy or unhappy about any aspect of our activity or work, we value you feedback.',
-    fillForm: 'If you have a comment or complaint, please fill in our online feedback form below.'
+    fillForm: 'If you have a comment or complaint, please fill in our online feedback form below.',
+    form: {
+      subject: 'What is your feedback or inquiry about?',
+      inquiry: 'Please describe it in details.',
+      name: 'Your Name',
+      email: 'Your Email',
+      submit: 'Submit'
+    }
   },
   // Publications
   publication: {
@@ -188,5 +179,7 @@ export default {
   auth: {
     login: "Login",
     logout: "Logout"
-  }
+  },
+  // Speakers
+  speakers: 'Speakers'
 }

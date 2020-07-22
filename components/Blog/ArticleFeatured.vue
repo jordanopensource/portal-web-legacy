@@ -17,7 +17,7 @@
             <nuxt-link :to="authorProfile">
               <p class="font-bold">{{ article.author.fullName }}</p>
             </nuxt-link>
-            <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate }}</div>
+            <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate($i18n.locale) }}</div>
           </div>
         </div>
 
@@ -45,10 +45,10 @@
     },
     computed: {
       articleLink() {
-        return '/blog/' + this.article.id
+        return this.localePath('/blog/' + this.article.id)
       },
       authorProfile() {
-        return '/members/' + this.article.author.id
+        return this.localePath('/members/' + this.article.author.id)
       },
     }
   }

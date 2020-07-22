@@ -5,21 +5,21 @@
     <img v-else class="thumbnail" :src="placeholderImage" />
 
     <div ref="content" class="flex-grow">
-      <p class="text-josa-blue text-lg pb-2">{{ event.startDate | dayDate }}</p>
+      <p class="text-josa-blue text-lg pb-2">{{ event.startDate | dayDate($i18n.locale) }}</p>
 
       <nuxt-link :to="eventLink">
-        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ event.name }}</h2>
+        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ event['title_' + $i18n.locale] }}</h2>
       </nuxt-link>
 
       <div class="event-info flex flex-wrap md:flex-no-wrap">
         <span class="mr-4">
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
-          {{ event.startDate | time }} - {{ event.endDate | time }}
+          {{ event.startDate | time($i18n.locale) }} - {{ event.endDate | time($i18n.locale) }}
         </span>
 
         <span>
           <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
-          {{ event.location | truncate(20) }}
+          {{ event.address['addressOne_' + $i18n.locale] }}
         </span>
       </div>
 
@@ -52,7 +52,7 @@
     },
     computed: {
       eventLink() {
-        return '/events/' + this.event.id
+        return this.localePath('/events/' + this.event.id)
       }
     }
   }

@@ -3,7 +3,7 @@
     <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
     <div>
       <p class="font-bold leading-none">{{ $t('publication.publishDate') }}</p>
-      <p>{{ date | fullDate }}</p>
+      <p>{{ date | fullDate($i18n.locale) }}</p>
     </div>
   </div>
 </template>
