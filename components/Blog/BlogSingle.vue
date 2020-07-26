@@ -111,8 +111,16 @@
   }
 
   .body>>>p {
-    @apply text-lg font-normal mb-10 font-merriweather;
+    @apply text-lg font-normal mb-10;
     line-height: 2;
+  }
+
+  [lang="en"] .body>>>p {
+    @apply font-merriweather;
+  }
+
+  [lang="ar"] .body>>>p {
+    @apply font-markazi;
   }
 
   .body>>>h3 {

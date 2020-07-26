@@ -101,8 +101,17 @@
 
 <style scoped>
   #footer {
-    @apply bg-josa-black text-josa-warm-grey-light font-lato;
+    @apply bg-josa-black text-josa-warm-grey-light;
     line-height: 1.6;
+  }
+
+  #footer {
+    @apply font-lato;
+  }
+
+  #footer {
+    @apply font-markazi;
+
   }
 
   .container {

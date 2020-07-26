@@ -13,7 +13,7 @@
       </h3>
 
       <nuxt-link :to="publicationLink">
-        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ publication['title_' + $i18n.locale] }}</h2>
+        <h2 class="mb-4 text-3xl">{{ publication['title_' + $i18n.locale] }}</h2>
       </nuxt-link>
 
       <div class="publication-info flex flex-wrap md:flex-no-wrap">

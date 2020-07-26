@@ -34,7 +34,12 @@ module.exports = {
         'aleoItalic': 'aleo-italic',
         'aleoLightItalic': 'aleo-light-italic',
         'lato': 'lato',
-        'merriweather': 'Merriweather'
+        'merriweather': 'Merriweather',
+        'markazi': 'Markazi Text',
+        'bukra': 'bukra',
+        'bukraLight': 'bukra-light',
+        'bukraBold': 'bukra-Bold',
+        'bukraBoldItalic': 'bukra-Bold-Italic',
       },
       padding: {
         '15px': '15px',
