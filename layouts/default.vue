@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :dir="$dir()">
     <mainHeader />
     <banner />
     <nuxt class="bg-josa-warm-grey-light" />
@@ -30,7 +30,7 @@
       mainHeader,
       banner,
       mainFooter,
-    },
+    }
   }
 
 </script>

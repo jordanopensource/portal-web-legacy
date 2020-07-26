@@ -1,6 +1,6 @@
 <template>
   <div class="download-card">
-    <font-awesome-icon class="icon" :icon="['fas', 'download']" />
+    <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'download']" />
     <div>
       <p class="font-bold leading-none">{{ $t('meta.readTheReport') }}</p>
       <a :href="fileUrl" target="_blank">{{ $t('meta.download') }}</a>
@@ -32,7 +32,7 @@
   }
 
   .icon {
-    @apply text-josa-warm-grey-dark text-2xl mr-3;
+    @apply text-josa-warm-grey-dark text-2xl;
   }
 
   a {

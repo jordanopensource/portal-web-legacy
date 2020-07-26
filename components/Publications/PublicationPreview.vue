@@ -17,7 +17,7 @@
       </nuxt-link>
 
       <div class="publication-info flex flex-wrap md:flex-no-wrap">
-        <span class="mr-12">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</span>
+        <span class="ltr:mr-12 rtl:ml-12">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</span>
         <span>
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />{{ $t('publication.publishDate') }}
           {{ publication.publishDate | fullDate($i18n.locale) }}</span>
@@ -26,7 +26,7 @@
 
       <nuxt-link :to="publicationLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
         {{ $t('meta.readTheReport') }}
-        <font-awesome-icon class="ml-2 align-middle" :icon="['fas', 'long-arrow-alt-right']" />
+        <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
 
     </div>
@@ -54,6 +54,13 @@
     computed: {
       publicationLink() {
         return this.localePath('/publications/' + this.publication.id)
+      },
+      arrowIcon() {
+        if (this.$i18n.locale == "ar") {
+          return 'long-arrow-alt-left'
+        } else {
+          return 'long-arrow-alt-right'
+        }
       }
     }
   }
@@ -61,23 +68,24 @@
 </script>
 
 <style scoped>
-  .preview .thumbnail {
-    @apply w-1/2 object-cover mb-4;
-  }
-
   p {
     @apply leading-golden;
   }
 
   .icon {
-    @apply text-josa-warm-grey-dark mr-2;
+    @apply text-josa-warm-grey-dark;
+  }
+
+  [dir="ltr"] .icon {
+    @apply mr-2;
+  }
+
+  [dir="ltr"] .icon {
+    @apply ml-2;
   }
 
   @screen md {
     .preview .thumbnail {
-      @apply pr-6 mb-0;
-      min-width: 250px;
-      flex-shrink: 0;
       width: 25%;
     }
   }

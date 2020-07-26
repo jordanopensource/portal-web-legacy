@@ -3,7 +3,7 @@
     <locationMap v-if="address.latitude && address.longitude" :latitude="address.latitude" :longitude="address.longitude" :mLongitude="address.markerLongitude"
       :mLatitude="address.markerLatitude" />
     <div class="location-card">
-      <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
+      <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'map-marker-alt']" />
       <div>
         <p class="font-bold leading-none">{{ $t('locationCard.title') }}</p>
         <p v-if="address['addressOne_' + $i18n.locale]">{{ address['addressOne_' + $i18n.locale] }}</p>
@@ -39,7 +39,7 @@
   }
 
   .icon {
-    @apply text-josa-warm-grey-dark text-2xl mr-3;
+    @apply text-josa-warm-grey-dark text-2xl;
   }
 
 </style>

@@ -2,7 +2,7 @@
   <div class="bg-josa-warm-grey-light">
     <div class="container">
       <div class="px-12 p-20 flex flex-wrap md:flex-no-wrap justify-between">
-        <div class="w-full sm:pr-12 md:pr-20 lg:pr-32">
+        <div class="w-full sm:ltr:pr-12 md:ltr:pr-20 lg:ltr:pr-32 sm:rtl:pl-12 md:rtl:pl-20 lg:rtl:pl-32">
           <h4>{{ $t('feedback.title') }}</h4>
           <p>{{ $t('feedback.description') }}</p>
           <p>{{ $t('feedback.fillForm') }}</p>

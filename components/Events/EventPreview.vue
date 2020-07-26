@@ -12,7 +12,7 @@
       </nuxt-link>
 
       <div class="event-info flex flex-wrap md:flex-no-wrap">
-        <span class="mr-4">
+        <span class="ltr:mr-4 rtl:ml-4">
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
           {{ event.startDate | time($i18n.locale) }} - {{ event.endDate | time($i18n.locale) }}
         </span>
@@ -25,7 +25,7 @@
 
       <nuxt-link :to="eventLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
         {{ $t('meta.knowMore') }}
-        <font-awesome-icon class="ml-2 align-middle" :icon="['fas', 'long-arrow-alt-right']" />
+        <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
 
     </div>
@@ -53,6 +53,13 @@
     computed: {
       eventLink() {
         return this.localePath('/events/' + this.event.id)
+      },
+      arrowIcon() {
+        if (this.$i18n.locale == "ar") {
+          return 'long-arrow-alt-left'
+        } else {
+          return 'long-arrow-alt-right'
+        }
       }
     }
   }
@@ -60,26 +67,12 @@
 </script>
 
 <style scoped>
-  .preview .thumbnail {
-    @apply w-full object-cover mb-4;
-  }
-
   p {
     @apply leading-golden;
   }
 
   .icon {
     @apply text-josa-warm-grey-dark;
-  }
-
-  @screen md {
-    .preview .thumbnail {
-      @apply pr-6 mb-0;
-      min-width: 250px;
-      flex-shrink: 0;
-      width: 40%;
-      max-height: 200px;
-    }
   }
 
 </style>

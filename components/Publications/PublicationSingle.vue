@@ -10,14 +10,14 @@
         <h2>{{ publication.title }}</h2>
         <h3 class="mt-2">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</h3>
         <div class="content flex flex-wrap md:flex-no-wrap mt-12">
-          <div class="w-full md:w-3/5 md:mr-8 mb-8">
-            <div v-if="publication['description_' + $i18n.locale]" class="description py-8" v-html="$md.render(publication['description_' + $i18n.locale])"></div>
+          <div class="w-full md:w-3/5 md:ltr:mr-8 rtl:ml-8 mb-8">
+            <div v-if="publication['description_' + $i18n.locale]" class="description pb-8" v-html="$md.render(publication['description_' + $i18n.locale])"></div>
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <publishDateCard class="mb-8" :date="publication.publishDate" />
             <downloadCard class="mb-8" :fileLink="publication.report.url" />
             <appImage v-if="publication.thumbnail" :image="publication.thumbnail" size="large" class="thumbnail" />
-            <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
+            <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <article>
     <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
-    <img v-else class="thumbnail md:mr-6 w-full" :src="placeholderImage" />
+    <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
 
     <div ref="content" class="container content">
       <h2 ref="title">{{ article.title }}</h2>
@@ -108,14 +108,6 @@
 
   .meta {
     @apply flex items-center mb-12 text-sm;
-  }
-
-  .profilePicture {
-    display: inline;
-    width: 50px;
-    max-height: 60px;
-    border-radius: 45%;
-    margin-right: 1rem;
   }
 
   .body>>>p {

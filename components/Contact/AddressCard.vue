@@ -5,9 +5,9 @@
 
       <div class="flex flex-wrap md:flex-no-wrap justify-between">
 
-        <div class="mb-6 w-full sm:pr-12 md:pr-20 lg:pr-32">
+        <div class="mb-6 w-full sm:ltr:pr-12 md:ltr:pr-20 lg:ltr:pr-32 sm:rtl:pl-12 md:rtl:pl-20 lg:rtl:pl-32">
           <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
-          <div class="pl-8">
+          <div class="ltr:pl-8 rtl:pr-8">
             <p>{{ info.address['addressOne_' + $i18n.locale] }}</p>
             <p>{{ info.address['addressTwo_' + $i18n.locale] }}</p>
             <p class="mt-4">{{ info.address['street_' + $i18n.locale] }}, {{ info.address['city_' + $i18n.locale] }}</p>
@@ -18,10 +18,11 @@
 
           <div class="mb-6">
             <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
-            <div class="pl-8">
+            <div class="ltr:pl-8 rtl:pr-8">
               <p class="font-bold">{{ $t('contact.workingHours') }}:</p>
               <p>{{ info.workingTime.from | day($i18n.locale) }} - {{ info.workingTime.to | day($i18n.locale) }}</p>
-              <p>{{ $t('timeCard.from') }} {{ info.workingTime.from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ info.workingTime.to | time($i18n.locale) }}</p>
+              <p>{{ $t('timeCard.from') }} {{ info.workingTime.from | time($i18n.locale) }} {{ $t('timeCard.to') }}
+                {{ info.workingTime.to | time($i18n.locale) }}</p>
             </div>
           </div>
 
@@ -48,7 +49,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+  import moment from 'moment';
   export default {
     props: {
       info: {
@@ -62,7 +63,15 @@ import moment from 'moment';
 
 <style scoped>
   .icon {
-    @apply text-josa-warm-grey-dark text-2xl mr-3 float-left;
+    @apply text-josa-warm-grey-dark text-2xl;
+  }
+
+  [dir="ltr"] .icon {
+    @apply mr-3 float-left;
+  }
+
+  [dir="rtl"] .icon {
+    @apply ml-3 float-right;
   }
 
   p {

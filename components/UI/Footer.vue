@@ -41,7 +41,7 @@
         <ul class="links">
           <li v-for="link in socialMediaLinks" :key="link.id"><a class="whitespace-no-wrap" :href="link.path"
               target="_blank">
-              <font-awesome-icon class="mr-2" :icon="['fab', link.icon ]" />{{ link.id }}</a></li>
+              <font-awesome-icon class="ltr:mr-2 rtl:ml-2" :icon="['fab', link.icon ]" />{{ link.id }}</a></li>
         </ul>
       </section>
     </div>
@@ -55,7 +55,7 @@
           <hr>
         </div>
         <div id="copyright-info" class="">
-          <img class="cc-logo pr-4" src="~/static/logo/cc.svg" alt="cc-logo">
+          <img class="cc-logo ltr:pr-4 rtl:pl-4" src="~/static/logo/cc.svg" alt="cc-logo">
           <p>{{ $t('copyright.info') }}</p>
         </div>
       </div>
@@ -121,13 +121,22 @@
     @apply flex-grow;
   }
 
-  section:first-child {
+  [dir="ltr"] section:first-child {
     @apply pl-0;
   }
 
-  section:last-child {
+  [dir="ltr"] section:last-child {
     @apply pr-0;
   }
+
+  [dir="rtl"] section:first-child {
+    @apply pr-0;
+  }
+
+  [dir="rtl"] section:last-child {
+    @apply pl-0;
+  }
+
 
   h6 {
     @apply uppercase pb-2;

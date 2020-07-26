@@ -45,7 +45,15 @@ input[type="radio"] {
 }
 
 span {
-  @apply text-josa-black block relative h-auto float-left mr-4;
+  @apply text-josa-black block relative h-auto;
+}
+
+[dir="ltr"] span {
+  @apply float-left mr-4;
+}
+
+[dir="rtl"] span {
+  @apply float-right ml-4;
 }
 
 input[type=radio] {
@@ -55,10 +63,16 @@ input[type=radio] {
 
 label {
   @apply block relative cursor-pointer;
-  padding: 4px 0 4px 40px;
-
   z-index: 9;
   -webkit-transition: all 0.25s linear;
+}
+
+[dir="ltr"] label {
+  padding: 4px 0 4px 40px;
+}
+
+[dir="rtl"] label {
+  padding: 4px 40px 4px 0;
 }
 
 span:hover label {
