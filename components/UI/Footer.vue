@@ -41,7 +41,7 @@
         <ul class="links">
           <li v-for="link in socialMediaLinks" :key="link.id"><a class="whitespace-no-wrap" :href="link.path"
               target="_blank">
-              <font-awesome-icon class="mr-2" :icon="['fab', link.icon ]" />{{ link.id }}</a></li>
+              <font-awesome-icon class="ltr:mr-2 rtl:ml-2" :icon="['fab', link.icon ]" />{{ link.id }}</a></li>
         </ul>
       </section>
     </div>

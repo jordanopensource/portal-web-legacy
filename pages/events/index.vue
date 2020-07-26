@@ -43,7 +43,7 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.eventMeta['title_'+ this.$i18n.locale],
+        title: this.eventMeta['title_' + this.$i18n.locale],
         meta: [{
             hid: 'events',
             name: 'events'
@@ -78,16 +78,6 @@
 <style scoped>
   .event-list {
     @apply px-12 mt-20;
-  }
-
-  .cat-link {
-    @apply px-4 py-2 mr-2 my-1 text-white cursor-pointer;
-  }
-
-  .active,
-  .cat-link:hover {
-    @apply rounded-lg;
-    background-color: rgba(229, 229, 229, 0.2);
   }
 
 </style>

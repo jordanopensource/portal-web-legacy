@@ -1,7 +1,7 @@
 <template>
     <div :id="id" class="flex items-start">
-        <img v-if="src == 'fb'" class="block max-w-full mr-4 w-20 h-auto flex-shrink-0" src="@/static/images/icons/fb.svg" alt="icon">
-        <img v-if="src == 'tw'" class="block max-w-full mr-4 w-20 h-auto flex-shrink-0" src="@/static/images/icons/tw.svg" alt="icon">
+        <img v-if="src == 'fb'" class="block max-w-full ltr:mr-4 rtl:ml-4 w-20 h-auto flex-shrink-0" src="@/static/images/icons/fb.svg" alt="icon">
+        <img v-if="src == 'tw'" class="block max-w-full ltr:mr-4 rtl:ml-4 w-20 h-auto flex-shrink-0" src="@/static/images/icons/tw.svg" alt="icon">
         <div class="mb-6 flex-grow">
             <p>{{ text }}</p>
             <img v-if="imageUrl" :src="imageUrl">

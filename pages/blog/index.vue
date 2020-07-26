@@ -88,14 +88,4 @@
     @apply px-12 mt-20;
   }
 
-  .cat-link {
-    @apply px-4 py-2 mr-2 my-1 text-white cursor-pointer;
-  }
-
-  .active,
-  .cat-link:hover {
-    @apply rounded-lg;
-    background-color: rgba(229, 229, 229, 0.2);
-  }
-
 </style>

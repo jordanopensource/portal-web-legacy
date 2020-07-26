@@ -15,7 +15,7 @@
       <p v-else>{{article.body | truncate(200) }}</p>
       <nuxt-link :to="articleLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
         {{ $t('meta.readTheReport') }}
-        <font-awesome-icon class="ml-2 align-middle" :icon="['fas', 'long-arrow-alt-right']" />
+        <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
     </div>
   </div>
@@ -43,27 +43,20 @@
       articleLink() {
         return this.localePath('/blog/' + this.article.id)
       },
+      arrowIcon() {
+        if (this.$i18n.locale == "ar") {
+          return 'long-arrow-alt-left'
+        } else {
+          return 'long-arrow-alt-right'
+        }
+      }
     }
   }
 
 </script>
 
 <style scoped>
-  .preview .thumbnail {
-    @apply w-full object-cover mb-4;
-  }
-
   p {
     @apply leading-golden;
   }
-
-  @screen md {
-    .preview .thumbnail {
-      @apply pr-6 mb-0;
-      min-width: 250px;
-      width: 40%;
-      flex-shrink: 0;
-    }
-  }
-
 </style>

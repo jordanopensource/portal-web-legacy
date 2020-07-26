@@ -4,7 +4,7 @@
     <AppControlInput v-model="form.inquiry" control-type="textarea">{{ $t('feedback.form.inquiry') }}</AppControlInput>
     <AppControlInput v-model="form.name">{{ $t('feedback.form.name') }}</AppControlInput>
     <AppControlInput v-model="form.email" controlType="email">{{ $t('feedback.form.email') }}</AppControlInput>
-    <div class="text-right">
+    <div class="ltr:text-right rtl:text-left">
       <AppButton btn-style="button-flat" type="submit">{{ $t('feedback.form.submit') }}</AppButton>
     </div>
   </form>

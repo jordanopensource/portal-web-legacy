@@ -64,15 +64,8 @@
     @apply flex items-center mb-12 text-sm;
   }
 
-  .profilePicture {
-    display: inline;
-    width: 50px;
-    max-height: 60px;
-    border-radius: 45%;
-    margin-right: 1rem;
-  }
-
   .excerpt {
     @apply font-bold opacity-80 leading-tight;
   }
+
 </style>

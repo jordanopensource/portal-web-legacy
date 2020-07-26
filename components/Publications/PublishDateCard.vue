@@ -1,6 +1,6 @@
 <template>
   <div class="time-card">
-    <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
+    <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'clock']" />
     <div>
       <p class="font-bold leading-none">{{ $t('publication.publishDate') }}</p>
       <p>{{ date | fullDate($i18n.locale) }}</p>
@@ -27,7 +27,7 @@
   }
 
   .icon {
-    @apply text-josa-warm-grey-dark text-2xl mr-3;
+    @apply text-josa-warm-grey-dark text-2xl;
   }
 
 </style>
