@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <nav>
     <!-- Main Menu -->
     <menuItems :menu="mainMenu" menuItemClass="nav-link" class="inline-block" />
@@ -31,11 +31,11 @@
 
 <style scoped>
   .lang {
-    @apply text-sm opacity-50
+    @apply text-sm opacity-50;
   }
 
   .lang.nuxt-link-active {
-    @apply opacity-100
+    @apply opacity-100;
   }
 
 </style>

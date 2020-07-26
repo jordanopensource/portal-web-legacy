@@ -23,7 +23,7 @@
           </button>
         </div>
 
-        <navbar :class="isOpen ? 'block' : 'hidden'" class="w-full lg:block lg:text-right flex-grow mt-4 lg:m-0 " />
+        <navbar :class="isOpen ? 'block' : 'hidden'" class="w-full lg:block lg:ltr:text-right lg:rtl:text-left flex-grow mt-4 lg:m-0 " />
       </div>
     </div>
   </header>
