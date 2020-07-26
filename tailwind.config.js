@@ -56,6 +56,11 @@ module.exports = {
       }
     }
   },
-  variants: {},
-  plugins: []
+  variants: {
+    margin: ['responsive', 'direction'],
+    padding: ['responsive', 'direction'],
+  },
+  plugins: [
+    require('tailwindcss-dir')(),
+  ]
 }

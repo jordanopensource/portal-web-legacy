@@ -42,7 +42,8 @@ export default {
     { src: '~/plugins/datetimepicker' },
     { src: '~/plugins/datetime-filter' },
     { src: '~/plugins/vue2-filters' },
-    { src: '~/plugins/string-to-array' }
+    { src: '~/plugins/string-to-array' },
+    { src: '~/plugins/i18n' }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -50,6 +51,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    'tailwindcss-dir'
   ],
   /*
   ** Nuxt.js modules
@@ -81,13 +83,15 @@ export default {
         code: 'en',
         iso: 'en',
         file: 'en.js',
-        name: 'En'
+        name: 'En',
+        dir: 'ltr'
       },
       {
         code: 'ar',
-        iso: 'ar-jo',
+        iso: 'ar',
         file: 'ar.js',
-        name: 'ع'
+        name: 'ع',
+        dir: 'rtl'
       }
     ],
     defaultLocale: 'en',
@@ -99,7 +103,9 @@ export default {
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected'
-    }
+    },
+    baseUrl: 'https://portal.dev.jordanopensource.org',
+    seo: true
   },
   markdownit: {
     injected: true,

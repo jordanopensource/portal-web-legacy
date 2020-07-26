@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :dir="$dir()">
     <mainHeader />
     <div class="md:px-0 bg-white">
       <nuxt />
