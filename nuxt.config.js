@@ -83,14 +83,14 @@ export default {
         code: 'en',
         iso: 'en',
         file: 'en.js',
-        name: 'En',
+        name: 'English',
         dir: 'ltr'
       },
       {
         code: 'ar',
         iso: 'ar',
         file: 'ar.js',
-        name: 'ع',
+        name: 'العربية',
         dir: 'rtl'
       }
     ],

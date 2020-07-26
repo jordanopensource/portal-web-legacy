@@ -86,7 +86,8 @@ a.active {
   @apply p-2 uppercase block;
 }
 
-.nav-link:last-child {
+
+[dir="ltr"] .nav-link-last {
   @apply pr-0;
 }
 
@@ -102,4 +103,10 @@ a.active {
   max-height: 60px;
   border-radius: 45%;
   margin-right: 1rem;
+}
+
+
+/* RTL */
+[dir="rtl"] .nav-link-last {
+  @apply pl-0;
 }
