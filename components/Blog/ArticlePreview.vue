@@ -13,7 +13,7 @@
       </nuxt-link>
       <p v-if="article.excerpt">{{article.excerpt}}</p>
       <p v-else>{{article.body | truncate(200) }}</p>
-      <nuxt-link :to="articleLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
+      <nuxt-link :to="articleLink" class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
         {{ $t('meta.readTheReport') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>

@@ -23,7 +23,7 @@
         </span>
       </div>
 
-      <nuxt-link :to="eventLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
+      <nuxt-link :to="eventLink" class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
         {{ $t('meta.knowMore') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>

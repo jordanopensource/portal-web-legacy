@@ -5,12 +5,12 @@ body {
   @apply text-josa-black leading-normal;
 }
 
-[lang="en"] body {
-  @apply font-lato;
+[lang="en"] body, .en {
+  @apply font-lato text-base;
 }
 
-[lang="ar"] body {
-  @apply font-markazi;
+[lang="ar"] body, .ar {
+  @apply font-markazi text-xl;
 }
 
 /* H */
@@ -42,7 +42,7 @@ h2 {
 }
 
 [lang="ar"] h2 {
-  @apply font-bukraLight italic;
+  @apply font-bukraLight;
 }
 
 
@@ -65,7 +65,7 @@ h4 {
 }
 
 [lang="ar"] h4 {
-  @apply font-bukraLight italic;
+  @apply font-bukraLight;
 }
 
 /* h5 */

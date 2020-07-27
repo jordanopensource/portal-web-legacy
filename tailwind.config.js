@@ -65,6 +65,7 @@ module.exports = {
     margin: ['responsive', 'direction'],
     padding: ['responsive', 'direction'],
     textAlign: ['responsive', 'direction'],
+    fontSize: ['responsive', 'direction'],
   },
   plugins: [
     require('tailwindcss-dir')(),
