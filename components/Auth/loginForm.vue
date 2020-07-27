@@ -29,7 +29,7 @@
     },
     methods: {
       async postLogin() {
-        await axios.post('http://localhost:1337/auth/local', {
+        await axios.post(process.env.baseUrl + '/auth/local', {
             identifier: this.username,
             password: this.password,
           })
@@ -38,7 +38,7 @@
               accessToken: response.data.jwt
             }
             this.$store.commit('setAuth', auth) // mutating to store for client rendering
-            Cookie.set('auth', auth) // saving token in cookie for server rendering
+            Cookie.set('auth', auth, { sameSite: 'lax', secure: true }) // saving token in cookie for server rendering
             this.$router.push('/')
           })
           .catch(error => {
