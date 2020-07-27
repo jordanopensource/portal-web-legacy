@@ -1,16 +1,21 @@
 <template>
   <div>
-    <Program v-for="program in programs" :key="program.id" :id="program.id" :thumbnail="program.thumbnail"
-      :title="program.title" :subtitle="program.subtitle" :description="program.description" />
+    <programPreview v-for="program in loadedPrograms" :key="program.id" :id="'program-' + program.id" :program="program" />
   </div>
 </template>
 
 <script>
-  import Program from '@/components/Programs/Program';
+  import axios from 'axios';
+  import programPreview from '@/components/Programs/ProgramPreview';
   export default {
     name: 'ProgramsList',
+    data() {
+      return {
+        loadedPrograms: [],
+      }
+    },
     components: {
-      'Program': Program,
+      programPreview
     },
     props: {
       programs: {
@@ -18,6 +23,25 @@
         required: true
       }
     },
+    created() {
+      this.fetchPrograms()
+    },
+    methods: {
+      async fetchPrograms() {
+        await axios
+          .get(process.env.baseUrl + "/programs")
+          .then(res => {
+            const programsArray = []
+            for (const key in res.data) {
+              programsArray.push({
+                ...res.data[key]
+              })
+            }
+            this.loadedPrograms = programsArray
+          })
+          .catch(e => this.context.error(e));
+      }
+    }
   }
 
 </script>

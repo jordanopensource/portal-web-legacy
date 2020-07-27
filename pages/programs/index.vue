@@ -1,0 +1,53 @@
+<template>
+  <div class="programs-page">
+
+    <!-- Banner -->
+    <pageBanner :pageMeta="programsMeta" />
+
+    <!-- Lists -->
+    <div class="container pb-20">
+      <programsList class="programs-list" />
+    </div>
+  </div>
+
+</template>
+
+<script>
+  import axios from 'axios';
+  import pageBanner from "@/components/UI/PageBanner";
+  import programsList from '@/components/Programs/ProgramsList';
+
+  export default {
+    head() {
+      const i18nSeo = this.$nuxtI18nSeo()
+      return {
+        title: this.programsMeta['title_' + this.$i18n.locale],
+        meta: [{
+            hid: 'programs',
+            name: 'Programs'
+          },
+          ...i18nSeo.meta
+        ]
+      }
+    },
+    layout: "general",
+    components: {
+      pageBanner,
+      programsList
+    },
+    async asyncData(context) {
+      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=programs');
+      return {
+        programsMeta: pageMeta.data[0]
+      }
+    }
+  };
+
+</script>
+
+<style scoped>
+  .programs-list {
+    @apply px-12 mt-20;
+  }
+
+</style>
