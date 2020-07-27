@@ -6,20 +6,20 @@
       <nuxt-link :to="articleLink">
         <h2 class="mb-4">{{ article.title }}</h2>
       </nuxt-link>
-      <p v-if="article.excerpt" class="excerpt">{{article.excerpt}}
-        <p v-else class="excerpt">{{article.body | truncate(200) }}</p>
+      <p v-if="article.excerpt" class="excerpt">{{article.excerpt}}</p>
+      <p v-else class="excerpt">{{article.body | truncate(200) }}</p>
 
-        <div class="meta py-6">
+      <div v-if="article.author" class="meta py-6">
+        <nuxt-link :to="authorProfile">
+          <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
+        </nuxt-link>
+        <div>
           <nuxt-link :to="authorProfile">
-            <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
+            <p class="font-bold">{{ article.author.fullName }}</p>
           </nuxt-link>
-          <div>
-            <nuxt-link :to="authorProfile">
-              <p class="font-bold">{{ article.author.fullName }}</p>
-            </nuxt-link>
-            <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate($i18n.locale) }}</div>
-          </div>
+          <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate($i18n.locale) }}</div>
         </div>
+      </div>
 
     </div>
   </div>

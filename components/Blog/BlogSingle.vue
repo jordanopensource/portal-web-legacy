@@ -8,7 +8,7 @@
 
       <p class="josa-who">{{ $t('josa.who') }}</p>
 
-      <div class="meta">
+      <div v-if="article.author" class="meta">
         <nuxt-link :to="authorProfile">
           <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
         </nuxt-link>
@@ -24,7 +24,7 @@
 
       <hr>
 
-      <div class="meta">
+      <div v-if="article.author" class="meta">
         <nuxt-link :to="authorProfile">
           <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
         </nuxt-link>
