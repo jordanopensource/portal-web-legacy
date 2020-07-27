@@ -6,7 +6,7 @@
           <appImage :image="member.profilePicture" size="small" class="w-full" />
           <div class="membership-type">
             <img class="josa-icon ltr:mr-2 rtl:ml-2" src="/logo/favicon.png">
-            <p class="membership-text">{{ member.membershipType | uppercase }}</p>
+            <p class="membership-text ltr:leading-none rtl:leading-tight">{{ member.membershipType | uppercase }}</p>
           </div>
         </section>
         <section>
@@ -112,7 +112,7 @@
   }
 
   .membership-text {
-    @apply font-semibold leading-none text-josa-warm-grey-dark text-sm
+    @apply font-semibold text-josa-warm-grey-dark text-sm
   }
 
   .member-id {}

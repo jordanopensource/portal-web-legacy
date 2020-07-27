@@ -65,7 +65,14 @@
   }
 
   .excerpt {
-    @apply font-bold opacity-80 leading-tight;
+    @apply font-bold opacity-80;
   }
 
+  [lang="en"] .excerpt {
+    @apply leading-tight;
+  }
+
+  [lang="ar"] .excerpt {
+    @apply leading-normal;
+  }
 </style>

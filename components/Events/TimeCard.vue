@@ -2,7 +2,7 @@
   <div class="time-card">
     <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'clock']" />
     <div>
-      <p class="font-bold leading-none">{{ $t('timeCard.title') }}</p>
+      <p class="font-bold ltr:leading-none rtl:leading-tight">{{ $t('timeCard.title') }}</p>
       <p>{{ from | dayFullDate($i18n.locale) }}</p>
       <p>{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }}</p>
     </div>

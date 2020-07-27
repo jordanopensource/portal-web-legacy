@@ -2,7 +2,7 @@
   <div class="download-card">
     <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'download']" />
     <div>
-      <p class="font-bold leading-none">{{ $t('meta.readTheReport') }}</p>
+      <p class="font-bold ltr:leading-none rtl:leading-tight">{{ $t('meta.readTheReport') }}</p>
       <a :href="fileUrl" target="_blank">{{ $t('meta.download') }}</a>
     </div>
   </div>

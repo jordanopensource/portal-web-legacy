@@ -67,8 +67,12 @@
 </script>
 
 <style scoped>
-  p {
+  [lang="en"] p {
     @apply leading-golden;
+  }
+
+  [lang="ar"] p {
+    @apply leading-normal;
   }
 
   .icon {

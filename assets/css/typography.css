@@ -2,15 +2,15 @@
 
 /* Body */
 body {
-  @apply text-josa-black leading-normal;
+  @apply text-josa-black;
 }
 
 [lang="en"] body, .en {
-  @apply font-lato text-base;
+  @apply font-lato text-base leading-normal;
 }
 
 [lang="ar"] body, .ar {
-  @apply font-markazi text-xl;
+  @apply font-markazi text-xl leading-normal;
 }
 
 /* H */
@@ -29,16 +29,16 @@ body {
 [lang="ar"] h4,
 [lang="ar"] h5,
 [lang="ar"] h6 {
-  @apply font-bukraLight leading-tight;
+  @apply font-bukraLight leading-snug;
 }
 
 /* h2 */
 h2 {
-  @apply font-medium text-4xl mb-2 leading-golden;
+  @apply font-medium text-4xl mb-2;
 }
 
 [lang="en"] h2 {
-  @apply font-aleoLightItalic;
+  @apply font-aleoLightItalic leading-golden;
 }
 
 [lang="ar"] h2 {
@@ -57,11 +57,11 @@ h2 {
 
 /* h4 */
 h4 {
-  @apply font-aleoLightItalic font-medium text-5xl mb-2 leading-none;
+  @apply font-aleoLightItalic font-medium text-5xl mb-2;
 }
 
 [lang="en"] h4 {
-  @apply font-aleoLightItalic;
+  @apply font-aleoLightItalic leading-none;
 }
 
 [lang="ar"] h4 {
