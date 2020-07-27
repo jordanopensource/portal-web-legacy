@@ -66,12 +66,22 @@
     },
     computed: {
       titles() {
-        return this.$options.filters.stringToArray(this.member.titles)
+        try {
+          const titles = this.$options.filters.stringToArray(this.member.titles)
+          return titles
+        } catch {
+          return []
+        }
       },
       interests() {
-        return this.$options.filters.stringToArray(this.member.interests)
+        try {
+          const interests = this.$options.filters.stringToArray(this.member.interests)
+          return interests
+        } catch {
+          return []
+        }
       }
-    }
+    },
   };
 
 </script>
