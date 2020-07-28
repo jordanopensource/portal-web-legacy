@@ -105,15 +105,6 @@
     line-height: 1.6;
   }
 
-  #footer {
-    @apply font-lato;
-  }
-
-  #footer {
-    @apply font-markazi;
-
-  }
-
   .container {
     @apply px-12 py-24 !important;
   }

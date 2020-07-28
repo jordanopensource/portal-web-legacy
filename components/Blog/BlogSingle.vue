@@ -128,7 +128,7 @@
   }
 
   [lang="ar"] .body>>>p {
-    @apply text-xl font-markazi;
+    @apply text-lg font-almarai;
   }
 
   .body>>>h3 {

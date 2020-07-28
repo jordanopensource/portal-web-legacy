@@ -40,6 +40,7 @@ module.exports = {
         'bukraLight': 'bukra-light',
         'bukraBold': 'bukra-Bold',
         'bukraBoldItalic': 'bukra-Bold-Italic',
+        'almarai': 'Almarai'
       },
       padding: {
         '15px': '15px',
