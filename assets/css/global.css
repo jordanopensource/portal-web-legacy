@@ -197,3 +197,7 @@ a.active {
 }
 
 /*****/
+
+.closed {
+  @apply uppercase bg-red-700 text-white px-2 py-1 text-sm rounded-lg text-center inline-block leading-none
+}
