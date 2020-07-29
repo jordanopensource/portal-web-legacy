@@ -5,35 +5,31 @@ The main JOSA portal client written with NUXT.js.
 ## Endpoints
 
 ### Production
-* [jordanopensource.org/](https://www.jordanopensource.org)
+* [jordanopensource.org](https://jordanopensource.org)
 
 ### Development
 
 * [portal.dev.jordanopensource.org](https://portal.dev.jordanopensource.org)
 
 
-## Building Locally
+## Running Locally
 
-OS X & Linux:
+1. Install Node - at least `v8.9.0` - we recommend you have the latest version installed.
 
-```sh
-npm install my-crazy-module --save
-```
-
-Windows:
+2. Run `npm install` to install project dependencies.
 
 ```sh
-edit autoexec.bat
+cd josa-portal-web/
+npm install
 ```
 
-## Development setup
+3. Run `npm run dev` to start the development server.
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+## Building for production
 
-```sh
-make install
-npm test
-```
+
+1. Run `npm run build` to generate a `production` build in the `.nuxt` directory.
+
 
 ## Release History
 
@@ -43,15 +39,15 @@ npm test
 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+Jordan Open Source Association – [@jo_osa](https://twitter.com/jo_osa)
 
 Distributed under the XYZ license. See ``LICENSE`` for more information.
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[https://github.com/jordanopensource/](https://github.com/jordanopensource/)
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork it (<https://github.com/jordanopensource/josa-portal-web/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
