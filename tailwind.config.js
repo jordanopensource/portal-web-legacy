@@ -34,7 +34,13 @@ module.exports = {
         'aleoItalic': 'aleo-italic',
         'aleoLightItalic': 'aleo-light-italic',
         'lato': 'lato',
-        'merriweather': 'Merriweather'
+        'merriweather': 'Merriweather',
+        'markazi': 'Markazi Text',
+        'bukra': 'bukra',
+        'bukraLight': 'bukra-light',
+        'bukraBold': 'bukra-Bold',
+        'bukraBoldItalic': 'bukra-Bold-Italic',
+        'almarai': 'Almarai'
       },
       padding: {
         '15px': '15px',
@@ -60,6 +66,8 @@ module.exports = {
     margin: ['responsive', 'direction'],
     padding: ['responsive', 'direction'],
     textAlign: ['responsive', 'direction'],
+    fontSize: ['responsive', 'direction'],
+    lineHeight: ['responsive', 'direction'],
   },
   plugins: [
     require('tailwindcss-dir')(),

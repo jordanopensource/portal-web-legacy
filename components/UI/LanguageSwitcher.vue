@@ -1,7 +1,7 @@
 <template>
   <span>
     <nuxt-link v-for="locale in locales" :key="locale.code" :to="switchLocalePath(locale.code)"
-      class="nav-link lang nav-link-last">{{ locale.name }}</nuxt-link>
+      class="nav-link lang nav-link-last" :class="locale.code">{{ locale.name }}</nuxt-link>
   </span>
 </template>
 

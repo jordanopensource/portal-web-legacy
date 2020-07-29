@@ -29,7 +29,7 @@
           <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
         </nuxt-link>
         <div class="opacity-90">
-          <p class="text-xs uppercase">{{ $t('meta.writtenBy')}}</p>
+          <p class="ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.writtenBy')}}</p>
           <nuxt-link :to="authorProfile">
             <h3 class="font-bold">{{ article.author.fullName }}</h3>
           </nuxt-link>
@@ -107,12 +107,28 @@
   }
 
   .meta {
-    @apply flex items-center mb-12 text-sm;
+    @apply flex items-center mb-12;
+  }
+
+  [lang="en"] .meta {
+    @apply text-sm;
+  }
+
+  [lang="ar"] .meta {
+    @apply text-base;
   }
 
   .body>>>p {
-    @apply text-lg font-normal mb-10 font-merriweather;
+    @apply  font-normal mb-10;
     line-height: 2;
+  }
+
+  [lang="en"] .body>>>p {
+    @apply text-lg font-merriweather;
+  }
+
+  [lang="ar"] .body>>>p {
+    @apply text-lg font-almarai;
   }
 
   .body>>>h3 {

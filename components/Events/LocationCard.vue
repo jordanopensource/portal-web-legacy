@@ -5,7 +5,7 @@
     <div class="location-card">
       <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'map-marker-alt']" />
       <div>
-        <p class="font-bold leading-none">{{ $t('locationCard.title') }}</p>
+        <p class="font-bold ltr:leading-none rtl:leading-tight">{{ $t('locationCard.title') }}</p>
         <p v-if="address['addressOne_' + $i18n.locale]">{{ address['addressOne_' + $i18n.locale] }}</p>
         <p v-else>{{ address['addressOne_en'] }}</p>
         <p v-if="address['addressTwo_' + $i18n.locale]" class="pt-1">{{ address['addressTwo_' + $i18n.locale] }}</p>

@@ -8,7 +8,7 @@
       <p class="text-josa-blue text-lg pb-2">{{ event.startDate | dayDate($i18n.locale) }}</p>
 
       <nuxt-link :to="eventLink">
-        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ event['title_' + $i18n.locale] }}</h2>
+        <h2 class="mb-4 text-3xl">{{ event['title_' + $i18n.locale] }}</h2>
       </nuxt-link>
 
       <div class="event-info flex flex-wrap md:flex-no-wrap">
@@ -23,7 +23,7 @@
         </span>
       </div>
 
-      <nuxt-link :to="eventLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
+      <nuxt-link :to="eventLink" class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
         {{ $t('meta.knowMore') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
@@ -67,8 +67,12 @@
 </script>
 
 <style scoped>
-  p {
+  [lang="en"] p {
     @apply leading-golden;
+  }
+
+  [lang="ar"] p {
+    @apply leading-normal;
   }
 
   .icon {

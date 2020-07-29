@@ -3,8 +3,8 @@
   <input required type="email" id="email" placeholder="Email" v-model.lazy.trim="email">
 
   <div id="select-language" class="block mb-8">
-    <radioButton id="english" value="English" label="English" v-model="language" />
-    <radioButton id="arabic" value="Arabic" label="العربية" v-model="language" />
+    <radioButton id="english" value="English" label="English" v-model="language" class="en" />
+    <radioButton id="arabic" value="Arabic" label="العربية" v-model="language" class="ar" />
   </div>
 
   <div class="flex justify-between flex-wrap">

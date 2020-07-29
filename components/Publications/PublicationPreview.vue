@@ -13,7 +13,7 @@
       </h3>
 
       <nuxt-link :to="publicationLink">
-        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ publication['title_' + $i18n.locale] }}</h2>
+        <h2 class="mb-4 text-3xl">{{ publication['title_' + $i18n.locale] }}</h2>
       </nuxt-link>
 
       <div class="publication-info flex flex-wrap md:flex-no-wrap">
@@ -24,7 +24,8 @@
 
       </div>
 
-      <nuxt-link :to="publicationLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
+      <nuxt-link :to="publicationLink"
+        class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
         {{ $t('meta.readTheReport') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
@@ -68,8 +69,12 @@
 </script>
 
 <style scoped>
-  p {
+  [lang="en"] p {
     @apply leading-golden;
+  }
+
+  [lang="ar"] p {
+    @apply leading-normal;
   }
 
   .icon {
