@@ -121,7 +121,8 @@ export default {
     readTheReport: 'Read the Report',
     knowMore: 'Know More',
     by: 'By',
-    download: 'Download'
+    download: 'Download',
+    closed: 'closed'
   },
   // Blog
   blog: {
@@ -181,5 +182,12 @@ export default {
     logout: "Logout"
   },
   // Speakers
-  speakers: 'Speakers'
+  speakers: 'Speakers',
+  // Careers
+  careers: {
+    all: 'All Jobs',
+    publishDate: 'Publish Date',
+    type: 'Type',
+    team: 'Team'
+  },
 }
