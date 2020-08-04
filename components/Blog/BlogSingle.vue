@@ -6,7 +6,7 @@
     <div ref="content" class="container content">
       <h2 ref="title">{{ article.title }}</h2>
 
-      <p class="josa-who">{{ $t('josa.who') }}</p>
+      <p v-if="article.excerpt" class="excerpt">{{ article.excerpt }}</p>
 
       <div v-if="article.author" class="meta">
         <nuxt-link :to="authorProfile">
@@ -101,7 +101,7 @@
     max-width: 766px;
   }
 
-  .josa-who {
+  .excerpt {
     opacity: 0.9;
     @apply font-bold my-8;
   }
