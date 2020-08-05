@@ -153,20 +153,20 @@ a.active {
 
 
 /* Preview Image */
-.preview .thumbnail {
+.preview .thumbnail, .preview .thumbnail img {
   @apply w-full object-cover mb-4;
   height: 200px;
   object-position: 50% 50%;
 }
 
 @screen md {
-  .preview .thumbnail {
+  .preview .thumbnail, .preview .thumbnail img {
     height: 250px;
   }
 }
 
 @screen lg {
-  .preview .thumbnail {
+  .preview .thumbnail, .preview .thumbnail img {
     @apply mb-0;
     flex-shrink: 0;
     height: 250px;
