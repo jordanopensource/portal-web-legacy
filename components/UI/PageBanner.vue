@@ -7,7 +7,7 @@
           <h4 class="font-aleoLightItalic mb-16">{{ pageMeta['title_' + $i18n.locale] | capitalize }}</h4>
           <p class="ltr:leading-none rtl:leading-tight">{{ pageMeta['description_' + $i18n.locale] }}</p>
         </div>
-        <appImage :image="pageMeta.image" class="bot mx-auto sm:mx-0 mt-12 sm:mt-0" />
+        <appImage :image="pageMeta.image" class="bot mx-auto sm:mx-0 mt-12 sm:mt-0 md:ltr:pl-8 md:rtl:pr-8 md:py-8" />
       </div>
     </div>
   </div>
