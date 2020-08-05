@@ -1,9 +1,9 @@
 <template>
-  <div class="preview my-8 flex flex-wrap md:flex-no-wrap">
+  <div class="preview my-8 flex flex-wrap lg:flex-no-wrap">
     <appImage v-if="article.thumbnail" class="thumbnail" :image="article.thumbnail" size="medium" />
     <img v-else class="thumbnail" :src="placeholderImage" />
     <div class="flex-grow">
-      <h3 class="uppercase py-2 md:pt-0 text-sm">
+      <h3 class="uppercase py-2 lg:pt-0 text-sm">
         <span v-for="(topic, index) in article.topics" :key="topic.id">
           {{ topic['title_' + $i18n.locale] }}{{ index != Object.keys(article.topics).length - 1 ? ', ' : ''}}
         </span>

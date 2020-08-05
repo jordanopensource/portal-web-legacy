@@ -27,6 +27,7 @@ body {
 [dir="rtl"] .title::before {
   right: 0;
 }
+
 /*****/
 
 .card {
@@ -154,14 +155,22 @@ a.active {
 /* Preview Image */
 .preview .thumbnail {
   @apply w-full object-cover mb-4;
+  height: 200px;
+  object-position: 50% 50%;
 }
 
 @screen md {
   .preview .thumbnail {
+    height: 250px;
+  }
+}
+
+@screen lg {
+  .preview .thumbnail {
     @apply mb-0;
-    min-width: 250px;
-    width: 40%;
     flex-shrink: 0;
+    height: 250px;
+    width: 400px;
   }
 
   [dir="ltr"] .preview .thumbnail {
@@ -170,6 +179,23 @@ a.active {
 
   [dir="rtl"] .preview .thumbnail {
     @apply pl-6;
+  }
+}
+
+.featured .thumbnail {
+  @apply w-full object-cover mb-4;
+  object-position: 50% 50%;
+  height: 200px;
+}
+
+@screen md {
+  .featured .thumbnail {
+    height: 300px;
+  }
+}
+@screen lg {
+  .featured .thumbnail {
+    height: 450px;
   }
 }
 

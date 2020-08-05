@@ -9,33 +9,21 @@
       <p v-if="article.excerpt" class="excerpt">{{ article.excerpt }}</p>
 
       <div v-if="article.author" class="meta">
-        <nuxt-link :to="authorProfile">
-          <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
-        </nuxt-link>
+        <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
         <div>
-          <nuxt-link :to="authorProfile">
-            <p class="font-bold">{{ article.author.fullName }}</p>
-          </nuxt-link>
+          <p class="font-bold">{{ article.author.fullName }}</p>
           <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate($i18n.locale) }}</div>
         </div>
       </div>
-
       <div class="body" v-html="$md.render(article.body)"></div>
-
       <hr>
-
       <div v-if="article.author" class="meta">
-        <nuxt-link :to="authorProfile">
-          <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
-        </nuxt-link>
+        <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
         <div class="opacity-90">
           <p class="ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.writtenBy')}}</p>
-          <nuxt-link :to="authorProfile">
-            <h3 class="font-bold">{{ article.author.fullName }}</h3>
-          </nuxt-link>
+          <h3 class="font-bold">{{ article.author.fullName }}</h3>
         </div>
       </div>
-
     </div>
   </article>
 </template>
@@ -119,7 +107,7 @@
   }
 
   .body>>>p {
-    @apply  font-normal mb-10;
+    @apply font-normal mb-10;
     line-height: 2;
   }
 
