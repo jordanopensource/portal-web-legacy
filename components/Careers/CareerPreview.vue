@@ -14,7 +14,7 @@
         <span class="ltr:mr-4 rtl:ml-4">
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
           {{ career['period_' + $i18n.locale] }}
-          </span>
+        </span>
 
         <span>
           <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
@@ -51,7 +51,9 @@
     },
     computed: {
       careerLink() {
-        return this.localePath('/careers/' + this.career.id)
+        const title = this.career['title_' + this.$i18n.locale]
+        const slug = this.$options.filters.stringToSlug(title)
+        return this.localePath('/careers/' + this.career.id + '/' + slug)
       },
       arrowIcon() {
         if (this.$i18n.locale == "ar") {

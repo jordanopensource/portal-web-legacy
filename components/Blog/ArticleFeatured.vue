@@ -45,7 +45,8 @@
     },
     computed: {
       articleLink() {
-        return this.localePath('/blog/' + this.article.id)
+        const slug = this.$options.filters.stringToSlug(this.article.title)
+        return this.localePath('/blog/' + this.article.id + '/' + slug)
       },
       authorProfile() {
         return this.localePath('/members/' + this.article.author.id)

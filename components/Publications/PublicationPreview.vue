@@ -54,7 +54,9 @@
     },
     computed: {
       publicationLink() {
-        return this.localePath('/publications/' + this.publication.id)
+        const title = this.publication['title_' + this.$i18n.locale]
+        const slug = this.$options.filters.stringToSlug(title)
+        return this.localePath('/publications/' + this.publication.id + '/' + slug)
       },
       arrowIcon() {
         if (this.$i18n.locale == "ar") {

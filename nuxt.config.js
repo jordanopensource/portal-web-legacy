@@ -44,7 +44,7 @@ export default {
     { src: '~/plugins/datetimepicker' },
     { src: '~/plugins/datetime-filter' },
     { src: '~/plugins/vue2-filters' },
-    { src: '~/plugins/string-to-array' },
+    { src: '~/plugins/string-filters' },
     { src: '~/plugins/i18n' }
   ],
   /*

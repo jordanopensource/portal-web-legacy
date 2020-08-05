@@ -42,7 +42,8 @@
     },
     computed: {
       articleLink() {
-        return this.localePath('/blog/' + this.article.id)
+        const slug = this.$options.filters.stringToSlug(this.article.title)
+        return this.localePath('/blog/' + this.article.id + '/' + slug)
       },
       arrowIcon() {
         if (this.$i18n.locale == "ar") {
