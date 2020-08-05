@@ -52,7 +52,9 @@
     },
     computed: {
       eventLink() {
-        return this.localePath('/events/' + this.event.id)
+        const title = this.event['title_' + this.$i18n.locale]
+        const slug = this.$options.filters.stringToSlug(title)
+        return this.localePath('/events/' + this.event.id + '/' + slug)
       },
       arrowIcon() {
         if (this.$i18n.locale == "ar") {
