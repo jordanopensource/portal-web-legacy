@@ -1,5 +1,5 @@
 <template>
-  <div class="preview my-8 flex flex-wrap md:flex-no-wrap">
+  <div class="preview my-8 flex flex-wrap lg:flex-no-wrap">
 
     <appImage v-if="event.thumbnail" class="thumbnail" :image="event.thumbnail" size="medium" />
     <img v-else class="thumbnail" :src="placeholderImage" />
@@ -11,7 +11,7 @@
         <h2 class="mb-4 text-3xl">{{ event['title_' + $i18n.locale] }}</h2>
       </nuxt-link>
 
-      <div class="event-info flex flex-wrap md:flex-no-wrap">
+      <div class="event-info flex flex-wrap lg:flex-no-wrap">
         <span class="ltr:mr-4 rtl:ml-4">
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
           {{ event.startDate | time($i18n.locale) }} - {{ event.endDate | time($i18n.locale) }}

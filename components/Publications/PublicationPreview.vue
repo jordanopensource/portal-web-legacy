@@ -1,8 +1,9 @@
 <template>
   <div class="preview my-8 flex flex-wrap md:flex-no-wrap">
 
-    <appImage v-if="publication.thumbnail" class="thumbnail" :image="publication.thumbnail" size="medium" />
-    <img v-else class="thumbnail" :src="placeholderImage" />
+    <appImage v-if="publication.thumbnail" class="thumbnail hidden md:block" :image="publication.thumbnail"
+      size="medium" />
+    <img v-else class="thumbnail hidden md:block" :src="placeholderImage" />
 
     <div ref="content" class="flex-grow">
 
@@ -91,9 +92,28 @@
     @apply ml-2;
   }
 
+  .preview .thumbnail {
+    object-position: 0 0;
+  }
+
   @screen md {
+    [dir="ltr"] .preview .thumbnail {
+      @apply pr-6;
+    }
+
+    [dir="rtl"] .preview .thumbnail {
+      @apply pl-6;
+    }
+
     .preview .thumbnail {
-      width: 25%;
+      height: 275px;
+    }
+  }
+
+  @screen lg {
+    .preview .thumbnail {
+      height: 100%;
+      width: 250px;
     }
   }
 
