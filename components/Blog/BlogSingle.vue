@@ -116,7 +116,7 @@
   }
 
   [lang="ar"] .body>>>p {
-    @apply text-lg font-almarai;
+    @apply text-2xl font-naskh;
   }
 
   .body>>>h3 {
