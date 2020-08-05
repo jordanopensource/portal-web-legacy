@@ -1,10 +1,9 @@
 <template>
   <div class="preview my-8 flex flex-wrap md:flex-no-wrap">
-
-    <appImage v-if="publication.thumbnail" class="thumbnail hidden md:block" :image="publication.thumbnail"
-      size="medium" />
-    <img v-else class="thumbnail hidden md:block" :src="placeholderImage" />
-
+    <nuxt-link tag="a" :to="publicationLink" class="thumbnail hidden md:block">
+      <appImage v-if="publication.thumbnail" :image="publication.thumbnail" size="medium" />
+      <img v-else :src="placeholderImage" />
+    </nuxt-link>
     <div ref="content" class="flex-grow">
 
       <h3 class="uppercase py-2 md:pt-0 text-sm">
@@ -92,7 +91,7 @@
     @apply ml-2;
   }
 
-  .preview .thumbnail {
+  .preview .thumbnail, .preview .thumbnail img {
     object-position: 0 0;
   }
 
@@ -105,13 +104,13 @@
       @apply pl-6;
     }
 
-    .preview .thumbnail {
+    .preview .thumbnail, .preview .thumbnail img {
       height: 275px;
     }
   }
 
   @screen lg {
-    .preview .thumbnail {
+    .preview .thumbnail, .preview .thumbnail img {
       height: 100%;
       width: 250px;
     }

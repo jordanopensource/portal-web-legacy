@@ -1,9 +1,9 @@
 <template>
   <div class="preview my-8 flex flex-wrap lg:flex-no-wrap">
-
-    <appImage v-if="event.thumbnail" class="thumbnail" :image="event.thumbnail" size="medium" />
-    <img v-else class="thumbnail" :src="placeholderImage" />
-
+    <nuxt-link tag="a" :to="eventLink" class="thumbnail">
+    <appImage v-if="event.thumbnail" :image="event.thumbnail" size="medium" />
+    <img v-else :src="placeholderImage" />
+      </nuxt-link>
     <div ref="content" class="flex-grow">
       <p class="text-josa-blue text-lg pb-2">{{ event.startDate | dayDate($i18n.locale) }}</p>
 

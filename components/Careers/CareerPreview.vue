@@ -1,9 +1,9 @@
 <template>
   <div class="preview my-8 flex flex-wrap lg:flex-no-wrap">
-
-    <appImage v-if="career.thumbnail" class="thumbnail" :image="career.thumbnail" size="medium" />
-    <img v-else class="thumbnail" :src="placeholderImage" />
-
+    <nuxt-link tag="a" :to="careerLink" class="thumbnail">
+      <appImage v-if="career.thumbnail" :image="career.thumbnail" size="medium" />
+      <img v-else :src="placeholderImage" />
+    </nuxt-link>
     <div ref="content" class="flex-grow">
       <p v-if="career.status == false" class="closed">{{ $t('meta.closed') }}</p>
       <nuxt-link :to="careerLink">

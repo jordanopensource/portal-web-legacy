@@ -1,7 +1,9 @@
 <template>
   <div class="preview my-8 flex flex-wrap lg:flex-no-wrap">
-    <appImage v-if="article.thumbnail" class="thumbnail" :image="article.thumbnail" size="medium" />
-    <img v-else class="thumbnail" :src="placeholderImage" />
+    <nuxt-link tag="a" :to="articleLink" class="thumbnail">
+      <appImage v-if="article.thumbnail" :image="article.thumbnail" size="medium" />
+      <img v-else :src="placeholderImage" />
+    </nuxt-link>
     <div class="flex-grow">
       <h3 class="uppercase py-2 lg:pt-0 text-sm">
         <span v-for="(topic, index) in article.topics" :key="topic.id">
