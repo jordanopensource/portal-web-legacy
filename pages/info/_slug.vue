@@ -33,7 +33,7 @@
   export default {
     data() {
       return {
-        activeSection: 'introduction'
+        activeSection: ''
       }
     },
     head() {
@@ -64,7 +64,8 @@
           try {
             res.data[0].id
             return {
-              pageContent: res.data[0]
+              pageContent: res.data[0],
+              activeSection: res.data[0].section[0].sectionId
             }
           } catch {
             error({
