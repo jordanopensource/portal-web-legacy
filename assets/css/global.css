@@ -151,7 +151,6 @@ a.active {
 
 /*****/
 
-
 /* Preview Image */
 .preview .thumbnail, .preview .thumbnail img {
   @apply w-full object-cover mb-4;
