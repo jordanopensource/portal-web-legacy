@@ -122,7 +122,8 @@ export default {
     knowMore: 'Know More',
     by: 'By',
     download: 'Download',
-    closed: 'closed'
+    closed: 'closed',
+    visitWebsite: 'Visit Website'
   },
   // Blog
   blog: {
@@ -190,4 +191,8 @@ export default {
     type: 'Type',
     team: 'Team'
   },
+  // Partners
+  partners: {
+    title: 'Partners and Supporters'
+  }
 }
