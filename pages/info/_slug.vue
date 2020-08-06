@@ -2,8 +2,8 @@
   <div>
     <pageBanner :pageMeta="pageContent" />
 
-    <div class="container">
-      <div class="px-12 py-20 flex flex-wrap md:flex-no-wrap">
+    <div class="container py-20">
+      <div class="px-12 flex flex-wrap md:flex-no-wrap" v-if="ifNotEmpty()">
         <!-- Sections Menu -->
         <ul class="sections-menu md:ltr:pr-12 md:rtl:pl-12 pb-8 md:pb-0 w-full md:w-1/4 flex-shrink-0">
           <li v-for="section in pageContent.section" :key="section.sectionId"
@@ -15,7 +15,8 @@
         </ul>
         <!-- Section Content -->
         <template v-for="section in pageContent.section">
-          <div :key="section.sectionId" v-if="activeSection == section.sectionId" class="section-content flex-grow md:h-half-screen overflow-auto">
+          <div :key="section.sectionId" v-if="activeSection == section.sectionId"
+            class="section-content flex-grow md:h-half-screen overflow-auto">
             <span v-if="section['description_' + $i18n.locale]"
               v-html="$md.render(section['description_' + $i18n.locale])"></span>
             <span v-else></span>
@@ -31,11 +32,6 @@
   import axios from 'axios';
   import pageBanner from "~/components/UI/PageBanner";
   export default {
-    data() {
-      return {
-        activeSection: ''
-      }
-    },
     head() {
       return {
         title: this.pageContent['title_' + this.$i18n.locale],
@@ -52,7 +48,13 @@
     methods: {
       setActiveSection(section) {
         this.activeSection = section
-      }
+      },
+      ifNotEmpty() {
+        if (Array.isArray(this.pageContent.section) && this.pageContent.section.length)
+          return true;
+        else
+          return false;
+      },
     },
     asyncData({
       params,
@@ -61,14 +63,15 @@
       return axios
         .get(process.env.baseUrl + '/info-pages?pageId=' + params.slug)
         .then(res => {
-          try {
-            res.data[0].id
+          if(res.data[0].id) {
+            const ifSections = (Array.isArray(res.data[0].section) && res.data[0].section.length) ? true : false
+            const activeSec = ifSections ? res.data[0].section[0].sectionId : ''
             return {
               pageContent: res.data[0],
-              activeSection: res.data[0].section[0].sectionId
+              activeSection: activeSec
             }
-          } catch {
-            error({
+          } else {
+            return error({
               statusCode: 404,
               message: 'This page could not be found'
             })
