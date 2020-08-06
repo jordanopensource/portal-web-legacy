@@ -68,6 +68,11 @@ export default {
     knowMore: 'اعرف أكثر',
     by: 'من',
     download: 'تنزيل',
-    closed: 'مغلق'
+    closed: 'مغلق',
+    visitWebsite: 'زيارة الموقع'
   },
+  // Partners
+  partners: {
+    title: 'الشركاء والداعمون'
+  }
 }
