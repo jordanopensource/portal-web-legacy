@@ -3,7 +3,7 @@
     <div class="container">
       <div
         class="flex flex-row justify-between align-middle flex-wrap sm:flex-no-wrap py-20 px-12 bg-josa-warm-grey-light">
-        <div class="my-auto sm:max-w-1/2 lg:max-w-1/4">
+        <div class="my-auto sm:max-w-1/2 lg:max-w-1/3">
           <h4 class="font-aleoLightItalic mb-16">{{ pageMeta['title_' + $i18n.locale] | capitalize }}</h4>
           <p class="ltr:leading-none rtl:leading-tight">{{ pageMeta['description_' + $i18n.locale] }}</p>
         </div>

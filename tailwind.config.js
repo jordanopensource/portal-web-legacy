@@ -60,6 +60,9 @@ module.exports = {
       width: {
         '175': '175px',
         '240': '240px'
+      },
+      height: {
+        'half-screen': '50vh'
       }
     }
   },
