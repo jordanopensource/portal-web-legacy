@@ -2,18 +2,13 @@
   <article>
     <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
     <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
-
     <div ref="content" class="container content">
       <h2 ref="title">{{ article.title }}</h2>
-
+      <div class="text-josa-warm-grey-dark font-bold my-4">{{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
       <p v-if="article.excerpt" class="excerpt">{{ article.excerpt }}</p>
-
       <div v-if="article.author" class="meta">
         <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
-        <div>
-          <p class="font-bold">{{ article.author.fullName }}</p>
-          <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate($i18n.locale) }}</div>
-        </div>
+        <p class="font-bold">{{ article.author.fullName }}</p>
       </div>
       <div class="body" v-html="$md.render(article.body)"></div>
       <hr>
@@ -91,7 +86,7 @@
 
   .excerpt {
     opacity: 0.9;
-    @apply font-bold my-8;
+    @apply font-bold mb-8;
   }
 
   .meta {
