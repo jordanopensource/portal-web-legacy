@@ -18,7 +18,7 @@
   export default {
     data() {
       return {
-        sortBy: 'created_at:DESC',
+        sortBy: 'publishDate:DESC',
         loadedArticles: [],
       }
     },
