@@ -13,7 +13,7 @@
       </h3>
 
       <nuxt-link :to="publicationLink">
-        <h2 class="mb-4 text-3xl">{{ publication['title_' + $i18n.locale] }}</h2>
+        <h2 class="mb-4 text-3xl">{{ publication['title_' + $i18n.locale] ? publication['title_' + $i18n.locale] : publication['title_en'] }}</h2>
       </nuxt-link>
 
       <div class="publication-info flex flex-wrap md:flex-no-wrap">
@@ -54,7 +54,12 @@
     },
     computed: {
       publicationLink() {
-        const title = this.publication['title_' + this.$i18n.locale]
+        var title = ''
+        if (this.publication['title_' + this.$i18n.locale]) {
+          title = this.publication['title_' + this.$i18n.locale]
+        } else {
+          title = this.publication.title_en
+        }
         const slug = this.$options.filters.stringToSlug(title)
         return this.localePath('/publications/' + this.publication.id + '/' + slug)
       },
@@ -91,7 +96,8 @@
     @apply ml-2;
   }
 
-  .preview .thumbnail, .preview .thumbnail img {
+  .preview .thumbnail,
+  .preview .thumbnail img {
     object-position: 0 0;
   }
 
@@ -104,13 +110,16 @@
       @apply pl-6;
     }
 
-    .preview .thumbnail, .preview .thumbnail img {
+    .preview .thumbnail,
+    .preview .thumbnail img {
       height: 275px;
     }
   }
 
   @screen lg {
-    .preview .thumbnail, .preview .thumbnail img {
+
+    .preview .thumbnail,
+    .preview .thumbnail img {
       height: 100%;
       width: 250px;
     }

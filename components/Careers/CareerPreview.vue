@@ -7,7 +7,7 @@
     <div ref="content" class="flex-grow">
       <p v-if="career.status == false" class="closed">{{ $t('meta.closed') }}</p>
       <nuxt-link :to="careerLink">
-        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ career['title_' + $i18n.locale] }}</h2>
+        <h2 class="mb-4 font-aleoLightItalic text-3xl">{{ career['title_' + $i18n.locale] ? career['title_' + $i18n.locale] : career['title_en'] }}</h2>
       </nuxt-link>
 
       <div class="career-info flex flex-wrap lg:flex-no-wrap">
@@ -51,7 +51,12 @@
     },
     computed: {
       careerLink() {
-        const title = this.career['title_' + this.$i18n.locale]
+        var title = ''
+        if (this.career['title_' + this.$i18n.locale]) {
+          title = this.career['title_' + this.$i18n.locale]
+        } else {
+          title = this.career.title_en
+        }
         const slug = this.$options.filters.stringToSlug(title)
         return this.localePath('/careers/' + this.career.id + '/' + slug)
       },

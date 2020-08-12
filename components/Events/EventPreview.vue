@@ -1,14 +1,14 @@
 <template>
   <div class="preview my-8 flex flex-wrap lg:flex-no-wrap">
     <nuxt-link tag="a" :to="eventLink" class="thumbnail">
-    <appImage v-if="event.thumbnail" :image="event.thumbnail" size="medium" />
-    <img v-else :src="placeholderImage" />
-      </nuxt-link>
+      <appImage v-if="event.thumbnail" :image="event.thumbnail" size="medium" />
+      <img v-else :src="placeholderImage" />
+    </nuxt-link>
     <div ref="content" class="flex-grow">
       <p class="text-josa-blue text-lg pb-2">{{ event.startDate | dayDate($i18n.locale) }}</p>
 
       <nuxt-link :to="eventLink">
-        <h2 class="mb-4 text-3xl">{{ event['title_' + $i18n.locale] }}</h2>
+        <h2 class="mb-4 text-3xl">{{ event['title_' + $i18n.locale] ? event['title_' + $i18n.locale] : event['title_en'] }}</h2>
       </nuxt-link>
 
       <div class="event-info flex flex-wrap lg:flex-no-wrap">
@@ -52,7 +52,12 @@
     },
     computed: {
       eventLink() {
-        const title = this.event['title_' + this.$i18n.locale]
+        var title = ''
+        if (this.event['title_' + this.$i18n.locale]) {
+          title = this.event['title_' + this.$i18n.locale]
+        } else {
+          title = this.event.title_en
+        }
         const slug = this.$options.filters.stringToSlug(title)
         return this.localePath('/events/' + this.event.id + '/' + slug)
       },
