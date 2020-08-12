@@ -124,6 +124,7 @@ export default {
     download: 'Download',
     closed: 'closed',
     visitWebsite: 'Visit Website',
+    email: 'Email'
   },
   // Blog
   blog: {
@@ -180,7 +181,9 @@ export default {
   // Auth
   auth: {
     login: "Login",
-    logout: "Logout"
+    logout: "Logout",
+    email: 'Email or username',
+    password: 'Password'
   },
   // Speakers
   speakers: 'Speakers',
@@ -211,5 +214,6 @@ export default {
   pagination: {
     next: 'Next',
     prev: 'Prev'
-  }
+  },
+
 }
