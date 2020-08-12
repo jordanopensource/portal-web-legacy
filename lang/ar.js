@@ -74,5 +74,22 @@ export default {
   // Partners
   partners: {
     title: 'الشركاء والداعمون'
+  },
+  // Members
+  members: {
+    members: 'عضو'
+  },
+  // Sort
+  sort: {
+    sortBy: 'الترتيب حسب',
+    memberSinceACS: 'تاريخ التسجيل: تصاعدي',
+    memberSinceDESC: 'تاريخ التسجيل: تنازلي',
+    fullNameASC: 'الأسم: تصاعدي',
+    fullNameDESC: 'الأسم: تنازلي'
+  },
+  // Pagination
+  pagination: {
+    next: 'التالي',
+    prev: 'السابق'
   }
 }

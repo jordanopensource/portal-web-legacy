@@ -72,6 +72,8 @@ module.exports = {
     textAlign: ['responsive', 'direction'],
     fontSize: ['responsive', 'direction'],
     lineHeight: ['responsive', 'direction'],
+    borderRadius: ['responsive', 'direction'],
+    inset: ['responsive', 'hover', 'focus', 'direction'],
   },
   plugins: [
     require('tailwindcss-dir')(),
