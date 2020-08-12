@@ -47,7 +47,9 @@ export default {
   // Auth
   auth: {
     login: "تسجيل الدخول",
-    logout: "تسجيل الخروج"
+    logout: "تسجيل الخروج",
+    email: 'الايميل او اسم المستخدم',
+    password: 'كلمة المرور'
   },
   // Speakers
   speakers: 'المتحدثين',
@@ -69,7 +71,8 @@ export default {
     by: 'من',
     download: 'تنزيل',
     closed: 'مغلق',
-    visitWebsite: 'زيارة الموقع'
+    visitWebsite: 'زيارة الموقع',
+    email: 'الايميل'
   },
   // Partners
   partners: {
