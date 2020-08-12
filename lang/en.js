@@ -149,7 +149,8 @@ export default {
     address: 'Address',
     workingHours: 'Working Hours',
     voice: 'Voice',
-    email: 'Email'
+    email: 'Email',
+    connect: 'Connect with us'
   },
   feedback: {
     title: 'Feedback and Inquiries',

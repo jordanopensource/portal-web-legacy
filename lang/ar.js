@@ -22,7 +22,8 @@ export default {
     address: 'العنوان',
     workingHours: 'ساعات العمل',
     voice: 'هاتف',
-    email: 'ايميل'
+    email: 'ايميل',
+    connect: 'تواصل معنا'
   },
   feedback: {
     title: 'Feedback and Inquiries',
