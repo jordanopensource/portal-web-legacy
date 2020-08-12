@@ -123,7 +123,7 @@ export default {
     by: 'By',
     download: 'Download',
     closed: 'closed',
-    visitWebsite: 'Visit Website'
+    visitWebsite: 'Visit Website',
   },
   // Blog
   blog: {
@@ -194,5 +194,22 @@ export default {
   // Partners
   partners: {
     title: 'Partners and Supporters'
+  },
+  // Members
+  members: {
+    members: 'Members'
+  },
+  // Sort
+  sort: {
+  sortBy: 'Sort By',
+  memberSinceACS: 'Registration Date: ASC',
+  memberSinceDESC: 'Registration Date: DESC',
+  fullNameASC: 'Name: ACS',
+  fullNameDESC: 'Name: DESC'
+  },
+  // Pagination
+  pagination: {
+    next: 'Next',
+    prev: 'Prev'
   }
 }

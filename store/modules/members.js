@@ -2,36 +2,57 @@
 import axios from 'axios';
 
 const state = {
-    loadedMembers: []
+  loadedMembers: [],
+  membersCount: 1
 };
 
 const getters = {
-    loadedMembers(state) {
-        return (state.loadedMembers)
-    }
+  loadedMembers(state) {
+    return (state.loadedMembers)
+  },
+  membersCount(state) {
+    return (state.membersCount)
+  }
 };
 
 const mutations = {
-    setMembers(state, members) {
-        state.loadedMembers = members
-    }
+  setMembers(state, members) {
+    state.loadedMembers = members
+  },
+  setMembersCount(state, count) {
+    state.membersCount = count
+  }
 };
 
 const actions = {
-    fetchMembers(vuexContext, context) {
-        return axios
-          .get(process.env.baseUrl + "/users")
-          .then(res => {
-            const membersArray = res.data;
-            vuexContext.commit("setMembers", membersArray);
+  async fetchMembers(vuexContext, context) {
+    await axios
+      .get(process.env.baseUrl + "/users?_sort=memberSince:DESC")
+      .then(res => {
+        const membersArray = []
+        for (const key in res.data) {
+          membersArray.push({
+            ...res.data[key]
           })
-          .catch(e => context.error(e));
-      },
+        }
+        vuexContext.commit("setMembers", membersArray);
+      })
+      .catch(e => context.error(e));
+  },
+  async countMembers(vuexContext, context) {
+    await axios
+      .get(process.env.baseUrl + "/users/count")
+      .then(res => {
+        const count = res.data
+        vuexContext.commit("setMembersCount", count);
+      })
+      .catch(e => context.error(e));
+  }
 };
 
 export default {
-    state,
-    mutations,
-    actions,
-    getters
+  state,
+  mutations,
+  actions,
+  getters
 }
