@@ -60,5 +60,7 @@
   [lang="ar"] p {
     @apply leading-normal;
   }
-
+  .preview .thumbnail, .preview .thumbnail img {
+    width: 100%;
+  }
 </style>

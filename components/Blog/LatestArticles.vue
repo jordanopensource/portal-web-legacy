@@ -2,7 +2,7 @@
 <template>
   <div v-if="ifNotEmpty()">
     <h2>{{ title }}</h2>
-    <div class="md:grid md:grid-cols-2 xl:grid-cols-3 col-gap-8 row-gap-0">
+    <div class="md:grid md:grid-cols-2 col-gap-8 row-gap-0">
       <articleLatest v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
     </div>
     <div class="text-center">
