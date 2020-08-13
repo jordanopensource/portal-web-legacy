@@ -16,6 +16,10 @@ export default {
     title: 'الموقع'
   },
   // Event
+  events: {
+    upcoming: 'الفعاليات القادمة',
+    more: 'جميع فعاليتنا'
+  },
   eventCats: {
     all: 'جميع الفعاليات'
   },

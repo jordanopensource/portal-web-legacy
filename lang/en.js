@@ -143,6 +143,10 @@ export default {
     title: 'Location'
   },
   // Event
+  events: {
+    upcoming: 'Upcoming Events',
+    more: 'Our events'
+  },
   eventCats: {
     all: 'All Events',
   },
