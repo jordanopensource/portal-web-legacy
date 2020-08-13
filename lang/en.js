@@ -128,7 +128,9 @@ export default {
   },
   // Blog
   blog: {
-    all: 'All Posts'
+    all: 'All Posts',
+    latest: 'Latest blogposts',
+    more: 'More from our blog'
   },
   // Time Card
   timeCard: {

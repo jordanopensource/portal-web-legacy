@@ -1,7 +1,9 @@
 export default {
   // Blog
   blog: {
-    all: 'جميع المقالات'
+    all: 'جميع المقالات',
+    latest: 'آخر المقالات',
+    more: 'المزيد من المقالات'
   },
   // Time Card
   timeCard: {
