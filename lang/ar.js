@@ -34,7 +34,8 @@ export default {
   },
   // Publications
   publication: {
-    publishDate: 'تاريخ النشر:'
+    publishDate: 'تاريخ النشر:',
+    featured: 'منشور مختار'
   },
   publicationCats: {
     title: {

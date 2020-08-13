@@ -168,7 +168,8 @@ export default {
   },
   // Publications
   publication: {
-    publishDate: 'Publication Date:'
+    publishDate: 'Publication Date:',
+    featured: 'Featured publication'
   },
   publicationCats: {
     title: {
