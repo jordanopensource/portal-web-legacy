@@ -2,12 +2,14 @@
 <template>
   <section class="text-center mx-auto">
     <appImage :image="eventsImage" size="medium" class="bot" />
-    <h2 v-if="title">{{ title }}</h2>
-    <div class="divide-y divide-josa-warm-grey">
-      <eventPreviewAlt class="my-4" v-for="event in loadedEvents" :key="event.id" :id="event.id" :event="event" />
+    <h2 class="pb-2" v-if="title">{{ title }}</h2>
+    <div v-for="(event,index) in loadedEvents" :key="event.id">
+      <eventPreviewAlt :id="event.id" :event="event" />
+      <div class="py-4 px-8" :class="index == numberOfEvents - 1 ? 'hidden' : 'block'">
+        <hr class="border-josa-warm-grey">
+      </div>
     </div>
-    <nuxt-link to="/events" class="button button-blue-full mt-4">{{ $t('events.more') }}</nuxt-link>
-
+    <nuxt-link to="/events" class="button button-blue-full mt-8">{{ $t('events.more') }}</nuxt-link>
   </section>
 </template>
 
