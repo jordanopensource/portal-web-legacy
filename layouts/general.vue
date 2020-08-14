@@ -1,9 +1,7 @@
 <template>
   <div :dir="$dir()">
     <mainHeader />
-    <div class="md:px-0 bg-white">
-      <nuxt />
-    </div>
+    <nuxt class="md:px-0 bg-white pb-8" />
     <mainFooter />
   </div>
 </template>
