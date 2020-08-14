@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container">
-      <div class="px-12 flex items-end justify-between flex-wrap lg:flex-no-wrap">
+      <div class="px-12 flex justify-between flex-wrap lg:flex-no-wrap items-center">
         <div class="flex items-center flex-shrink-0">
           <nuxt-link id="brand" tag="div" :to="localePath('index')">
             <a>
@@ -51,7 +51,7 @@
 
 <style lang="css" scoped>
   .header {
-    @apply bg-josa-warm-grey-light pt-12 pb-8 border-josa-warm-grey-dark border-b border-solid;
+    @apply bg-josa-warm-grey-light py-4;
   }
 
   .menu-icon {

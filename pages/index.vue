@@ -1,52 +1,53 @@
 <template>
-  <div class="container my-8">
-    <div class="row">
-      <impactBox id="impact" class="w-full md:w-1/2 p-12" />
-      <instagramFeed class="w-full md:w-1/2" />
+  <div>
+    <!-- Banner -->
+    <homeBanner :pageMeta="homeMeta" />
+    <!-- Latest Articles -->
+    <div class="container">
+      <div class="row">
+        <latestArticles class="w-full p-12" :numberOfArticles="4" :language="$i18n.locale" :title="$t('blog.latest')" />
+      </div>
     </div>
-
-    <div class="row">
-      <ourWork id="ourwork" class="w-full md:w-1/2 p-12" />
-      <latestJOSA class="w-full md:w-1/2 p-12" />
+    <!-- Featured publication -->
+    <div class="grey-light">
+      <div class="container ">
+        <div class="row grey-light">
+          <publicationList class="w-full p-12" :title="$t('publication.featured')" featured />
+        </div>
+      </div>
     </div>
-
-    <div class="row">
-      <joinUs id="action" class="w-full md:w-1/2" />
-      <ourCommunity class="w-full md:w-1/2 p-12" />
+    <!-- Upcoming Events -->
+    <div class="container ">
+      <div class="row">
+        <upcomingEvents :title="$t('events.upcoming')" category="all" :numberOfEvents="2" />
+      </div>
     </div>
-
-    <div class="row">
-      <stayInTouch id="connect" class="w-full md:w-1/2" />
-      <div class="w-full md:w-1/2 flex flex-col">
-        <ourNewsletter class="pb-0 p-12" />
-        <joinSlack class="p-12 flex-grow" />
+    <!-- Impact -->
+    <div class="container ">
+      <div class="row">
+        <ourWork class="w-full p-12" :title="$t('impact.title')" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import impactBox from '~/components/Impact/ImpactBox';
-  import instagramFeed from '~/components/SocialMediaFeed/InstagramFeed';
+  import axios from 'axios';
+  import latestArticles from "~/components/Blog/LatestArticles";
+  import publicationList from '~/components/Publications/PublicationList';
+  import upcomingEvents from '~/components/Events/UpcomingEvents';
   import ourWork from '~/components/Programs/OurWork';
-  import joinUs from '~/components/JoinUs/JoinUs';
-  import ourCommunity from '~/components/Community/OurCommunity';
-  import stayInTouch from '~/components/StayInTouch/StayInTouch';
-  import ourNewsletter from '~/components/Newsletter/OurNewsletter';
-  import joinSlack from '~/components/JoinUs/JoinSlack';
-  import latestJOSA from '~/components/SocialMediaFeed/LatestJOSA';
+
+  import homeBanner from "~/components/UI/HomeBanner";
 
   export default {
+    layout: 'general',
     components: {
-      impactBox,
-      instagramFeed,
       ourWork,
-      joinUs,
-      ourCommunity,
-      stayInTouch,
-      ourNewsletter,
-      joinSlack,
-      latestJOSA,
+      homeBanner,
+      latestArticles,
+      publicationList,
+      upcomingEvents
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
@@ -61,10 +62,19 @@
         ]
       }
     },
+    async asyncData(context) {
+      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=home');
+      return {
+        homeMeta: pageMeta.data[0]
+      }
+    },
   }
 
 </script>
 
 <style scoped>
+  .grey-light {
+    @apply bg-josa-warm-grey-light;
+  }
 
 </style>

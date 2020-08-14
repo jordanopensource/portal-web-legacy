@@ -128,7 +128,9 @@ export default {
   },
   // Blog
   blog: {
-    all: 'All Posts'
+    all: 'All Posts',
+    latest: 'Latest blogposts',
+    more: 'More from our blog'
   },
   // Time Card
   timeCard: {
@@ -141,6 +143,10 @@ export default {
     title: 'Location'
   },
   // Event
+  events: {
+    upcoming: 'Upcoming Events',
+    more: 'Our events'
+  },
   eventCats: {
     all: 'All Events',
   },
@@ -149,7 +155,8 @@ export default {
     address: 'Address',
     workingHours: 'Working Hours',
     voice: 'Voice',
-    email: 'Email'
+    email: 'Email',
+    connect: 'Connect with us'
   },
   feedback: {
     title: 'Feedback and Inquiries',
@@ -165,7 +172,8 @@ export default {
   },
   // Publications
   publication: {
-    publishDate: 'Publication Date:'
+    publishDate: 'Publication Date:',
+    featured: 'Featured publication'
   },
   publicationCats: {
     title: {
@@ -215,5 +223,9 @@ export default {
     next: 'Next',
     prev: 'Prev'
   },
+  // Impact
+  impact: {
+    title: "Where JOSA's impact lies"
+  }
 
 }

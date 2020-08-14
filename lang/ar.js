@@ -1,7 +1,9 @@
 export default {
   // Blog
   blog: {
-    all: 'جميع المقالات'
+    all: 'جميع المقالات',
+    latest: 'آخر المقالات',
+    more: 'المزيد من المقالات'
   },
   // Time Card
   timeCard: {
@@ -14,6 +16,10 @@ export default {
     title: 'الموقع'
   },
   // Event
+  events: {
+    upcoming: 'الفعاليات القادمة',
+    more: 'جميع فعاليتنا'
+  },
   eventCats: {
     all: 'جميع الفعاليات'
   },
@@ -22,7 +28,8 @@ export default {
     address: 'العنوان',
     workingHours: 'ساعات العمل',
     voice: 'هاتف',
-    email: 'ايميل'
+    email: 'ايميل',
+    connect: 'تواصل معنا'
   },
   feedback: {
     title: 'Feedback and Inquiries',
@@ -31,7 +38,8 @@ export default {
   },
   // Publications
   publication: {
-    publishDate: 'تاريخ النشر:'
+    publishDate: 'تاريخ النشر:',
+    featured: 'منشور مختار'
   },
   publicationCats: {
     title: {
@@ -94,5 +102,9 @@ export default {
   pagination: {
     next: 'التالي',
     prev: 'السابق'
+  },
+  // Impact
+  impact: {
+    title: "تأثير جوسا"
   }
 }

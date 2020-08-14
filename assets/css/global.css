@@ -108,7 +108,7 @@ a.active {
 
 @screen lg {
   .nav-link {
-    @apply inline-block py-0;
+    @apply inline-block px-4 py-0;
   }
 }
 

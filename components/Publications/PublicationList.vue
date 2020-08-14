@@ -1,31 +1,36 @@
 <!-- Fetch and list publications based on publication categories-->
 <template>
   <section v-if="ifNotEmpty()">
-    <h3>{{ title }}</h3>
-    <publicationPreview v-for="publication in loadedPublications" :key="publication.id" :id="publication.id"
-      :publication="publication" />
+    <div v-if="featured">
+      <h5 class="py-2 lg:pt-0 font-bold text-josa-blue">{{ title }}</h5>
+      <publicationFeatured v-for="publication in loadedPublications" :key="publication.id" :id="publication.id"
+        :publication="publication" />
+    </div>
+    <div v-else>
+      <h3>{{ title }}</h3>
+      <publicationPreview v-for="publication in loadedPublications" :key="publication.id" :id="publication.id"
+        :publication="publication" />
+    </div>
   </section>
 </template>
 
 <script>
   import publicationPreview from '@/components/Publications/PublicationPreview';
+  import publicationFeatured from '@/components/Publications/PublicationFeatured';
   import axios from 'axios';
   export default {
     data() {
       return {
-        sortBy: 'created_at:DESC',
+        sortBy: 'publishDate:DESC',
         loadedPublications: [],
       }
     },
     components: {
-      publicationPreview
+      publicationPreview,
+      publicationFeatured
     },
     props: {
       title: {
-        type: String,
-        required: true
-      },
-      category: {
         type: String,
         required: true
       },
@@ -51,10 +56,6 @@
         }
         if (this.sortBy) {
           let q = "_sort=" + this.sortBy;
-          args.push(q)
-        }
-        if (this.category && this.category != "all") {
-          let q = "category.name=" + this.category;
           args.push(q)
         }
         if (this.featured) {
