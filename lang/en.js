@@ -223,5 +223,9 @@ export default {
     next: 'Next',
     prev: 'Prev'
   },
+  // Impact
+  impact: {
+    title: "Where JOSA's impact lies"
+  }
 
 }

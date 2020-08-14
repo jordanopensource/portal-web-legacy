@@ -102,5 +102,9 @@ export default {
   pagination: {
     next: 'التالي',
     prev: 'السابق'
+  },
+  // Impact
+  impact: {
+    title: "تأثير جوسا"
   }
 }
