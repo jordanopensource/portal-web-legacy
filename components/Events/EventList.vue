@@ -84,7 +84,7 @@
       sortedEvents() {
         var data = this.loadedEvents
         var obj = {};
-        data.forEach((e, i) => (i = moment(e.startDate).format("MMMM YYYY"), obj[i] ? obj[i].push(e) : (obj[i] = [e])));
+        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), obj[i] ? obj[i].push(e) : (obj[i] = [e])));
         return obj;
       },
       months() {
