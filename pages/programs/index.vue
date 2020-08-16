@@ -30,7 +30,7 @@
         ]
       }
     },
-    layout: "general",
+    layout: "default",
     components: {
       pageBanner,
       programsList

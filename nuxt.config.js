@@ -26,7 +26,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#3897c0' },
   /*
   ** Global CSS
   */
@@ -42,7 +42,6 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/datetimepicker' },
     { src: '~/plugins/datetime-filter' },
     { src: '~/plugins/vue2-filters' },
     { src: '~/plugins/string-filters' },
