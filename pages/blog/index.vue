@@ -51,7 +51,7 @@
         ]
       }
     },
-    layout: "general",
+    layout: "default",
     components: {
       blogList,
       appButton,

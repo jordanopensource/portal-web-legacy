@@ -6,7 +6,7 @@
   import axios from 'axios';
   import BlogSingle from '~/components/Blog/BlogSingle';
   export default {
-    layout: "general",
+    layout: "default",
     asyncData(context) {
       return axios.get(process.env.baseUrl + '/blogs/' + context.params.id)
         .then(res => {

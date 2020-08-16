@@ -40,7 +40,7 @@
       },
       category: {
         type: String,
-        required: true
+        default: 'all'
       },
       featured: {
         type: Boolean,

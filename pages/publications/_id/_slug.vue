@@ -6,7 +6,7 @@
   import axios from 'axios';
   import publicationSingle from '~/components/Publications/PublicationSingle';
   export default {
-    layout: "general",
+    layout: "default",
     asyncData(context) {
       return axios.get(process.env.baseUrl + '/publications/' + context.params.id)
         .then(res => {

@@ -6,7 +6,7 @@
   import axios from 'axios';
   import careerSingle from '~/components/Careers/CareerSingle';
   export default {
-    layout: "general",
+    layout: "default",
     asyncData(context) {
       return axios.get(process.env.baseUrl + '/careers/' + context.params.id)
         .then(res => {

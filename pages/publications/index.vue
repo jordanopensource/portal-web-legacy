@@ -45,7 +45,7 @@
         }]
       }
     },
-    layout: "general",
+    layout: "default",
     components: {
       publicationList,
       appButton,

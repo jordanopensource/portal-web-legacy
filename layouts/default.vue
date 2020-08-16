@@ -1,15 +1,13 @@
 <template>
   <div :dir="$dir()">
     <mainHeader />
-    <banner />
-    <nuxt class="bg-josa-warm-grey-light" />
+    <nuxt class="md:px-0 bg-white pb-8" />
     <mainFooter />
   </div>
 </template>
 
 <script>
   import mainHeader from '~/components/UI/Header';
-  import banner from '~/components/UI/Banner';
   import mainFooter from '~/components/UI/Footer';
 
   export default {
@@ -28,12 +26,8 @@
     },
     components: {
       mainHeader,
-      banner,
-      mainFooter,
-    }
+      mainFooter
+    },
   }
 
 </script>
-<style>
-
-</style>

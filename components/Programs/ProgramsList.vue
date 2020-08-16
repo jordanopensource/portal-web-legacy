@@ -1,6 +1,7 @@
 <template>
   <div>
-    <programPreview v-for="program in loadedPrograms" :key="program.id" :id="'program-' + program.id" :program="program" />
+    <programPreview v-for="program in loadedPrograms" :key="program.id" :id="'program-' + program.id"
+      :program="program" />
   </div>
 </template>
 
@@ -16,12 +17,6 @@
     },
     components: {
       programPreview
-    },
-    props: {
-      programs: {
-        type: Array,
-        required: true
-      }
     },
     created() {
       this.fetchPrograms()
