@@ -19,18 +19,13 @@
     "@nuxtjs/markdownit": "^1.2.9",
     "@nuxtjs/moment": "^1.6.0",
     "@nuxtjs/redirect-module": "^0.3.1",
-    "cookieparser": "^0.1.0",
-    "js-cookie": "^2.2.1",
-    "luxon": "^1.23.0",
     "markdown-it-attrs": "^3.0.2",
     "markdown-it-div": "^1.1.0",
     "nuxt": "^2.14.1",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.8.1",
     "nuxt-leaflet": "0.0.21",
-    "vue-datetime": "^1.0.0-beta.11",
-    "vue2-filters": "^0.11.0",
-    "weekstart": "^1.0.1"
+    "vue2-filters": "^0.11.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^3.0.0",
