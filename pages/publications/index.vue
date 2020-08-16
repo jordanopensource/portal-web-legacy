@@ -1,9 +1,7 @@
 <template>
   <div class="publication-page">
-
     <!-- Banner -->
     <pageBanner :pageMeta="publicationMeta" />
-
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
@@ -15,15 +13,13 @@
         </div>
       </div>
     </div>
-
     <!-- List -->
     <div class="container pb-20">
       <div v-for="cat in publicationCategories" :key="cat.id">
         <publicationList v-if="activeCat=='all' || activeCat==cat.name" class="publication-list"
-          :numberOfArticles="numArticles" :category="cat.name" :title="cat['title_' + $i18n.locale]" />
+          :numberOfPublications="numPublications" :category="cat.name" :title="cat['title_' + $i18n.locale]" />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -69,7 +65,7 @@
       }
     },
     computed: {
-      numArticles() {
+      numPublications() {
         if (this.activeCat == 'all') {
           return 2
         } else {

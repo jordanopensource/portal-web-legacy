@@ -38,6 +38,10 @@
         type: Number,
         default: 1
       },
+      category: {
+        type: String,
+        required: true
+      },
       featured: {
         type: Boolean,
         default: false
@@ -56,6 +60,10 @@
         }
         if (this.sortBy) {
           let q = "_sort=" + this.sortBy;
+          args.push(q)
+        }
+        if (this.category && this.category != "all") {
+          let q = "category.name=" + this.category;
           args.push(q)
         }
         if (this.featured) {
