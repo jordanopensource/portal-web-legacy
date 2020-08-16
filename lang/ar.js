@@ -31,10 +31,18 @@ export default {
     email: 'ايميل',
     connect: 'تواصل معنا'
   },
+  // Feedback
   feedback: {
-    title: 'Feedback and Inquiries',
-    description: 'Whoever you are, whether you are happy or unhappy about any aspect of our activity or work, we value you feedback.',
-    fillForm: 'If you have a comment or complaint, please fill in our online feedback form below.'
+    title: 'الاقتراحات والاستفسارات',
+    description: 'سواء أكنت راضيًا أم غير راضٍ عن عملنا أو نشاطاتنا، فإننا نضع دومًا اقتراحاتك وتعليقاتك محل التقدير والاهتمام.',
+    fillForm: 'إذا كان لديك أي تعليق أو شكوى، فإننا ندعوك إلى تعبئة النموذج أدناه.',
+    form: {
+      subject: 'ما موضوع اقتراحك أو استفسارك؟',
+      inquiry: 'نرجو إضافة أي تفاصيل عنه',
+      name: 'اسمك',
+      email: 'بريدك الألكتروني',
+      submit: 'إرسال'
+    }
   },
   // Publications
   publication: {
