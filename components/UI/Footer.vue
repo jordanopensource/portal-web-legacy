@@ -49,7 +49,8 @@
     <div id="site-info">
       <div class="container flex flex-col md:flex-row">
         <div class="logo">
-          <img src="~/static/logo/logo.svg" alt="JOSA Logo">
+          <img v-if="$i18n.locale == 'ar'" src="~/static/logo/logo-white-ar.svg" alt="جوسا">
+          <img v-else src="~/static/logo/logo-white-en.svg" alt="JOSA Logo">
         </div>
         <div class="block md:hidden py-8">
           <hr>

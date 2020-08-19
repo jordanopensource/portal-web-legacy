@@ -11,7 +11,7 @@
   import programPreview from '~/components/Programs/ProgramPreview';
 
   export default {
-    layout: "general",
+    layout: "default",
     asyncData(context) {
       return axios.get(process.env.baseUrl + '/programs/' + context.params.id)
         .then(res => {

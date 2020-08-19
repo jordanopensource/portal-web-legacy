@@ -1,19 +1,18 @@
-<!-- Fetch and list blog articles based on blog categories-->
+<!-- Fetch and list latest blog articles from all categories-->
 <template>
-  <section v-if="ifNotEmpty()">
-    <div v-if="featured">
-      <articleFeatured v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
+  <div v-if="ifNotEmpty()">
+    <h2>{{ title }}</h2>
+    <div class="md:grid md:grid-cols-2 col-gap-8 row-gap-0">
+      <articleLatest v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
     </div>
-    <div v-else>
-      <h3>{{ title }}</h3>
-      <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
+    <div class="text-center">
+    <nuxt-link to="/blog" class="button button-blue-full mt-4">{{ $t('blog.more') }}</nuxt-link>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
-  import articlePreview from '@/components/Blog/ArticlePreview';
-  import articleFeatured from '@/components/Blog/ArticleFeatured';
+  import articleLatest from '@/components/Blog/ArticleLatest';
   import axios from 'axios';
   export default {
     data() {
@@ -23,25 +22,16 @@
       }
     },
     components: {
-      articlePreview,
-      articleFeatured
+      articleLatest
     },
     props: {
       title: {
         type: String,
         required: true
       },
-      category: {
-        type: String,
-        required: true
-      },
       numberOfArticles: {
         type: Number,
         default: 1
-      },
-      featured: {
-        type: Boolean,
-        default: false
       },
       language: {
         type: String,
@@ -61,14 +51,6 @@
         }
         if (this.sortBy) {
           let q = "_sort=" + this.sortBy;
-          args.push(q)
-        }
-        if (this.category && this.category != "all") {
-          let q = "category.name=" + this.category;
-          args.push(q)
-        }
-        if (this.featured) {
-          let q = "tags_contains=featured"
           args.push(q)
         }
         if (this.language) {
@@ -103,3 +85,9 @@
   }
 
 </script>
+<style scoped>
+  .button {
+    @apply normal-case
+  }
+
+</style>

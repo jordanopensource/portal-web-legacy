@@ -52,7 +52,7 @@
         ]
       }
     },
-    layout: "general",
+    layout: "default",
     components: {
       eventList,
       appButton,

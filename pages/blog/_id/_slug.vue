@@ -1,31 +1,31 @@
 <template>
-  <careerSingle :career="career" />
+  <BlogSingle :article="blog" />
 </template>
 
 <script>
   import axios from 'axios';
-  import careerSingle from '~/components/Careers/CareerSingle';
+  import BlogSingle from '~/components/Blog/BlogSingle';
   export default {
-    layout: "general",
+    layout: "default",
     asyncData(context) {
-      return axios.get(process.env.baseUrl + '/careers/' + context.params.id)
+      return axios.get(process.env.baseUrl + '/blogs/' + context.params.id)
         .then(res => {
           return {
-            career: res.data
+            blog: res.data
           }
         })
         .catch(e => context.error(e))
     },
     components: {
-      careerSingle
+      BlogSingle
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
         title: this.pageTitle,
         meta: [{
-            hid: 'career',
-            name: 'Career'
+            hid: 'blog',
+            name: 'Blog'
           },
           ...i18nSeo.meta
         ]
@@ -33,7 +33,7 @@
     },
     computed: {
       pageTitle() {
-        return this.career['title_' + this.$i18n.locale]
+        return this.blog.title
       }
     }
   };

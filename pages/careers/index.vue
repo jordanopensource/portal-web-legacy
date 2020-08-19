@@ -53,7 +53,7 @@
         ]
       }
     },
-    layout: "general",
+    layout: "default",
     components: {
       careerList,
       appButton,

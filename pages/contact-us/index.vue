@@ -29,7 +29,7 @@
         }]
       }
     },
-    layout: "general",
+    layout: "default",
     components: {
       pageBanner,
       addressCard,

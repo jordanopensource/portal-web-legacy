@@ -40,7 +40,8 @@ module.exports = {
         'bukraLight': 'bukra-light',
         'bukraBold': 'bukra-Bold',
         'bukraBoldItalic': 'bukra-Bold-Italic',
-        'almarai': 'Almarai'
+        'almarai': 'Almarai',
+        'naskh': 'Uthman Naskh'
       },
       padding: {
         '15px': '15px',
@@ -59,6 +60,9 @@ module.exports = {
       width: {
         '175': '175px',
         '240': '240px'
+      },
+      height: {
+        'half-screen': '50vh'
       }
     }
   },
@@ -68,6 +72,8 @@ module.exports = {
     textAlign: ['responsive', 'direction'],
     fontSize: ['responsive', 'direction'],
     lineHeight: ['responsive', 'direction'],
+    borderRadius: ['responsive', 'direction'],
+    inset: ['responsive', 'hover', 'focus', 'direction'],
   },
   plugins: [
     require('tailwindcss-dir')(),

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h2 class="title relative py-6 px-0">{{ $t('pages.ourWork') }}</h2>
-    <programList />
+  <div class="text-center">
+    <h2 class="pb-2" v-if="title">{{ title }}</h2>
+    <programList class="grid grid-cols-2 lg:grid-cols-4 gap-8" />
   </div>
 </template>
 
@@ -12,6 +12,12 @@
     components: {
       programList,
     },
+    props: {
+      title: {
+        type: String,
+        required: true
+      }
+    }
   }
 
 </script>

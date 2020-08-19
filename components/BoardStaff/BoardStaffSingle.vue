@@ -1,11 +1,12 @@
 <template>
-  <div class="flex flex-no-wrap mt-12">
-      <appImage class="picture-background" v-if="personnel.picture" :image="personnel.picture" />
-      <div v-else class="picture-background pb"></div>
+  <div class="flex flex-wrap md:flex-no-wrap mt-12">
+    <appImage class="picture-background" v-if="personnel.picture" :image="personnel.picture" />
+    <div v-else class="picture-background pb"></div>
     <div class="px-4 pt-8 relative">
       <p class="font-bold">{{ personnel['fullName_' + $i18n.locale] }}</p>
       <p class="uppercase text-sm">{{ personnel['position_' + $i18n.locale] }}</p>
-      <socialAccounts class="bottom-0 relative sm:absolute" v-if="personnel.socialAccounts" :accounts="personnel.socialAccounts" />
+      <socialAccounts class="mt-0 md:mt-6 bottom-0 relative sm:absolute" v-if="personnel.socialAccounts"
+        :accounts="personnel.socialAccounts" />
     </div>
   </div>
 </template>
@@ -35,11 +36,15 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom;
+    width: 189px;
+    height: 156px;
   }
+
   .pb {
     width: 189px;
     height: 156px;
     min-width: 189px;
     min-height: 156px;
   }
+
 </style>

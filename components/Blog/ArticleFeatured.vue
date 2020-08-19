@@ -8,15 +8,10 @@
       </nuxt-link>
       <p v-if="article.excerpt" class="excerpt">{{article.excerpt}}</p>
       <p v-else class="excerpt">{{article.body | truncate(200) }}</p>
-
       <div v-if="article.author" class="meta py-6">
-        <nuxt-link :to="authorProfile">
-          <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
-        </nuxt-link>
+        <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
         <div>
-          <nuxt-link :to="authorProfile">
-            <p class="font-bold">{{ article.author.fullName }}</p>
-          </nuxt-link>
+          <p class="font-bold">{{ article.author.fullName }}</p>
           <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate($i18n.locale) }}</div>
         </div>
       </div>
@@ -45,7 +40,8 @@
     },
     computed: {
       articleLink() {
-        return this.localePath('/blog/' + this.article.id)
+        const slug = this.$options.filters.stringToSlug(this.article.title)
+        return this.localePath('/blog/' + this.article.id + '/' + slug)
       },
       authorProfile() {
         return this.localePath('/members/' + this.article.author.id)
@@ -75,4 +71,5 @@
   [lang="ar"] .excerpt {
     @apply leading-normal;
   }
+
 </style>

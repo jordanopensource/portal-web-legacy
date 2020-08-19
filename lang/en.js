@@ -122,11 +122,15 @@ export default {
     knowMore: 'Know More',
     by: 'By',
     download: 'Download',
-    closed: 'closed'
+    closed: 'closed',
+    visitWebsite: 'Visit Website',
+    email: 'Email'
   },
   // Blog
   blog: {
-    all: 'All Posts'
+    all: 'All Posts',
+    latest: 'Latest blogposts',
+    more: 'More from our blog'
   },
   // Time Card
   timeCard: {
@@ -139,6 +143,10 @@ export default {
     title: 'Location'
   },
   // Event
+  events: {
+    upcoming: 'Upcoming Events',
+    more: 'Our events'
+  },
   eventCats: {
     all: 'All Events',
   },
@@ -147,7 +155,8 @@ export default {
     address: 'Address',
     workingHours: 'Working Hours',
     voice: 'Voice',
-    email: 'Email'
+    email: 'Email',
+    connect: 'Connect with us'
   },
   feedback: {
     title: 'Feedback and Inquiries',
@@ -163,7 +172,8 @@ export default {
   },
   // Publications
   publication: {
-    publishDate: 'Publication Date:'
+    publishDate: 'Publication Date:',
+    featured: 'Featured publication'
   },
   publicationCats: {
     title: {
@@ -179,7 +189,9 @@ export default {
   // Auth
   auth: {
     login: "Login",
-    logout: "Logout"
+    logout: "Logout",
+    email: 'Email or username',
+    password: 'Password'
   },
   // Speakers
   speakers: 'Speakers',
@@ -190,4 +202,30 @@ export default {
     type: 'Type',
     team: 'Team'
   },
+  // Partners
+  partners: {
+    title: 'Partners and Supporters'
+  },
+  // Members
+  members: {
+    members: 'Members'
+  },
+  // Sort
+  sort: {
+  sortBy: 'Sort By',
+  memberSinceACS: 'Registration Date: ASC',
+  memberSinceDESC: 'Registration Date: DESC',
+  fullNameASC: 'Name: ACS',
+  fullNameDESC: 'Name: DESC'
+  },
+  // Pagination
+  pagination: {
+    next: 'Next',
+    prev: 'Prev'
+  },
+  // Impact
+  impact: {
+    title: "Where JOSA's impact lies"
+  }
+
 }

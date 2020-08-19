@@ -1,12 +1,12 @@
 <template>
-  <div class="programs-page">
+  <div class="partners-page">
 
     <!-- Banner -->
-    <pageBanner :pageMeta="programsMeta" />
+    <pageBanner :pageMeta="partnersMeta" />
 
     <!-- Lists -->
     <div class="container pb-20">
-      <programsList class="programs-list" />
+      <partnersList class="partners-list" :title="$t('partners.title')" />
     </div>
   </div>
 
@@ -15,16 +15,16 @@
 <script>
   import axios from 'axios';
   import pageBanner from "@/components/UI/PageBanner";
-  import programsList from '@/components/Programs/ProgramsList';
+  import partnersList from '@/components/Partners/PartnersList';
 
   export default {
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.programsMeta['title_' + this.$i18n.locale],
+        title: this.partnersMeta['title_' + this.$i18n.locale],
         meta: [{
-            hid: 'programs',
-            name: 'Programs'
+            hid: 'partners-and-supporters',
+            name: 'Partners and Supporters'
           },
           ...i18nSeo.meta
         ]
@@ -33,12 +33,12 @@
     layout: "default",
     components: {
       pageBanner,
-      programsList
+      partnersList
     },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=programs');
+      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=partners');
       return {
-        programsMeta: pageMeta.data[0]
+        partnersMeta: pageMeta.data[0]
       }
     }
   };
@@ -46,7 +46,7 @@
 </script>
 
 <style scoped>
-  .programs-list {
+  .partners-list {
     @apply px-12 mt-20;
   }
 

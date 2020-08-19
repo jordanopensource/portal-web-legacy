@@ -6,7 +6,7 @@
   import axios from 'axios';
   import EventSingle from '~/components/Events/EventSingle';
   export default {
-    layout: "general",
+    layout: "default",
     asyncData(context) {
       return axios.get(process.env.baseUrl + '/events/' + context.params.id)
         .then(res => {

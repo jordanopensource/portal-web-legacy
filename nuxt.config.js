@@ -26,13 +26,14 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#3897c0' },
   /*
   ** Global CSS
   */
   css: [
     '@/assets/css/fonts/aleo.css',
     '@/assets/css/fonts/bukra.css',
+    '@/assets/css/fonts/naskh.css',
     '@/assets/css/typography.css',
     '@/assets/css/layout.css',
     '@/assets/css/global.css',
@@ -41,10 +42,9 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/datetimepicker' },
     { src: '~/plugins/datetime-filter' },
     { src: '~/plugins/vue2-filters' },
-    { src: '~/plugins/string-to-array' },
+    { src: '~/plugins/string-filters' },
     { src: '~/plugins/i18n' }
   ],
   /*
@@ -78,7 +78,7 @@ export default {
     '@nuxtjs/moment',
     '@nuxtjs/markdownit',
     'nuxt-leaflet',
-    '@nuxtjs/redirect-module',
+    '@nuxtjs/redirect-module'
   ],
   i18n: {
     locales: [

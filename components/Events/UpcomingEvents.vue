@@ -1,28 +1,35 @@
-<!-- Fetch and list events based on event categories-->
+<!-- Fetch and list upcoming events-->
 <template>
-  <section>
-    <h3 v-if="title">{{ title }}</h3>
-    <div v-for="month in months" :key="month" class="mb-20">
-      <h3>{{ month }}</h3>
-      <eventPreview v-for="event in sortedEvents[month]" :key="event.id" :id="event.id" :event="event" />
+  <section class="text-center mx-auto">
+    <appImage :image="eventsImage" size="medium" class="bot" />
+    <h2 class="pb-2" v-if="title">{{ title }}</h2>
+    <div v-for="(event,index) in loadedEvents" :key="event.id">
+      <eventPreviewAlt :id="event.id" :event="event" />
+      <div class="py-4 px-8" :class="index == numberOfEvents - 1 ? 'hidden' : 'block'">
+        <hr class="border-josa-warm-grey">
+      </div>
     </div>
+    <nuxt-link to="/events" class="button button-blue-full mt-8">{{ $t('events.more') }}</nuxt-link>
   </section>
 </template>
 
 <script>
-  import eventPreview from '@/components/Events/EventPreview';
+  import eventPreviewAlt from '~/components/Events/EventPreviewAlt';
   import axios from 'axios';
   import moment from 'moment';
+  import appImage from '~/components/UI/appImage';
 
   export default {
     data() {
       return {
         sortBy: 'startDate:DESC',
-        loadedEvents: []
+        loadedEvents: [],
+        eventsImage: {}
       }
     },
     components: {
-      eventPreview
+      eventPreviewAlt,
+      appImage
     },
     props: {
       title: {
@@ -37,7 +44,8 @@
       }
     },
     created() {
-      this.fetchEvents()
+      this.fetchEvents();
+      this.fetchEventsImage();
     },
     methods: {
       query() {
@@ -78,22 +86,27 @@
             this.loadedEvents = eventsArray
           })
           .catch(e => this.context.error(e));
-      }
-    },
-    computed: {
-      sortedEvents() {
-        var data = this.loadedEvents
-        var obj = {};
-        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), obj[i] ? obj[i].push(e) : (obj[i] = [e])));
-        return obj;
       },
-      months() {
-        const data = this.sortedEvents
-        var months = {};
-        months = Object.keys(data);
-        return months;
+      async fetchEventsImage() {
+        await axios
+          .get(process.env.baseUrl + '/page-metas?pageId=event')
+          .then(res => {
+            this.eventsImage = res.data[0].image
+          })
+          .catch(e => this.context.error(e));
       }
     }
   }
 
 </script>
+<style scoped>
+  .bot {
+    @apply mx-auto mb-8 h-auto;
+    width: 300px;
+  }
+
+  .button {
+    @apply normal-case
+  }
+
+</style>

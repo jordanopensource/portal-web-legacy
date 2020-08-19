@@ -1,7 +1,9 @@
 export default {
   // Blog
   blog: {
-    all: 'جميع المقالات'
+    all: 'جميع المقالات',
+    latest: 'آخر المقالات',
+    more: 'المزيد من المقالات'
   },
   // Time Card
   timeCard: {
@@ -14,6 +16,10 @@ export default {
     title: 'الموقع'
   },
   // Event
+  events: {
+    upcoming: 'الفعاليات القادمة',
+    more: 'جميع فعاليتنا'
+  },
   eventCats: {
     all: 'جميع الفعاليات'
   },
@@ -22,16 +28,26 @@ export default {
     address: 'العنوان',
     workingHours: 'ساعات العمل',
     voice: 'هاتف',
-    email: 'ايميل'
+    email: 'ايميل',
+    connect: 'تواصل معنا'
   },
+  // Feedback
   feedback: {
-    title: 'Feedback and Inquiries',
-    description: 'Whoever you are, whether you are happy or unhappy about any aspect of our activity or work, we value you feedback.',
-    fillForm: 'If you have a comment or complaint, please fill in our online feedback form below.'
+    title: 'الاقتراحات والاستفسارات',
+    description: 'سواء أكنت راضيًا أم غير راضٍ عن عملنا أو نشاطاتنا، فإننا نضع دومًا اقتراحاتك وتعليقاتك محل التقدير والاهتمام.',
+    fillForm: 'إذا كان لديك أي تعليق أو شكوى، فإننا ندعوك إلى تعبئة النموذج أدناه.',
+    form: {
+      subject: 'ما موضوع اقتراحك أو استفسارك؟',
+      inquiry: 'نرجو إضافة أي تفاصيل عنه',
+      name: 'اسمك',
+      email: 'بريدك الألكتروني',
+      submit: 'إرسال'
+    }
   },
   // Publications
   publication: {
-    publishDate: 'تاريخ النشر:'
+    publishDate: 'تاريخ النشر:',
+    featured: 'منشور مختار'
   },
   publicationCats: {
     title: {
@@ -47,7 +63,9 @@ export default {
   // Auth
   auth: {
     login: "تسجيل الدخول",
-    logout: "تسجيل الخروج"
+    logout: "تسجيل الخروج",
+    email: 'الايميل او اسم المستخدم',
+    password: 'كلمة المرور'
   },
   // Speakers
   speakers: 'المتحدثين',
@@ -68,6 +86,33 @@ export default {
     knowMore: 'اعرف أكثر',
     by: 'من',
     download: 'تنزيل',
-    closed: 'مغلق'
+    closed: 'مغلق',
+    visitWebsite: 'زيارة الموقع',
+    email: 'الايميل'
   },
+  // Partners
+  partners: {
+    title: 'الشركاء والداعمون'
+  },
+  // Members
+  members: {
+    members: 'عضو'
+  },
+  // Sort
+  sort: {
+    sortBy: 'الترتيب حسب',
+    memberSinceACS: 'تاريخ التسجيل: تصاعدي',
+    memberSinceDESC: 'تاريخ التسجيل: تنازلي',
+    fullNameASC: 'الأسم: تصاعدي',
+    fullNameDESC: 'الأسم: تنازلي'
+  },
+  // Pagination
+  pagination: {
+    next: 'التالي',
+    prev: 'السابق'
+  },
+  // Impact
+  impact: {
+    title: "تأثير جوسا"
+  }
 }

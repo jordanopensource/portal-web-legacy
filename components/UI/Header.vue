@@ -1,11 +1,15 @@
 <template>
   <header class="header">
     <div class="container">
-      <div class="px-12 flex items-end justify-between flex-wrap lg:flex-no-wrap">
+      <div class="px-12 flex justify-between flex-wrap lg:flex-no-wrap items-center">
         <div class="flex items-center flex-shrink-0">
           <nuxt-link id="brand" tag="div" :to="localePath('index')">
-            <a><img class="w-175 sm:w-240" src="~/static/logo/logo-colored.svg"
-                alt="Jordan Open Source Association Logo"></a>
+            <a>
+              <img v-if="$i18n.locale == 'ar'" class="w-175 sm:w-240" src="~/static/logo/logo-colored-ar.svg"
+                alt="الجمعية الأردنية للمصدر المفتوح">
+              <img v-else class="w-175 sm:w-240" src="~/static/logo/logo-colored-en.svg"
+                alt="Jordan Open Source Association Logo">
+            </a>
           </nuxt-link>
         </div>
 
@@ -23,7 +27,8 @@
           </button>
         </div>
 
-        <navbar :class="isOpen ? 'block' : 'hidden'" class="w-full lg:block lg:ltr:text-right lg:rtl:text-left flex-grow mt-4 lg:m-0 " />
+        <navbar :class="isOpen ? 'block' : 'hidden'"
+          class="w-full lg:block lg:ltr:text-right lg:rtl:text-left flex-grow mt-4 lg:m-0 " />
       </div>
     </div>
   </header>
@@ -46,7 +51,7 @@
 
 <style lang="css" scoped>
   .header {
-    @apply bg-josa-warm-grey-light pt-12 pb-8 border-josa-warm-grey-dark border-b border-solid;
+    @apply bg-josa-warm-grey-light py-4;
   }
 
   .menu-icon {

@@ -2,40 +2,23 @@
   <article>
     <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
     <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
-
     <div ref="content" class="container content">
       <h2 ref="title">{{ article.title }}</h2>
-
-      <p class="josa-who">{{ $t('josa.who') }}</p>
-
+      <div class="text-josa-warm-grey-dark font-bold my-4">{{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
+      <p v-if="article.excerpt" class="excerpt">{{ article.excerpt }}</p>
       <div v-if="article.author" class="meta">
-        <nuxt-link :to="authorProfile">
-          <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
-        </nuxt-link>
-        <div>
-          <nuxt-link :to="authorProfile">
-            <p class="font-bold">{{ article.author.fullName }}</p>
-          </nuxt-link>
-          <div class="text-josa-warm-grey-dark">{{ article.created_at | fullDate($i18n.locale) }}</div>
-        </div>
+        <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
+        <p class="font-bold">{{ article.author.fullName }}</p>
       </div>
-
       <div class="body" v-html="$md.render(article.body)"></div>
-
       <hr>
-
       <div v-if="article.author" class="meta">
-        <nuxt-link :to="authorProfile">
-          <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
-        </nuxt-link>
+        <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
         <div class="opacity-90">
           <p class="ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.writtenBy')}}</p>
-          <nuxt-link :to="authorProfile">
-            <h3 class="font-bold">{{ article.author.fullName }}</h3>
-          </nuxt-link>
+          <h3 class="font-bold">{{ article.author.fullName }}</h3>
         </div>
       </div>
-
     </div>
   </article>
 </template>
@@ -101,9 +84,9 @@
     max-width: 766px;
   }
 
-  .josa-who {
+  .excerpt {
     opacity: 0.9;
-    @apply font-bold my-8;
+    @apply font-bold mb-8;
   }
 
   .meta {
@@ -119,7 +102,7 @@
   }
 
   .body>>>p {
-    @apply  font-normal mb-10;
+    @apply font-normal mb-10;
     line-height: 2;
   }
 
@@ -128,7 +111,7 @@
   }
 
   [lang="ar"] .body>>>p {
-    @apply text-lg font-almarai;
+    @apply text-2xl font-naskh;
   }
 
   .body>>>h3 {

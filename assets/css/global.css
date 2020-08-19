@@ -27,6 +27,7 @@ body {
 [dir="rtl"] .title::before {
   right: 0;
 }
+
 /*****/
 
 .card {
@@ -84,6 +85,7 @@ body {
 a {
   transition: color 0.25s linear;
   -webkit-transition: color 0.25s linear;
+  cursor: pointer;
 }
 
 a:hover,
@@ -106,7 +108,7 @@ a.active {
 
 @screen lg {
   .nav-link {
-    @apply inline-block py-0;
+    @apply inline-block px-4 py-0;
   }
 }
 
@@ -150,18 +152,25 @@ a.active {
 
 /*****/
 
-
 /* Preview Image */
-.preview .thumbnail {
+.preview .thumbnail, .preview .thumbnail img {
   @apply w-full object-cover mb-4;
+  height: 200px;
+  object-position: 50% 50%;
 }
 
 @screen md {
-  .preview .thumbnail {
+  .preview .thumbnail, .preview .thumbnail img {
+    height: 250px;
+  }
+}
+
+@screen lg {
+  .preview .thumbnail, .preview .thumbnail img {
     @apply mb-0;
-    min-width: 250px;
-    width: 40%;
     flex-shrink: 0;
+    height: 250px;
+    width: 400px;
   }
 
   [dir="ltr"] .preview .thumbnail {
@@ -170,6 +179,23 @@ a.active {
 
   [dir="rtl"] .preview .thumbnail {
     @apply pl-6;
+  }
+}
+
+.featured .thumbnail {
+  @apply w-full object-cover mb-4;
+  object-position: 50% 50%;
+  height: 200px;
+}
+
+@screen md {
+  .featured .thumbnail {
+    height: 300px;
+  }
+}
+@screen lg {
+  .featured .thumbnail {
+    height: 450px;
   }
 }
 
