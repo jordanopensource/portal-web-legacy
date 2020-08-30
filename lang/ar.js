@@ -84,6 +84,7 @@ export default {
     writtenBy: 'كتبه',
     readTheReport: 'إقرأ التقرير',
     knowMore: 'اعرف أكثر',
+    knowMoreAboutUs: 'اعرف أكثر عنا',
     by: 'من',
     download: 'تنزيل',
     closed: 'مغلق',
