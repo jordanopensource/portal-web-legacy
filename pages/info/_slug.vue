@@ -18,7 +18,7 @@
           <div :key="section.sectionId" v-if="activeSection == section.sectionId"
             class="section-content flex-grow md:h-half-screen overflow-auto">
             <span v-if="section['description_' + $i18n.locale]"
-              v-html="$md.render(section['description_' + $i18n.locale])"></span>
+              v-html="section['description_' + $i18n.locale]"></span>
             <span v-else></span>
           </div>
         </template>

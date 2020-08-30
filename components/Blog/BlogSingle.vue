@@ -10,7 +10,7 @@
         <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
         <p class="font-bold">{{ article.author.fullName }}</p>
       </div>
-      <div class="body" v-html="$md.render(article.body)"></div>
+      <div class="body" v-html="article.body"></div>
       <hr>
       <div v-if="article.author" class="meta">
         <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
