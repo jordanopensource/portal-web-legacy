@@ -2,8 +2,8 @@
   <div :id="meta.pageId">
     <pageBanner :pageMeta="meta" />
     <!-- HTML Content -->
-    <div v-if="meta.htmlContent.content" id="content" class="container py-20">
-      <div class="px-12" v-html="meta.htmlContent.content"></div>
+    <div v-if="meta.htmlContent['content_' + $i18n.locale]" id="content" class="container py-20">
+      <div class="px-12" v-html="meta.htmlContent['content_' + $i18n.locale]"></div>
     </div>
     <!-- Know More -->
     <list />
