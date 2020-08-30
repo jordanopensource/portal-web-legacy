@@ -16,7 +16,7 @@
         <!-- Section Content -->
         <template v-for="section in pageContent.section">
           <div :key="section.sectionId" v-if="activeSection == section.sectionId"
-            class="section-content flex-grow md:h-half-screen overflow-auto">
+            class="section-content flex-grow">
             <span v-if="section['description_' + $i18n.locale]"
               v-html="section['description_' + $i18n.locale]"></span>
             <span v-else></span>
