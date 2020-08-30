@@ -14,7 +14,7 @@
             <appImage v-if="career.thumbnail" :image="career.thumbnail" size="large" class="thumbnail" />
             <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
             <div v-if="career['description_' + $i18n.locale]" class="description py-8"
-              v-html="$md.render(career['description_' + $i18n.locale])"></div>
+              v-html="career['description_' + $i18n.locale]"></div>
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <infoCard class="mb-8" :career="career" />

@@ -120,6 +120,7 @@ export default {
     writtenBy: 'written by',
     readTheReport: 'Read the Report',
     knowMore: 'Know More',
+    knowMoreAboutUs: 'Know more about us',
     by: 'By',
     download: 'Download',
     closed: 'closed',
