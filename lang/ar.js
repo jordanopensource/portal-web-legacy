@@ -56,9 +56,9 @@ export default {
   },
   // Board & Staff
   boardStaff: {
-    board: 'مجلس الإدارة',
-    staff: 'الموظفين',
-    previousBoard: 'أعضاء مجلس الإدارة السابقين'
+    board: 'هيئة الإدارة',
+    staff: 'الفريق العامل',
+    previousBoard: 'أعضاء هيئة الإدارة السابقون'
   },
   // Auth
   auth: {
