@@ -76,7 +76,6 @@ export default {
     }],
     'nuxt-i18n',
     '@nuxtjs/moment',
-    '@nuxtjs/markdownit',
     'nuxt-leaflet',
     '@nuxtjs/redirect-module'
   ],
@@ -109,16 +108,6 @@ export default {
     },
     baseUrl: 'https://portal.dev.jordanopensource.org',
     seo: true
-  },
-  markdownit: {
-    injected: true,
-    preset: 'default',
-    linkify: true,
-    breaks: true,
-    use: [
-      'markdown-it-div',
-      'markdown-it-attrs'
-    ]
   },
   moment: {
     defaultLocale: 'en',
