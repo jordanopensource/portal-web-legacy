@@ -13,11 +13,11 @@
       <!-- Impact Menu -->
       <section :id="'footer-menu-' + menus.impact1.menuId">
         <h6>{{ menus.impact1['menuName_' + $i18n.locale] }}</h6>
-        <menuItems :menu="menus.impact1" />
-        <!-- <div class="block py-4">
+        <menuItems :menu="menus.impact2" />
+        <div class="block py-4">
           <hr>
         </div>
-        <menuItems :menu="menus.impact2" /> -->
+        <menuItems :menu="menus.impact1" />
         <div class="block md:hidden py-8">
           <hr>
         </div>

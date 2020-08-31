@@ -3,7 +3,8 @@ export default {
   blog: {
     all: 'جميع المقالات',
     latest: 'آخر المقالات',
-    more: 'المزيد من المقالات'
+    more: 'المزيد من المقالات',
+    featured: 'مقالات مختارة'
   },
   // Time Card
   timeCard: {
@@ -18,7 +19,8 @@ export default {
   // Event
   events: {
     upcoming: 'الفعاليات القادمة',
-    more: 'جميع فعاليتنا'
+    more: 'جميع فعاليتنا',
+    noUpcoming: 'لا توجد فعاليات قادمة'
   },
   eventCats: {
     all: 'جميع الفعاليات'

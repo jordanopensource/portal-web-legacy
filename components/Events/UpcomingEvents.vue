@@ -3,12 +3,15 @@
   <section class="text-center mx-auto">
     <appImage :image="eventsImage" size="medium" class="bot" />
     <h2 class="pb-2" v-if="title">{{ title }}</h2>
+    <template v-if="ifNotEmpty()">
     <div v-for="(event,index) in loadedEvents" :key="event.id">
       <eventPreviewAlt :id="event.id" :event="event" />
       <div class="py-4 px-8" :class="index == numberOfEvents - 1 ? 'hidden' : 'block'">
         <hr class="border-josa-warm-grey">
       </div>
     </div>
+    </template>
+    <p v-else>{{ $t('events.noUpcoming')}}</p>
     <nuxt-link to="/events" class="button button-blue-full mt-8">{{ $t('events.more') }}</nuxt-link>
   </section>
 </template>
@@ -94,6 +97,12 @@
             this.eventsImage = res.data[0].image
           })
           .catch(e => this.context.error(e));
+      },
+      ifNotEmpty() {
+        if (Array.isArray(this.loadedEvents) && this.loadedEvents.length)
+          return true;
+        else
+          return false;
       }
     }
   }

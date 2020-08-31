@@ -130,8 +130,9 @@ export default {
   // Blog
   blog: {
     all: 'All Posts',
-    latest: 'Latest blogposts',
-    more: 'More from our blog'
+    latest: 'Latest Articles',
+    more: 'More from our blog',
+    featured: 'Featured Articles'
   },
   // Time Card
   timeCard: {
@@ -146,7 +147,8 @@ export default {
   // Event
   events: {
     upcoming: 'Upcoming Events',
-    more: 'Our events'
+    more: 'Our events',
+    noUpcoming: 'No upcoming events'
   },
   eventCats: {
     all: 'All Events',

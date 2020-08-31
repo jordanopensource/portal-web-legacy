@@ -7,7 +7,7 @@ const stringToArray = s => {
 };
 
 const stringToSlug = s => {
-  const slug = s.replace(/[^\w\u0621-\u064A\s]/gi, '').replace(/\s/g, '-')
+  const slug = s.toLowerCase().replace(/[^\w\u0621-\u064A\s]/gi, '').replace(/\s/g, '-')
   return slug
 };
 
