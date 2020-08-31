@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <h2 class="pb-2" v-if="title">{{ title }}</h2>
-    <programsList class="grid grid-cols-2 lg:grid-cols-4 gap-8" />
+    <programsList class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" />
   </div>
 </template>
 
