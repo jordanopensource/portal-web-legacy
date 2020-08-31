@@ -41,7 +41,7 @@ npm install
 
 Jordan Open Source Association – [@jo_osa](https://twitter.com/jo_osa)
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+Distributed under the Apache License 2.0. See ``LICENSE`` for more information.
 
 [https://github.com/jordanopensource/](https://github.com/jordanopensource/)
 
