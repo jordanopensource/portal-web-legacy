@@ -14,8 +14,8 @@
 
 <script>
   import axios from 'axios';
-  import pageBanner from "@/components/UI/PageBanner";
-  import programsList from '@/components/Programs/ProgramsList';
+  import pageBanner from "~/components/UI/PageBanner";
+  import programsList from '~/components/Programs/ProgramsList';
 
   export default {
     head() {

@@ -7,7 +7,7 @@
 
 <script>
   import axios from 'axios';
-  import programPreview from '@/components/Programs/ProgramPreview';
+  import programPreview from '~/components/Programs/ProgramPreview';
   export default {
     name: 'ProgramsList',
     data() {

@@ -1,14 +1,10 @@
 <template>
-  <div class="container">
-    <div class="p-12">
-      <programPreview :id="'program-' + program.id" :program="program" />
-    </div>
-  </div>
+  <programSingle :id="'program-' + program.id" :program="program" />
 </template>
 
 <script>
   import axios from 'axios';
-  import programPreview from '~/components/Programs/ProgramPreview';
+  import programSingle from '~/components/Programs/ProgramSingle';
 
   export default {
     layout: "default",
@@ -22,7 +18,7 @@
         .catch(e => context.error(e))
     },
     components: {
-      programPreview
+      programSingle
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()

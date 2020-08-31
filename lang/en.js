@@ -146,7 +146,8 @@ export default {
   // Event
   events: {
     upcoming: 'Upcoming Events',
-    more: 'Our events'
+    more: 'Our events',
+    noUpcoming: 'No upcoming events'
   },
   eventCats: {
     all: 'All Events',
