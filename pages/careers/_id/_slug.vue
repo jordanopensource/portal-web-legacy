@@ -27,6 +27,7 @@
             hid: 'career',
             name: 'Career'
           },
+          ...this.$options.filters.ogTags('career', this.career, this.$route.path, this.$i18n.locale),
           ...i18nSeo.meta
         ]
       }
@@ -35,7 +36,7 @@
       pageTitle() {
         return this.career['title_' + this.$i18n.locale]
       }
-    }
+    },
   };
 
 </script>
