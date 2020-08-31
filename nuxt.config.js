@@ -45,7 +45,8 @@ export default {
     { src: '~/plugins/datetime-filter' },
     { src: '~/plugins/vue2-filters' },
     { src: '~/plugins/string-filters' },
-    { src: '~/plugins/i18n' }
+    { src: '~/plugins/i18n' },
+    { src: '~/plugins/og-tags' }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -106,7 +107,7 @@ export default {
       useCookie: true,
       cookieKey: 'i18n_redirected'
     },
-    baseUrl: 'https://portal.dev.jordanopensource.org',
+    baseUrl: 'https://jordanopensource.org',
     seo: true
   },
   moment: {
