@@ -27,6 +27,7 @@
             hid: 'publication',
             name: 'Publication'
           },
+          ...this.$options.filters.ogTags('publication', this.publication, this.$route.path, this.$i18n.locale),
           ...i18nSeo.meta
         ]
       }

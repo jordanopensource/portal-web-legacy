@@ -25,8 +25,9 @@
         title: this.pageTitle,
         meta: [{
             hid: 'blog',
-            name: 'Blog'
+            name: 'Blog',
           },
+          ...this.$options.filters.ogTags('article', this.blog, this.$route.path, this.$i18n.locale),
           ...i18nSeo.meta
         ]
       }
@@ -35,7 +36,7 @@
       pageTitle() {
         return this.blog.title
       }
-    }
+    },
   };
 
 </script>

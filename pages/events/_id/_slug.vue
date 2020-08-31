@@ -27,6 +27,7 @@
             hid: 'event',
             name: 'Event'
           },
+          ...this.$options.filters.ogTags('event', this.event, this.$route.path, this.$i18n.locale),
           ...i18nSeo.meta
         ]
       }
