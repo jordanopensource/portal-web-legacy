@@ -130,8 +130,9 @@ export default {
   // Blog
   blog: {
     all: 'All Posts',
-    latest: 'Latest blogposts',
-    more: 'More from our blog'
+    latest: 'Latest Articles',
+    more: 'More from our blog',
+    featured: 'Featured Articles'
   },
   // Time Card
   timeCard: {
