@@ -9,7 +9,7 @@
       <h2 class="text-3xl m-0">
         {{ event['title_' + $i18n.locale] ? event['title_' + $i18n.locale] : event['title_en'] }}</h2>
     </nuxt-link>
-    <p class="py-2">{{ event.address['addressOne_' + $i18n.locale] }}</p>
+    <p v-if="event.address" class="py-2">{{ event.address['addressOne_' + $i18n.locale] }}</p>
   </div>
 </template>
 
