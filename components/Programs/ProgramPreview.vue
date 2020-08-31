@@ -8,6 +8,7 @@
     <p class="py-2 px-4">
       {{ program['description_' + $i18n.locale] ? program['description_' + $i18n.locale] : program['description_en']}}
     </p>
+    <nuxt-link :to="programLink" class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">{{ $t('meta.knowMore') }}</nuxt-link>
   </div>
 </template>
 
