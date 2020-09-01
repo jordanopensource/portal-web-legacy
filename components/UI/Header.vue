@@ -51,7 +51,8 @@
 
 <style lang="css" scoped>
   .header {
-    @apply bg-josa-warm-grey-light py-4;
+    @apply bg-josa-warm-grey-light py-8;
+    border-bottom: 1px solid #e0e0e0;
   }
 
   .menu-icon {
