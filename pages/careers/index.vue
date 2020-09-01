@@ -44,7 +44,7 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.careerMeta['title_' + this.$i18n.locale],
+        title: this.careerMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
             hid: 'careers',
             name: 'careers'

@@ -34,7 +34,7 @@
   export default {
     head() {
       return {
-        title: this.pageContent['title_' + this.$i18n.locale],
+        title: this.pageContent['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
           hid: 'info-page',
           name: 'Info Page'

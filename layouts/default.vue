@@ -14,7 +14,7 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: 'Jordan Open Source Association',
+        title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association',
         meta: [{
             hid: 'home-page',
             name: 'Home Page',
