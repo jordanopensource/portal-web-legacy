@@ -112,6 +112,28 @@ a.active {
   }
 }
 
+/* Lists */
+ol {
+  list-style: decimal;
+}
+
+[lang="ar"] ol {
+  list-style: arabic-indic;
+}
+
+ul {
+  list-style: disc;
+}
+
+[dir="ltr"] ol > li, [dir="ltr"] ul > li{
+  @apply ml-4;
+}
+
+[dir="rtl"] ol > li, [dir="rtl"] ul > li {
+  @apply mr-4
+}
+/*****/
+
 /* Profile Picture */
 .profilePicture {
   display: inline;
