@@ -16,11 +16,25 @@
       </div>
     </div>
 
-    <!-- Preview -->
-    <div class="container pb-20">
-      <eventList v-if="activeCat=='all'" class="event-list" category="all" />
-      <div v-for="cat in eventCategories" :key="cat.id">
-        <eventList v-if="activeCat==cat.name" class="event-list" :category="cat.name" />
+    <!-- Upcoming Events -->
+    <div class="container pb-8 mt-20">
+      <div class="px-12">
+        <h2 class="mb-8">{{ $t('events.upcoming') }}</h2>
+        <eventListUpcoming v-if="activeCat=='all'" category="all" />
+        <template v-for="cat in eventCategories" >
+          <eventListUpcoming v-if="activeCat==cat.name" :category="cat.name" :key="cat.id" />
+        </template>
+      </div>
+    </div>
+
+    <!-- Previous Events -->
+    <div class="container pb-8 mt-20">
+      <div class="px-12 ">
+        <h2 class="mb-8">{{ $t('events.previous') }}</h2>
+        <eventListPrevious v-if="activeCat=='all'" category="all" />
+        <template v-for="cat in eventCategories">
+          <eventListPrevious v-if="activeCat==cat.name" :category="cat.name" :key="cat.id" />
+        </template>
       </div>
     </div>
 
@@ -29,7 +43,8 @@
 
 <script>
   import axios from 'axios';
-  import eventList from "@/components/Events/EventList";
+  import eventListUpcoming from "@/components/Events/EventList";
+  import eventListPrevious from "@/components/Events/EventListPrevious";
   import appButton from '@/components/FormComponents/AppButton';
   import pageBanner from "@/components/UI/PageBanner";
 
@@ -42,7 +57,8 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.eventMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.eventMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             hid: 'events',
             name: 'events'
@@ -53,7 +69,8 @@
     },
     layout: "default",
     components: {
-      eventList,
+      eventListUpcoming,
+      eventListPrevious,
       appButton,
       pageBanner
     },
@@ -73,10 +90,3 @@
   };
 
 </script>
-
-<style scoped>
-  .event-list {
-    @apply px-12 mt-20;
-  }
-
-</style>

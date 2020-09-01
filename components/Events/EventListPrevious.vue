@@ -8,7 +8,7 @@
       </div>
     </div>
     <div v-else>
-      <p>{{ $t('events.noUpcoming')}}</p>
+      <p>{{ $t('events.noPrevious')}}</p>
     </div>
   </section>
 </template>
@@ -38,6 +38,7 @@
       },
       numberOfEvents: {
         type: Number,
+        default: 0
       }
     },
     created() {
@@ -50,10 +51,10 @@
 
         let from = moment().subtract(24, 'hours');
         from = from.format(moment.HTML5_FMT.DATETIME_LOCAL_MS);
-        let q = "startDate_gte=" + from;
+        let q = "startDate_lt=" + from;
         args.push(q)
 
-        if (this.numberOfEvents) {
+        if (this.numberOfEvents > 0) {
           let q = "_limit=" + this.numberOfEvents;
           args.push(q)
         }

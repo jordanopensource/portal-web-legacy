@@ -19,8 +19,10 @@ export default {
   // Event
   events: {
     upcoming: 'الفعاليات القادمة',
+    previous: 'الفعاليات السابقة',
     more: 'جميع فعاليتنا',
-    noUpcoming: 'لا توجد فعاليات قادمة'
+    noUpcoming: 'لا توجد فعاليات قادمة',
+    noPrevious: 'لا توجد فعاليات سابقة'
   },
   eventCats: {
     all: 'جميع الفعاليات'
