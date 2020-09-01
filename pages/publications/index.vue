@@ -67,9 +67,9 @@
     computed: {
       numPublications() {
         if (this.activeCat == 'all') {
-          return 2
+          return 5
         } else {
-          return 4
+          return 0
         }
       }
     }
