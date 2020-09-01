@@ -35,14 +35,13 @@
   export default {
     data() {
       return {
-        title: "JOSA's Blog",
         activeCat: 'all'
       }
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.title,
+        title: this.blogMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
             hid: 'blog',
             name: 'Blog'

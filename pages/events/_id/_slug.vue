@@ -22,7 +22,7 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.pageTitle,
+        title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
             hid: 'event',
             name: 'Event'
@@ -34,7 +34,7 @@
     },
     computed: {
       pageTitle() {
-        return this.event.name
+        return this.event['title_' + this.$i18n.locale]
       }
     }
   };

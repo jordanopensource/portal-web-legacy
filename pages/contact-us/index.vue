@@ -15,14 +15,9 @@
   import locationMap from '~/components/Map/LocationMap';
 
   export default {
-    data() {
-      return {
-        title: "Contact Us"
-      }
-    },
     head() {
       return {
-        title: this.title,
+        title: this.contactUsMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
           hid: 'contact-us',
           name: 'contact us'
