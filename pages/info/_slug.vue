@@ -5,14 +5,14 @@
     <div class="container py-20">
       <div class="px-12 flex flex-wrap md:flex-no-wrap" v-if="ifNotEmpty()">
         <!-- Sections Menu -->
-        <ul class="sections-menu md:ltr:pr-12 md:rtl:pl-12 pb-8 md:pb-0 w-full md:w-1/4 flex-shrink-0">
-          <li v-for="section in pageContent.section" :key="section.sectionId"
+        <div class="sections-menu md:ltr:pr-12 md:rtl:pl-12 pb-8 md:pb-0 w-full md:w-1/4 flex-shrink-0">
+          <div v-for="section in pageContent.section" :key="section.sectionId"
             :class="activeSection == section.sectionId ? 'active': ''" class="section-link"
             @click="setActiveSection(section.sectionId)">
             <span v-if="section['title_' + $i18n.locale]">{{ section['title_' + $i18n.locale] }}</span>
             <span v-else></span>
-          </li>
-        </ul>
+          </div>
+        </div>
         <!-- Section Content -->
         <template v-for="section in pageContent.section">
           <div :key="section.sectionId" v-if="activeSection == section.sectionId"
