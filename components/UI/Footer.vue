@@ -38,11 +38,12 @@
           <hr>
         </div>
         <!-- Social Media Links -->
-        <ul class="links en">
-          <li v-for="link in socialMediaLinks" :key="link.id"><a class="whitespace-no-wrap" :href="link.path"
-              target="_blank">
-              <font-awesome-icon class="ltr:mr-2 rtl:ml-2" :icon="['fab', link.icon ]" />{{ link.id }}</a></li>
-        </ul>
+        <div class="links en">
+          <a class="whitespace-no-wrap" v-for="link in socialMediaLinks" :key="link.id" :href="link.path"
+            target="_blank">
+            <font-awesome-icon class="ltr:mr-2 rtl:ml-2" :icon="['fab', link.icon ]" />
+            {{ link.id }}</a>
+        </div>
       </section>
     </div>
     <!-- Secondery Footer -->
@@ -149,6 +150,10 @@
 
   img {
     max-width: 240px;
+  }
+
+  /deep/ a {
+    @apply block;
   }
 
   .logo,
