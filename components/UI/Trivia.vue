@@ -9,7 +9,7 @@
         <p>{{ info['content_' + $i18n.locale] }}</p>
       </div>
     </div>
-    <div class="block py-8 my-4 border-josa-warm-grey-dark">
+    <div class="block py-8 my-4 mx-12 border-josa-warm-grey-dark">
       <hr>
     </div>
   </div>

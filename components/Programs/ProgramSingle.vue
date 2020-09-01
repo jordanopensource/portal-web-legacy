@@ -10,8 +10,8 @@
         </div>
       </div>
       <!-- Featured Articles -->
-      <latestArticles :numberOfArticles="2" :language="$i18n.locale" :title="$t('blog.featured')" class="px-12" />
-      <div class="block py-8 my-4 border-josa-warm-grey-dark">
+      <latestArticles :articles="program.relatedArticles" :numberOfArticles="2" :title="$t('blog.featured')" class="px-12" />
+      <div class="block py-8 my-4 mx-12 border-josa-warm-grey-dark">
         <hr>
       </div>
       <!-- Trivia -->
@@ -29,7 +29,8 @@
   import pageBanner from "~/components/UI/PageBannerNoImage";
   import trivia from '~/components/UI/Trivia';
   import upcomingEvents from '~/components/Events/UpcomingEvents';
-  import latestArticles from "~/components/Blog/LatestArticles";
+  import latestArticles from "~/components/Blog/LatestArticlesNoFetch";
+  import Vue2Filters from 'vue2-filters';
 
   export default {
     name: 'ProgramSingle',
@@ -44,7 +45,7 @@
         type: Object,
         required: true
       }
-    },
+    }
   }
 
 </script>
