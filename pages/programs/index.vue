@@ -21,7 +21,7 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.programsMeta['title_' + this.$i18n.locale],
+        title: this.programsMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
             hid: 'programs',
             name: 'Programs'

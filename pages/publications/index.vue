@@ -32,13 +32,12 @@
   export default {
     data() {
       return {
-        title: "JOSA's Publications",
         activeCat: 'all'
       }
     },
     head() {
       return {
-        title: this.title,
+        title: this.publicationMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
           hid: 'publication',
           name: 'publication'
@@ -67,9 +66,9 @@
     computed: {
       numPublications() {
         if (this.activeCat == 'all') {
-          return 2
+          return 5
         } else {
-          return 4
+          return 0
         }
       }
     }

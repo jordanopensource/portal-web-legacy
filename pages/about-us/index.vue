@@ -18,7 +18,7 @@
   export default {
     head() {
       return {
-        title: this.meta['title_' + this.$i18n.locale],
+        title: this.meta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
           hid: this.meta.pageId,
           name: this.meta['title_' + this.$i18n.locale]

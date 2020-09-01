@@ -36,7 +36,7 @@
       },
       numberOfPublications: {
         type: Number,
-        default: 1
+        default: 0
       },
       category: {
         type: String,
@@ -54,7 +54,7 @@
       query() {
         var args = []
         var query = ""
-        if (this.numberOfPublications) {
+        if (this.numberOfPublications > 0) {
           let q = "_limit=" + this.numberOfPublications;
           args.push(q)
         }
