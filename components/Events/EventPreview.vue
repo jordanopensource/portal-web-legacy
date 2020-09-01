@@ -17,7 +17,7 @@
           {{ event.startDate | time($i18n.locale) }} - {{ event.endDate | time($i18n.locale) }}
         </span>
 
-        <span>
+        <span v-if="event.address">
           <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
           {{ event.address['addressOne_' + $i18n.locale] }}
         </span>

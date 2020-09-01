@@ -1,10 +1,15 @@
 <!-- Fetch and list events based on event categories-->
 <template>
   <section>
-    <h3 v-if="title">{{ title }}</h3>
-    <div v-for="month in months" :key="month" class="mb-20">
-      <h3>{{ month }}</h3>
-      <eventPreview v-for="event in sortedEvents[month]" :key="event.id" :id="event.id" :event="event" />
+    <div v-if="ifNotEmpty()">
+      <h3 v-if="title">{{ title }}</h3>
+      <div v-for="month in months" :key="month" class="mb-20">
+        <h3>{{ month }}</h3>
+        <eventPreview v-for="event in sortedEvents[month]" :key="event.id" :id="event.id" :event="event" />
+      </div>
+    </div>
+    <div v-else>
+      <p>{{ $t('events.noUpcoming')}}</p>
     </div>
   </section>
 </template>
@@ -78,13 +83,20 @@
             this.loadedEvents = eventsArray
           })
           .catch(e => this.context.error(e));
+      },
+      ifNotEmpty() {
+        if (Array.isArray(this.loadedEvents) && this.loadedEvents.length)
+          return true;
+        else
+          return false;
       }
     },
     computed: {
       sortedEvents() {
         var data = this.loadedEvents
         var obj = {};
-        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), obj[i] ? obj[i].push(e) : (obj[i] = [e])));
+        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), obj[i] ? obj[i]
+          .push(e) : (obj[i] = [e])));
         return obj;
       },
       months() {
