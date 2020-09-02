@@ -10,8 +10,8 @@
         </div>
       </div>
       <!-- Featured Articles -->
-      <latestArticles :articles="program.relatedArticles" :numberOfArticles="2" :title="$t('blog.featured')" class="px-12" />
-      <div class="block py-8 my-4 mx-12 border-josa-warm-grey-dark">
+      <latestArticles :articles="filteredByLanguage" :numberOfArticles="2" :title="$t('blog.featured')" class="px-12" />
+      <div v-if="ifNotEmpty()" class="block py-8 my-4 mx-12 border-josa-warm-grey-dark">
         <hr>
       </div>
       <!-- Trivia -->
@@ -45,7 +45,22 @@
         type: Object,
         required: true
       }
-    }
+    },
+    computed: {
+      filteredByLanguage() {
+        const allArticles = this.program.relatedArticles;
+        const byLang = allArticles.filter(a => a.language == this.$i18n.locale);
+        return byLang
+      }
+    },
+    methods: {
+      ifNotEmpty() {
+        if (Array.isArray(this.filteredByLanguage) && this.filteredByLanguage.length)
+          return true;
+        else
+          return false;
+      }
+    },
   }
 
 </script>
