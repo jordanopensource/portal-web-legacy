@@ -173,7 +173,9 @@ export default {
       name: 'Your Name',
       email: 'Your Email',
       submit: 'Submit'
-    }
+    },
+    sent: 'Thank you for your feedback!',
+    fail: 'Sorry! Something went wrong, please try again later.',
   },
   // Publications
   publication: {
