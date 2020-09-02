@@ -47,7 +47,8 @@ export default {
     { src: '~/plugins/vue2-filters' },
     { src: '~/plugins/string-filters' },
     { src: '~/plugins/i18n' },
-    { src: '~/plugins/og-tags' }
+    { src: '~/plugins/og-tags' },
+    { src: '~/plugins/flash-message.js', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules
