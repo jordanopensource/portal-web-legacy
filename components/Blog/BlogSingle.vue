@@ -4,27 +4,25 @@
     <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
     <div ref="content" class="container content">
       <h2 ref="title">{{ article.title }}</h2>
-      <div class="text-josa-warm-grey-dark font-bold my-4">{{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
+      <div class="text-josa-warm-grey-dark font-bold my-4">
+        {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
       <p v-if="article.excerpt" class="excerpt">{{ article.excerpt }}</p>
-      <div v-if="article.author" class="meta">
-        <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
-        <p class="font-bold">{{ article.author.fullName }}</p>
-      </div>
+      <!-- author -->
+      <author v-if="article.author" class="meta" :name="article.author['name_' + $i18n.locale]"
+        :picture="article.author.picture" />
+      <!-- Body -->
       <div class="body" v-html="article.body"></div>
       <hr>
-      <div v-if="article.author" class="meta">
-        <appImage :image="article.author.profilePicture" size="small" class="profilePicture" />
-        <div class="opacity-90">
-          <p class="ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.writtenBy')}}</p>
-          <h3 class="font-bold">{{ article.author.fullName }}</h3>
-        </div>
-      </div>
+      <!-- author -->
+      <author v-if="article.author" class="meta" :name="article.author['name_' + $i18n.locale]"
+        :picture="article.author.picture" :bio="article.author['bio_' + $i18n.locale]" />
     </div>
   </article>
 </template>
 
 <script>
   import appImage from '~/components/UI/appImage';
+  import author from '~/components/Blog/Author';
   export default {
     name: 'BlogSingle',
     data() {
@@ -33,7 +31,8 @@
       }
     },
     components: {
-      appImage
+      appImage,
+      author
     },
     props: {
       article: {
@@ -46,11 +45,6 @@
       if (w > 640) {
         this.setContentNegMargin();
       }
-    },
-    computed: {
-      authorProfile() {
-        return this.localePath('/members/' + this.article.author.id)
-      },
     },
     methods: {
       setContentNegMargin() {
