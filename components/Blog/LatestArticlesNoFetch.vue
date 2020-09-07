@@ -2,7 +2,7 @@
   <div v-if="ifNotEmpty()">
     <h2>{{ title }}</h2>
     <div class="md:grid md:grid-cols-2 col-gap-8 row-gap-0">
-      <articleLatest v-for="article in limitBy(orderBy(filteredByLanguage, 'publishDate', -1), numberOfArticles)"
+      <articleLatest v-for="article in limitBy(orderBy(articles, 'publishDate', -1), numberOfArticles)"
         :key="article.id" :id="article.id" :article="article" />
     </div>
   </div>
@@ -35,13 +35,6 @@
         type: Number,
         default: 1
       },
-    },
-    computed: {
-      filteredByLanguage() {
-        const allArticles = this.articles;
-        const byLang = allArticles.filter(a => a.language == this.$i18n.locale);
-        return byLang
-      }
     },
     methods: {
       ifNotEmpty() {

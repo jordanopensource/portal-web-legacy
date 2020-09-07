@@ -1,6 +1,7 @@
 <template>
   <div :dir="$dir()">
     <mainHeader />
+    <FlashMessage :position="'right top'" />
     <nuxt class="md:px-0 bg-white pb-8" />
     <mainFooter />
   </div>
@@ -14,7 +15,7 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association',
+        title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association',
         meta: [{
             hid: 'home-page',
             name: 'Home Page',
