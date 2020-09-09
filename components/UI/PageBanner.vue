@@ -5,7 +5,7 @@
         class="flex flex-row justify-between align-middle flex-wrap sm:flex-no-wrap py-12 md:py-6 px-12 bg-josa-warm-grey-light">
         <div class="my-auto sm:max-w-1/2 lg:max-w-1/3">
           <h4 class="font-aleoLightItalic mb-16">{{ pageMeta['title_' + $i18n.locale] }}</h4>
-          <p v-if="pageMeta['description_' + $i18n.locale]" class="ltr:leading-none rtl:leading-tight">{{ pageMeta['description_' + $i18n.locale] }}</p>
+          <p v-if="pageMeta['description_' + $i18n.locale]" class="ltr:leading-normal rtl:leading-relaxed">{{ pageMeta['description_' + $i18n.locale] }}</p>
         </div>
         <appImage v-if="pageMeta.image" :image="pageMeta.image" class="bot md:ltr:pl-8 md:rtl:pr-8 md:py-8" />
       </div>
