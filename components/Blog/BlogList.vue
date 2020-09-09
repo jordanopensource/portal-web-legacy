@@ -5,7 +5,7 @@
       <articleFeatured v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
     </div>
     <div v-else>
-      <h3>{{ title }}</h3>
+      <h2>{{ title }}</h2>
       <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
     </div>
   </section>
