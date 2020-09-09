@@ -99,15 +99,17 @@
   .preview .thumbnail,
   .preview .thumbnail img {
     object-position: 0 0;
+    border: 1px solid #eee;
+    @apply px-0;
   }
 
   @screen md {
     [dir="ltr"] .preview .thumbnail {
-      @apply pr-6;
+      @apply mr-6;
     }
 
     [dir="rtl"] .preview .thumbnail {
-      @apply pl-6;
+      @apply ml-6;
     }
 
     .preview .thumbnail,

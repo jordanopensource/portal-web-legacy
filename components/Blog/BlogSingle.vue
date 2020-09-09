@@ -74,7 +74,7 @@
   }
 
   .content {
-    @apply bg-white p-12 relative z-50 mx-auto;
+    @apply bg-white p-8 relative z-50 mx-auto;
     max-width: 766px;
   }
 
@@ -97,7 +97,7 @@
 
   .body>>>p {
     @apply font-normal mb-10;
-    line-height: 2;
+    line-height: 1.7;
   }
 
   [lang="en"] .body>>>p {
@@ -105,7 +105,7 @@
   }
 
   [lang="ar"] .body>>>p {
-    @apply text-2xl font-naskh;
+    @apply text-xl font-naskh;
   }
 
   .body>>>h3 {
