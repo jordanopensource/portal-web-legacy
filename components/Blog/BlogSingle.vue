@@ -71,6 +71,8 @@
 
   .thumbnail {
     @apply w-full;
+    max-height: 50vh;
+    object-fit: cover;
   }
 
   .content {
