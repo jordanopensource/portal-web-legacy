@@ -7,7 +7,7 @@
           <h4 class="font-aleoLightItalic mb-16">{{ pageMeta['title_' + $i18n.locale] }}</h4>
           <p v-if="pageMeta['description_' + $i18n.locale]" class="ltr:leading-normal rtl:leading-relaxed">{{ pageMeta['description_' + $i18n.locale] }}</p>
         </div>
-        <appImage v-if="pageMeta.image" :image="pageMeta.image" class="bot md:ltr:pl-8 md:rtl:pr-8 md:py-8" />
+        <appImage v-if="pageMeta.image" :image="pageMeta.image" class="bot mt-8 md:ltr:pl-8 md:rtl:pr-8 md:py-8" />
       </div>
     </div>
   </div>

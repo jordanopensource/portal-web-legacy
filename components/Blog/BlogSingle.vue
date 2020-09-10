@@ -71,6 +71,8 @@
 
   .thumbnail {
     @apply w-full;
+    max-height: 50vh;
+    object-fit: cover;
   }
 
   .content {
@@ -105,7 +107,7 @@
   }
 
   [lang="ar"] .body>>>p {
-    @apply text-xl font-naskh;
+    @apply text-2xl font-naskh;
   }
 
   .body>>>h3 {
