@@ -107,7 +107,7 @@
   }
 
   [lang="ar"] .body>>>p {
-    @apply text-xl font-naskh;
+    @apply text-2xl font-naskh;
   }
 
   .body>>>h3 {
