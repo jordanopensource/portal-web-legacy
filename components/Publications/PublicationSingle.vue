@@ -61,6 +61,7 @@
 
   .thumbnail {
     @apply w-full;
+    border: 1px solid #aaa;
   }
 
   .description>>>p,

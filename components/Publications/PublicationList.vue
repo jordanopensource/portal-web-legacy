@@ -7,7 +7,7 @@
         :publication="publication" />
     </div>
     <div v-else>
-      <h3>{{ title }}</h3>
+      <h2>{{ title }}</h2>
       <publicationPreview v-for="publication in loadedPublications" :key="publication.id" :id="publication.id"
         :publication="publication" />
     </div>
