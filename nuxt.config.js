@@ -141,7 +141,7 @@ export default {
       const programsRoutes = programs.data.map((program) => `/programs/${program.id}`)
       const infoPagesRoutes = infoPages.data.map((page) => `/info/${page.pageId}`)
 
-      return [ ...articlesRoutes, ...eventsRoutes, ...careersRoutes, ...publicationsRoutes, ...programsRoutes, ...infoPagesRoutes]
+      return [ ...articlesRoutes, ...eventsRoutes, ...publicationsRoutes, ...programsRoutes, ...infoPagesRoutes]
     }
   },
   /*
