@@ -137,7 +137,6 @@ export default {
 
       const articlesRoutes = articles.data.map((article) => `${article.language == 'ar' ? '/ar':''}/blog/${article.id}`)
       const eventsRoutes = events.data.map((event) => `/events/${event.id}`)
-      const careersRoutes = careers.data.map((career) => `/careers/${career.id}`)
       const publicationsRoutes = publications.data.map((publication) => `/publications/${publication.id}`)
       const programsRoutes = programs.data.map((program) => `/programs/${program.id}`)
       const infoPagesRoutes = infoPages.data.map((page) => `/info/${page.pageId}`)
