@@ -10,8 +10,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { 'http-equiv': 'onion-location', content: 'http://josavtlxyxjgeqbo.onion' },
-      { hid: 'JOSA', name: 'JOSA', content: process.env.npm_package_description || 'JOSA' },
-      { name: 'description', content:'Championing Open Source And Digital Rights In Jordan' },
+      { hid: 'JOSA', name: 'description', content: process.env.npm_package_description || 'JOSA' },
       { name: 'robots', content:'all' }
     ],
     link: [

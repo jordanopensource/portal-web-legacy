@@ -52,11 +52,11 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association',
+        title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association',
         meta: [{
-            hid: 'home-page',
-            name: 'Home Page',
-            content: 'Jordan Open Source Association'
+            name: 'description',
+            content: this.homeMeta['metaDescription_' + this.$i18n.locale] ? this.homeMeta[
+              'metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -69,12 +69,10 @@
       }
     },
   }
-
 </script>
 
 <style scoped>
   .grey-light {
     @apply bg-josa-warm-grey-light;
   }
-
 </style>

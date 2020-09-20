@@ -17,12 +17,17 @@
 
   export default {
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.meta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.meta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
-          hid: this.meta.pageId,
-          name: this.meta['title_' + this.$i18n.locale]
-        }]
+            name: 'description',
+            content: this.meta['metaDescription_' + this.$i18n.locale] ? this.meta['metaDescription_' + this
+              .$i18n.locale] : ''
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     layout: "default",
@@ -37,7 +42,6 @@
       }
     }
   }
-
 </script>
 
 <style scoped>
@@ -45,5 +49,4 @@
   #content /deep/ h3 {
     @apply mb-4;
   }
-
 </style>

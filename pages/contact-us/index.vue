@@ -1,7 +1,9 @@
 <template>
   <div id="contact-us">
     <pageBanner :pageMeta="contactUsMeta" />
-    <locationMap :latitude="contactInfo.address.latitude" :longitude="contactInfo.address.longitude" :mLongitude="contactInfo.address.markerLongitude" :mLatitude="contactInfo.address.markerLatitude" mapHeight="500px"/>
+    <locationMap :latitude="contactInfo.address.latitude" :longitude="contactInfo.address.longitude"
+      :mLongitude="contactInfo.address.markerLongitude" :mLatitude="contactInfo.address.markerLatitude"
+      mapHeight="500px" />
     <addressCard :info="contactInfo" />
     <feedback />
   </div>
@@ -16,12 +18,17 @@
 
   export default {
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.contactUsMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.contactUsMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
-          hid: 'contact-us',
-          name: 'contact us'
-        }]
+            name: 'description',
+            content: this.contactUsMeta['metaDescription_' + this.$i18n.locale] ? this.contactUsMeta[
+              'metaDescription_' + this.$i18n.locale] : ''
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     layout: "default",
@@ -40,7 +47,6 @@
       }
     },
   }
-
 </script>
 
 <style>
