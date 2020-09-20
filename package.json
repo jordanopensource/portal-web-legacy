@@ -1,7 +1,7 @@
 {
   "name": "josa-portal-web",
   "version": "1.0.0",
-  "description": "JOSA Portal Web App",
+  "description": "Jordan Open Source Association JOSA Web Portal",
   "author": "JOSA",
   "private": true,
   "scripts": {

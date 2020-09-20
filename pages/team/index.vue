@@ -23,10 +23,12 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.boardStaffMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.boardStaffMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
-            hid: 'boardAndStaff',
-            name: 'Board and Staff'
+            name: 'description',
+            content: this.boardStaffMeta['metaDescription_' + this.$i18n.locale] ? this.boardStaffMeta[
+              'metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -44,12 +46,10 @@
       }
     }
   };
-
 </script>
 
 <style scoped>
   .board-staff-list {
     @apply px-12 mt-20;
   }
-
 </style>

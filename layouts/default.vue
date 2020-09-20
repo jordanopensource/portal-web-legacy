@@ -16,13 +16,6 @@
       const i18nSeo = this.$nuxtI18nSeo()
       return {
         title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association',
-        meta: [{
-            hid: 'home-page',
-            name: 'Home Page',
-            content: 'JOSA Portal Web App'
-          },
-          ...i18nSeo.meta
-        ]
       }
     },
     components: {
