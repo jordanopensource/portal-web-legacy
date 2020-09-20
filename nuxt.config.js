@@ -1,4 +1,4 @@
-
+const axios = require('axios');
 export default {
   mode: 'universal',
   /*
@@ -10,7 +10,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { 'http-equiv': 'onion-location', content: 'http://josavtlxyxjgeqbo.onion' },
-      { hid: 'JOSA', name: 'JOSA', content: process.env.npm_package_description || 'JOSA' },
+      { hid: 'JOSA', name: 'description', content: process.env.npm_package_description || 'JOSA' },
       { name: 'robots', content:'all' }
     ],
     link: [
@@ -81,7 +81,8 @@ export default {
     'nuxt-i18n',
     '@nuxtjs/moment',
     'nuxt-leaflet',
-    '@nuxtjs/redirect-module'
+    '@nuxtjs/redirect-module',
+    '@nuxtjs/sitemap',
   ],
   i18n: {
     locales: [
@@ -120,6 +121,31 @@ export default {
   redirect: [
     { from: '^/opendata', to: 'https://www.mynaparrot.com/en/my-classrooms/rooms?layout=login&roomId=1964&clientId=josa' }
   ],
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://jordanopensource.org',
+    i18n: true,
+    defaults: {
+      lastmod: new Date()
+    },
+    routes: async () => {
+      const articles = await axios.get('https://api.portal.jordanopensource.org/blogs')
+      const events = await axios.get('https://api.portal.jordanopensource.org/events')
+      const careers = await axios.get('https://api.portal.jordanopensource.org/careers')
+      const publications = await axios.get('https://api.portal.jordanopensource.org/publications')
+      const programs = await axios.get('https://api.portal.jordanopensource.org/programs')
+      const infoPages = await axios.get('https://api.portal.jordanopensource.org/info-pages')
+
+      const articlesRoutes = articles.data.map((article) => `${article.language == 'ar' ? '/ar':''}/blog/${article.id}`)
+      const eventsRoutes = events.data.map((event) => `/events/${event.id}`)
+      const careersRoutes = careers.data.map((career) => `/careers/${career.id}`)
+      const publicationsRoutes = publications.data.map((publication) => `/publications/${publication.id}`)
+      const programsRoutes = programs.data.map((program) => `/programs/${program.id}`)
+      const infoPagesRoutes = infoPages.data.map((page) => `/info/${page.pageId}`)
+
+      return [ ...articlesRoutes, ...eventsRoutes, ...careersRoutes, ...publicationsRoutes, ...programsRoutes, ...infoPagesRoutes]
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

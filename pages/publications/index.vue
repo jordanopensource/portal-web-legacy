@@ -36,12 +36,17 @@
       }
     },
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.publicationMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.publicationMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
-          hid: 'publication',
-          name: 'publication'
-        }]
+            name: 'description',
+            content: this.publicationMeta['metaDescription_' + this.$i18n.locale] ? this.publicationMeta[
+              'metaDescription_' + this.$i18n.locale] : ''
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     layout: "default",
@@ -73,12 +78,10 @@
       }
     }
   };
-
 </script>
 
 <style scoped>
   .publication-list {
     @apply px-12 mt-20;
   }
-
 </style>

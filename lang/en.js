@@ -1,6 +1,7 @@
 export default {
   // Pages
   pages: {
+    home: 'Home',
     aboutJosa: 'About JOSA',
     ourWork: 'Our work',
     takeAction: 'Take Action!',
@@ -233,6 +234,13 @@ export default {
   // Impact
   impact: {
     title: "Where JOSA's impact lies"
+  },
+  // Error
+  error: {
+    ops: 'Oops!',
+    lost: 'We can\'t seem to find the page you are looking for.',
+    links: 'Here are some helpul links instead:',
+    home: 'Home'
   }
 
 }

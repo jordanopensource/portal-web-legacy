@@ -15,10 +15,8 @@
         </div>
         <!-- Section Content -->
         <template v-for="section in pageContent.section">
-          <div :key="section.sectionId" v-if="activeSection == section.sectionId"
-            class="section-content flex-grow">
-            <span v-if="section['description_' + $i18n.locale]"
-              v-html="section['description_' + $i18n.locale]"></span>
+          <div :key="section.sectionId" v-if="activeSection == section.sectionId" class="section-content flex-grow">
+            <span v-if="section['description_' + $i18n.locale]" v-html="section['description_' + $i18n.locale]"></span>
             <span v-else></span>
           </div>
         </template>
@@ -33,12 +31,17 @@
   import pageBanner from "~/components/UI/PageBanner";
   export default {
     head() {
+      const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.pageContent['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.pageContent['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
-          hid: 'info-page',
-          name: 'Info Page'
-        }]
+            name: 'description',
+            content: this.pageContent['description_' + this.$i18n.locale] ? this.pageContent[
+              'description_' + this.$i18n.locale] : ''
+          },
+          ...i18nSeo.meta
+        ]
       }
     },
     layout: "default",
@@ -63,7 +66,7 @@
       return axios
         .get(process.env.baseUrl + '/info-pages?pageId=' + params.slug)
         .then(res => {
-          if(res.data[0].id) {
+          if (res.data[0].id) {
             const ifSections = (Array.isArray(res.data[0].section) && res.data[0].section.length) ? true : false
             const activeSec = ifSections ? res.data[0].section[0].sectionId : ''
             return {
@@ -85,7 +88,6 @@
         })
     }
   }
-
 </script>
 
 <style scoped>
@@ -133,5 +135,4 @@
   .section-content>>>p {
     @apply mb-4;
   }
-
 </style>

@@ -24,8 +24,9 @@
       return {
         title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
-            hid: 'publication',
-            name: 'Publication'
+            name: 'description',
+            content: this.publication['excerpt_' + this.$i18n.locale] ? this.publication['excerpt' + this
+              .$i18n.locale] : ''
           },
           ...this.$options.filters.ogTags('publication', this.publication, this.$route.path, this.$i18n.locale),
           ...i18nSeo.meta

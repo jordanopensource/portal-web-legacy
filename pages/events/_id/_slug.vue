@@ -24,8 +24,9 @@
       return {
         title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
-            hid: 'event',
-            name: 'Event'
+            name: 'description',
+            content: this.event['metaDescription_' + this.$i18n.locale] ? this.event['metaDescription_' + this
+              .$i18n.locale] : ''
           },
           ...this.$options.filters.ogTags('event', this.event, this.$route.path, this.$i18n.locale),
           ...i18nSeo.meta
