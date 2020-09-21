@@ -21,10 +21,12 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.programsMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.programsMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
-            hid: 'programs',
-            name: 'Programs'
+            name: 'description',
+            content: this.programsMeta['metaDescription_' + this.$i18n.locale] ? this.programsMeta[
+              'metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -42,12 +44,10 @@
       }
     }
   };
-
 </script>
 
 <style scoped>
   .programs-list {
     @apply px-12 mt-20;
   }
-
 </style>

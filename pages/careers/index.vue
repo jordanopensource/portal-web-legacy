@@ -44,10 +44,15 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.careerMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.careerMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             hid: 'careers',
             name: 'careers'
+          },
+          {
+            name: 'description',
+            content: this.careerMeta['metaDescription_' + this.$i18n.locale] ? this.careerMeta['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -73,12 +78,10 @@
       }
     }
   };
-
 </script>
 
 <style scoped>
   .career-list {
     @apply px-12 mt-20;
   }
-
 </style>
