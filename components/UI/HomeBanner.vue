@@ -4,7 +4,7 @@
       <div class="flex flex-row justify-between align-middle flex-wrap md:flex-no-wrap py-20 px-12 bg-josa-warm-grey-light">
         <div class="sm:max-w-1/2 lg:max-w-1/3">
           <h2 class="font-aleoLightItalic mb-8 text-3xl lg:text-4xl">{{ pageMeta['description_' + $i18n.locale] | capitalize }}</h2>
-          <nuxt-link to="contact-us" class="button button-blue-full mb-8">{{ $t('contact.connect') }}</nuxt-link>
+          <a href="https://members.jordanopensource.org" class="button button-blue-full mb-8">{{ $t('pages.becomeAMember') }}</a>
         </div>
         <appImage :image="pageMeta.image" class="bot mx-auto sm:mx-0 md:ltr:pl-8 md:rtl:pr-8 h-full align-middle inline object-contain" />
       </div>
