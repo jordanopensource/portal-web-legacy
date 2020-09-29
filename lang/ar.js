@@ -1,4 +1,7 @@
 export default {
+  pages: {
+    becomeAMember: 'انضم إلينا',
+  },
   // Blog
   blog: {
     all: 'جميع المقالات',
