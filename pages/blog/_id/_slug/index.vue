@@ -22,7 +22,8 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' :
+          'Jordan Open Source Association'),
         meta: [{
             name: 'description',
             content: this.blog.excerpt ? this.blog.excerpt : ''
@@ -39,8 +40,7 @@
     computed: {
       pageTitle() {
         return this.blog.title
-      }
+      },
     },
   };
-
 </script>
