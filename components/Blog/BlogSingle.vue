@@ -1,12 +1,12 @@
 <template>
-  <article>
+  <article :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">
     <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
     <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
     <div ref="content" class="container content">
       <h2 ref="title">{{ article.title }}</h2>
       <div class="text-josa-warm-grey-dark font-bold my-4">
         {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
-      <p v-if="article.excerpt" class="excerpt">{{ article.excerpt }}</p>
+      <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
       <!-- author -->
       <author v-if="article.author" class="meta" :name="article.author['name_' + $i18n.locale]"
         :picture="article.author.picture" />
@@ -61,7 +61,6 @@
       }
     }
   }
-
 </script>
 
 <style scoped>
@@ -73,6 +72,16 @@
     @apply w-full;
     max-height: 50vh;
     object-fit: cover;
+  }
+
+
+  article[lang="en"] h2 {
+    @apply font-aleoLight leading-tight;
+  }
+
+
+  article[lang="ar"] h2 {
+    @apply font-almarai leading-snug;
   }
 
   .content {
@@ -102,11 +111,11 @@
     line-height: 1.7;
   }
 
-  [lang="en"] .body>>>p {
+  article[lang="en"] .body>>>p {
     @apply text-lg font-merriweather;
   }
 
-  [lang="ar"] .body>>>p {
+  article[lang="ar"] .body>>>p {
     @apply text-2xl font-naskh;
   }
 
@@ -117,5 +126,4 @@
   hr {
     @apply my-12 border-solid border-josa-warm-grey-dark
   }
-
 </style>
