@@ -107,10 +107,7 @@ export default {
     },
     lazy: true,
     langDir: 'lang/',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected'
-    },
+    detectBrowserLanguage: false,
     baseUrl: 'https://jordanopensource.org',
     seo: true
   },
