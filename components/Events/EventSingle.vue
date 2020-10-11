@@ -12,8 +12,8 @@
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
-            <timeCard class="mb-8" :from="event.startDate" :to="event.endDate" />
-            <locationCard :address="event.address" />
+            <timeCard v-if="event.startDate" class="mb-8" :from="event.startDate" :to="event.endDate" />
+            <locationCard v-if="event.address" :address="event.address" />
           </div>
         </div>
       </div>
