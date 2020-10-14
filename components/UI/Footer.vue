@@ -86,6 +86,11 @@
             path: 'https://instagram.com/jordanopensource',
             id: '/jordanopensource'
           },
+            {
+            icon: 'github',
+            path: 'https://github.com/jordanopensource/josa-portal-web',
+            id: '/josa-portal-web'
+          },
         ]
       }
     },
