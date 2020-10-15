@@ -25,6 +25,18 @@ module.exports = {
           default: '#efedec',
           'dark': '#aea79f',
         },
+        'josa-red': {
+          "veryLight": "#fee9e2",
+          "light": "#f8c0ac",
+          default: '#dd4814',
+          'dark': '#b83b10'
+        },
+        'josa-green': {
+          "veryLight": "#e9f3de",
+          "light": "#cde2bb",
+          default: '#8dbd63',
+          "dark": "#5c813d"
+        },
         'josa-black': '#2e3436',
         'grey90': '#e5e5e5'
       },

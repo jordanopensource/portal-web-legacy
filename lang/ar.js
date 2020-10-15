@@ -25,7 +25,12 @@ export default {
     previous: 'الفعاليات السابقة',
     more: 'جميع فعاليتنا',
     noUpcoming: 'لا توجد فعاليات قادمة',
-    noPrevious: 'لا توجد فعاليات سابقة'
+    noPrevious: 'لا توجد فعاليات سابقة',
+    register: 'التسجيل',
+    registerDesc: 'سجل هنا اذا كنت ترغب في حضور هذه الفعالية:',
+    registerSuccess: 'شكراً لك, تم التسجيل لهذه الفعالية بنجاح!',
+    registerFail: 'هنالك خطأ, الرجاء المحاولة لاحقاً!',
+    registerExist: 'لقد سجلت مسبقاً لهذه الفعالية!',
   },
   eventCats: {
     all: 'جميع الفعاليات'
@@ -96,7 +101,9 @@ export default {
     download: 'تنزيل',
     closed: 'مغلق',
     visitWebsite: 'زيارة الموقع',
-    email: 'الايميل'
+    email: 'الايميل',
+    firstName: 'الاسم الأول',
+    lastName: 'الاسم الأخير'
   },
   // Partners
   partners: {
@@ -122,5 +129,9 @@ export default {
   // Impact
   impact: {
     title: "تأثير جوسا"
-  }
+  },
+    // Buttons
+    button: {
+      register: 'سجل',
+    },
 }

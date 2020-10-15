@@ -47,7 +47,8 @@ export default {
     subscribe: 'Subscribe',
     unsubscribe: 'Unsubscribe',
     joinSlack: 'Join JOSA\'s Slack',
-    joinJosa: 'Join JOSA'
+    joinJosa: 'Join JOSA',
+    register: 'Register'
   },
   // Social Media Links
   socialMedia: {
@@ -126,7 +127,9 @@ export default {
     download: 'Download',
     closed: 'closed',
     visitWebsite: 'Visit Website',
-    email: 'Email'
+    email: 'Email',
+    firstName: 'First Name',
+    lastName: 'Last Name'
   },
   // Blog
   blog: {
@@ -151,7 +154,12 @@ export default {
     previous: 'Previous Events',
     more: 'Our events',
     noUpcoming: 'No upcoming events',
-    noPrevious: 'No previous events'
+    noPrevious: 'No previous events',
+    register: 'Register',
+    registerDesc: 'Register here if you would like to attend this event:',
+    registerSuccess: 'Thank you for registering to this event!',
+    registerFail: 'Something went wrong, please try again!',
+    registerExist: 'You are already registered for this event!',
   },
   eventCats: {
     all: 'All Events',

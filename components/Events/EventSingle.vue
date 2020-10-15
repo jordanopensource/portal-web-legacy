@@ -8,10 +8,13 @@
           <div class="w-full md:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
             <appImage v-if="event.thumbnail" :image="event.thumbnail" size="large" class="thumbnail" />
             <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
-            <div v-if="event['description_' + $i18n.locale]" class="description py-8" v-html="event['description_' + $i18n.locale]"></div>
+            <div v-if="event['description_' + $i18n.locale]" class="description py-8"
+              v-html="event['description_' + $i18n.locale]"></div>
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
+            <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
+              :registrants="event.registrants" />
             <timeCard class="mb-8" :from="event.startDate" :to="event.endDate" />
             <locationCard :address="event.address" />
           </div>
@@ -26,6 +29,7 @@
   import timeCard from '~/components/Events/TimeCard.vue';
   import speakers from '~/components/Events/Speakers.vue';
   import locationCard from '~/components/Events/LocationCard.vue';
+  import registerationForm from '~/components/Events/RegisterationForm';
 
   export default {
     name: 'EventSingle',
@@ -38,7 +42,8 @@
       appImage,
       timeCard,
       speakers,
-      locationCard
+      locationCard,
+      registerationForm
     },
     props: {
       event: {
@@ -47,7 +52,6 @@
       }
     },
   }
-
 </script>
 
 <style scoped>
