@@ -72,6 +72,7 @@
                             registrant)
                         .then(res => {
                             this.status = 'success'
+                            this.registrants = res.data.registrants
                         })
                         .catch(e => {
                             this.status = 'fail'
