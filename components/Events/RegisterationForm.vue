@@ -8,14 +8,14 @@
         <p v-if="status === 'success'" class="success mb-4">{{ $t('events.registerSuccess') }}</p>
         <p v-if="status === 'fail'" class="fail mb-4">{{ $t('events.registerFail') }}</p>
         <p v-if="status === 'exist'" class="success mb-4">{{ $t('events.registerExist') }}</p>
-        <form @submit.prevent="updateRegistrants">
-            <appControlInput id="firstName" v-model="formInfo.firstName" controlType="input" required>
+        <form @submit.prevent="register">
+            <appControlInput id="firstName" v-model="form.firstName" controlType="input" required>
                 {{ $t('meta.firstName') }}
             </appControlInput>
-            <appControlInput id="lastName" v-model="formInfo.lastName" controlType="input" required>
+            <appControlInput id="lastName" v-model="form.lastName" controlType="input" required>
                 {{ $t('meta.lastName') }}
             </appControlInput>
-            <appControlInput id="email" v-model="formInfo.email" controlType="email" required>{{ $t('meta.email') }}
+            <appControlInput id="email" v-model="form.email" controlType="email" required>{{ $t('meta.email') }}
             </appControlInput>
             <appButton btnStyle="button-sharp button-dark-blue-full" class="mt-4">{{ $t('button.register') }}
             </appButton>
@@ -33,7 +33,7 @@
         data() {
             return {
                 status: null,
-                formInfo: {
+                form: {
                     email: '',
                     firstName: '',
                     lastName: ''
@@ -55,21 +55,21 @@
         },
         computed: {
             ifRegisterd() {
-                return this.registrants.some(r => r.email == this.formInfo.email)
+                return this.registrants.some(r => r.email == this.form.email)
             }
         },
         methods: {
-            async updateRegistrants() {
+            async register() {
                 if (this.ifRegisterd) {
                     this.status = 'exist'
                 } else {
-                    const editedRegistrantsArray = {
-                        "firstName": this.formInfo.firstName,
-                        "LastName": this.formInfo.lastName,
-                        "email": this.formInfo.email
+                    const registrant = {
+                        "firstName": this.form.firstName,
+                        "LastName": this.form.lastName,
+                        "email": this.form.email
                     }
                     return axios.put(process.env.baseUrl + "/events/" + this.eventId + "/register",
-                            editedRegistrantsArray)
+                            registrant)
                         .then(res => {
                             this.status = 'success'
                         })
