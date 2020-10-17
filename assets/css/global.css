@@ -94,13 +94,13 @@ body {
 }
 
 .button-flat:hover {
-  @apply opacity-75
+  @apply opacity-75;
 }
 
 a {
+  @apply cursor-pointer text-josa-blue;
   transition: color 0.25s linear;
   -webkit-transition: color 0.25s linear;
-  cursor: pointer;
 }
 
 a:hover,
@@ -140,13 +140,16 @@ ul {
   list-style: disc;
 }
 
-[dir="ltr"] ol > li, [dir="ltr"] ul > li{
+[dir="ltr"] ol>li,
+[dir="ltr"] ul>li {
   @apply ml-4;
 }
 
-[dir="rtl"] ol > li, [dir="rtl"] ul > li {
+[dir="rtl"] ol>li,
+[dir="rtl"] ul>li {
   @apply mr-4
 }
+
 /*****/
 
 /* Profile Picture */
@@ -190,20 +193,25 @@ ul {
 /*****/
 
 /* Preview Image */
-.preview .thumbnail, .preview .thumbnail img {
+.preview .thumbnail,
+.preview .thumbnail img {
   @apply w-full object-cover mb-4;
   height: 200px;
   object-position: 50% 50%;
 }
 
 @screen md {
-  .preview .thumbnail, .preview .thumbnail img {
+
+  .preview .thumbnail,
+  .preview .thumbnail img {
     height: 250px;
   }
 }
 
 @screen lg {
-  .preview .thumbnail, .preview .thumbnail img {
+
+  .preview .thumbnail,
+  .preview .thumbnail img {
     @apply mb-0;
     flex-shrink: 0;
     height: 250px;
@@ -230,6 +238,7 @@ ul {
     height: 300px;
   }
 }
+
 @screen lg {
   .featured .thumbnail {
     height: 450px;
@@ -270,7 +279,9 @@ ul {
 .success {
   @apply bg-josa-green-veryLight text-josa-green-dark border border-josa-green p-4;
 }
+
 .fail {
   @apply bg-josa-red-veryLight text-josa-red-dark border border-josa-red p-4;
 }
+
 /*****/
