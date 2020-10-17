@@ -20,7 +20,7 @@ body {
 [lang="en"] h4,
 [lang="en"] h5,
 [lang="en"] h6 {
-  @apply font-aleoLight leading-tight;
+  @apply font-aleoLight leading-tight text-josa-black;
 }
 
 [lang="ar"] h1,
@@ -29,7 +29,13 @@ body {
 [lang="ar"] h4,
 [lang="ar"] h5,
 [lang="ar"] h6 {
-  @apply font-almarai leading-snug;
+  @apply font-almarai leading-snug text-josa-black;
+}
+
+a:hover > h1, a:hover > h2, a:hover > h3, a:hover > h4, a:hover > h5, a:hover > h6 {
+  @apply text-josa-blue;
+  transition: color 0.25s linear;
+  -webkit-transition: color 0.25s linear;
 }
 
 /* h2 */

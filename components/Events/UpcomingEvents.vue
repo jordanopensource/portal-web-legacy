@@ -25,7 +25,7 @@
   export default {
     data() {
       return {
-        sortBy: 'startDate:DESC',
+        sortBy: 'startDate:ASC',
         loadedEvents: [],
         eventsImage: {}
       }
