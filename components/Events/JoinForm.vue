@@ -82,7 +82,7 @@
                 let url = this.$config.bbbAPIUrl
                 let secret = this.$config.bbbAPISecret
                 let call
-                if(this.event.onlineMeeting.Password) {
+                if(this.event.onlineMeeting.password) {
                     let password = this.form.password
                     call = `meetingID=${meetingID}&password=${password}&fullName=${fullName}`
                 } else {
