@@ -48,7 +48,8 @@ export default {
     unsubscribe: 'Unsubscribe',
     joinSlack: 'Join JOSA\'s Slack',
     joinJosa: 'Join JOSA',
-    register: 'Register'
+    register: 'Register',
+    join: 'Join'
   },
   // Social Media Links
   socialMedia: {
@@ -129,7 +130,10 @@ export default {
     visitWebsite: 'Visit Website',
     email: 'Email',
     firstName: 'First Name',
-    lastName: 'Last Name'
+    lastName: 'Last Name',
+    password: 'Password',
+    asReceived: 'As recieved in your confirmation email',
+    fullName: 'Full Name'
   },
   // Blog
   blog: {
@@ -160,6 +164,14 @@ export default {
     registerSuccess: 'Thank you for registering to this event!',
     registerFail: 'Something went wrong, please try again!',
     registerExist: 'You are already registered for this event!',
+    join: 'Join this event',
+    joinDesc: 'This event is happening online, You can join by submitting the following information:',
+    hostedBy: 'Hosted by Jordan Open Source Association',
+    happening: 'Happening now',
+    joinCall: 'This event is happening online. You can join and participate by submitting the information in the form.',
+    notRegistered: 'You haven\'t registered? you can register',
+    here: 'here',
+    onlineEvent: 'Online Event'
   },
   eventCats: {
     all: 'All Events',
