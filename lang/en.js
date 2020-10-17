@@ -165,7 +165,6 @@ export default {
     registerFail: 'Something went wrong, please try again!',
     registerExist: 'You are already registered for this event!',
     join: 'Join this event',
-    joinDesc: 'This event is happening online, You can join by submitting the following information:',
     hostedBy: 'Hosted by Jordan Open Source Association',
     happening: 'Happening now',
     joinCall: 'This event is happening online. You can join and participate by submitting the information in the form.',

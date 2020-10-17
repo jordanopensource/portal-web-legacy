@@ -31,6 +31,13 @@ export default {
     registerSuccess: 'شكراً لك, تم التسجيل لهذه الفعالية بنجاح!',
     registerFail: 'هنالك خطأ, الرجاء المحاولة لاحقاً!',
     registerExist: 'لقد سجلت مسبقاً لهذه الفعالية!',
+    join: 'انضم إلى هذه الفعالية',
+    hostedBy: 'بتنظيم من الجمعية الأردنية للمصدر المفتوح',
+    happening: 'يحدث الاّن',
+    joinCall: 'هذه الفعالبة تحدث عبر الإنترنت. يمكنك المشاركة عن طريق تعبة النموذج التالي',
+    notRegistered: 'إذا لم تسجل في هذه الفالية, الرجاء التسجيل',
+    here: 'هنا',
+    onlineEvent: 'عبر الانترنت'
   },
   eventCats: {
     all: 'جميع الفعاليات'
@@ -103,7 +110,10 @@ export default {
     visitWebsite: 'زيارة الموقع',
     email: 'الايميل',
     firstName: 'الاسم الأول',
-    lastName: 'الاسم الأخير'
+    lastName: 'الاسم الأخير',
+    password: 'كلمة المرور',
+    asReceived: 'كما ورد في ايميل التأكيد',
+    fullName: 'الاسم الكامل'
   },
   // Partners
   partners: {
@@ -133,5 +143,6 @@ export default {
     // Buttons
     button: {
       register: 'سجل',
+      join: 'انضم'
     },
 }
