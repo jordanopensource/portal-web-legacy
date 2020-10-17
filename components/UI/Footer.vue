@@ -141,7 +141,7 @@
 
 
   h6 {
-    @apply uppercase pb-2;
+    @apply uppercase pb-2 text-josa-warm-grey-light;
   }
 
   hr {
