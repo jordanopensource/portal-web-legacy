@@ -13,10 +13,16 @@
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
+            <modal v-if="showModal && event.onlineEvent" @close="showModal=false">
+              <slot>
+                <joinForm class="mb-8" :event="event" />
+              </slot>
+            </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
               :registrants="event.registrants" />
             <timeCard class="mb-8" :from="event.startDate" :to="event.endDate" />
-            <locationCard :address="event.address" />
+            <locationCard v-if="event.address && !event.onlineEvent" :address="event.address" />
+            <onlineEventCard v-if="event.onlineEvent" />
           </div>
         </div>
       </div>
@@ -30,6 +36,9 @@
   import speakers from '~/components/Events/Speakers.vue';
   import locationCard from '~/components/Events/LocationCard.vue';
   import registerationForm from '~/components/Events/RegisterationForm';
+  import joinForm from '~/components/Events/JoinForm';
+  import modal from '~/components/UI/Modal';
+  import onlineEventCard from '~/components/Events/OnlineEventCard';
 
   export default {
     name: 'EventSingle',
@@ -43,7 +52,10 @@
       timeCard,
       speakers,
       locationCard,
-      registerationForm
+      registerationForm,
+      joinForm,
+      modal,
+      onlineEventCard
     },
     props: {
       event: {
@@ -51,6 +63,18 @@
         required: true
       }
     },
+    computed: {
+      showModal() {
+        return this.$store.getters.getShowModal
+      }
+    },
+    mounted() {
+      if ('join' in this.$route.query) {
+        this.$store.dispatch('setShowModal', true)
+      } else {
+        this.$store.dispatch('setShowModal', false)
+      }
+    }
   }
 </script>
 
