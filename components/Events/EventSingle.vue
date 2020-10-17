@@ -15,7 +15,7 @@
           <div class="w-full md:w-2/5 mb-8">
             <modal v-if="showModal && event.onlineEvent" @close="showModal=false">
               <slot>
-                <joinForm class="mb-8" :event="event" />
+                <joinForm :event="event" />
               </slot>
             </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"

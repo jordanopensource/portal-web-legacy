@@ -3,10 +3,10 @@
         <div class="w-full md:w-3/5 p-8">
             <h3>{{event['title_' + $i18n.locale]}}</h3>
             <p class="">{{ $t('events.hostedBy') }}</p>
-            <div class="flex flex-no-wrap my-8">
-                <appImage v-if="event.thumbnail" :image="event.thumbnail" size="small" class="thumbnail w-1/2 pr-2" />
+            <div class="flex flex-col lg:flex-row mt-8 mb-4">
+                <appImage v-if="event.thumbnail" :image="event.thumbnail" size="small" class="thumbnail w-full lg:w-1/2 lg:ltr:mr-2 lg:rtl:ml-2" />
                 <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
-                <div class="w-1/2 pl-2">
+                <div class="w-full lg:w-1/2 lg:ltr:ml-2 lg:rtl:mr-2 mt-4">
                     <p class="live text-xs uppercase mb-2">{{ $t('events.happening')}}</p>
                     <p>{{ $t('events.joinCall')}}</p>
                 </div>
@@ -18,7 +18,7 @@
                 <span class="text-josa-blue cursor-pointer" @click="$store.dispatch('setShowModal', false)"> {{ $t('events.here') }}</span>.
             </p>
         </div>
-        <div class="join-form w-full md:w-2/5 flex-shrink-0 p-8">
+        <div class="join-form w-full md:w-2/5 flex-shrink-0 p-8 mb-8 md:mb-0">
             <h3>{{ $t('events.join') }}</h3>
             <div class="block py-4">
                 <hr>
@@ -29,7 +29,7 @@
                 </appControlInput>
                 <appControlInput v-if="event.onlineMeeting.password" v-model="form.password" controlType="password" required>{{ $t('meta.password') }}
                 </appControlInput>
-                <appButton btnStyle="button-sharp button-dark-blue-full" class="mt-4 text-2xl">{{ $t('button.join') }}
+                <appButton btnStyle="button-sharp button-dark-blue-full" class="mt-4 text-xl md:text-2xl">{{ $t('button.join') }}
                     <font-awesome-icon class="icon" :icon="['fas', 'sign-in-alt' ]" />
                 </appButton>
             </form>
@@ -121,6 +121,9 @@
     .icon {
         @apply ml-2;
     }
+    [dir="rtl"] .icon {
+        transform: rotate(180deg);
+    }
 
     @keyframes live {
         0% {
@@ -139,6 +142,7 @@
         border-radius: 50%;
         display: inline-block;
         margin-right: 6px;
+        margin-left: 0px;
         vertical-align: sub;
         animation-name: live;
         animation-duration: 1s;
@@ -148,5 +152,9 @@
         animation-iteration-count: infinite;
         animation-fill-mode: none;
         animation-play-state: running;
+    }
+    [dir="rtl"] .live::before {
+        margin-left: 6px;
+        margin-right: 0;
     }
 </style>
