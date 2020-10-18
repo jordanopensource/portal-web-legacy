@@ -75,6 +75,9 @@ module.exports = {
       },
       height: {
         'half-screen': '50vh'
+      },
+      inset: {
+       '12': '3rem',
       }
     }
   },

@@ -3,8 +3,8 @@
         <div class="modal-mask">
             <div class="modal-wrapper" @click.self="$store.dispatch('setShowModal', false)">
                 <div class="container">
-                    <div class="p-12">
-                        <div class="modal-container">
+                    <div class="md:px-12 py-12">
+                        <div class="modal-container absolute md:relative top-12 md:top-0">
                             <slot></slot>
                         </div>
                     </div>
@@ -31,6 +31,7 @@
     .modal-wrapper {
         display: table-cell;
         vertical-align: middle;
+        position: relative;
     }
 
     .modal-container {
@@ -38,6 +39,8 @@
         background-color: #fff;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
         transition: all 0.3s ease;
+        max-height: 100%;
+        overflow-y: auto;
     }
 
     .modal-enter {
