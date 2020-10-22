@@ -49,7 +49,9 @@ export default {
     joinSlack: 'Join JOSA\'s Slack',
     joinJosa: 'Join JOSA',
     register: 'Register',
-    join: 'Join'
+    join: 'Join',
+    becomeAMember: 'Become a Member',
+    learnMoreWork: 'Learn more about our work'
   },
   // Social Media Links
   socialMedia: {
@@ -111,8 +113,7 @@ export default {
   },
   joinUs: {
     title: 'Join Us',
-    text1: 'JOSA is made by the efforts of members and volunteers like you!',
-    text2: 'Do you love Open Source? Lead the change in Jordan by joining us:'
+    desc: 'Our community is built by JOSAns, formidable members who own diverse skills, interests and experiences, all working for an open-technology, digitally-enabled Jordan.',
   },
   // About JOSA
   josa: {
@@ -122,6 +123,7 @@ export default {
   meta: {
     writtenBy: 'written by',
     readTheReport: 'Read the Report',
+    readMore: 'Read More',
     knowMore: 'Know More',
     knowMoreAboutUs: 'Know more about us',
     by: 'By',
@@ -133,14 +135,16 @@ export default {
     lastName: 'Last Name',
     password: 'Password',
     asReceived: 'As recieved in your confirmation email',
-    fullName: 'Full Name'
+    fullName: 'Full Name',
+    we: 'We'
   },
   // Blog
   blog: {
-    all: 'All Posts',
+    all: 'All Blog Posts',
     latest: 'Latest Articles',
     more: 'More from our blog',
-    featured: 'Featured Articles'
+    featured: 'Featured Articles',
+    spotlight: 'Spotlight'
   },
   // Time Card
   timeCard: {
@@ -199,8 +203,10 @@ export default {
   },
   // Publications
   publication: {
+    title: 'Research and Publications',
     publishDate: 'Publication Date:',
-    featured: 'Featured publication'
+    featured: 'Featured publication',
+    all: 'All Publications'
   },
   publicationCats: {
     title: {
