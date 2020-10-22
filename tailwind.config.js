@@ -83,7 +83,7 @@ module.exports = {
     }
   },
   variants: {
-    margin: ['responsive', 'direction'],
+    margin: ['responsive', 'direction', 'last'],
     padding: ['responsive', 'direction'],
     textAlign: ['responsive', 'direction'],
     fontSize: ['responsive', 'direction'],

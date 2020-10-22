@@ -1,14 +1,15 @@
 <template>
-  <div class="mt-8">
-    <!-- <appImage class="w-full mb-4 px-8 bot mx-auto" v-if="program.picture" :image="program.picture" /> -->
+  <div>
+    <appImage class="mb-4 image" v-if="program.picture" :image="program.picture" />
     <nuxt-link :to="programLink">
-      <h2 class="text-3xl m-0">
-        {{ program['title_' + $i18n.locale] ? program['title_' + $i18n.locale] : program['title_en'] }}</h2>
+      <h3 class="text-3xl">
+        {{ program['title_' + $i18n.locale] ? program['title_' + $i18n.locale] : program['title_en'] }}</h3>
     </nuxt-link>
-    <p class="py-2 px-4">
+    <p class="my-4">
       {{ program['description_' + $i18n.locale] ? program['description_' + $i18n.locale] : program['description_en']}}
     </p>
-    <nuxt-link :to="programLink" class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">{{ $t('meta.knowMore') }}</nuxt-link>
+    <nuxt-link :to="programLink" class="block text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
+      {{ $t('meta.readMore') }} ></nuxt-link>
   </div>
 </template>
 
@@ -37,12 +38,14 @@
       }
     }
   }
-
 </script>
 
 <style scoped>
-  .bot {
-    width: 250px;
+  .image {
+    width: 150px;
   }
 
+  h3 {
+    @apply text-2xl font-bold;
+  }
 </style>

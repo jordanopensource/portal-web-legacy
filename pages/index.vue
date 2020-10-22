@@ -10,7 +10,13 @@
       </div>
     </div>
     <!-- Join Us -->
-      <joinUs class="mt-12"/>
+    <joinUs class="mt-12" />
+    <!-- Impact -->
+    <div class="container">
+      <div class="row">
+        <ourWork class="w-full p-12" :title="$t('impact.title')" />
+      </div>
+    </div>
     <!-- Featured publication -->
     <div class="grey-light">
       <div class="container ">
@@ -23,12 +29,6 @@
     <div class="container">
       <div class="row">
         <upcomingEvents :title="$t('events.upcoming')" category="all" :numberOfEvents="2" />
-      </div>
-    </div>
-    <!-- Impact -->
-    <div class="container ">
-      <div class="row">
-        <ourWork class="w-full p-12" :title="$t('impact.title')" />
       </div>
     </div>
   </div>

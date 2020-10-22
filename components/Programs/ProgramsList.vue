@@ -1,7 +1,7 @@
 <template>
   <div>
-    <programPreview v-for="program in loadedPrograms" :key="program.id" :id="'program-' + program.id"
-      :program="program" />
+    <programPreview v-for="program in loadedPrograms" :key="program.id" :id="'program-' + program.id" :program="program"
+      class="my-8 last:mb-0" />
   </div>
 </template>
 
@@ -38,5 +38,4 @@
       }
     }
   }
-
 </script>
