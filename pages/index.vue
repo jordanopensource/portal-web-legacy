@@ -5,9 +5,12 @@
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
-        <articlesSpotlight class="w-full p-12" :numberOfArticles="4" :language="$i18n.locale" :title="$t('blog.spotlight')" />
+        <articlesSpotlight class="w-full p-12" :numberOfArticles="4" :language="$i18n.locale"
+          :title="$t('blog.spotlight')" />
       </div>
     </div>
+    <!-- Join Us -->
+      <joinUs class="mt-12"/>
     <!-- Featured publication -->
     <div class="grey-light">
       <div class="container ">
@@ -37,8 +40,9 @@
   import lastestPublications from '~/components/Publications/LastestPublications';
   import upcomingEvents from '~/components/Events/UpcomingEvents';
   import ourWork from '~/components/Programs/OurWork';
-
   import homeBanner from "~/components/UI/HomeBanner";
+  import joinUs from "~/components/JoinUs/JoinUs";
+
 
   export default {
     layout: 'general',
@@ -47,7 +51,8 @@
       homeBanner,
       articlesSpotlight,
       lastestPublications,
-      upcomingEvents
+      upcomingEvents,
+      joinUs
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()

@@ -16,6 +16,7 @@ module.exports = {
     extend: {
       colors: {
         'josa-blue': {
+          'light': '#c5e1ee',
           default: '#3897c0',
           'dark': '#1a485b',
           'veryDark': '#163e4e',

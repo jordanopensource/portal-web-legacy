@@ -49,7 +49,8 @@ export default {
     joinSlack: 'Join JOSA\'s Slack',
     joinJosa: 'Join JOSA',
     register: 'Register',
-    join: 'Join'
+    join: 'Join',
+    becomeAMember: 'Become a Member',
   },
   // Social Media Links
   socialMedia: {
@@ -111,8 +112,7 @@ export default {
   },
   joinUs: {
     title: 'Join Us',
-    text1: 'JOSA is made by the efforts of members and volunteers like you!',
-    text2: 'Do you love Open Source? Lead the change in Jordan by joining us:'
+    desc: 'Our community is built by JOSAns, formidable members who own diverse skills, interests and experiences, all working for an open-technology, digitally-enabled Jordan.',
   },
   // About JOSA
   josa: {
