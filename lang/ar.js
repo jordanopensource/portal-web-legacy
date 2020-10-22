@@ -66,8 +66,10 @@ export default {
   },
   // Publications
   publication: {
+    title: 'الأبحاث والمنشورات',
     publishDate: 'تاريخ النشر:',
-    featured: 'منشور مختار'
+    featured: 'منشور مختار',
+    all: 'جميع الأبحاث والمنشورات'
   },
   publicationCats: {
     title: {

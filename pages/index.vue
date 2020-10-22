@@ -12,7 +12,7 @@
     <div class="grey-light">
       <div class="container ">
         <div class="row grey-light">
-          <publicationList class="w-full p-12" :title="$t('publication.featured')" featured />
+          <lastestPublications class="w-full p-12" :title="$t('publication.title')" :numberOfPublications="2" />
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
 <script>
   import axios from 'axios';
   import articlesSpotlight from "~/components/Blog/ArticlesSpotlight";
-  import publicationList from '~/components/Publications/PublicationList';
+  import lastestPublications from '~/components/Publications/LastestPublications';
   import upcomingEvents from '~/components/Events/UpcomingEvents';
   import ourWork from '~/components/Programs/OurWork';
 
@@ -46,7 +46,7 @@
       ourWork,
       homeBanner,
       articlesSpotlight,
-      publicationList,
+      lastestPublications,
       upcomingEvents
     },
     head() {

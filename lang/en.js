@@ -201,8 +201,10 @@ export default {
   },
   // Publications
   publication: {
+    title: 'Research and Publications',
     publishDate: 'Publication Date:',
-    featured: 'Featured publication'
+    featured: 'Featured publication',
+    all: 'All Publications'
   },
   publicationCats: {
     title: {
