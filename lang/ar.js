@@ -149,6 +149,7 @@ export default {
     register: 'سجل',
     join: 'انضم',
     becomeAMember: 'أصبح عضواً',
+    learnMoreWork: 'اعرف أكثر عن عملنا'
   },
   // Join Us
   joinUs: {

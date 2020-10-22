@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Banner -->
-    <homeBanner :pageMeta="homeMeta" />
+    <homeBanner :pageMeta="homeMeta" :programs="programs" />
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">

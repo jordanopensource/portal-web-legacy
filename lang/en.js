@@ -51,6 +51,7 @@ export default {
     register: 'Register',
     join: 'Join',
     becomeAMember: 'Become a Member',
+    learnMoreWork: 'Learn more about our work'
   },
   // Social Media Links
   socialMedia: {
