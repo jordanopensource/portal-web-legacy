@@ -135,7 +135,8 @@ export default {
     lastName: 'Last Name',
     password: 'Password',
     asReceived: 'As recieved in your confirmation email',
-    fullName: 'Full Name'
+    fullName: 'Full Name',
+    we: 'We'
   },
   // Blog
   blog: {
