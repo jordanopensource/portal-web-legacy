@@ -14,7 +14,7 @@
     <!-- Impact -->
     <div class="container">
       <div class="row">
-        <ourWork class="w-full p-12" :title="$t('impact.title')" />
+        <ourWork class="w-full p-12" :title="$t('impact.title')" :programs="programs" />
       </div>
     </div>
     <!-- Featured publication -->
@@ -69,8 +69,10 @@
     },
     async asyncData(context) {
       const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=home');
+      const programs = await axios.get(process.env.baseUrl + '/programs');
       return {
-        homeMeta: pageMeta.data[0]
+        homeMeta: pageMeta.data[0],
+        programs: programs.data
       }
     },
   }

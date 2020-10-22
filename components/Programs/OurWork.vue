@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="our-work">
     <h2 class="pb-2" v-if="title">{{ title }}</h2>
-    <programsList class="grid grid-cols-1 md:grid-cols-2 col-gap-20" />
+    <programsList class="grid grid-cols-1 md:grid-cols-2 col-gap-20" :programs="programs"/>
   </div>
 </template>
 
@@ -15,6 +15,10 @@
     props: {
       title: {
         type: String,
+        required: true
+      },
+      programs: {
+        type: Array,
         required: true
       }
     }
