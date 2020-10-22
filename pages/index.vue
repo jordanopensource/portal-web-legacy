@@ -5,7 +5,7 @@
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
-        <latestArticles class="w-full p-12" :numberOfArticles="4" :language="$i18n.locale" :title="$t('blog.latest')" />
+        <articlesSpotlight class="w-full p-12" :numberOfArticles="4" :language="$i18n.locale" :title="$t('blog.spotlight')" />
       </div>
     </div>
     <!-- Featured publication -->
@@ -17,7 +17,7 @@
       </div>
     </div>
     <!-- Upcoming Events -->
-    <div class="container ">
+    <div class="container">
       <div class="row">
         <upcomingEvents :title="$t('events.upcoming')" category="all" :numberOfEvents="2" />
       </div>
@@ -33,7 +33,7 @@
 
 <script>
   import axios from 'axios';
-  import latestArticles from "~/components/Blog/LatestArticles";
+  import articlesSpotlight from "~/components/Blog/ArticlesSpotlight";
   import publicationList from '~/components/Publications/PublicationList';
   import upcomingEvents from '~/components/Events/UpcomingEvents';
   import ourWork from '~/components/Programs/OurWork';
@@ -45,7 +45,7 @@
     components: {
       ourWork,
       homeBanner,
-      latestArticles,
+      articlesSpotlight,
       publicationList,
       upcomingEvents
     },

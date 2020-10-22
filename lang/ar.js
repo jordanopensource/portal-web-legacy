@@ -7,7 +7,8 @@ export default {
     all: 'جميع المقالات',
     latest: 'آخر المقالات',
     more: 'المزيد من المقالات',
-    featured: 'مقالات مختارة'
+    featured: 'مقالات مختارة',
+    spotlight: 'آخر المقالات'
   },
   // Time Card
   timeCard: {
@@ -102,9 +103,10 @@ export default {
   meta: {
     writtenBy: 'كتبه',
     readTheReport: 'إقرأ التقرير',
+    readMore: 'إقرأ المزيد',
     knowMore: 'اعرف أكثر',
     knowMoreAboutUs: 'اعرف أكثر عنا',
-    by: 'من',
+    by: '',
     download: 'تنزيل',
     closed: 'مغلق',
     visitWebsite: 'زيارة الموقع',

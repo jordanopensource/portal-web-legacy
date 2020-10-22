@@ -122,6 +122,7 @@ export default {
   meta: {
     writtenBy: 'written by',
     readTheReport: 'Read the Report',
+    readMore: 'Read More',
     knowMore: 'Know More',
     knowMoreAboutUs: 'Know more about us',
     by: 'By',
@@ -137,10 +138,11 @@ export default {
   },
   // Blog
   blog: {
-    all: 'All Posts',
+    all: 'All Blog Posts',
     latest: 'Latest Articles',
     more: 'More from our blog',
-    featured: 'Featured Articles'
+    featured: 'Featured Articles',
+    spotlight: 'Spotlight'
   },
   // Time Card
   timeCard: {
