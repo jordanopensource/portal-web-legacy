@@ -51,7 +51,7 @@
 
 <style scoped>
   h3 {
-    @apply text-2xl font-bold;
+    @apply font-bold;
   }
 
   [lang="en"] p {

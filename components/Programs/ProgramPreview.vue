@@ -42,10 +42,10 @@
 
 <style scoped>
   .image {
-    width: 150px;
+    width: 125px;
   }
 
   h3 {
-    @apply text-2xl font-bold;
+    @apply font-bold;
   }
 </style>

@@ -3,7 +3,7 @@
     <div>
       <h5 class="py-2">{{ publication.category['title_' + $i18n.locale] }}</h5>
       <nuxt-link :to="publicationLink">
-        <h3 class="mb-4 text-3xl">{{ publication['title_' + $i18n.locale] }}</h3>
+        <h3 class="mb-4">{{ publication['title_' + $i18n.locale] }}</h3>
       </nuxt-link>
       <p class="text-josa-warm-grey-dark mb-2">
         {{ publication.publishDate ? publication.publishDate: publication.created_at | fullDate($i18n.locale) }}</p>
@@ -42,6 +42,6 @@
 
 <style scoped>
   h3 {
-    @apply text-2xl font-bold;
+    @apply font-bold;
   }
 </style>
