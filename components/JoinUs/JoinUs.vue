@@ -6,7 +6,7 @@
           <h2>{{ $t('joinUs.title') }}</h2>
           <p class="my-8">{{ $t('joinUs.desc') }}</p>
           <a href="https://members.jordanopensource.org" target="_blank"
-            class="button-sharp button-dark-blue-full mb-8">{{ $t('button.becomeAMember') }}</a>
+            class="button-sharp button-dark-blue-full mb-8 inline-block">{{ $t('button.becomeAMember') }}</a>
         </div>
       </div>
     </div>
