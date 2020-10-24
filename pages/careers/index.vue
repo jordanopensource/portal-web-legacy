@@ -1,9 +1,7 @@
 <template>
   <div class="career-page">
-
     <!-- Banner -->
     <pageBanner :pageMeta="careerMeta" />
-
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
@@ -15,16 +13,13 @@
         </div>
       </div>
     </div>
-
     <!-- Preview -->
     <div class="container pb-20">
       <div v-for="cat in careerCategories" :key="cat.id">
-        <careerList v-if="activeCat=='all' || activeCat==cat.name" class="career-list" :numberOfArticles="numArticles"
-          :careerType="cat.name" :title="cat['title_' + $i18n.locale]" />
-
+        <careerList v-if="activeCat=='all' || activeCat==cat.name" class="career-list" :careerType="cat.name"
+          :title="cat['title_' + $i18n.locale]" />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -52,7 +47,8 @@
           },
           {
             name: 'description',
-            content: this.careerMeta['metaDescription_' + this.$i18n.locale] ? this.careerMeta['metaDescription_' + this.$i18n.locale] : ''
+            content: this.careerMeta['metaDescription_' + this.$i18n.locale] ? this.careerMeta['metaDescription_' +
+              this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]

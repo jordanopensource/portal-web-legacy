@@ -16,8 +16,8 @@
     <!-- List -->
     <div class="container pb-20">
       <div v-for="cat in publicationCategories" :key="cat.id">
-        <publicationList v-if="activeCat=='all' || activeCat==cat.name" class="publication-list"
-          :numberOfPublications="numPublications" :category="cat.name" :title="cat['title_' + $i18n.locale]" />
+        <publicationList v-if="activeCat=='all' || activeCat==cat.name" class="publication-list" :category="cat.name"
+          :title="cat['title_' + $i18n.locale]" />
       </div>
     </div>
   </div>
@@ -68,15 +68,6 @@
         this.activeCat = cat
       }
     },
-    computed: {
-      numPublications() {
-        if (this.activeCat == 'all') {
-          return 5
-        } else {
-          return 0
-        }
-      }
-    }
   };
 </script>
 
