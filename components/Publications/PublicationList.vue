@@ -48,7 +48,7 @@
       },
       limit: {
         type: Number,
-        default: 5
+        default: 10
       },
       category: {
         type: String,
