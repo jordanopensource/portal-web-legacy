@@ -136,7 +136,9 @@ export default {
     password: 'Password',
     asReceived: 'As recieved in your confirmation email',
     fullName: 'Full Name',
-    we: 'We'
+    we: 'We',
+    and: 'And',
+    to: 'To'
   },
   // Blog
   blog: {
@@ -266,6 +268,10 @@ export default {
     lost: 'We can\'t seem to find the page you are looking for.',
     links: 'Here are some helpul links instead:',
     home: 'Home'
+  },
+  // Activities
+  activities: {
+    highlighted: 'Highlighted Activities'
   }
 
 }
