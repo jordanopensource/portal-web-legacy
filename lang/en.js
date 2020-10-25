@@ -247,11 +247,11 @@ export default {
   },
   // Sort
   sort: {
-  sortBy: 'Sort By',
-  memberSinceACS: 'Registration Date: ASC',
-  memberSinceDESC: 'Registration Date: DESC',
-  fullNameASC: 'Name: ACS',
-  fullNameDESC: 'Name: DESC'
+    sortBy: 'Sort By',
+    memberSinceACS: 'Registration Date: ASC',
+    memberSinceDESC: 'Registration Date: DESC',
+    fullNameASC: 'Name: ACS',
+    fullNameDESC: 'Name: DESC'
   },
   // Pagination
   pagination: {
@@ -272,6 +272,10 @@ export default {
   // Activities
   activities: {
     highlighted: 'Highlighted Activities'
+  },
+  // Dossier
+  dossier: {
+    dossier: 'Dossier',
+    inDossier: 'In this dossier'
   }
-
 }

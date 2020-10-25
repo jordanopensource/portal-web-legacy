@@ -159,8 +159,13 @@ export default {
     title: 'انضم لنا',
     desc: 'تم بناء مجتمعنا من قبل أعضاء جوسا ، وهم أعضاء هائلون يمتلكون مهارات واهتمامات وخبرات متنوعة ، وجميعهم يعملون من أجل تكنولوجيا مفتوحة ، وتمكين الأردن رقميًا.',
   },
-    // Activities
-    activities: {
-      highlighted: 'الأنشطة'
-    }
+  // Activities
+  activities: {
+    highlighted: 'الأنشطة'
+  },
+  // Dossier
+  dossier: {
+    dossier: 'ملف',
+    inDossier: 'في هذا الملف'
+  }
 }

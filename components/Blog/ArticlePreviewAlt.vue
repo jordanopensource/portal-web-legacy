@@ -10,7 +10,7 @@
       </nuxt-link>
       <p class="text-josa-warm-grey-dark mb-2">
         <span>{{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</span>
-        <span v-if="article.author">{{ $t('meta.by') }} {{article.author['name_' + $i18n.locale]}}</span>
+        <span v-if="typeof article.author == 'object' && article.author !== null">{{ $t('meta.by') }} {{article.author['name_' + $i18n.locale]}}</span>
       </p>
       <p v-if="article.excerpt">{{article.excerpt}}</p>
       <p v-else>{{article.body | truncate(250) }}</p>
