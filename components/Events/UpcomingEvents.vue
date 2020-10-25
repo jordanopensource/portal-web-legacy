@@ -12,7 +12,7 @@
     </div>
     </template>
     <p v-else>{{ $t('events.noUpcoming')}}</p>
-    <nuxt-link to="/events" class="button button-blue-full mt-8">{{ $t('events.more') }}</nuxt-link>
+    <nuxt-link to="/events" class="button-sharp button-dark-blue-full mt-8 inline-block">{{ $t('events.more') }}</nuxt-link>
   </section>
 </template>
 
@@ -25,7 +25,7 @@
   export default {
     data() {
       return {
-        sortBy: 'startDate:DESC',
+        sortBy: 'startDate:ASC',
         loadedEvents: [],
         eventsImage: {}
       }

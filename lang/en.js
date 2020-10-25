@@ -47,7 +47,11 @@ export default {
     subscribe: 'Subscribe',
     unsubscribe: 'Unsubscribe',
     joinSlack: 'Join JOSA\'s Slack',
-    joinJosa: 'Join JOSA'
+    joinJosa: 'Join JOSA',
+    register: 'Register',
+    join: 'Join',
+    becomeAMember: 'Become a Member',
+    learnMoreWork: 'Learn more about our work'
   },
   // Social Media Links
   socialMedia: {
@@ -109,8 +113,7 @@ export default {
   },
   joinUs: {
     title: 'Join Us',
-    text1: 'JOSA is made by the efforts of members and volunteers like you!',
-    text2: 'Do you love Open Source? Lead the change in Jordan by joining us:'
+    desc: 'Our community is built by JOSAns, formidable members who own diverse skills, interests and experiences, all working for an open-technology, digitally-enabled Jordan.',
   },
   // About JOSA
   josa: {
@@ -120,20 +123,30 @@ export default {
   meta: {
     writtenBy: 'written by',
     readTheReport: 'Read the Report',
+    readMore: 'Read More',
     knowMore: 'Know More',
     knowMoreAboutUs: 'Know more about us',
     by: 'By',
     download: 'Download',
     closed: 'closed',
     visitWebsite: 'Visit Website',
-    email: 'Email'
+    email: 'Email',
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    password: 'Password',
+    asReceived: 'As recieved in your confirmation email',
+    fullName: 'Full Name',
+    we: 'We',
+    and: 'And',
+    to: 'To'
   },
   // Blog
   blog: {
-    all: 'All Posts',
+    all: 'All Blog Posts',
     latest: 'Latest Articles',
     more: 'More from our blog',
-    featured: 'Featured Articles'
+    featured: 'Featured Articles',
+    spotlight: 'Spotlight'
   },
   // Time Card
   timeCard: {
@@ -151,7 +164,19 @@ export default {
     previous: 'Previous Events',
     more: 'Our events',
     noUpcoming: 'No upcoming events',
-    noPrevious: 'No previous events'
+    noPrevious: 'No previous events',
+    register: 'Register',
+    registerDesc: 'Register here if you would like to attend this event:',
+    registerSuccess: 'Thank you for registering to this event!',
+    registerFail: 'Something went wrong, please try again!',
+    registerExist: 'You are already registered for this event!',
+    join: 'Join this event',
+    hostedBy: 'Hosted by Jordan Open Source Association',
+    happening: 'Happening now',
+    joinCall: 'This event is happening online. You can join and participate by submitting the information in the form.',
+    notRegistered: 'You haven\'t registered? you can register',
+    here: 'here',
+    onlineEvent: 'Online Event'
   },
   eventCats: {
     all: 'All Events',
@@ -180,8 +205,10 @@ export default {
   },
   // Publications
   publication: {
+    title: 'Research and Publications',
     publishDate: 'Publication Date:',
-    featured: 'Featured publication'
+    featured: 'Featured publication',
+    all: 'All Publications'
   },
   publicationCats: {
     title: {
@@ -220,11 +247,11 @@ export default {
   },
   // Sort
   sort: {
-  sortBy: 'Sort By',
-  memberSinceACS: 'Registration Date: ASC',
-  memberSinceDESC: 'Registration Date: DESC',
-  fullNameASC: 'Name: ACS',
-  fullNameDESC: 'Name: DESC'
+    sortBy: 'Sort By',
+    memberSinceACS: 'Registration Date: ASC',
+    memberSinceDESC: 'Registration Date: DESC',
+    fullNameASC: 'Name: ACS',
+    fullNameDESC: 'Name: DESC'
   },
   // Pagination
   pagination: {
@@ -239,8 +266,16 @@ export default {
   error: {
     ops: 'Oops!',
     lost: 'We can\'t seem to find the page you are looking for.',
-    links: 'Here are some helpul links instead:',
+    links: 'Here are some helpful links instead:',
     home: 'Home'
+  },
+  // Activities
+  activities: {
+    highlighted: 'Highlighted Activities'
+  },
+  // Dossier
+  dossier: {
+    dossier: 'Dossier',
+    inDossier: 'In this dossier'
   }
-
 }

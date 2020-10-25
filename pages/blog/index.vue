@@ -1,8 +1,6 @@
 <template>
   <div class="blog-page">
-
     <pageBanner :pageMeta="blogMeta" />
-
     <div class="bg-josa-black py-8">
       <div class="container">
         <div class="px-12 flex flex-col sm:flex-row">
@@ -13,15 +11,13 @@
         </div>
       </div>
     </div>
-
     <div class="container pb-20">
       <blogList v-if="activeCat=='all'" class="blog-list" title="featured" category="all" :language="$i18n.locale"
-        featured />
+        :limit="1" featured />
       <div v-for="cat in blogCategories" :key="cat.id">
-        <blogList v-if="activeCat=='all' || activeCat==cat.name" class="blog-list" :numberOfArticles="numArticles"
-          :category="cat.name" :language="$i18n.locale" :title="cat['title_' + $i18n.locale]" />
+        <blogList v-if="activeCat=='all' || activeCat==cat.name" class="blog-list" :category="cat.name"
+          :language="$i18n.locale" :title="cat['title_' + $i18n.locale]" />
       </div>
-
     </div>
   </div>
 </template>
@@ -69,15 +65,6 @@
     methods: {
       setActiveCat(cat) {
         this.activeCat = cat
-      }
-    },
-    computed: {
-      numArticles() {
-        if (this.activeCat == 'all') {
-          return 2
-        } else {
-          return 4
-        }
       }
     }
   };

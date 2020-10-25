@@ -161,5 +161,9 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  publicRuntimeConfig: {
+    bbbAPIUrl: process.env.BBB_API_URL,
+    bbbAPISecret: process.env.BBB_API_SECRET
   }
 }

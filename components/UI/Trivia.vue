@@ -1,10 +1,8 @@
 <template>
   <div v-if="info['content_' + $i18n.locale]">
-    <div class="px-12"
-      :class="alt ? 'text-center' : 'flex flex-row justify-between align-middle flex-wrap md:flex-no-wrap'">
-      <appImage v-if="info.image" :image="info.image"
-        :class="alt ? 'object-contain mx-auto mb-4' : 'object-contain md:ltr:pr-8 md:rtl:pl-8 mb-4 md:mb-0'" />
-      <div :class="alt ? 'mx-auto w-full' : 'my-auto w-full md:w-1/2'">
+    <div class="px-12 preview" :class="alt ? 'text-center' : 'md:grid md:grid-cols-2 col-gap-8 row-gap-0'">
+      <appImage v-if="info.image" :image="info.image" :class="alt ? 'object-contain mx-auto mb-4' : 'thumbnail'" />
+      <div :class="alt ? 'mx-auto w-full' : 'my-auto'">
         <h3 class="mb-4">{{ info['title_' + $i18n.locale] }}</h3>
         <p>{{ info['content_' + $i18n.locale] }}</p>
       </div>
@@ -34,3 +32,19 @@
   }
 
 </script>
+
+<style scoped>
+    [lang="en"] p {
+        @apply leading-golden;
+    }
+
+    [lang="ar"] p {
+        @apply leading-normal;
+    }
+
+    .preview .thumbnail,
+    .preview .thumbnail img {
+        width: 100%;
+        padding: 0;
+    }
+</style>

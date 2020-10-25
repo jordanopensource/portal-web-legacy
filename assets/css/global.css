@@ -35,7 +35,13 @@ body {
 }
 
 .button {
-  @apply border border-solid rounded-md uppercase py-2 px-4 w-auto inline-block;
+  @apply border border-solid rounded-md uppercase py-2 px-4 inline-block;
+  transition: background-color, color, border-color, 0.25s linear;
+  -webkit-transition: background-color, color, border-color, 0.25s linear;
+}
+
+.button-sharp {
+  @apply border border-solid py-3 px-10 text-center rounded-none normal-case;
   transition: background-color, color, border-color, 0.25s linear;
   -webkit-transition: background-color, color, border-color, 0.25s linear;
 }
@@ -66,6 +72,15 @@ body {
   border-color: #2f80a2;
 }
 
+.button-dark-blue-full {
+  @apply border-josa-blue-dark bg-josa-blue-dark;
+  color: #fff !important;
+}
+
+.button-dark-blue-full:hover {
+  @apply border-josa-blue-veryDark bg-josa-blue-veryDark;
+}
+
 .button-light {
   @apply border-josa-warm-grey text-josa-warm-grey;
 }
@@ -79,7 +94,11 @@ body {
 }
 
 .button-flat:hover {
-  @apply opacity-75
+  @apply opacity-75;
+}
+
+.content-wrapper a {
+  @apply text-josa-blue;
 }
 
 a {
@@ -125,13 +144,16 @@ ul {
   list-style: disc;
 }
 
-[dir="ltr"] ol > li, [dir="ltr"] ul > li{
+[dir="ltr"] ol>li,
+[dir="ltr"] ul>li {
   @apply ml-4;
 }
 
-[dir="rtl"] ol > li, [dir="rtl"] ul > li {
+[dir="rtl"] ol>li,
+[dir="rtl"] ul>li {
   @apply mr-4
 }
+
 /*****/
 
 /* Profile Picture */
@@ -175,20 +197,25 @@ ul {
 /*****/
 
 /* Preview Image */
-.preview .thumbnail, .preview .thumbnail img {
+.preview .thumbnail,
+.preview .thumbnail img {
   @apply w-full object-cover mb-4;
   height: 200px;
   object-position: 50% 50%;
 }
 
 @screen md {
-  .preview .thumbnail, .preview .thumbnail img {
+
+  .preview .thumbnail,
+  .preview .thumbnail img {
     height: 250px;
   }
 }
 
 @screen lg {
-  .preview .thumbnail, .preview .thumbnail img {
+
+  .preview .thumbnail,
+  .preview .thumbnail img {
     @apply mb-0;
     flex-shrink: 0;
     height: 250px;
@@ -215,6 +242,7 @@ ul {
     height: 300px;
   }
 }
+
 @screen lg {
   .featured .thumbnail {
     height: 450px;
@@ -246,6 +274,18 @@ ul {
 
 /*****/
 
+/* Messages */
+
 .closed {
-  @apply uppercase bg-red-700 text-white px-2 py-1 text-sm rounded-lg text-center inline-block leading-none
+  @apply uppercase bg-red-700 text-white px-2 py-1 text-sm rounded-lg text-center inline-block leading-none;
 }
+
+.success {
+  @apply bg-josa-green-veryLight text-josa-green-dark border border-josa-green p-4;
+}
+
+.fail {
+  @apply bg-josa-red-veryLight text-josa-red-dark border border-josa-red p-4;
+}
+
+/*****/

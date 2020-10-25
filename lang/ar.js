@@ -1,13 +1,17 @@
 export default {
   pages: {
     becomeAMember: 'انضم إلينا',
+    home: 'الصفحة الرئيسية',
+    blog: 'المدونة',
+    events: 'الفعاليات',
   },
   // Blog
   blog: {
     all: 'جميع المقالات',
     latest: 'آخر المقالات',
     more: 'المزيد من المقالات',
-    featured: 'مقالات مختارة'
+    featured: 'مقالات مختارة',
+    spotlight: 'آخر المقالات'
   },
   // Time Card
   timeCard: {
@@ -25,7 +29,19 @@ export default {
     previous: 'الفعاليات السابقة',
     more: 'جميع فعاليتنا',
     noUpcoming: 'لا توجد فعاليات قادمة',
-    noPrevious: 'لا توجد فعاليات سابقة'
+    noPrevious: 'لا توجد فعاليات سابقة',
+    register: 'التسجيل',
+    registerDesc: 'سجل هنا اذا كنت ترغب في حضور هذه الفعالية:',
+    registerSuccess: 'شكراً لك, تم التسجيل لهذه الفعالية بنجاح!',
+    registerFail: 'هنالك خطأ, الرجاء المحاولة لاحقاً!',
+    registerExist: 'لقد سجلت مسبقاً لهذه الفعالية!',
+    join: 'انضم إلى هذه الفعالية',
+    hostedBy: 'بتنظيم من الجمعية الأردنية للمصدر المفتوح',
+    happening: 'يحدث الاّن',
+    joinCall: 'هذه الفعالبة تحدث عبر الإنترنت. يمكنك المشاركة عن طريق تعبة النموذج التالي',
+    notRegistered: 'إذا لم تسجل في هذه الفالية, الرجاء التسجيل',
+    here: 'هنا',
+    onlineEvent: 'عبر الانترنت'
   },
   eventCats: {
     all: 'جميع الفعاليات'
@@ -53,8 +69,10 @@ export default {
   },
   // Publications
   publication: {
+    title: 'الأبحاث والمنشورات',
     publishDate: 'تاريخ النشر:',
-    featured: 'منشور مختار'
+    featured: 'منشور مختار',
+    all: 'جميع الأبحاث والمنشورات'
   },
   publicationCats: {
     title: {
@@ -90,13 +108,22 @@ export default {
   meta: {
     writtenBy: 'كتبه',
     readTheReport: 'إقرأ التقرير',
+    readMore: 'إقرأ المزيد',
     knowMore: 'اعرف أكثر',
     knowMoreAboutUs: 'اعرف أكثر عنا',
-    by: 'من',
+    by: '',
     download: 'تنزيل',
     closed: 'مغلق',
     visitWebsite: 'زيارة الموقع',
-    email: 'الايميل'
+    email: 'الايميل',
+    firstName: 'الاسم الأول',
+    lastName: 'الاسم الأخير',
+    password: 'كلمة المرور',
+    asReceived: 'كما ورد في ايميل التأكيد',
+    fullName: 'الاسم الكامل',
+    we: 'نحن',
+    and: 'و',
+    to: 'إلى'
   },
   // Partners
   partners: {
@@ -122,5 +149,32 @@ export default {
   // Impact
   impact: {
     title: "تأثير جوسا"
-  }
+  },
+  // Buttons
+  button: {
+    register: 'سجل',
+    join: 'انضم',
+    becomeAMember: 'أصبح عضواً',
+    learnMoreWork: 'اعرف أكثر عن عملنا'
+  },
+  // Join Us
+  joinUs: {
+    title: 'انضم لنا',
+    desc: 'تم بناء مجتمعنا من قبل أعضاء جوسا ، وهم أعضاء هائلون يمتلكون مهارات واهتمامات وخبرات متنوعة ، وجميعهم يعملون من أجل تكنولوجيا مفتوحة ، وتمكين الأردن رقميًا.',
+  },
+  // Activities
+  activities: {
+    highlighted: 'الأنشطة'
+  },
+  // Dossier
+  dossier: {
+    dossier: 'ملف',
+    inDossier: 'في هذا الملف'
+  },
+  error: {
+    ops: 'أووه!',
+    lost: 'يبدو أننا لا نستطيع العثور على الصفحة التي تبحث عنها.',
+    links: 'إليك بعض الروابط المفيدة بدلاً من ذلك:',
+    home: 'الصفحة الرئيسية'
+  },
 }
