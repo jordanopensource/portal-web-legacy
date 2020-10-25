@@ -266,7 +266,7 @@ export default {
   error: {
     ops: 'Oops!',
     lost: 'We can\'t seem to find the page you are looking for.',
-    links: 'Here are some helpul links instead:',
+    links: 'Here are some helpful links instead:',
     home: 'Home'
   },
   // Activities
