@@ -1,6 +1,9 @@
 export default {
   pages: {
     becomeAMember: 'انضم إلينا',
+    home: 'الصفحة الرئيسية',
+    blog: 'المدونة',
+    events: 'الفعاليات',
   },
   // Blog
   blog: {
@@ -167,5 +170,11 @@ export default {
   dossier: {
     dossier: 'ملف',
     inDossier: 'في هذا الملف'
-  }
+  },
+  error: {
+    ops: 'أووه!',
+    lost: 'يبدو أننا لا نستطيع العثور على الصفحة التي تبحث عنها.',
+    links: 'إليك بعض الروابط المفيدة بدلاً من ذلك:',
+    home: 'الصفحة الرئيسية'
+  },
 }
