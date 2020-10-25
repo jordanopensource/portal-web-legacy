@@ -22,12 +22,16 @@ function ogData(type, content, path, lang) {
   // Set category
   if (type == 'career') {
     category = content.careerType['title_' + lang]
-  } else {
+  } else if (content.category) {
     category = content.category['title_' + lang]
+  } else {
+    category = ''
   }
   // Set description
   if (content.excerpt) {
     description = content.excerpt
+  } else if (content['metaDescription_' + lang]) {
+    description = content['metaDescription_' + lang]
   } else if (content['excerpt_' + lang]) {
     description = content['excerpt_' + lang]
   } else {
