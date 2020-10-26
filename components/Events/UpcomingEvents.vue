@@ -1,7 +1,7 @@
 <!-- Fetch and list upcoming events-->
 <template>
   <section class="text-center mx-auto">
-    <appImage :image="eventsImage" size="medium" class="bot" />
+    <appImage v-if="eventsImage" :image="eventsImage" size="medium" class="bot" />
     <h2 class="pb-2" v-if="title">{{ title }}</h2>
     <template v-if="ifNotEmpty()">
     <div v-for="(event,index) in loadedEvents" :key="event.id">
@@ -27,7 +27,7 @@
       return {
         sortBy: 'startDate:ASC',
         loadedEvents: [],
-        eventsImage: {}
+        eventsImage: null
       }
     },
     components: {
