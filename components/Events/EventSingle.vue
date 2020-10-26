@@ -20,8 +20,8 @@
             </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
               :registrants="event.registrants" />
-            <timeCard class="mb-8" :from="event.startDate" :to="event.endDate" />
-            <locationCard v-if="event.address && !event.onlineEvent" :address="event.address" />
+            <timeCard v-if="event.startDate" class="mb-8" :from="event.startDate" :to="event.endDate" />
+            <locationCard v-if="event.address" :address="event.address" />
             <onlineEventCard v-if="event.onlineEvent" />
           </div>
         </div>

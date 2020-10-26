@@ -10,6 +10,15 @@
       <h2>{{ title }}</h2>
       <publicationPreview v-for="publication in loadedPublications" :key="publication.id" :id="publication.id"
         :publication="publication" />
+      <!-- Pagination -->
+      <div v-if="pageCount > 1" class="pagination pt-6 text-center border-t border-dotted">
+        <span class="py-2" v-if="currentPage > 1"><a
+            @click="fetchCurrentPage(currentPage - 1)">{{ $t('pagination.prev') }}</a></span>
+        <span class="py-2 inline-flex ltr:text-left rtl:text-right"><a @click="fetchCurrentPage(i)"
+            v-for="i in pageCount" :key="i" class="p-2" :class="i == currentPage ? 'active' : ''">{{ $t(i) }}</a></span>
+        <span class="py-2" v-if="currentPage < pageCount"><a
+            @click="fetchCurrentPage(currentPage + 1)">{{ $t('pagination.next') }}</a></span>
+      </div>
     </div>
   </section>
 </template>
@@ -23,6 +32,9 @@
       return {
         sortBy: 'publishDate:DESC',
         loadedPublications: [],
+        currentPage: 1,
+        start: 0,
+        count: 0
       }
     },
     components: {
@@ -34,9 +46,9 @@
         type: String,
         required: true
       },
-      numberOfPublications: {
+      limit: {
         type: Number,
-        default: 0
+        default: 10
       },
       category: {
         type: String,
@@ -47,15 +59,30 @@
         default: false
       }
     },
+    computed: {
+      pageCount() {
+        return Math.ceil(this.count / this.limit)
+      }
+    },
     created() {
       this.fetchPublications()
+      this.countPublications()
     },
     methods: {
+      fetchCurrentPage(i) {
+        this.currentPage = i
+        this.start = this.limit * (this.currentPage - 1)
+        this.fetchPublications()
+      },
       query() {
         var args = []
         var query = ""
-        if (this.numberOfPublications > 0) {
-          let q = "_limit=" + this.numberOfPublications;
+        if (this.start) {
+          let q = "_start=" + this.start;
+          args.push(q)
+        }
+        if (this.limit) {
+          let q = "_limit=" + this.limit;
           args.push(q)
         }
         if (this.sortBy) {
@@ -88,13 +115,39 @@
           })
           .catch(e => this.context.error(e));
       },
+      async countPublications() {
+        var args = []
+        var query = ""
+        if (this.category && this.category != "all") {
+          let q = "category.name=" + this.category;
+          args.push(q)
+        }
+        query = args.join("&")
+        await axios
+          .get(process.env.baseUrl + "/publications?" + query)
+          .then(res => {
+            this.count = res.data.length
+          })
+      },
       ifNotEmpty() {
         if (Array.isArray(this.loadedPublications) && this.loadedPublications.length)
           return true;
         else
           return false;
+      },
+      limitNumberWithinRange(num, min, max) {
+        return Math.min(Math.max(parseInt(num), min), max)
+      },
+      calculateCurrentPage(num) {
+        this.currentPage = this.limitNumberWithinRange(num, 1, this.pageCount())
+        return this.currentPage
       }
     }
   }
-
 </script>
+
+<style scoped>
+  .pagination a.active {
+    @apply text-josa-blue-veryDark;
+  }
+</style>

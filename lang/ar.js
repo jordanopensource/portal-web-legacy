@@ -1,13 +1,17 @@
 export default {
   pages: {
     becomeAMember: 'انضم إلينا',
+    home: 'الصفحة الرئيسية',
+    blog: 'المدونة',
+    events: 'الفعاليات',
   },
   // Blog
   blog: {
     all: 'جميع المقالات',
     latest: 'آخر المقالات',
     more: 'المزيد من المقالات',
-    featured: 'مقالات مختارة'
+    featured: 'مقالات مختارة',
+    spotlight: 'آخر المقالات'
   },
   // Time Card
   timeCard: {
@@ -65,8 +69,10 @@ export default {
   },
   // Publications
   publication: {
+    title: 'الأبحاث والمنشورات',
     publishDate: 'تاريخ النشر:',
-    featured: 'منشور مختار'
+    featured: 'منشور مختار',
+    all: 'جميع الأبحاث والمنشورات'
   },
   publicationCats: {
     title: {
@@ -102,9 +108,10 @@ export default {
   meta: {
     writtenBy: 'كتبه',
     readTheReport: 'إقرأ التقرير',
+    readMore: 'إقرأ المزيد',
     knowMore: 'اعرف أكثر',
     knowMoreAboutUs: 'اعرف أكثر عنا',
-    by: 'من',
+    by: '',
     download: 'تنزيل',
     closed: 'مغلق',
     visitWebsite: 'زيارة الموقع',
@@ -113,7 +120,10 @@ export default {
     lastName: 'الاسم الأخير',
     password: 'كلمة المرور',
     asReceived: 'كما ورد في ايميل التأكيد',
-    fullName: 'الاسم الكامل'
+    fullName: 'الاسم الكامل',
+    we: 'نحن',
+    and: 'و',
+    to: 'إلى'
   },
   // Partners
   partners: {
@@ -140,9 +150,31 @@ export default {
   impact: {
     title: "تأثير جوسا"
   },
-    // Buttons
-    button: {
-      register: 'سجل',
-      join: 'انضم'
-    },
+  // Buttons
+  button: {
+    register: 'سجل',
+    join: 'انضم',
+    becomeAMember: 'أصبح عضواً',
+    learnMoreWork: 'اعرف أكثر عن عملنا'
+  },
+  // Join Us
+  joinUs: {
+    title: 'انضم لنا',
+    desc: 'تم بناء مجتمعنا من قبل أعضاء جوسا ، وهم أعضاء هائلون يمتلكون مهارات واهتمامات وخبرات متنوعة ، وجميعهم يعملون من أجل تكنولوجيا مفتوحة ، وتمكين الأردن رقميًا.',
+  },
+  // Activities
+  activities: {
+    highlighted: 'الأنشطة'
+  },
+  // Dossier
+  dossier: {
+    dossier: 'ملف',
+    inDossier: 'في هذا الملف'
+  },
+  error: {
+    ops: 'أووه!',
+    lost: 'يبدو أننا لا نستطيع العثور على الصفحة التي تبحث عنها.',
+    links: 'إليك بعض الروابط المفيدة بدلاً من ذلك:',
+    home: 'الصفحة الرئيسية'
+  },
 }
