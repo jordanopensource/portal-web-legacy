@@ -14,7 +14,7 @@
             <nuxt-link to="#our-work" tag="a" class="button-sharp button-dark-blue-full inline-block mb-12 md:mb-0">
               {{ $t('button.learnMoreWork') }}</nuxt-link>
           </div>
-          <appImage :image="pageMeta.image" class="bot h-full inline object-contain" />
+          <appImage :image="pageMeta.image" class="bot w-full h-full inline object-contain" />
         </div>
       </div>
     </div>
