@@ -14,11 +14,6 @@
 <script>
   export default {
     name: 'PublicationCompact',
-    data() {
-      return {
-        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
-      }
-    },
     props: {
       publication: {
         type: Object,
