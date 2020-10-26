@@ -15,21 +15,10 @@
     },
     computed: {
       imageUrl() {
-        switch (this.image.ext) {
-          case ".jpeg":
-            return process.env.baseUrl + this.format().url
-            break;
-          case ".jpg":
-            return process.env.baseUrl + this.format().url
-            break;
-          case ".png":
-            return process.env.baseUrl + this.format().url
-            break;
-          case ".svg":
-            return process.env.baseUrl + this.image.url
-            break;
-          default:
-            return process.env.baseUrl + this.image.url
+        try {
+          return process.env.baseUrl + this.format().url
+        } catch {
+          return process.env.baseUrl + this.image.url
         }
       }
     },
@@ -47,5 +36,4 @@
       }
     }
   }
-
 </script>
