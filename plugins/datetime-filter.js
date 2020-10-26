@@ -11,7 +11,7 @@ const monthYear = (dt, lang) => {
 }
 
 const fullDate = (dt, lang) => {
-    return moment(dt).locale(lang).format("D MMMM, YYYY");
+    return moment(dt).locale(lang).format("D MMMM YYYY");
 }
 
 const dayDate = (dt, lang) => {

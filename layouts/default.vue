@@ -2,7 +2,7 @@
   <div :dir="$dir()">
     <mainHeader />
     <FlashMessage :position="'right top'" />
-    <nuxt class="md:px-0 bg-white pb-8" />
+    <nuxt class="content-wrapper md:px-0 bg-white pb-20" />
     <mainFooter />
   </div>
 </template>

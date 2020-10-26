@@ -1,9 +1,7 @@
 <template>
   <div class="event-page">
-
     <!-- Banner -->
     <pageBanner :pageMeta="eventMeta" />
-
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
@@ -15,7 +13,6 @@
         </div>
       </div>
     </div>
-
     <!-- Upcoming Events -->
     <div class="container pb-8 mt-20">
       <div class="px-12">
@@ -26,7 +23,6 @@
         </template>
       </div>
     </div>
-
     <!-- Previous Events -->
     <div class="container pb-8 mt-20">
       <div class="px-12 ">

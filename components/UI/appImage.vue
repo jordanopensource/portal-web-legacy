@@ -19,12 +19,17 @@
           case ".jpeg":
             return process.env.baseUrl + this.format().url
             break;
+          case ".jpg":
+            return process.env.baseUrl + this.format().url
+            break;
           case ".png":
             return process.env.baseUrl + this.format().url
             break;
-          case ".svg": 
+          case ".svg":
             return process.env.baseUrl + this.image.url
             break;
+          default:
+            return process.env.baseUrl + this.image.url
         }
       }
     },

@@ -1,12 +1,21 @@
 <template>
-  <div id="homeBanner" class="bg-josa-warm-grey-light">
-    <div class="container">
-      <div class="flex flex-row justify-between align-middle flex-wrap md:flex-no-wrap py-20 px-12 bg-josa-warm-grey-light">
-        <div class="sm:max-w-1/2 lg:max-w-1/3">
-          <h2 class="font-aleoLightItalic mb-8 text-3xl lg:text-4xl">{{ pageMeta['description_' + $i18n.locale] | capitalize }}</h2>
-          <a href="https://members.jordanopensource.org" class="button button-blue-full mb-8">{{ $t('pages.becomeAMember') }}</a>
+  <div>
+    <div id="homeBanner" class="bg-josa-warm-grey-light py-24">
+      <div class="container">
+        <div class="flex flex-row justify-between items-center flex-wrap md:flex-no-wrap px-12 bg-josa-warm-grey-light">
+          <div class="my-auto w-full md:w-1/2 lg:w-1/2 flex-shrink-0 md:ltr:pr-8 md:rtl:pl-8">
+            <h2>{{$t('meta.we')}}<font-awesome-icon class="heart" :icon="['fas', 'heart']" />
+            </h2>
+            <h2>
+              <typewriter :textArray="typewriterArray" />
+            </h2>
+            <!-- <h2 v-for="program in programs" :key="program.id">{{ program['title_' + $i18n.locale] }}</h2> -->
+            <p class="mt-4 mb-6">{{ pageMeta['description_' + $i18n.locale] }}</p>
+            <nuxt-link to="#our-work" tag="a" class="button-sharp button-dark-blue-full inline-block mb-12 md:mb-0">
+              {{ $t('button.learnMoreWork') }}</nuxt-link>
+          </div>
+          <appImage :image="pageMeta.image" class="bot h-full inline object-contain" />
         </div>
-        <appImage :image="pageMeta.image" class="bot mx-auto sm:mx-0 md:ltr:pl-8 md:rtl:pr-8 h-full align-middle inline object-contain" />
       </div>
     </div>
   </div>
@@ -14,27 +23,43 @@
 
 <script>
   import appImage from '~/components/UI/appImage';
+  import typewriter from '~/components/UI/Typewriter'
   export default {
     name: 'HomeBanner',
     props: {
       pageMeta: {
         type: Object,
         required: true
+      },
+      programs: {
+        type: Array,
+        required: true
       }
     },
     components: {
-      appImage
+      appImage,
+      typewriter
+    },
+    computed: {
+      typewriterArray() {
+        const typewriterArray = this.programs.map(program => program['title_' + this.$i18n.locale])
+        return typewriterArray
+      }
     }
   }
-
 </script>
 <style scoped>
-  .button {
-    @apply normal-case;
-  }
-
   h2 {
-    @apply leading-normal;
+    font-size: 2.5rem;
   }
 
+  .button-sharp {
+    @apply px-8;
+  }
+
+  .heart {
+    margin-left: 16px;
+    margin-right: 16px;
+    color: #db4a14;
+  }
 </style>

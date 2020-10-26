@@ -16,6 +16,7 @@ module.exports = {
     extend: {
       colors: {
         'josa-blue': {
+          'light': '#c5e1ee',
           default: '#3897c0',
           'dark': '#1a485b',
           'veryDark': '#163e4e',
@@ -24,6 +25,18 @@ module.exports = {
           'light': '#f7f6f5',
           default: '#efedec',
           'dark': '#aea79f',
+        },
+        'josa-red': {
+          "veryLight": "#fee9e2",
+          "light": "#f8c0ac",
+          default: '#dd4814',
+          'dark': '#b83b10'
+        },
+        'josa-green': {
+          "veryLight": "#e9f3de",
+          "light": "#cde2bb",
+          default: '#8dbd63',
+          "dark": "#5c813d"
         },
         'josa-black': '#2e3436',
         'grey90': '#e5e5e5'
@@ -63,11 +76,14 @@ module.exports = {
       },
       height: {
         'half-screen': '50vh'
+      },
+      inset: {
+       '12': '3rem',
       }
     }
   },
   variants: {
-    margin: ['responsive', 'direction'],
+    margin: ['responsive', 'direction', 'last'],
     padding: ['responsive', 'direction'],
     textAlign: ['responsive', 'direction'],
     fontSize: ['responsive', 'direction'],

@@ -9,6 +9,12 @@
           <hr>
         </div>
       </div>
+      <!-- Highlighted Activities -->
+      <activitiesList v-if="ifActivities" :activities="program.activities" :title="$t('activities.highlighted')"
+        class="px-12" />
+      <div v-if="ifActivities" class="block py-8 my-4 mx-12 border-josa-warm-grey-dark">
+        <hr>
+      </div>
       <!-- Featured Articles -->
       <latestArticles :articles="filteredByLanguage" :numberOfArticles="2" :title="$t('blog.featured')" class="px-12" />
       <div v-if="ifNotEmpty()" class="block py-8 my-4 mx-12 border-josa-warm-grey-dark">
@@ -30,6 +36,7 @@
   import trivia from '~/components/UI/Trivia';
   import upcomingEvents from '~/components/Events/UpcomingEvents';
   import latestArticles from "~/components/Blog/LatestArticlesNoFetch";
+  import activitiesList from '@/components/Activities/ActivitiesList';
   import Vue2Filters from 'vue2-filters';
 
   export default {
@@ -38,7 +45,8 @@
       pageBanner,
       trivia,
       upcomingEvents,
-      latestArticles
+      latestArticles,
+      activitiesList
     },
     props: {
       program: {
@@ -59,10 +67,15 @@
           return true;
         else
           return false;
+      },
+      ifActivities() {
+        if (Array.isArray(this.program.activities) && this.program.activities.length)
+          return true;
+        else
+          return false;
       }
     },
   }
-
 </script>
 
 <style scoped>
@@ -70,5 +83,4 @@
   #content>>>h3 {
     @apply mb-4;
   }
-
 </style>
