@@ -4,7 +4,8 @@
             <h3>{{event['title_' + $i18n.locale]}}</h3>
             <p class="">{{ $t('events.hostedBy') }}</p>
             <div class="flex flex-col lg:flex-row mt-8 mb-4">
-                <appImage v-if="event.thumbnail" :image="event.thumbnail" size="small" class="thumbnail w-full lg:w-1/2 lg:ltr:mr-2 lg:rtl:ml-2" />
+                <appImage v-if="event.thumbnail" :image="event.thumbnail" size="small"
+                    class="thumbnail w-full lg:w-1/2 lg:ltr:mr-2 lg:rtl:ml-2" />
                 <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
                 <div class="w-full lg:w-1/2 lg:ltr:ml-2 lg:rtl:mr-2 mt-4">
                     <p class="live text-xs uppercase mb-2">{{ $t('events.happening')}}</p>
@@ -15,7 +16,8 @@
                 <hr>
             </div>
             <p v-if="event.onlineMeeting.password" class="text-xs">{{ $t('events.notRegistered') }}
-                <span class="text-josa-blue cursor-pointer" @click="$store.dispatch('setShowModal', false)"> {{ $t('events.here') }}</span>.
+                <span class="text-josa-blue cursor-pointer" @click="$store.dispatch('setShowModal', false)">
+                    {{ $t('events.here') }}</span>.
             </p>
         </div>
         <div class="join-form w-full md:w-2/5 flex-shrink-0 p-8 mb-8 md:mb-0">
@@ -27,9 +29,11 @@
                 <appControlInput id="firstName" v-model="form.fullName" controlType="input" required>
                     {{ $t('meta.fullName') }}
                 </appControlInput>
-                <appControlInput v-if="event.onlineMeeting.password" v-model="form.password" controlType="password" required>{{ $t('meta.password') }}
+                <appControlInput v-if="event.onlineMeeting.password" v-model="form.password" controlType="password"
+                    required>{{ $t('meta.password') }}
                 </appControlInput>
-                <appButton btnStyle="button-sharp button-dark-blue-full" class="mt-4 text-xl md:text-2xl">{{ $t('button.join') }}
+                <appButton btnStyle="button-sharp button-dark-blue-full" class="mt-4 text-xl md:text-2xl">
+                    {{ $t('button.join') }}
                     <font-awesome-icon class="icon" :icon="['fas', 'sign-in-alt' ]" />
                 </appButton>
             </form>
@@ -76,20 +80,21 @@
                 return hash.digest('hex');
             },
             joinMeeting() {
-                let fullName = this.form.fullName
+                let fullName = this.form.fullName.replaceAll(' ', '+')
                 let password = this.form.password
                 let meetingID = this.event.onlineMeeting.meetingID
                 let url = this.$config.bbbAPIUrl
                 let secret = this.$config.bbbAPISecret
                 let call
-                if(this.event.onlineMeeting.password) {
+                if (this.event.onlineMeeting.password) {
                     let password = this.form.password
                     call = `meetingID=${meetingID}&password=${password}&fullName=${fullName}`
                 } else {
                     call = `meetingID=${meetingID}&fullName=${fullName}`
                 }
                 let data = `join${call}${secret}`
-                let checksum = this.createHash(data)
+                let encoded = encodeURI(data)
+                let checksum = this.createHash(encoded)
                 let redirect = `${url}join?${call}&checksum=${checksum}`
                 window.open(redirect, '_blank');
             }
@@ -121,6 +126,7 @@
     .icon {
         @apply ml-2;
     }
+
     [dir="rtl"] .icon {
         transform: rotate(180deg);
     }
@@ -153,6 +159,7 @@
         animation-fill-mode: none;
         animation-play-state: running;
     }
+
     [dir="rtl"] .live::before {
         margin-left: 6px;
         margin-right: 0;
