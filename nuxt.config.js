@@ -116,7 +116,7 @@ export default {
     locales: ['ar']
   },
   redirect: [
-    { from: '^/opendata', to: 'https://jordanopensource.org/ar/events/71/open-government-data-workshop?join' }
+    { from: '^/opendata', to: 'https://www.mynaparrot.com/en/my-classrooms/rooms?layout=login&roomId=1964&clientId=josa' }
   ],
   sitemap: {
     path: '/sitemap.xml',
