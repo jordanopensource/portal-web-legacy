@@ -83,6 +83,7 @@
                 let fullName = this.form.fullName.replaceAll(' ', '+')
                 let password = this.form.password
                 let meetingID = this.event.onlineMeeting.meetingID
+                let attendeePW = this.event.onlineMeeting.attendeePW
                 let url = this.$config.bbbAPIUrl
                 let secret = this.$config.bbbAPISecret
                 let call
@@ -90,7 +91,7 @@
                     let password = this.form.password
                     call = `meetingID=${meetingID}&password=${password}&fullName=${fullName}`
                 } else {
-                    call = `meetingID=${meetingID}&fullName=${fullName}`
+                    call = `meetingID=${meetingID}&password=${attendeePW}&fullName=${fullName}`
                 }
                 let data = `join${call}${secret}`
                 let encoded = encodeURI(data)
