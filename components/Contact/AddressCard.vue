@@ -30,7 +30,7 @@
             <font-awesome-icon class="icon" :icon="['fas', 'phone-alt']" />
             <span>
               <span class="font-bold">{{ $t('contact.voice') }}:</span>
-              <span>{{ info.phone }}</span>
+              <span><bdo dir="ltr">{{ info.phone }}</bdo></span>
             </span>
           </div>
 
