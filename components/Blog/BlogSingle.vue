@@ -111,6 +111,11 @@
     line-height: 1.7;
   }
 
+  .body>>>p a {
+    @apply text-josa-black;
+    text-decoration: underline;
+  }
+
   article[lang="en"] .body>>>p {
     @apply text-lg font-merriweather;
   }
