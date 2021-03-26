@@ -150,7 +150,7 @@ export default {
   axios: {
   },
   env: {
-    baseUrl: 'https://api.portal.jordanopensource.org'
+    baseUrl: 'https://portal.api.jordanopensource.org'
   },
   /*
   ** Build configuration
