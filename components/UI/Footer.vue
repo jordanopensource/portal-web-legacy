@@ -163,7 +163,7 @@
 
   .logo,
   #copyright-info {
-    @apply w-full flex align-middle justify-center text-xs leading-tight opacity-50;
+    @apply w-full flex align-middle justify-center text-sm;
   }
 
   @screen md {
