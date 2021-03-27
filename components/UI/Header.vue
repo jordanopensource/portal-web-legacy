@@ -45,8 +45,20 @@
     components: {
       navbar
     },
+    mounted() {
+  this.$nuxt.$on('routeChanged', () => {
+    this.isOpen = false
+  })
+  document.addEventListener('click', this.closeMenu)
+},
+methods: {
+  closeMenu(e) {
+    if (!this.$el.contains(e.target)) {
+      this.isOpen = false
+    }
   }
-
+}
+  }
 </script>
 
 <style lang="css" scoped>
@@ -54,15 +66,12 @@
     @apply bg-josa-warm-grey-light py-8;
     border-bottom: 1px solid #e0e0e0;
   }
-
   .menu-icon {
     @apply text-josa-black w-6 h-6 !important;
   }
-
   @screen sm {
     .menu-icon {
       @apply w-8 h-8 !important;
     }
   }
-
 </style>
