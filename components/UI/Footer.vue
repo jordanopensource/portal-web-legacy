@@ -163,16 +163,16 @@
 
   .logo,
   #copyright-info {
-    @apply w-full flex align-middle justify-center text-xs leading-tight opacity-50;
+    @apply w-full flex align-middle justify-center text-sm;
   }
 
   @screen md {
 
-    .logo,
-    #copyright-info {
-      @apply w-1/2 justify-start;
+      .logo,
+      #copyright-info {
+        @apply w-1/2 justify-start;
+      }
     }
-  }
 
   @screen md {
     section {
@@ -189,5 +189,13 @@
       @apply w-1/3;
     }
   }
+  @screen lg {
+      .logo {
+        @apply w-2/3;
+      }
 
+      #copyright-info {
+        @apply w-1/3;
+      }
+    }
 </style>
