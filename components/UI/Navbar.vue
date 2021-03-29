@@ -22,13 +22,16 @@
       }
     }
   }
+
 </script>
 
 <style scoped>
   .lang {
     @apply text-sm opacity-50;
   }
+
   .lang.nuxt-link-active {
     @apply opacity-100;
   }
+
 </style>
