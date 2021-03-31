@@ -1,7 +1,7 @@
 <template>
   <div>
-    <appImage class="mb-4 image" v-if="program.picture" :image="program.picture" />
     <nuxt-link :to="programLink">
+      <appImage class="mb-4 image" v-if="program.picture" :image="program.picture" />
       <h3 class="text-3xl">
         {{ program['title_' + $i18n.locale] ? program['title_' + $i18n.locale] : program['title_en'] }}
         </h3>
