@@ -8,14 +8,20 @@
         {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
       <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
       <!-- author -->
-      <author v-if="article.author" class="meta" :name="article.author['name_' + $i18n.locale]"
-        :picture="article.author.picture" />
+      <div class="mobile md:flex w-full"> 
+        <author v-if="article.author" class="meta w-full" :name="article.author['name_' + $i18n.locale]"
+          :picture="article.author.picture" />
+          <shareButtons class="md:mt-2"/>
+      </div> 
       <!-- Body -->
       <div class="body" v-html="article.body"></div>
       <hr>
       <!-- author -->
-      <author v-if="article.author" class="meta" :name="article.author['name_' + $i18n.locale]"
-        :picture="article.author.picture" :bio="article.author['bio_' + $i18n.locale]" />
+      <div class="mobile md:flex w-full"> 
+        <author v-if="article.author" class="meta md:w-full" :name="article.author['name_' + $i18n.locale]"
+          :picture="article.author.picture" :bio="article.author['bio_' + $i18n.locale]" />
+        <shareButtons class="md:mt-2"/>
+      </div> 
     </div>
   </article>
 </template>
@@ -23,6 +29,7 @@
 <script>
   import appImage from '~/components/UI/appImage';
   import author from '~/components/Blog/Author';
+  import shareButtons from '~/components/ShareButtons/ShareButtons';
   export default {
     name: 'BlogSingle',
     data() {
@@ -32,7 +39,8 @@
     },
     components: {
       appImage,
-      author
+      author,
+      shareButtons,
     },
     props: {
       article: {
@@ -130,5 +138,10 @@
 
   hr {
     @apply my-12 border-solid border-josa-warm-grey-dark
+  }
+  @media only screen and (max-width : 640px) {
+    .mobile{
+      @apply flex-grow;
+    }
   }
 </style>
