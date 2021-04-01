@@ -11,6 +11,7 @@
             <div v-if="event['description_' + $i18n.locale]" class="description py-8"
               v-html="event['description_' + $i18n.locale]"></div>
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
+            <shareButtons class="mt-8"/>  
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <modal v-if="showModal && event.onlineEvent" @close="showModal=false">
@@ -39,6 +40,7 @@
   import joinForm from '~/components/Events/JoinForm';
   import modal from '~/components/UI/Modal';
   import onlineEventCard from '~/components/Events/OnlineEventCard';
+  import shareButtons from '~/components/ShareButtons/ShareButtons'
 
   export default {
     name: 'EventSingle',
@@ -55,7 +57,8 @@
       registerationForm,
       joinForm,
       modal,
-      onlineEventCard
+      onlineEventCard,
+      shareButtons
     },
     props: {
       event: {
