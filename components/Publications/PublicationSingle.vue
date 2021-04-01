@@ -13,6 +13,7 @@
           <div class="w-full md:w-3/5 md:ltr:mr-8 rtl:ml-8 mb-8">
             <div v-if="publication['description_' + $i18n.locale]" class="description pb-8"
               v-html="publication['description_' + $i18n.locale]"></div>
+            <shareButtons/>
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <publishDateCard class="mb-8" :date="publication.publishDate" />
@@ -30,7 +31,7 @@
   import appImage from '~/components/UI/appImage';
   import publishDateCard from '~/components/Publications/PublishDateCard';
   import downloadCard from '~/components/Publications/DownloadCard';
-
+  import shareButtons from '~/components/ShareButtons/ShareButtons';
   export default {
     name: 'PublicationSingle',
     data() {
@@ -41,7 +42,8 @@
     components: {
       appImage,
       publishDateCard,
-      downloadCard
+      downloadCard,
+      shareButtons
 
     },
     props: {
