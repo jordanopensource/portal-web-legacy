@@ -1,22 +1,22 @@
 <template>
-    <div :class="$i18n.locale == 'ar' ? ['buttons','justify-end','flex-row-reverse'] : 'buttons' ">
+    <div :class="$i18n.locale == 'ar' ? ['flex','justify-end','flex-row-reverse'] : 'flex' ">
         <div>
-            <a class="color" :href="'https://twitter.com/share?url=' +Url">
+            <a class="color" :href="'https://twitter.com/share?url=' +url" target="_blank">
                 <font-awesome-icon :icon="['fab','twitter']" size="2x" />
             </a>
         </div>
-        <div class="mleft">
-            <a class="color" :href="'https://www.linkedin.com/shareArticle?url=' +Url">
+        <div class="ml-4">
+            <a class="color" :href="'https://www.linkedin.com/shareArticle?url=' +url" target="_blank">
                 <font-awesome-icon :icon="['fab','linkedin']" size="2x" />
             </a>
         </div>
-        <div class="mleft">
-            <a class="color" :href="'https://www.facebook.com/sharer.php?u=' +Url">
+        <div class="ml-4">
+            <a class="color" :href="'https://www.facebook.com/sharer.php?u=' +url" target="_blank">
                 <font-awesome-icon :icon="['fab','facebook-square']" size="2x" />
             </a>
         </div>
-        <div class="mleft">
-            <span :class="copyColor" @click="copyToClipboard(Url)">
+        <div class="ml-4">
+            <span class="copyColor" @click="copyToClipboard(url)">
                 <font-awesome-icon icon="link" size="2x" />
             </span>
         </div>
@@ -28,12 +28,11 @@ export default {
     name: 'ShareButtons',
     data() {
         return {
-            Url: null,
-            copyColor:'color',
+            url: null,
         }
     },
     mounted() {
-        this.Url = window.location.href;
+        this.url = window.location.href;
     },
     methods:{
      copyToClipboard (str) {
@@ -45,24 +44,23 @@ export default {
         el.select();
         document.execCommand('copy');
         document.body.removeChild(el);
-        this.copyColor = 'copyColor';
-}
+       }
     }
 }
 </script>
 
 <style scoped>
-    .buttons {
-        @apply flex;
-    }
-    .mleft {
-        @apply ml-4;
-    }
     .color {
-        color: #aea79f;
+        @apply text-josa-warm-grey-dark
+    }
+    .color:hover {
+        @apply text-josa-blue;
     }
     .copyColor{
-        color:#3897c0;
+        @apply text-josa-warm-grey-dark;
+        cursor: pointer;
     }
-    
+    .copyColor:active{
+        @apply text-josa-blue;
+    }
 </style>
