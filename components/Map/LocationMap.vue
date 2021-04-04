@@ -1,7 +1,7 @@
 <template>
   <div id="map-wrap" ref="mapWrap">
     <client-only>
-      <l-map :zoom="zoom" :center="[latitude, longitude]">
+      <l-map :zoom="zoom" :center="[latitude, longitude]" :options="{scrollWheelZoom: false}">
         <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
         <l-marker :lat-lng="[mLatitudeComputed, mLongitudeComputed]" >
           <l-icon
