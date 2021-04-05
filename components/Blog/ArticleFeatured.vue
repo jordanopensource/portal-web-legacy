@@ -1,7 +1,9 @@
 <template>
   <div class="featured my-8">
-    <appImage v-if="article.thumbnail" class="thumbnail" :image="article.thumbnail" size="medium" />
-    <img v-else class="thumbnail" :src="placeholderImage" />
+    <nuxt-link :to="articleLink">
+      <appImage v-if="article.thumbnail" class="thumbnail" :image="article.thumbnail" size="medium" />
+      <img v-else class="thumbnail" :src="placeholderImage" />
+    </nuxt-link> 
     <div>
       <nuxt-link :to="articleLink">
         <h2 class="mb-4">{{ article.title }}</h2>
