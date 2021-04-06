@@ -11,9 +11,9 @@
         <h3 class="mt-2">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</h3>
         <div class="content flex flex-wrap md:flex-no-wrap mt-12">
           <div class="w-full md:w-3/5 md:ltr:mr-8 rtl:ml-8 mb-8">
+            <shareButtons />
             <div v-if="publication['description_' + $i18n.locale]" class="description pb-8"
               v-html="publication['description_' + $i18n.locale]"></div>
-            <shareButtons/>
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <publishDateCard class="mb-8" :date="publication.publishDate" />
@@ -53,7 +53,6 @@
       }
     },
   }
-
 </script>
 
 <style scoped>
@@ -70,5 +69,4 @@
   .description>>>h3 {
     @apply mb-4;
   }
-
 </style>
