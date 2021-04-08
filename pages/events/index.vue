@@ -1,5 +1,6 @@
 <template>
   <div class="event-page">
+    <breadCrumb :pageMeta="eventMeta" class="hidden"/>
     <!-- Banner -->
     <pageBanner :pageMeta="eventMeta" />
     <!-- Menu -->
@@ -43,6 +44,7 @@
   import eventListPrevious from "@/components/Events/EventListPrevious";
   import appButton from '@/components/FormComponents/AppButton';
   import pageBanner from "@/components/UI/PageBanner";
+  import breadCrumb from "@/components/BreadCrumb/BreadCrumb"
 
   export default {
     data() {
@@ -69,7 +71,8 @@
       eventListUpcoming,
       eventListPrevious,
       appButton,
-      pageBanner
+      pageBanner,
+      breadCrumb
     },
     async asyncData(context) {
       const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=event');
