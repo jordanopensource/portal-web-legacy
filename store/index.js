@@ -4,6 +4,7 @@ import blog from './modules/blog';
 import events from './modules/events';
 import menus from './modules/menus';
 import modal from './modules/modal';
+import crumb from './modules/crumb'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -12,7 +13,8 @@ const createStore = () => {
         events,
         blog,
         menus,
-        modal
+        modal,
+        crumb
     }
   })
 }
