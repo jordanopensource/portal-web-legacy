@@ -1,5 +1,6 @@
 <template>
   <section>
+    <breadCrumb :pageMeta="null" />
     <div class="container">
       <div class="p-12">
         <div class="text-josa-blue text-xl mb-2 uppercase">
@@ -30,7 +31,7 @@
   import appImage from '~/components/UI/appImage';
   import publishDateCard from '~/components/Publications/PublishDateCard';
   import downloadCard from '~/components/Publications/DownloadCard';
-
+  import breadCrumb from '~/components/BreadCrumb/BreadCrumb';
   export default {
     name: 'PublicationSingle',
     data() {
@@ -41,7 +42,8 @@
     components: {
       appImage,
       publishDateCard,
-      downloadCard
+      downloadCard,
+      breadCrumb
 
     },
     props: {
