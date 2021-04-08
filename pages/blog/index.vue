@@ -1,5 +1,6 @@
 <template>
   <div class="blog-page">
+    <breadCrumb :pageMeta="blogMeta" class="hidden"/>
     <pageBanner :pageMeta="blogMeta" />
     <div class="bg-josa-black py-8">
       <div class="container">
@@ -27,6 +28,7 @@
   import blogList from "@/components/Blog/BlogList";
   import appButton from '@/components/FormComponents/AppButton';
   import pageBanner from "@/components/UI/PageBanner";
+  import breadCrumb from "@/components/BreadCrumb/BreadCrumb";
 
   export default {
     data() {
@@ -52,7 +54,8 @@
     components: {
       blogList,
       appButton,
-      pageBanner
+      pageBanner,
+      breadCrumb
     },
     async asyncData(context) {
       const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=blog');
