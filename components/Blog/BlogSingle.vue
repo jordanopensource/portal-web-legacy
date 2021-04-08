@@ -1,5 +1,6 @@
 <template>
   <article :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">
+    <breadCrumb :pageMeta="null"/>
     <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
     <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
     <div ref="content" class="container content">
@@ -23,6 +24,7 @@
 <script>
   import appImage from '~/components/UI/appImage';
   import author from '~/components/Blog/Author';
+  import breadCrumb from '~/components/BreadCrumb/BreadCrumb'
   export default {
     name: 'BlogSingle',
     data() {
@@ -32,7 +34,8 @@
     },
     components: {
       appImage,
-      author
+      author,
+      breadCrumb
     },
     props: {
       article: {
