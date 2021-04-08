@@ -1,5 +1,6 @@
 <template>
   <div class="publication-page">
+    <breadCrumb :pageMeta="publicationMeta" class="hidden"/>
     <!-- Banner -->
     <pageBanner :pageMeta="publicationMeta" />
     <!-- Menu -->
@@ -28,6 +29,7 @@
   import publicationList from "@/components/Publications/PublicationList";
   import appButton from '@/components/FormComponents/AppButton';
   import pageBanner from "@/components/UI/PageBanner";
+  import breadCrumb from "@/components/BreadCrumb/BreadCrumb";
 
   export default {
     data() {
@@ -53,7 +55,8 @@
     components: {
       publicationList,
       appButton,
-      pageBanner
+      pageBanner,
+      breadCrumb
     },
     async asyncData(context) {
       const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=publications');
