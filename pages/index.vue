@@ -1,5 +1,6 @@
 <template>
   <div>
+    <breadCrumb :pageMeta="homeMeta" class="hidden"/>
     <!-- Banner -->
     <homeBanner :pageMeta="homeMeta" :programs="programs" />
     <!-- Latest Articles -->
@@ -42,6 +43,7 @@
   import ourWork from '~/components/Programs/OurWork';
   import homeBanner from "~/components/UI/HomeBanner";
   import joinUs from "~/components/JoinUs/JoinUs";
+  import breadCrumb from "~/components/BreadCrumb/BreadCrumb"
 
 
   export default {
@@ -52,9 +54,11 @@
       articlesSpotlight,
       lastestPublications,
       upcomingEvents,
-      joinUs
+      joinUs,
+      breadCrumb
     },
     head() {
+      
       const i18nSeo = this.$nuxtI18nSeo()
       return {
         title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association',
