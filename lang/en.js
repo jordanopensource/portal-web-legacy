@@ -277,5 +277,12 @@ export default {
   dossier: {
     dossier: 'Dossier',
     inDossier: 'In this dossier'
-  }
+  },
+  map:{
+    text: {
+      touch: "Use two fingers to move the map",
+      scroll: "Use ctrl + scroll to zoom the map",
+      scrollMac: "Use \u2318 + scroll to zoom the map"
+   },
+  },
 }

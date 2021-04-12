@@ -177,4 +177,11 @@ export default {
     links: 'إليك بعض الروابط المفيدة بدلاً من ذلك:',
     home: 'الصفحة الرئيسية'
   },
+  map:{
+    text: {
+      touch: "",
+      scroll: "",
+      scrollMac: ""
+   },
+  },
 }
