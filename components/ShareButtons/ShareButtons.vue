@@ -19,13 +19,11 @@
 <script>
     export default {
         name: 'ShareButtons',
-        data() {
-            return {
-                url: null,
+        props: {
+            url: {
+                type: String,
+                required: true
             }
-        },
-        mounted() {
-            this.url = window.location.href;
         },
         methods: {
             copyToClipboard(str) {
