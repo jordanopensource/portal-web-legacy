@@ -7,21 +7,15 @@
       <div class="text-josa-warm-grey-dark font-bold my-4">
         {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
       <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
-      <!-- author and Share -->
-      <div class="flex items-center flex-wrap justify-between">
-        <author v-if="article.author" class="mb-4 md:mb-12" :name="article.author['name_' + $i18n.locale]"
-          :picture="article.author.picture" />
-        <shareButtons v-if="url" class="mb-4 md:mb-12" :url="url" />
-      </div>
+      <!-- author -->
+      <author v-if="article.author" class="meta" :name="article.author['name_' + $i18n.locale]"
+        :picture="article.author.picture" />
       <!-- Body -->
       <div class="body" v-html="article.body"></div>
       <hr>
-      <!-- author and Share -->
-      <div class="flex items-center flex-wrap justify-between">
-        <author v-if="article.author" class="mb-4 md:mb-12" :name="article.author['name_' + $i18n.locale]"
-          :picture="article.author.picture" :bio="article.author['bio_' + $i18n.locale]" />
-        <shareButtons v-if="url" class="mb-4 md:mb-12" :url="url" />
-      </div>
+      <!-- author -->
+      <author v-if="article.author" class="meta" :name="article.author['name_' + $i18n.locale]"
+        :picture="article.author.picture" :bio="article.author['bio_' + $i18n.locale]" />
     </div>
   </article>
 </template>
@@ -29,19 +23,16 @@
 <script>
   import appImage from '~/components/UI/appImage';
   import author from '~/components/Blog/Author';
-  import shareButtons from '~/components/ShareButtons/ShareButtons';
   export default {
     name: 'BlogSingle',
     data() {
       return {
-        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg',
-        url: null
+        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
       }
     },
     components: {
       appImage,
-      author,
-      shareButtons,
+      author
     },
     props: {
       article: {
@@ -50,7 +41,6 @@
       }
     },
     mounted() {
-      this.url = window.location.href;
       var w = window.innerWidth;
       if (w > 640) {
         this.setContentNegMargin();
@@ -104,6 +94,18 @@
     @apply font-bold mb-8;
   }
 
+  .meta {
+    @apply flex items-center mb-12;
+  }
+
+  [lang="en"] .meta {
+    @apply text-sm;
+  }
+
+  [lang="ar"] .meta {
+    @apply text-base;
+  }
+
   .body>>>p {
     @apply font-normal mb-10;
     line-height: 1.7;
@@ -118,6 +120,10 @@
     @apply text-lg font-merriweather;
   }
 
+  article[lang="en"] .body>>>p strong {
+    @apply text-lg font-lato;
+  }
+
   article[lang="ar"] .body>>>p {
     @apply text-2xl font-naskh;
   }
@@ -127,28 +133,6 @@
   }
 
   hr {
-    @apply my-12 border-solid border-josa-warm-grey-dark;
-  }
-
-  article[dir="ltr"]>>>.share-button {
-    @apply ml-4 mr-0;
-  }
-
-  article[dir="rtl"]>>>.share-button {
-    @apply mr-4 ml-0;
-  }
-
-  article>>>.share-button:first-child {
-    @apply mx-0;
-  }
-
-  article[dir="ltr"]>>>.copy-tooltip-text {
-    right: -75px;
-    left: unset;
-  }
-
-  article[dir="rtl"]>>>.copy-tooltip-text {
-    left: -75px;
-    right: unset;
+    @apply my-12 border-solid border-josa-warm-grey-dark
   }
 </style>
