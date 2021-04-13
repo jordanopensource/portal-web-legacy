@@ -277,5 +277,8 @@ export default {
   dossier: {
     dossier: 'Dossier',
     inDossier: 'In this dossier'
-  }
+  },
+  tooltip: {
+    copied: 'Copied!'
+  },
 }

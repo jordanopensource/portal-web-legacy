@@ -49,7 +49,8 @@ export default {
     { src: '~/plugins/string-filters' },
     { src: '~/plugins/i18n' },
     { src: '~/plugins/og-tags' },
-    { src: '~/plugins/flash-message.js', mode: 'client' }
+    { src: '~/plugins/flash-message.js', mode: 'client' },
+    { src: '~/plugins/copy' },
   ],
   /*
   ** Nuxt.js dev-modules
