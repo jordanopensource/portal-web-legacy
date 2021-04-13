@@ -9,9 +9,9 @@
         <a class="share-buttons" :href="'https://www.facebook.com/sharer.php?u=' +url" target="_blank">
             <font-awesome-icon :icon="['fab','facebook-square']" size="2x" />
         </a>
-        <span class="share-buttons tooltip" @click="copyToClipboard(url)">
-            <span class="tooltiptext" id="myTooltip">Copy link</span>
-            <font-awesome-icon icon="link" size="2x"/>
+        <span class="share-button tooltip" @click="copyToClipboard(url)">
+            <font-awesome-icon icon="link" size="2x" />
+            <span ref="copyButton" class="copy-tooltip-text invisible"></span>
         </span>
     </div>
 </template>
@@ -29,21 +29,17 @@
         },
         methods: {
             copyToClipboard(str) {
-                var el = document.createElement('textarea');
-                el.value = str;
-                el.setAttribute('readonly', '');
-                el.style = {
-                    position: 'absolute',
-                    left: '-9999px'
-                };
-                document.body.appendChild(el);
-                el.select();
-                document.execCommand('copy');
-                document.body.removeChild(el);
-                var tooltip = document.getElementById("myTooltip");
-                tooltip.innerHTML = "Copied !";
+                var copyTooltip = this.$refs.copyButton;
+                let e = this.$options.filters.copyString(str)
+                if (e) {
+                    copyTooltip.classList.toggle("invisible")
+                    copyTooltip.innerText = this.$t("tooltip.copied")
+                    setTimeout(() => {
+                        copyTooltip.classList.toggle("invisible")
+                        copyTooltip.innerText = ""
+                    }, 1000)
+                }
             },
-            
         }
     }
 </script>
@@ -72,41 +68,4 @@
         @apply mr-4;
     }
     
-    .tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 100px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 120%;
-  left: 50%;
-  margin-left: -50px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
 </style>
