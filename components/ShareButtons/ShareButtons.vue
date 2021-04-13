@@ -52,10 +52,10 @@
     }
 
     [dir="ltr"] .share-button {
-        @apply mr-4 ml-0;
+        @apply ml-4 mr-0;
     }
 
     [dir="rtl"] .share-button {
-        @apply ml-4 mr-0;
+        @apply mr-4 ml-0;
     }
 </style>
