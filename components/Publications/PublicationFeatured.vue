@@ -16,7 +16,7 @@
 <script>
   import appImage from '~/components/UI/appImage';
   export default {
-    name: 'BlogPreview',
+    name: 'PublicationFeatured',
     data() {
       return {
         placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
