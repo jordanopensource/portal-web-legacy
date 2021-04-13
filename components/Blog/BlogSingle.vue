@@ -7,21 +7,21 @@
       <div class="text-josa-warm-grey-dark font-bold my-4">
         {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
       <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
-      <!-- author -->
-      <div class="mobile md:flex w-full"> 
-        <author v-if="article.author" class="meta w-full" :name="article.author['name_' + $i18n.locale]"
+      <!-- author and Share -->
+      <div class="flex items-center flex-wrap justify-between">
+        <author v-if="article.author" class="mb-4 md:mb-12" :name="article.author['name_' + $i18n.locale]"
           :picture="article.author.picture" />
-          <shareButtons class="md:mt-2"/>
-      </div> 
+        <shareButtons v-if="url" class="mb-4 md:mb-12" :url="url" />
+      </div>
       <!-- Body -->
       <div class="body" v-html="article.body"></div>
       <hr>
-      <!-- author -->
-      <div class="mobile md:flex w-full"> 
-        <author v-if="article.author" class="meta md:w-full" :name="article.author['name_' + $i18n.locale]"
+      <!-- author and Share -->
+      <div class="flex items-center flex-wrap justify-between">
+        <author v-if="article.author" class="mb-4 md:mb-12" :name="article.author['name_' + $i18n.locale]"
           :picture="article.author.picture" :bio="article.author['bio_' + $i18n.locale]" />
-        <shareButtons class="md:mt-2"/>
-      </div> 
+        <shareButtons v-if="url" class="mb-4 md:mb-12" :url="url" />
+      </div>
     </div>
   </article>
 </template>
@@ -34,7 +34,8 @@
     name: 'BlogSingle',
     data() {
       return {
-        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
+        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg',
+        url: null
       }
     },
     components: {
@@ -49,6 +50,7 @@
       }
     },
     mounted() {
+      this.url = window.location.href;
       var w = window.innerWidth;
       if (w > 640) {
         this.setContentNegMargin();
@@ -102,18 +104,6 @@
     @apply font-bold mb-8;
   }
 
-  .meta {
-    @apply flex items-center mb-12;
-  }
-
-  [lang="en"] .meta {
-    @apply text-sm;
-  }
-
-  [lang="ar"] .meta {
-    @apply text-base;
-  }
-
   .body>>>p {
     @apply font-normal mb-10;
     line-height: 1.7;
@@ -137,11 +127,28 @@
   }
 
   hr {
-    @apply my-12 border-solid border-josa-warm-grey-dark
+    @apply my-12 border-solid border-josa-warm-grey-dark;
   }
-  @media only screen and (max-width : 640px) {
-    .mobile{
-      @apply flex-grow;
-    }
+
+  article[dir="ltr"]>>>.share-button {
+    @apply ml-4 mr-0;
+  }
+
+  article[dir="rtl"]>>>.share-button {
+    @apply mr-4 ml-0;
+  }
+
+  article>>>.share-button:first-child {
+    @apply mx-0;
+  }
+
+  article[dir="ltr"]>>>.copy-tooltip-text {
+    right: -75px;
+    left: unset;
+  }
+
+  article[dir="rtl"]>>>.copy-tooltip-text {
+    left: -75px;
+    right: unset;
   }
 </style>

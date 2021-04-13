@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-no-wrap items-center">
     <appImage v-if="picture" :image="picture" size="small" class="profilePicture" />
     <div class="opacity-90">
       <p :class="bio ? 'hidden' : 'block'" class="ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.writtenBy')}}</p>
