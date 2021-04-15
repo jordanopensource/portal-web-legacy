@@ -219,7 +219,8 @@ export default {
   boardStaff: {
     board: 'Board of Directors',
     staff: 'Staff',
-    previousBoard: 'Previous Board Members'
+    previousBoard: 'Previous Board Members',
+    previousStaff: 'Previous Staff'
   },
   // Auth
   auth: {
