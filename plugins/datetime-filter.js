@@ -1,7 +1,11 @@
 import Vue from 'vue';
 import moment from 'moment';
 
-
+moment.updateLocale('en', {
+  months : [
+      "كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز  ","آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول"
+  ]
+});
 const dateTime = (dt, lang) => {
     return moment(dt).locale(lang).format("dddd, D MMMM YYYY, h:mm a");
 };
