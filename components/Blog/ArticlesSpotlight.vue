@@ -4,7 +4,7 @@
         <div class="flex justify-between items-baseline">
             <h2>{{ title }}</h2>
             <nuxt-link to="/blog" class="text-josa-blue">{{ $t('blog.all') }}
-             <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
+                <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
             </nuxt-link>
         </div>
         <div class="">
@@ -40,6 +40,10 @@
                 type: String,
                 required: true
             },
+            tag: {
+                type: String,
+                required: true
+            },
         },
         created() {
             this.fetchArticles()
@@ -51,6 +55,7 @@
                 if (this.numberOfArticles) {
                     let q = "_limit=" + this.numberOfArticles;
                     args.push(q)
+
                 }
                 if (this.sortBy) {
                     let q = "_sort=" + this.sortBy;
@@ -60,6 +65,11 @@
                     let q = "language=" + this.language;
                     args.push(q)
                 }
+                if (this.tag) {
+                    let q = "tags_contains=" + this.tag;
+                    args.push(q)
+                }
+
                 query = args.join("&")
                 return query
             },
@@ -70,11 +80,13 @@
                     .then(res => {
                         const articlesArray = []
                         for (const key in res.data) {
+
                             articlesArray.push({
                                 ...res.data[key]
                             })
                         }
                         this.loadedArticles = articlesArray
+
                     })
                     .catch(e => this.context.error(e));
             },
@@ -86,13 +98,13 @@
             }
         },
         computed: {
-          arrowIcon() {
-            if (this.$i18n.locale == "ar") {
-              return 'long-arrow-alt-left'
-            } else {
-              return 'long-arrow-alt-right'
+            arrowIcon() {
+                if (this.$i18n.locale == "ar") {
+                    return 'long-arrow-alt-left'
+                } else {
+                    return 'long-arrow-alt-right'
+                }
             }
-          }
         }
     }
 </script>

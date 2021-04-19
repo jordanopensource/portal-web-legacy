@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row">
         <articlesSpotlight class="w-full p-12" :numberOfArticles="4" :language="$i18n.locale"
-          :title="$t('blog.spotlight')" />
+          :title="$t('blog.spotlight')" :tag="'spotlight'"/>
       </div>
     </div>
     <!-- Join Us -->
