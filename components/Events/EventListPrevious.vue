@@ -6,6 +6,26 @@
         <h3>{{ month }}</h3>
         <eventPreview v-for="event in sortedEvents[month]" :key="event.id" :id="event.id" :event="event" />
       </div>
+      <div class="pagination pt-6 text-center border-t border-dotted">
+        <ul>
+          <span class="px-3"><a @click="calculateCurrentPage(currentPage - 1)"
+              :class="currentPage == 1 ? 'disabled' : ''">
+              <font-awesome-icon icon="chevron-left"></font-awesome-icon>
+            </a></span>
+          <span v-for="i in calculatePages()" :key="i">
+            <li
+              v-if="(i == calculatePages() || Math.abs(i - currentPage) < 3) || (i==1 || Math.abs(i - calculatePages()) < 1)">
+              <a class="px-1" href="#" @click="currentPage = i"
+                :class="{current: currentPage === i, last: (i == calculatePages()  && Math.abs(i - currentPage) > 3), first:(i == 1 && Math.abs(i - currentPage) > 3)}">
+                {{i}}</a>
+            </li>
+          </span>
+          <span class="px-3"><a @click="calculateCurrentPage(currentPage + 1)"
+              :class="currentPage == calculatePages() ? 'disabled' : ''">
+              <font-awesome-icon icon="chevron-right"></font-awesome-icon>
+            </a></span>
+        </ul>
+      </div>
     </div>
     <div v-else>
       <p>{{ $t('events.noPrevious')}}</p>
@@ -22,7 +42,9 @@
     data() {
       return {
         sortBy: 'startDate:DESC',
-        loadedEvents: []
+        loadedEvents: [],
+        numberPerPage: 6,
+        currentPage: 1,
       }
     },
     components: {
@@ -89,7 +111,38 @@
           return true;
         else
           return false;
-      }
+      },
+      calculatePages() {
+        var data = this.loadedEvents
+        var obj = {};
+        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), obj[i] ? obj[i]
+          .push(e) : (obj[i] = [e])));
+        return Math.ceil(Object.keys(obj).length / this.numberPerPage)
+      },
+      calculateCurrentPage(num) {
+        this.currentPage = this.limitNumberWithinRange(num, 1, this.calculatePages())
+        return this.currentPage
+      },
+      limitNumberWithinRange(num, min, max) {
+        return Math.min(Math.max(parseInt(num), min), max)
+      },
+      chunkObject(object, chunkSize) {
+        var values = Object.values(object);
+        var final = [];
+        var counter = 0;
+        var portion = {};
+
+        for (var key in object) {
+          if (counter !== 0 && counter % chunkSize === 0) {
+            final.push(portion);
+            portion = {};
+          }
+          portion[key] = values[counter];
+          counter++
+        }
+        final.push(portion);
+        return final;
+      },
     },
     computed: {
       sortedEvents() {
@@ -97,7 +150,9 @@
         var obj = {};
         data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), obj[i] ? obj[i]
           .push(e) : (obj[i] = [e])));
-        return obj;
+        const tempArray = this.chunkObject(obj, this.numberPerPage)
+        console.log(tempArray[this.currentPage - 1])
+        return tempArray[this.currentPage - 1]
       },
       months() {
         const data = this.sortedEvents
@@ -107,5 +162,46 @@
       }
     }
   }
-
 </script>
+<style scoped>
+  a.disabled {
+    @apply cursor-default text-josa-warm-grey;
+  }
+
+  a.disabled:hover {
+    @apply text-josa-warm-grey
+  }
+
+  a {
+    color: #999;
+  }
+
+  .current {
+    @apply bg-josa-blue-dark;
+    border-radius: 20%;
+
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 0.2px;
+    padding-bottom: 0.5px;
+    color: white;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    display: inline;
+    margin: 5px 5px;
+  }
+
+  a.first::after {
+    content: '  ...'
+  }
+
+  a.last::before {
+    content: '... '
+  }
+</style>
