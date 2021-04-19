@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import moment from 'moment';
 
-moment.updateLocale('en', {
+moment.updateLocale('ar', {
   months : [
       "كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز  ","آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول"
   ]
