@@ -47,7 +47,7 @@
               scroll: this.$t("map.text.scroll"),
               scrollMac: this.$t("map.text.scrollMac"),
             },
-            duration:1000,
+            duration: 1000,
           }
         }
       }
