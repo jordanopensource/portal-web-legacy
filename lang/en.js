@@ -279,7 +279,7 @@ export default {
     dossier: 'Dossier',
     inDossier: 'In this dossier'
   },
-  map:{
+  map: {
     text: {
       touch: "Use two fingers to move the map",
       scroll: "Use ctrl + scroll to zoom the map",
