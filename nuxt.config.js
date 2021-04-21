@@ -50,6 +50,7 @@ export default {
     { src: '~/plugins/og-tags' },
     { src: '~/plugins/flash-message.js', mode: 'client' },
     { src: '~/plugins/leaflet', mode: 'client' },
+    { src: '~/plugins/copy' },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -119,18 +120,18 @@ export default {
   ],
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://jordanopensource.org',
+    hostname: 'https://josa.ngo',
     i18n: true,
     defaults: {
       lastmod: new Date()
     },
     routes: async () => {
-      const articles = await axios.get('https://api.portal.jordanopensource.org/blogs')
-      const events = await axios.get('https://api.portal.jordanopensource.org/events')
-      const careers = await axios.get('https://api.portal.jordanopensource.org/careers')
-      const publications = await axios.get('https://api.portal.jordanopensource.org/publications')
-      const programs = await axios.get('https://api.portal.jordanopensource.org/programs')
-      const infoPages = await axios.get('https://api.portal.jordanopensource.org/info-pages')
+      const articles = await axios.get('https://portal.api.jordanopensource.org/blogs')
+      const events = await axios.get('https://portal.api.jordanopensource.org/events')
+      const careers = await axios.get('https://portal.api.jordanopensource.org/careers')
+      const publications = await axios.get('https://portal.api.jordanopensource.org/publications')
+      const programs = await axios.get('https://portal.api.jordanopensource.org/programs')
+      const infoPages = await axios.get('https://portal.api.jordanopensource.org/info-pages')
 
       const articlesRoutes = articles.data.map((article) => `${article.language == 'ar' ? '/ar':''}/blog/${article.id}`)
       const eventsRoutes = events.data.map((event) => `/events/${event.id}`)

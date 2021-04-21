@@ -16,7 +16,8 @@
       <p v-else>{{article.body | truncate(250) }}</p>
       <nuxt-link :to="articleLink"
         class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
-        {{ $t('meta.readMore') }} >
+        {{ $t('meta.readMore') }}
+        <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
     </div>
   </div>
@@ -44,6 +45,13 @@
       articleLink() {
         const slug = this.$options.filters.stringToSlug(this.article.title)
         return this.localePath('/blog/' + this.article.id + '/' + slug)
+      },
+      arrowIcon() {
+        if (this.$i18n.locale == "ar") {
+          return 'long-arrow-alt-left'
+        } else {
+          return 'long-arrow-alt-right'
+        }
       }
     }
   }

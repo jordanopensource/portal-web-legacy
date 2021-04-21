@@ -219,7 +219,8 @@ export default {
   boardStaff: {
     board: 'Board of Directors',
     staff: 'Staff',
-    previousBoard: 'Previous Board Members'
+    previousBoard: 'Previous Board Members',
+    previousStaff: 'Previous Staff'
   },
   // Auth
   auth: {
@@ -284,5 +285,8 @@ export default {
       scroll: "Use ctrl + scroll to zoom the map",
       scrollMac: "Use \u2318 + scroll to zoom the map"
    },
+  },
+  tooltip: {
+    copied: 'Copied!'
   },
 }

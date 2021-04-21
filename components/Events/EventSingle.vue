@@ -8,10 +8,11 @@
           <div class="w-full md:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
             <appImage v-if="event.thumbnail" :image="event.thumbnail" size="large" class="thumbnail" />
             <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
-            <div v-if="event['description_' + $i18n.locale]" class="description py-8"
+            <shareButtons v-if="url" :url="url" class="mt-8 w-full justify-end"/>
+            <div v-if="event['description_' + $i18n.locale]" class="description py-4 mb-4"
               v-html="event['description_' + $i18n.locale]"></div>
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
-          </div>
+           </div>
           <div class="w-full md:w-2/5 mb-8">
             <modal v-if="showModal && event.onlineEvent" @close="showModal=false">
               <slot>
@@ -39,12 +40,14 @@
   import joinForm from '~/components/Events/JoinForm';
   import modal from '~/components/UI/Modal';
   import onlineEventCard from '~/components/Events/OnlineEventCard';
+  import shareButtons from '~/components/ShareButtons/ShareButtons'
 
   export default {
     name: 'EventSingle',
     data() {
       return {
-        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
+        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg',
+        url: null,
       }
     },
     components: {
@@ -55,7 +58,8 @@
       registerationForm,
       joinForm,
       modal,
-      onlineEventCard
+      onlineEventCard,
+      shareButtons
     },
     props: {
       event: {
@@ -69,6 +73,7 @@
       }
     },
     mounted() {
+      this.url = window.location.href;
       if ('join' in this.$route.query) {
         this.$store.dispatch('setShowModal', true)
       } else {

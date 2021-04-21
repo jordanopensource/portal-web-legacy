@@ -83,7 +83,8 @@ export default {
   boardStaff: {
     board: 'هيئة الإدارة',
     staff: 'الفريق العامل',
-    previousBoard: 'أعضاء هيئة الإدارة السابقون'
+    previousBoard: 'أعضاء هيئة الإدارة السابقون',
+    previousStaff: 'أعضاء الفريق السابقون'
   },
   // Auth
   auth: {
@@ -183,5 +184,8 @@ export default {
       scroll: "",
       scrollMac: ""
    },
+  },
+  tooltip: {
+    copied: 'تم النسخ!'
   },
 }
