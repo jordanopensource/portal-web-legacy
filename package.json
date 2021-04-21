@@ -20,11 +20,13 @@
     "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sitemap": "^2.4.0",
     "@smartweb/vue-flash-message": "^0.6.4",
+    "leaflet": "^1.7.1",
+    "leaflet-gesture-handling": "^1.2.1",
     "nuxt": "^2.15.4",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-i18n": "^6.8.1",
-    "nuxt-leaflet": "0.0.21",
-    "vue2-filters": "^0.11.0"
+    "vue2-filters": "^0.11.0",
+    "vue2-leaflet": "^2.7.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^3.0.0",
