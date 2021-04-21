@@ -4,7 +4,7 @@
     <div v-if="ifNotEmpty()">
       <div v-for="month in months" :key="month" class="mb-20">
         <h3>{{ month }}</h3>
-        <eventPreview v-for="event in sortedEvents[month]" :key="event.id" :id="event.id" :event="event" />
+        <eventPreview v-for="event in displayedEvents[month]" :key="event.id" :id="event.id" :event="event" />
       </div>
       <div class="pagination pt-6 text-center border-t border-dotted">
         <ul>
@@ -93,7 +93,7 @@
       },
       async fetchEvents() {
         const query = this.query()
-        await axios
+          await axios
           .get(process.env.baseUrl + "/events?" + query)
           .then(res => {
             const eventsArray = []
@@ -113,11 +113,7 @@
           return false;
       },
       calculatePages() {
-        var data = this.loadedEvents
-        var obj = {};
-        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), obj[i] ? obj[i]
-          .push(e) : (obj[i] = [e])));
-        return Math.ceil(Object.keys(obj).length / this.numberPerPage)
+        return Math.ceil(Object.keys(this.sortedEvents).length / this.numberPerPage)
       },
       calculateCurrentPage(num) {
         this.currentPage = this.limitNumberWithinRange(num, 1, this.calculatePages())
@@ -147,15 +143,18 @@
     computed: {
       sortedEvents() {
         var data = this.loadedEvents
-        var obj = {};
-        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), obj[i] ? obj[i]
-          .push(e) : (obj[i] = [e])));
-        const tempArray = this.chunkObject(obj, this.numberPerPage)
-        console.log(tempArray[this.currentPage - 1])
+        var sorted = {};
+        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), sorted[i] ?
+          sorted[i]
+          .push(e) : (sorted[i] = [e])));
+        return sorted
+      },
+      displayedEvents() {
+        const tempArray = this.chunkObject(this.sortedEvents, this.numberPerPage)
         return tempArray[this.currentPage - 1]
       },
       months() {
-        const data = this.sortedEvents
+        const data = this.displayedEvents
         var months = {};
         months = Object.keys(data);
         return months;
@@ -163,6 +162,7 @@
     }
   }
 </script>
+
 <style scoped>
   a.disabled {
     @apply cursor-default text-josa-warm-grey;
