@@ -83,6 +83,7 @@ export default {
     '@nuxtjs/moment',
     '@nuxtjs/redirect-module',
     '@nuxtjs/sitemap',
+    'nuxt-healthcheck',
   ],
   i18n: {
     locales: [
@@ -152,6 +153,18 @@ export default {
   env: {
     baseUrl: 'https://portal.api.jordanopensource.org'
   },
+
+  /*
+  ** Healthcheck
+  */
+  healthcheck: {
+    path: '/ping',
+    contentType: 'application/json',
+    healthy: () => {
+      return JSON.stringify({ result: 'pong' })
+    }
+  },
+  
   /*
   ** Build configuration
   */
