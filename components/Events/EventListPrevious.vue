@@ -43,7 +43,7 @@
       return {
         sortBy: 'startDate:DESC',
         loadedEvents: [],
-        numberPerPage: 6,
+        numberPerPage: 3,
         currentPage: 1,
       }
     },
