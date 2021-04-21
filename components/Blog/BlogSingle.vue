@@ -1,4 +1,5 @@
 <template>
+  <div>
   <article :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">
     <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
     <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
@@ -8,10 +9,9 @@
         {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
       <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
       <!-- author and Share -->
-      <div class="flex items-center flex-wrap justify-between">
-        <author v-if="article.author" class="mb-4 md:mb-12" :name="article.author['name_' + $i18n.locale]"
-          :picture="article.author.picture" />
-        <shareButtons v-if="url" class="mb-4 md:mb-12" :url="url" />
+        <div v-if="article.authors.length" class="flex flex-wrap flex-row my-4" :dir="$dir()">
+          <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 flex-shrink-0"
+            :name="author['name_' + $i18n.locale]" :picture="author.picture" />
       </div>
       <!-- Body -->
       <div class="body" v-html="article.body"></div>
@@ -24,6 +24,14 @@
       </div>
     </div>
   </article>
+    <div v-if="article.authors.length" class="py-0 authors"> 
+      <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.writtenBy')}}</h5>
+      <div class="flex flex-col">
+        <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4" :name="author['name_' + $i18n.locale]"
+          :picture="author.picture" :bio="author['bio_' + $i18n.locale]" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
