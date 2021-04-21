@@ -5,16 +5,25 @@
       <articleFeatured v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
     </div>
     <div v-else>
-      <h2>{{ title }}</h2>
       <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
       <!-- Pagination -->
-      <div v-if="pageCount > 1" class="pagination pt-6 text-center border-t border-dotted">
-        <span class="py-2" v-if="currentPage > 1"><a
-            @click="fetchCurrentPage(currentPage - 1)">{{ $t('pagination.prev') }}</a></span>
-        <span class="py-2 inline-flex ltr:text-left rtl:text-right"><a @click="fetchCurrentPage(i)"
-            v-for="i in pageCount" :key="i" class="p-2" :class="i == currentPage ? 'active' : ''">{{ $t(i) }}</a></span>
-        <span class="py-2" v-if="currentPage < pageCount"><a
-            @click="fetchCurrentPage(currentPage + 1)">{{ $t('pagination.next') }}</a></span>
+      <div class="pagination pt-6 text-center border-t border-dotted">
+        <ul>
+          <span class="px-3"><a @click="fetchCurrentPage(currentPage - 1)" :class="currentPage == 1 ? 'disabled' : ''">
+              <font-awesome-icon icon="chevron-left"></font-awesome-icon>
+            </a></span>
+          <span v-for="i in pageCount" :key="i">
+            <li v-if="(i == pageCount || i==1 || Math.abs(i - currentPage) < 3)">
+              <a class="px-1" href="#" @click="currentPage = i"
+                :class="{current: currentPage === i, last: (i == pageCount  && Math.abs(i - currentPage) > 3), first:(i == 1 && Math.abs(i - currentPage) > 3)}">
+                {{i}}</a>
+            </li>
+          </span>
+          <span class="px-3"><a @click="fetchCurrentPage(currentPage + 1)"
+              :class="currentPage == pageCount ? 'disabled' : ''">
+              <font-awesome-icon icon="chevron-right"></font-awesome-icon>
+            </a></span>
+        </ul>
       </div>
     </div>
   </section>
@@ -31,7 +40,8 @@
         loadedArticles: [],
         currentPage: 1,
         start: 0,
-        count: 0
+        count: 0,
+        numberPerPage: 10
       }
     },
     components: {
@@ -39,10 +49,6 @@
       articleFeatured
     },
     props: {
-      title: {
-        type: String,
-        required: true
-      },
       category: {
         type: String,
         required: true
@@ -62,7 +68,7 @@
     },
     computed: {
       pageCount() {
-        return Math.ceil(this.count / this.limit)
+        return Math.ceil(this.count / this.numberPerPage)
       }
     },
     created() {
@@ -72,7 +78,7 @@
     methods: {
       fetchCurrentPage(i) {
         this.currentPage = i
-        this.start = this.limit * (this.currentPage - 1)
+        this.start = this.numberPerPage * (this.currentPage - 1)
         this.fetchArticles()
       },
       query() {
@@ -136,7 +142,9 @@
           .get(process.env.baseUrl + "/blogs?" + query)
           .then(res => {
             this.count = res.data.length
+            
           })
+          
       },
       ifNotEmpty() {
         if (Array.isArray(this.loadedArticles) && this.loadedArticles.length)
@@ -148,7 +156,7 @@
         return Math.min(Math.max(parseInt(num), min), max)
       },
       calculateCurrentPage(num) {
-        this.currentPage = this.limitNumberWithinRange(num, 1, this.pageCount())
+        this.currentPage = this.limitNumberWithinRange(num, 1, this.pageCount)
         return this.currentPage
       }
     },
@@ -159,5 +167,46 @@
 <style scoped>
   .pagination a.active {
     @apply text-josa-blue-veryDark;
+  }
+
+  a.disabled {
+    @apply cursor-default text-josa-warm-grey;
+  }
+
+  a.disabled:hover {
+    @apply text-josa-warm-grey
+  }
+
+  a {
+    color: #999;
+  }
+
+  .current {
+    @apply bg-josa-blue-dark;
+    border-radius: 20%;
+
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 0.2px;
+    padding-bottom: 0.5px;
+    color: white;
+  }
+
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li {
+    display: inline;
+    margin: 5px 5px;
+  }
+
+  a.first::after {
+    content: '  ...'
+  }
+
+  a.last::before {
+    content: '... '
   }
 </style>
