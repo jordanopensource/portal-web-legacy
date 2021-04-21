@@ -178,12 +178,12 @@ export default {
     links: 'إليك بعض الروابط المفيدة بدلاً من ذلك:',
     home: 'الصفحة الرئيسية'
   },
-  map:{
+  map: {
     text: {
-      touch: "",
-      scroll: "",
-      scrollMac: ""
-   },
+      touch: "استخدم اصبعين لتحريك الخريطة",
+      scroll: "استخدم ctrl + scroll لتصغير/تكبير الخريطة",
+      scrollMac: "استخدم ⌘ + scroll لتصغير/تكبير الخريطة"
+    },
   },
   tooltip: {
     copied: 'تم النسخ!'
