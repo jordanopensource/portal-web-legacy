@@ -19,7 +19,6 @@ export default {
       { rel: 'stylesheet', href:'https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap' },
       { rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap"},
       { rel: 'stylesheet', href:'https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;700&display=swap' },
-      { rel: 'stylesheet', href:"https://unpkg.com/leaflet@1.6.0/dist/leaflet.css", integrity:"sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==", crossorigin:"" }
     ],
     script: [
       { src:'/js/matomo.js' },
@@ -50,6 +49,7 @@ export default {
     { src: '~/plugins/i18n' },
     { src: '~/plugins/og-tags' },
     { src: '~/plugins/flash-message.js', mode: 'client' },
+    { src: '~/plugins/leaflet', mode: 'client' },
     { src: '~/plugins/copy' },
   ],
   /*
@@ -81,7 +81,6 @@ export default {
     }],
     'nuxt-i18n',
     '@nuxtjs/moment',
-    'nuxt-leaflet',
     '@nuxtjs/redirect-module',
     '@nuxtjs/sitemap',
   ],
