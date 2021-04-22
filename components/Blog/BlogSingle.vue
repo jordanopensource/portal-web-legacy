@@ -17,6 +17,11 @@
           <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 flex-shrink-0"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" />
       </div>
+        <div v-if="article.translators.length" class="flex flex-wrap flex-row my-4" :dir="$dir()">
+          <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4 flex-shrink-0"
+            :name="translator['name_' + $i18n.locale]" :picture="translator.picture" v-bind:translatedBy="true"
+            v-bind:writtenBy="false" />
+        </div>
       <!-- Body -->
       <div class="body" v-html="article.body"></div>
       <hr>
