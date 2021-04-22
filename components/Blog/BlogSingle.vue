@@ -31,6 +31,13 @@
           :picture="author.picture" :bio="author['bio_' + $i18n.locale]" hide="true"/>
       </div>
     </div>
+    <div v-if="article.translators.length" class="py-0 authors"> 
+      <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.translatedBy')}}</h5>
+      <div class="flex flex-col">
+        <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4" :name="translator['name_' + $i18n.locale]"
+          :picture="translator.picture" :bio="translator['bio_' + $i18n.locale]" />
+      </div>
+    </div>
   </div>
 </template>
 
