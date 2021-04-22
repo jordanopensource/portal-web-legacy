@@ -5,6 +5,7 @@
       <articleFeatured v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
     </div>
     <div v-else>
+      <h2>{{ title }}</h2>
       <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
       <!-- Pagination -->
       <div class="pagination pt-6 text-center border-t border-dotted">
@@ -14,7 +15,7 @@
             </a></span>
           <span v-for="i in pageCount" :key="i">
             <li v-if="(i == pageCount || i==1 || Math.abs(i - currentPage) < 3)">
-              <a class="px-1" href="#" @click="currentPage = i"
+              <a class="px-1" href="#" @click="fetchCurrentPage(i)"
                 :class="{current: currentPage === i, last: (i == pageCount  && Math.abs(i - currentPage) > 3), first:(i == 1 && Math.abs(i - currentPage) > 3)}">
                 {{i}}</a>
             </li>
@@ -41,7 +42,7 @@
         currentPage: 1,
         start: 0,
         count: 0,
-        numberPerPage: 10
+        numberPerPage: 5
       }
     },
     components: {
@@ -49,13 +50,17 @@
       articleFeatured
     },
     props: {
+      title: {
+        type: String,
+        
+      },
       category: {
         type: String,
         required: true
       },
       limit: {
         type: Number,
-        default: 10
+        default: 5
       },
       featured: {
         type: Boolean,
