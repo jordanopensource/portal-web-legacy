@@ -124,7 +124,8 @@ export default {
     fullName: 'الاسم الكامل',
     we: 'نحن',
     and: 'و',
-    to: 'إلى'
+    to: 'إلى',
+    translatedBy: 'ترجمة',
   },
   // Partners
   partners: {

@@ -138,7 +138,8 @@ export default {
     fullName: 'Full Name',
     we: 'We',
     and: 'And',
-    to: 'To'
+    to: 'To',
+    translatedBy: 'Translated by',
   },
   // Blog
   blog: {
