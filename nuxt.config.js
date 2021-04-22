@@ -151,7 +151,7 @@ export default {
   axios: {
   },
   env: {
-    baseUrl: 'https://portal.api.jordanopensource.org'
+    baseUrl: process.env.API_BASE_URL,
   },
 
   /*
