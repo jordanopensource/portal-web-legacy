@@ -102,7 +102,7 @@
     @apply font-almarai leading-snug;
   }
 
-  .content {
+  .content, .authors {
     @apply bg-white p-8 relative z-50 mx-auto;
     max-width: 766px;
   }
@@ -135,7 +135,7 @@
   }
 
   hr {
-    @apply my-12 border-solid border-josa-warm-grey-dark;
+    @apply mt-12 mb-4 border-solid border-josa-warm-grey-dark;
   }
 
   article[dir="ltr"]>>>.share-button {
@@ -159,4 +159,18 @@
     left: -75px;
     right: unset;
   }
+
+  [dir="ltr"] .written-by {
+    margin-left: 50px;
+  }
+
+  [dir="rtl"] .written-by {
+    margin-right: 50px;
+  }
+
+  .authors {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
 </style>
