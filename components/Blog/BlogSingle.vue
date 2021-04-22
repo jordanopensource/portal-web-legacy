@@ -27,8 +27,8 @@
     <div v-if="article.authors.length" class="py-0 authors"> 
       <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.writtenBy')}}</h5>
       <div class="flex flex-col">
-        <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4" :name="author['name_' + $i18n.locale]"
-          :picture="author.picture" :bio="author['bio_' + $i18n.locale]" />
+        <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 bio" :name="author['name_' + $i18n.locale]"
+          :picture="author.picture" :bio="author['bio_' + $i18n.locale]" hide="true"/>
       </div>
     </div>
   </div>
