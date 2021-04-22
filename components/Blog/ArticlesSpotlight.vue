@@ -4,7 +4,7 @@
         <div class="flex justify-between items-baseline">
             <h2>{{ title }}</h2>
             <nuxt-link to="/blog" class="text-josa-blue">{{ $t('blog.all') }}
-             <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
+                <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
             </nuxt-link>
         </div>
         <div class="">
@@ -40,6 +40,10 @@
                 type: String,
                 required: true
             },
+            tag: {
+                type: String,
+                required: true
+            },
         },
         created() {
             this.fetchArticles()
@@ -58,6 +62,10 @@
                 }
                 if (this.language) {
                     let q = "language=" + this.language;
+                    args.push(q)
+                }
+                if (this.tag) {
+                    let q = "tags_contains=" + this.tag;
                     args.push(q)
                 }
                 query = args.join("&")
@@ -86,16 +94,17 @@
             }
         },
         computed: {
-          arrowIcon() {
-            if (this.$i18n.locale == "ar") {
-              return 'long-arrow-alt-left'
-            } else {
-              return 'long-arrow-alt-right'
+            arrowIcon() {
+                if (this.$i18n.locale == "ar") {
+                    return 'long-arrow-alt-left'
+                } else {
+                    return 'long-arrow-alt-right'
+                }
             }
-          }
         }
     }
 </script>
+
 <style scoped>
     .button {
         @apply normal-case;
@@ -110,7 +119,6 @@
     }
 
     @screen lg {
-
         .article-preview:first-child>>>.thumbnail {
             width: 75%;
             height: 400px;
@@ -127,6 +135,5 @@
         [dir="rtl"] .article-preview:first-child>>>.thumbnail {
             @apply pr-6 pl-0;
         }
-
     }
 </style>
