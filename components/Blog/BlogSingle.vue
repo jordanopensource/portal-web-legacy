@@ -1,46 +1,48 @@
 <template>
   <div>
-  <article :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">
-    <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
-    <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
-    <div ref="content" class="container content">
-      <h2 ref="title">{{ article.title }}</h2>
+    <article :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">
+      <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
+      <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
+      <div ref="content" class="container content">
+        <h2 ref="title">{{ article.title }}</h2>
         <div class="flex flex-row flex-wrap justify-between items-center my-2">
           <p class="text-josa-warm-grey-dark font-bold my-2">
             {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}
           </p>
           <shareButtons v-if="url" :url="url" class="my-2" />
         </div>
-      <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
-      <!-- author and Share -->
+        <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
+        <!-- author and Share -->
         <div v-if="article.authors.length" class="flex flex-wrap flex-row my-4" :dir="$dir()">
           <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 flex-shrink-0"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" />
-      </div>
+        </div>
         <div v-if="article.translators.length" class="flex flex-wrap flex-row my-4" :dir="$dir()">
           <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4 flex-shrink-0"
             :name="translator['name_' + $i18n.locale]" :picture="translator.picture" v-bind:translatedBy="true"
             v-bind:writtenBy="false" />
         </div>
-      <!-- Body -->
-      <div class="body" v-html="article.body"></div>
-      <hr>
-      <!-- author and Share -->
+        <!-- Body -->
+        <div class="body" v-html="article.body"></div>
+        <hr>
+        <!-- author and Share -->
         <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url" />
-    </div>
-  </article>
-    <div v-if="article.authors.length" class="py-0 authors"> 
+      </div>
+    </article>
+    <div v-if="article.authors.length" class="py-0 authors">
       <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.writtenBy')}}</h5>
       <div class="flex flex-col">
-        <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 bio" :name="author['name_' + $i18n.locale]"
-          :picture="author.picture" :bio="author['bio_' + $i18n.locale]" v-bind:writtenBy="false"/>
+        <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 bio"
+          :name="author['name_' + $i18n.locale]" :picture="author.picture" :bio="author['bio_' + $i18n.locale]"
+          v-bind:writtenBy="false" />
       </div>
     </div>
-    <div v-if="article.translators.length" class="py-0 authors"> 
+    <div v-if="article.translators.length" class="py-0 authors">
       <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.translatedBy')}}</h5>
       <div class="flex flex-col">
-        <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4" :name="translator['name_' + $i18n.locale]"
-          :picture="translator.picture" :bio="translator['bio_' + $i18n.locale]" v-bind:writtenBy="false"/>
+        <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4"
+          :name="translator['name_' + $i18n.locale]" :picture="translator.picture"
+          :bio="translator['bio_' + $i18n.locale]" v-bind:writtenBy="false" />
       </div>
     </div>
   </div>
@@ -114,7 +116,8 @@
     @apply font-almarai leading-snug;
   }
 
-  .content, .authors {
+  .content,
+  .authors {
     @apply bg-white p-8 relative z-50 mx-auto;
     max-width: 766px;
   }
@@ -184,5 +187,4 @@
     padding-top: 0;
     padding-bottom: 0;
   }
-
 </style>
