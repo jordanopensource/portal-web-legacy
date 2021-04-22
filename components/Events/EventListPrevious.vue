@@ -15,15 +15,17 @@
           <span v-for="i in calculatePages()" :key="i">
             <li
               v-if="(i == calculatePages() || Math.abs(i - currentPage) < 3) || (i==1 || Math.abs(i - calculatePages()) < 1)">
-              <a class="px-1" href="#" @click="currentPage = i"
+              <a @click="currentPage = i"
                 :class="{current: currentPage === i, last: (i == calculatePages()  && Math.abs(i - currentPage) > 3), first:(i == 1 && Math.abs(i - currentPage) > 3)}">
                 {{i}}</a>
             </li>
           </span>
-          <span class="px-3"><a @click="calculateCurrentPage(currentPage + 1)"
+          <span class="px-3">
+            <a @click="calculateCurrentPage(currentPage + 1)"
               :class="currentPage == calculatePages() ? 'disabled' : ''">
               <font-awesome-icon icon="chevron-right"></font-awesome-icon>
-            </a></span>
+            </a>
+          </span>
         </ul>
       </div>
     </div>
@@ -93,7 +95,7 @@
       },
       async fetchEvents() {
         const query = this.query()
-          await axios
+        await axios
           .get(process.env.baseUrl + "/events?" + query)
           .then(res => {
             const eventsArray = []
@@ -169,39 +171,30 @@
   }
 
   a.disabled:hover {
-    @apply text-josa-warm-grey
+    @apply text-josa-warm-grey;
   }
 
   a {
-    color: #999;
+    @apply text-josa-warm-grey-dark;
   }
 
   .current {
-    @apply bg-josa-blue-dark;
-    border-radius: 20%;
-
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 0.2px;
-    padding-bottom: 0.5px;
-    color: white;
+    @apply bg-josa-blue-dark rounded-sm px-1 py-0 text-white;
   }
 
   ul {
-    padding: 0;
-    list-style-type: none;
+    @apply p-0 list-none;
   }
 
   li {
-    display: inline;
-    margin: 5px 5px;
+    @apply inline m-1;
   }
 
   a.first::after {
-    content: '  ...'
+    content: '  ...';
   }
 
   a.last::before {
-    content: '... '
+    content: '... ';
   }
 </style>
