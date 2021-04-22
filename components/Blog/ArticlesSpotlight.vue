@@ -55,7 +55,6 @@
                 if (this.numberOfArticles) {
                     let q = "_limit=" + this.numberOfArticles;
                     args.push(q)
-
                 }
                 if (this.sortBy) {
                     let q = "_sort=" + this.sortBy;
@@ -69,7 +68,6 @@
                     let q = "tags_contains=" + this.tag;
                     args.push(q)
                 }
-
                 query = args.join("&")
                 return query
             },
@@ -80,13 +78,11 @@
                     .then(res => {
                         const articlesArray = []
                         for (const key in res.data) {
-
                             articlesArray.push({
                                 ...res.data[key]
                             })
                         }
                         this.loadedArticles = articlesArray
-
                     })
                     .catch(e => this.context.error(e));
             },
@@ -108,6 +104,7 @@
         }
     }
 </script>
+
 <style scoped>
     .button {
         @apply normal-case;
@@ -122,7 +119,6 @@
     }
 
     @screen lg {
-
         .article-preview:first-child>>>.thumbnail {
             width: 75%;
             height: 400px;
@@ -139,6 +135,5 @@
         [dir="rtl"] .article-preview:first-child>>>.thumbnail {
             @apply pr-6 pl-0;
         }
-
     }
 </style>
