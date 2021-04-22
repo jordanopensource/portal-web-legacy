@@ -3,7 +3,7 @@
     <div v-if="ifNotEmpty()">
         <div class="flex justify-between items-baseline">
             <h2>{{ title }}</h2>
-            <nuxt-link to="/blog" class="text-josa-blue">{{ $t('blog.all') }}
+            <nuxt-link :to="localePath('blog')" class="text-josa-blue">{{ $t('blog.all') }}
                 <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
             </nuxt-link>
         </div>
