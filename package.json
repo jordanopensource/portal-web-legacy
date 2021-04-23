@@ -30,7 +30,7 @@
     "vue2-leaflet": "^2.7.0"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^3.0.0",
+    "@nuxtjs/tailwindcss": "^3.4.3",
     "tailwindcss-dir": "^4.0.0"
   }
 }
