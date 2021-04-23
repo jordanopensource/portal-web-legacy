@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap items-stretch">
         <a class="share-button" :href="'https://twitter.com/share?url=' + url" target="_blank">
             <font-awesome-icon :icon="['fab','twitter']" size="2x" />
         </a>

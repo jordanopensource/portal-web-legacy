@@ -1,29 +1,51 @@
 <template>
-  <article :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">
-    <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
-    <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
-    <div ref="content" class="container content">
-      <h2 ref="title">{{ article.title }}</h2>
-      <div class="text-josa-warm-grey-dark font-bold my-4">
-        {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</div>
-      <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
-      <!-- author and Share -->
-      <div class="flex items-center flex-wrap justify-between">
-        <author v-if="article.author" class="mb-4 md:mb-12" :name="article.author['name_' + $i18n.locale]"
-          :picture="article.author.picture" />
-        <shareButtons v-if="url" class="mb-4 md:mb-12" :url="url" />
+  <div>
+    <article :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">
+      <appImage v-if="article.thumbnail" :image="article.thumbnail" size="large" class="thumbnail" />
+      <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
+      <div ref="content" class="container content">
+        <h2 ref="title">{{ article.title }}</h2>
+        <div class="flex flex-row flex-wrap justify-between items-center my-2">
+          <p class="text-josa-warm-grey-dark font-bold my-2">
+            {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}
+          </p>
+          <shareButtons v-if="url" :url="url" class="my-2" />
+        </div>
+        <p v-if="article.excerpt" class="excerpt" :class="article.language">{{ article.excerpt }}</p>
+        <!-- author and Share -->
+        <div v-if="article.authors.length" class="flex flex-wrap flex-row my-4" :dir="$dir()">
+          <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 flex-shrink-0"
+            :name="author['name_' + $i18n.locale]" :picture="author.picture" />
+        </div>
+        <div v-if="article.translators.length" class="flex flex-wrap flex-row my-4" :dir="$dir()">
+          <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4 flex-shrink-0"
+            :name="translator['name_' + $i18n.locale]" :picture="translator.picture" v-bind:translatedBy="true"
+            v-bind:writtenBy="false" />
+        </div>
+        <!-- Body -->
+        <div class="body" v-html="article.body"></div>
+        <hr>
+        <!-- author and Share -->
+        <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url" />
       </div>
-      <!-- Body -->
-      <div class="body" v-html="article.body"></div>
-      <hr>
-      <!-- author and Share -->
-      <div class="flex items-center flex-wrap justify-between">
-        <author v-if="article.author" class="mb-4 md:mb-12" :name="article.author['name_' + $i18n.locale]"
-          :picture="article.author.picture" :bio="article.author['bio_' + $i18n.locale]" />
-        <shareButtons v-if="url" class="mb-4 md:mb-12" :url="url" />
+    </article>
+    <div v-if="article.authors.length" class="py-0 authors">
+      <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.writtenBy')}}</h5>
+      <div class="flex flex-col">
+        <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 bio"
+          :name="author['name_' + $i18n.locale]" :picture="author.picture" :bio="author['bio_' + $i18n.locale]"
+          v-bind:writtenBy="false" />
       </div>
     </div>
-  </article>
+    <div v-if="article.translators.length" class="py-0 authors">
+      <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.translatedBy')}}</h5>
+      <div class="flex flex-col">
+        <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4"
+          :name="translator['name_' + $i18n.locale]" :picture="translator.picture"
+          :bio="translator['bio_' + $i18n.locale]" v-bind:writtenBy="false" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -94,7 +116,8 @@
     @apply font-almarai leading-snug;
   }
 
-  .content {
+  .content,
+  .authors {
     @apply bg-white p-8 relative z-50 mx-auto;
     max-width: 766px;
   }
@@ -127,7 +150,7 @@
   }
 
   hr {
-    @apply my-12 border-solid border-josa-warm-grey-dark;
+    @apply mt-12 mb-4 border-solid border-josa-warm-grey-dark;
   }
 
   article[dir="ltr"]>>>.share-button {
@@ -150,5 +173,18 @@
   article[dir="rtl"]>>>.copy-tooltip-text {
     left: -75px;
     right: unset;
+  }
+
+  [dir="ltr"] .written-by {
+    margin-left: 50px;
+  }
+
+  [dir="rtl"] .written-by {
+    margin-right: 50px;
+  }
+
+  .authors {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 </style>
