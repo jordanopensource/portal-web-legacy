@@ -168,48 +168,35 @@
 
 
 <style scoped>
-  .pagination a.active {
-    @apply text-josa-blue-veryDark;
-  }
-
-  a.disabled {
+  .pagination a.disabled {
     @apply cursor-default text-josa-warm-grey;
   }
 
-  a.disabled:hover {
-    @apply text-josa-warm-grey
+  .pagination a.disabled:hover {
+    @apply text-josa-warm-grey;
   }
 
-  a {
-    color: #999;
+  .pagination a {
+    @apply text-josa-warm-grey-dark;
   }
 
-  .current {
-    @apply bg-josa-blue-dark;
-    border-radius: 20%;
-
-    padding-left: 4px;
-    padding-right: 4px;
-    padding-top: 0.2px;
-    padding-bottom: 0.5px;
-    color: white;
+  .pagination .current {
+    @apply bg-josa-blue-dark rounded-sm px-1 py-0 text-white;
   }
 
-  ul {
-    padding: 0;
-    list-style-type: none;
+  .pagination ul {
+    @apply p-0 list-none;
   }
 
-  li {
-    display: inline;
-    margin: 5px 5px;
+  .pagination li {
+    @apply inline m-1;
   }
 
-  a.first::after {
-    content: '  ...'
+  .pagination a.first::after {
+    content: '  ...';
   }
 
-  a.last::before {
-    content: '... '
+  .pagination a.last::before {
+    content: '... ';
   }
 </style>
