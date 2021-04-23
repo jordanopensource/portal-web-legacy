@@ -15,7 +15,7 @@
             </a></span>
           <span v-for="i in pageCount" :key="i">
             <li v-if="(i == pageCount || i==1 || Math.abs(i - currentPage) < 3)">
-              <a class="px-1" href="#" @click="fetchCurrentPage(i)"
+              <a class="px-1" @click="fetchCurrentPage(i)"
                 :class="{current: currentPage === i, last: (i == pageCount  && Math.abs(i - currentPage) > 3), first:(i == 1 && Math.abs(i - currentPage) > 3)}">
                 {{i}}</a>
             </li>
