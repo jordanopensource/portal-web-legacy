@@ -82,7 +82,7 @@
     },
     methods: {
       fetchCurrentPage(i) {
-        this.currentPage = i
+        this.currentPage = this.limitNumberWithinRange(i, 1, this.pageCount)
         this.start = this.numberPerPage * (this.currentPage - 1)
         this.fetchArticles()
       },
@@ -147,9 +147,7 @@
           .get(process.env.baseUrl + "/blogs?" + query)
           .then(res => {
             this.count = res.data.length
-            
           })
-          
       },
       ifNotEmpty() {
         if (Array.isArray(this.loadedArticles) && this.loadedArticles.length)
