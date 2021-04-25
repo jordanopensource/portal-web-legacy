@@ -19,7 +19,6 @@ export default {
       { rel: 'stylesheet', href:'https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap' },
       { rel:"stylesheet", href:"https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap"},
       { rel: 'stylesheet', href:'https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;700&display=swap' },
-      { rel: 'stylesheet', href:"https://unpkg.com/leaflet@1.6.0/dist/leaflet.css", integrity:"sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==", crossorigin:"" }
     ],
     script: [
       { src:'/js/matomo.js' },
@@ -49,7 +48,9 @@ export default {
     { src: '~/plugins/string-filters' },
     { src: '~/plugins/i18n' },
     { src: '~/plugins/og-tags' },
-    { src: '~/plugins/flash-message.js', mode: 'client' }
+    { src: '~/plugins/flash-message.js', mode: 'client' },
+    { src: '~/plugins/leaflet', mode: 'client' },
+    { src: '~/plugins/copy' },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -80,9 +81,9 @@ export default {
     }],
     'nuxt-i18n',
     '@nuxtjs/moment',
-    'nuxt-leaflet',
     '@nuxtjs/redirect-module',
     '@nuxtjs/sitemap',
+    'nuxt-healthcheck',
   ],
   i18n: {
     locales: [
@@ -120,18 +121,18 @@ export default {
   ],
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://jordanopensource.org',
+    hostname: 'https://josa.ngo',
     i18n: true,
     defaults: {
       lastmod: new Date()
     },
     routes: async () => {
-      const articles = await axios.get('https://api.portal.jordanopensource.org/blogs')
-      const events = await axios.get('https://api.portal.jordanopensource.org/events')
-      const careers = await axios.get('https://api.portal.jordanopensource.org/careers')
-      const publications = await axios.get('https://api.portal.jordanopensource.org/publications')
-      const programs = await axios.get('https://api.portal.jordanopensource.org/programs')
-      const infoPages = await axios.get('https://api.portal.jordanopensource.org/info-pages')
+      const articles = await axios.get('https://portal.api.jordanopensource.org/blogs')
+      const events = await axios.get('https://portal.api.jordanopensource.org/events')
+      const careers = await axios.get('https://portal.api.jordanopensource.org/careers')
+      const publications = await axios.get('https://portal.api.jordanopensource.org/publications')
+      const programs = await axios.get('https://portal.api.jordanopensource.org/programs')
+      const infoPages = await axios.get('https://portal.api.jordanopensource.org/info-pages')
 
       const articlesRoutes = articles.data.map((article) => `${article.language == 'ar' ? '/ar':''}/blog/${article.id}`)
       const eventsRoutes = events.data.map((event) => `/events/${event.id}`)
@@ -150,8 +151,20 @@ export default {
   axios: {
   },
   env: {
-    baseUrl: 'https://portal.api.jordanopensource.org'
+    baseUrl: process.env.API_BASE_URL,
   },
+
+  /*
+  ** Healthcheck
+  */
+  healthcheck: {
+    path: '/ping',
+    contentType: 'application/json',
+    healthy: () => {
+      return JSON.stringify({ result: 'pong' })
+    }
+  },
+  
   /*
   ** Build configuration
   */

@@ -9,6 +9,7 @@
       <boardStaffList class="board-staff-list" role="board" :title="$t('boardStaff.board')" />
       <boardStaffList class="board-staff-list" role="staff" :title="$t('boardStaff.staff')" />
       <boardStaffList class="board-staff-list" role="previousBoard" :title="$t('boardStaff.previousBoard')" compact />
+      <boardStaffList class="board-staff-list" role="previousStaff" :title="$t('boardStaff.previousStaff')" compact />
     </div>
   </div>
 

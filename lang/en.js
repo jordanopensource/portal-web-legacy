@@ -138,7 +138,8 @@ export default {
     fullName: 'Full Name',
     we: 'We',
     and: 'And',
-    to: 'To'
+    to: 'To',
+    translatedBy: 'Translated by',
   },
   // Blog
   blog: {
@@ -219,7 +220,8 @@ export default {
   boardStaff: {
     board: 'Board of Directors',
     staff: 'Staff',
-    previousBoard: 'Previous Board Members'
+    previousBoard: 'Previous Board Members',
+    previousStaff: 'Previous Staff'
   },
   // Auth
   auth: {
@@ -277,5 +279,15 @@ export default {
   dossier: {
     dossier: 'Dossier',
     inDossier: 'In this dossier'
-  }
+  },
+  map: {
+    text: {
+      touch: "Use two fingers to move the map",
+      scroll: "Use ctrl + scroll to zoom the map",
+      scrollMac: "Use \u2318 + scroll to zoom the map"
+   },
+  },
+  tooltip: {
+    copied: 'Copied!'
+  },
 }

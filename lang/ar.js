@@ -83,7 +83,8 @@ export default {
   boardStaff: {
     board: 'هيئة الإدارة',
     staff: 'الفريق العامل',
-    previousBoard: 'أعضاء هيئة الإدارة السابقون'
+    previousBoard: 'أعضاء هيئة الإدارة السابقون',
+    previousStaff: 'أعضاء الفريق السابقون'
   },
   // Auth
   auth: {
@@ -123,7 +124,8 @@ export default {
     fullName: 'الاسم الكامل',
     we: 'نحن',
     and: 'و',
-    to: 'إلى'
+    to: 'إلى',
+    translatedBy: 'ترجمة',
   },
   // Partners
   partners: {
@@ -176,5 +178,15 @@ export default {
     lost: 'يبدو أننا لا نستطيع العثور على الصفحة التي تبحث عنها.',
     links: 'إليك بعض الروابط المفيدة بدلاً من ذلك:',
     home: 'الصفحة الرئيسية'
+  },
+  map: {
+    text: {
+      touch: "استخدم اصبعين لتحريك الخريطة",
+      scroll: "استخدم ctrl + scroll لتصغير/تكبير الخريطة",
+      scrollMac: "استخدم ⌘ + scroll لتصغير/تكبير الخريطة"
+    },
+  },
+  tooltip: {
+    copied: 'تم النسخ!'
   },
 }

@@ -14,7 +14,11 @@
     <div class="container pb-20">
       <blogList v-if="activeCat=='all'" class="blog-list" title="featured" category="all" :language="$i18n.locale"
         :limit="1" featured />
-      <div v-for="cat in blogCategories" :key="cat.id">
+      <div v-if="activeCat=='all'">
+        <blogList v-if="activeCat=='all' || activeCat=='all'" class="blog-list" :category="'all'"
+          :language="$i18n.locale" />
+      </div>
+      <div v-else v-for="cat in blogCategories" :key="cat.id">
         <blogList v-if="activeCat=='all' || activeCat==cat.name" class="blog-list" :category="cat.name"
           :language="$i18n.locale" :title="cat['title_' + $i18n.locale]" />
       </div>

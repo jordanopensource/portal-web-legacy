@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="flex flex-no-wrap items-center">
     <appImage v-if="picture" :image="picture" size="small" class="profilePicture" />
     <div class="opacity-90">
-      <p :class="bio ? 'hidden' : 'block'" class="ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.writtenBy')}}</p>
+      <p v-if="writtenBy" class="block ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.writtenBy')}}</p>
+      <p v-else-if="translatedBy" class="block ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.translatedBy')}}</p>
       <h3 class="font-bold">{{ name }}</h3>
       <p v-if="bio">{{ bio }}</p>
     </div>
@@ -25,6 +26,12 @@
       },
       bio: {
         type: String
+      },
+      writtenBy: {
+        default: true
+      },
+      translatedBy: {
+        default: false
       }
     },
     components: {
