@@ -33,6 +33,8 @@
       <hr class="mt-12 mb-6 border-solid border-josa-warm-grey-dark">
       <!-- share buttons  -->
       <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url" />
+      <!--  disclaimer  -->
+      <p class="disclaimer" v-if="showDisclaimer">{{ $t('blog.disclaimer') }}</p>
       <!-- authors and translators -->
       <div v-if="article.authors.length || article.translators.length" class="my-8">
         <template v-if="article.authors.length">
@@ -82,6 +84,11 @@
         this.setContentNegMargin();
       }
     },
+    computed:{
+      showDisclaimer(){
+      return this.article.category.name !== 'statements'
+     }
+    },
     methods: {
       setContentNegMargin() {
         let rem = this.getRem();
@@ -126,6 +133,11 @@
   .excerpt {
     opacity: 0.9;
     @apply font-bold mb-8;
+  }
+
+  .disclaimer {
+  opacity: 0.9;
+  @apply font-normal mb-8;
   }
 
   /* article-body */
