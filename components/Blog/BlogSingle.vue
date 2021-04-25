@@ -48,6 +48,11 @@
             :bio="translator['bio_' + $i18n.locale]" v-bind:writtenBy="false" />
         </template>
       </div>
+      <!--  disclaimer  -->
+      <hr class="mt-12 mb-6 border-solid border-josa-warm-grey-dark">
+      <div class="text-josa-warm-grey-dark font-bold my-2 disclaimer"  v-if="showDisclaimer">
+      <p>{{ $t('blog.disclaimer') }}</p>
+      </div>
     </div>
   </article>
 </template>
@@ -82,6 +87,11 @@
         this.setContentNegMargin();
       }
     },
+    computed:{
+    showDisclaimer(){
+    return this.article.category.name !== 'statements'
+   }
+ },
     methods: {
       setContentNegMargin() {
         let rem = this.getRem();
@@ -126,6 +136,10 @@
   .excerpt {
     opacity: 0.9;
     @apply font-bold mb-8;
+  }
+
+  .disclaimer {
+  font-size: 0.9rem;
   }
 
   /* article-body */
