@@ -3,7 +3,9 @@
   <section v-if="ifNotEmpty()">
     <div class="flex flex-wrap md:flex-no-wrap justify-between items-baseline">
       <h2>{{ title }}</h2>
-      <nuxt-link to="/blog" class="text-josa-blue">{{ $t('publication.all') }} ></nuxt-link>
+      <nuxt-link to="/publications" class="text-josa-blue">{{ $t('publication.all') }}
+       <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
+      </nuxt-link>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 col-gap-20">
       <publicationCompact class="mt-8 md:my-12" v-for="publication in loadedPublications" :key="publication.id"
@@ -81,6 +83,15 @@
           return true;
         else
           return false;
+      }
+    },
+    computed: {
+      arrowIcon() {
+        if (this.$i18n.locale == "ar") {
+          return 'long-arrow-alt-left'
+        } else {
+          return 'long-arrow-alt-right'
+        }
       }
     }
   }

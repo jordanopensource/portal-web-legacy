@@ -11,6 +11,7 @@
         <h3 class="mt-2">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</h3>
         <div class="content flex flex-wrap md:flex-no-wrap mt-12">
           <div class="w-full md:w-3/5 md:ltr:mr-8 rtl:ml-8 mb-8">
+          <shareButtons v-if="url" :url="url" class="mb-4 w-full justify-end"/>
             <div v-if="publication['description_' + $i18n.locale]" class="description pb-8"
               v-html="publication['description_' + $i18n.locale]"></div>
           </div>
@@ -30,18 +31,20 @@
   import appImage from '~/components/UI/appImage';
   import publishDateCard from '~/components/Publications/PublishDateCard';
   import downloadCard from '~/components/Publications/DownloadCard';
-
+  import shareButtons from '~/components/ShareButtons/ShareButtons';
   export default {
     name: 'PublicationSingle',
     data() {
       return {
-        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
+        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg',
+        url: null,
       }
     },
     components: {
       appImage,
       publishDateCard,
-      downloadCard
+      downloadCard,
+      shareButtons
 
     },
     props: {
@@ -50,8 +53,10 @@
         required: true
       }
     },
+    mounted() {
+      this.url = window.location.href;
+    }
   }
-
 </script>
 
 <style scoped>
@@ -68,5 +73,4 @@
   .description>>>h3 {
     @apply mb-4;
   }
-
 </style>

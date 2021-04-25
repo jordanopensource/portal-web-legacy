@@ -289,3 +289,34 @@ ul {
 }
 
 /*****/
+
+/* Tooltip */
+
+.tooltip {
+  @apply relative;
+}
+
+.tooltip-text {
+  @apply p-2 w-full absolute z-10 bg-josa-black text-white text-center rounded-md opacity-75 right-0 mt-2;
+  top: 100%;
+}
+
+.tooltip:hover .tooltip-text {
+  @apply visible;
+}
+
+.copy-tooltip-text {
+  @apply p-2 absolute z-10 bg-josa-blue font-bold text-white text-left text-xs leading-4 rounded-md opacity-75;
+}
+
+[dir="ltr"] .copy-tooltip-text {
+  right: -75px;
+  left: unset;
+}
+
+[dir="rtl"] .copy-tooltip-text {
+  left: -75px;
+  right: unset;
+}
+
+/*****/
