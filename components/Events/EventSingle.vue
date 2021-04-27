@@ -14,8 +14,8 @@
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
-            <modal $fetchState.pending
-              v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false && running == true"
+            <modal 
+              v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false && running == true "
               @close="showModal=false">
               <slot>
                 <joinForm :event="event" />
@@ -23,8 +23,8 @@
             </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
               :registrants="event.registrants" />
-            <div $fetchState.pending
-              v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false && running == true"
+            <div 
+              v-if="event.onlineEvent && event.onlineMeeting.password == false && running == true"
               class="mb-8">
               <joinFormCard :event="event" />
             </div>
@@ -57,7 +57,7 @@
       return {
         placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg',
         url: null,
-        running: true,
+        running: 'true',
       }
     },
     methods: {
@@ -82,8 +82,11 @@
       const parser = new DOMParser();
       const xmlDOM = parser.parseFromString(response.data, "text/xml");
       const value = xmlDOM.getElementsByTagName("running")[0];
-
-      this.running = value.childNodes[0].nodeValue;
+      if(value.childNodes[0].nodeValue == "false"){
+        this.running = false
+      }else{
+        this.running = true
+      }
     },
     components: {
       appImage,
