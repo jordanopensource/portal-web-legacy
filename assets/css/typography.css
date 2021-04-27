@@ -10,7 +10,7 @@ body {
 }
 
 [lang="ar"] body, .ar {
-  @apply font-almarai text-base leading-normal;
+  @apply font-IBM_plex_arabic text-base leading-normal;
 }
 
 /* H */
@@ -29,7 +29,7 @@ body {
 [lang="ar"] h4,
 [lang="ar"] h5,
 [lang="ar"] h6 {
-  @apply font-almarai leading-snug text-josa-black;
+  @apply font-IBM_plex_arabic leading-snug text-josa-black;
 }
 
 a:hover > h1, a:hover > h2, a:hover > h3, a:hover > h4, a:hover > h5, a:hover > h6 {
@@ -48,7 +48,7 @@ h2 {
 }
 
 [lang="ar"] h2 {
-  @apply font-almarai font-light;
+  @apply font-IBM_plex_arabic font-light;
 }
 
 
@@ -71,7 +71,7 @@ h4 {
 }
 
 [lang="ar"] h4 {
-  @apply font-almarai font-light;
+  @apply font-IBM_plex_arabic font-light;
 }
 
 /* h5 */
@@ -84,7 +84,7 @@ h5 {
 }
 
 [lang="ar"] h5 {
-  @apply font-almarai;
+  @apply font-IBM_plex_arabic;
 }
 
 /* h6 */
@@ -97,7 +97,7 @@ h6 {
 }
 
 [lang="ar"] h6 {
-  @apply font-almarai;
+  @apply font-IBM_plex_arabic;
 }
 
 /* Display Styles */
@@ -110,7 +110,7 @@ h6 {
 }
 
 [lang="ar"] .display-light {
-  @apply font-almarai;
+  @apply font-IBM_plex_arabic;
 }
 
 
