@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="container">
-      <div class="p-12">
+      <div class="p-6 md:p-12">
         <div class="text-josa-blue text-xl mb-2">
          {{ career.careerType['title_' + $i18n.locale] }}
         </div>
