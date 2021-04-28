@@ -290,4 +290,7 @@ export default {
   tooltip: {
     copied: 'Copied!'
   },
+  timeString:{
+    time:'Amman time'
+  }
 }

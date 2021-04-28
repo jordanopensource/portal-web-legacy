@@ -14,7 +14,7 @@
       <div class="event-info flex flex-wrap lg:flex-no-wrap">
         <span class="ltr:mr-4 rtl:ml-4">
           <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
-          {{ event.startDate | time($i18n.locale) }} - {{ event.endDate | time($i18n.locale) }}
+          {{ event.startDate | time($i18n.locale) }} - {{ event.endDate | time($i18n.locale) }} {{ $t('timeString.time') }}
         </span>
 
         <span v-if="event.address">
