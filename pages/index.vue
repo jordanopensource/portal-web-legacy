@@ -5,7 +5,7 @@
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
-        <articlesSpotlight class="w-full p-12" :numberOfArticles="4" :language="$i18n.locale"
+        <articlesSpotlight class="w-full p-6 md:p-12" :numberOfArticles="4" :language="$i18n.locale"
           :title="$t('blog.spotlight')" tag="spotlight"/>
       </div>
     </div>
@@ -14,14 +14,14 @@
     <!-- Impact -->
     <div class="container">
       <div class="row">
-        <ourWork class="w-full p-12" :title="$t('impact.title')" :programs="programs" />
+        <ourWork class="w-full p-6 md:p-12" :title="$t('impact.title')" :programs="programs" />
       </div>
     </div>
     <!-- Featured publication -->
     <div class="grey-light">
       <div class="container ">
         <div class="row grey-light">
-          <lastestPublications class="w-full p-12" :title="$t('publication.title')" :numberOfPublications="2" />
+          <lastestPublications class="w-full p-6 md:p-12" :title="$t('publication.title')" :numberOfPublications="2" />
         </div>
       </div>
     </div>

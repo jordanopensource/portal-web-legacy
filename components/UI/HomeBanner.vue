@@ -2,7 +2,7 @@
   <div>
     <div id="homeBanner" class="bg-josa-warm-grey-light py-24">
       <div class="container">
-        <div class="flex flex-row justify-between items-center flex-wrap md:flex-no-wrap px-12 bg-josa-warm-grey-light">
+        <div class="flex flex-row justify-between items-center flex-wrap md:flex-no-wrap px-6 md:px-12 bg-josa-warm-grey-light">
           <div class="my-auto w-full md:w-1/2 lg:w-1/2 flex-shrink-0 md:ltr:pr-8 md:rtl:pl-8">
             <h2>{{$t('meta.we')}}<font-awesome-icon class="heart" :icon="['fas', 'heart']" />
             </h2>
