@@ -3,7 +3,7 @@
     <pageBanner :pageMeta="pageContent" />
 
     <div class="container py-20">
-      <div class="px-12 flex flex-wrap md:flex-no-wrap" v-if="ifNotEmpty()">
+      <div class="px-6 md:px-12 flex flex-wrap md:flex-no-wrap" v-if="ifNotEmpty()">
         <!-- Sections Menu -->
         <div class="sections-menu md:ltr:pr-12 md:rtl:pl-12 pb-8 md:pb-0 w-full md:w-1/4 flex-shrink-0">
           <div v-for="section in pageContent.section" :key="section.sectionId"
