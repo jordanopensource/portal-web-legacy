@@ -6,11 +6,11 @@ body {
 }
 
 [lang="en"] body, .en {
-  @apply font-lato text-base leading-normal;
+  @apply font-IBM_plex_arabic text-base leading-normal;
 }
 
 [lang="ar"] body, .ar {
-  @apply font-almarai text-base leading-normal;
+  @apply font-IBM_plex_arabic text-base leading-normal;
 }
 
 /* H */
@@ -20,7 +20,7 @@ body {
 [lang="en"] h4,
 [lang="en"] h5,
 [lang="en"] h6 {
-  @apply font-aleoLight leading-tight text-josa-black;
+  @apply font-IBM_plex_arabic leading-tight text-josa-black;
 }
 
 [lang="ar"] h1,
@@ -29,7 +29,7 @@ body {
 [lang="ar"] h4,
 [lang="ar"] h5,
 [lang="ar"] h6 {
-  @apply font-almarai leading-snug text-josa-black;
+  @apply font-IBM_plex_arabic leading-snug text-josa-black;
 }
 
 a:hover > h1, a:hover > h2, a:hover > h3, a:hover > h4, a:hover > h5, a:hover > h6 {
@@ -44,34 +44,34 @@ h2 {
 }
 
 [lang="en"] h2 {
-  @apply font-aleoLightItalic leading-golden;
+  @apply font-IBM_plex_arabic leading-golden;
 }
 
 [lang="ar"] h2 {
-  @apply font-almarai font-light;
+  @apply font-IBM_plex_arabic font-light;
 }
 
 
 /* h3 */
 [lang="en"] h3 {
-  @apply font-normal text-xl font-lato;
+  @apply font-normal text-xl font-IBM_plex_arabic;
 }
 
 [lang="ar"] h3 {
-  @apply font-normal text-xl font-almarai;
+  @apply font-normal text-xl font-IBM_plex_arabic;
 }
 
 /* h4 */
 h4 {
-  @apply font-aleoLightItalic font-medium text-5xl mb-2;
+  @apply font-IBM_plex_arabic font-medium text-5xl mb-2;
 }
 
 [lang="en"] h4 {
-  @apply font-aleoLightItalic leading-none;
+  @apply font-IBM_plex_arabic leading-none;
 }
 
 [lang="ar"] h4 {
-  @apply font-almarai font-light;
+  @apply font-IBM_plex_arabic font-light;
 }
 
 /* h5 */
@@ -80,11 +80,11 @@ h5 {
 }
 
 [lang="en"] h5 {
-  @apply font-lato;
+  @apply font-IBM_plex_arabic;
 }
 
 [lang="ar"] h5 {
-  @apply font-almarai;
+  @apply font-IBM_plex_arabic;
 }
 
 /* h6 */
@@ -93,11 +93,11 @@ h6 {
 }
 
 [lang="en"] h6 {
-  @apply font-lato;
+  @apply font-IBM_plex_arabic;
 }
 
 [lang="ar"] h6 {
-  @apply font-almarai;
+  @apply font-IBM_plex_arabic;
 }
 
 /* Display Styles */
@@ -106,11 +106,11 @@ h6 {
 }
 
 [lang="en"] .display-light {
-  @apply font-aleoLight;
+  @apply font-IBM_plex_arabic;
 }
 
 [lang="ar"] .display-light {
-  @apply font-almarai;
+  @apply font-IBM_plex_arabic;
 }
 
 
