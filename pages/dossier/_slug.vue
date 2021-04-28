@@ -59,7 +59,7 @@
           'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.dossier['metaDescription_' + this.$i18n.locale] ? this.dossier['metaDescription_' + this
+            content: this.dossier['tagline_' + this.$i18n.locale] ? this.dossier['tagline_' + this
               .$i18n.locale] : ''
           },
           ...this.$options.filters.ogTags('dossier', this.dossier, this.$route.path, this.$i18n.locale),
