@@ -5,7 +5,7 @@
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
-        <div class="px-12 flex flex-col sm:flex-row">
+        <div class="px-6 md:px-12 flex flex-col sm:flex-row">
           <span :class="activeCat == 'all' ? 'active': ''" class="cat-link"
             @click="setActiveCat('all')">{{ $t('publicationCats.title.all') }}</span>
           <span :class="activeCat == cat.name ? 'active': ''" class="cat-link" v-for="cat in publicationCategories"
@@ -73,6 +73,12 @@
 
 <style scoped>
   .publication-list {
-    @apply px-12 mt-20;
+    @apply px-6 mt-20;
+  }
+
+  @screen md{
+    .publication-list {
+      @apply px-12 mt-20;
+  }
   }
 </style>

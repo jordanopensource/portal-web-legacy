@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="container">
-      <div class="p-12">
+      <div class="p-6 md:p-12">
         <div class="text-josa-blue text-xl mb-2 uppercase">
           <span v-for="(topic, index) in publication.topics" :key="topic.id">
             {{ topic['title_' + $i18n.locale] }}{{ index != Object.keys(publication.topics).length - 1 ? ', ' : ''}}
