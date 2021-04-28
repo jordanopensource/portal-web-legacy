@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="container">
-      <div class="p-12">
+      <div class="p-6 md:p-12">
         <div class="text-josa-blue text-xl mb-2">{{ event.startDate | dayDate($i18n.locale) }} </div>
         <h2>{{ event['title_' + $i18n.locale] }}</h2>
         <div class="content flex flex-wrap md:flex-no-wrap mt-12">
