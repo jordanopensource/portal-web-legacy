@@ -16,7 +16,7 @@
       <!-- Translation -->
       <div class="mb-4">
         <nuxt-link v-for="translation in article.translations" v-bind:key="translation.id"
-          :to="translationLink(translation)" :class="translation.language==='ar' ? float-right : float-left" :dir="article.language == 'ar' ? 'rtl' : 'ltr'">
+          :to="translationLink(translation)">
           {{$t('blog.readTranslated', translation.language)}}
         </nuxt-link>
       </div>
