@@ -189,4 +189,7 @@ export default {
   tooltip: {
     copied: 'تم النسخ!'
   },
+  timeString:{
+    time:'بتوقيت عمان'
+  }
 }

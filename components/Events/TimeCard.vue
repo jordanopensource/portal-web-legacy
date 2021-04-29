@@ -4,7 +4,7 @@
     <div>
       <p class="font-bold ltr:leading-none rtl:leading-tight">{{ $t('timeCard.title') }}</p>
       <p>{{ from | dayFullDate($i18n.locale) }}</p>
-      <p>{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }}</p>
+      <p>{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} {{ $t('timeString.time') }}</p>
     </div>
   </div>
 </template>
