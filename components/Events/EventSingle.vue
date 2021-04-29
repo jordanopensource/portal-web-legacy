@@ -112,8 +112,12 @@
       }
     },
     mounted() {
-      console.log(this.$config.bbbAPIUrl);
-      this.$store.dispatch('setShowModal', true)
+      this.url = window.location.href;
+      if ('join' in this.$route.query) {
+        this.$store.dispatch('setShowModal', true)
+      } else {
+        this.$store.dispatch('setShowModal', false)
+      }
     }
   }
 </script>
