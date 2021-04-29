@@ -147,7 +147,9 @@ export default {
     latest: 'Latest Articles',
     more: 'More from our blog',
     featured: 'Featured Articles',
-    spotlight: 'Spotlight'
+    spotlight: 'Spotlight',
+    readTranslated: 'Read this post in English',
+    
   },
   // Time Card
   timeCard: {
