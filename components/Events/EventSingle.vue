@@ -15,7 +15,7 @@
           </div>
           <div class="w-full md:w-2/5 mb-8">
             <modal 
-              v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false && running == false "
+              v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false && running == true "
               @close="showModal=false">
               <slot>
                 <joinForm :event="event" />
@@ -24,7 +24,7 @@
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
               :registrants="event.registrants" />
             <div 
-              v-if="event.onlineEvent && event.onlineMeeting.password == false && running == false"
+              v-if="event.onlineEvent && event.onlineMeeting.password == false && running == true"
               class="mb-8">
               <joinFormCard :event="event" />
             </div>
