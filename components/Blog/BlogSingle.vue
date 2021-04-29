@@ -13,6 +13,13 @@
         </p>
         <shareButtons v-if="url" :url="url" class="my-2" />
       </div>
+      <!-- Translation -->
+      <div class="mb-4">
+        <nuxt-link v-for="translation in article.translations" v-bind:key="translation.id"
+          :to="translationLink(translation)" :class="translation.language==='ar' ? float-right : float-left" :dir="article.language == 'ar' ? 'rtl' : 'ltr'">
+          {{$t('blog.readTranslated', translation.language)}}
+        </nuxt-link>
+      </div>
       <p v-if="article.excerpt" class="excerpt" :class="article.language"
         :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.excerpt }}</p>
       <!-- authors and translators -->
