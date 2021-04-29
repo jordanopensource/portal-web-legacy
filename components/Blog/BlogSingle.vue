@@ -102,6 +102,10 @@
       getRem() {
         var html = document.getElementsByTagName('html')[0];
         return parseInt(window.getComputedStyle(html)['fontSize']);
+      },
+      translationLink(translation) {
+        const slug = this.$options.filters.stringToSlug(translation.title)
+        return this.localePath('/blog/' + translation.id + '/' + slug)
       }
     }
   }
