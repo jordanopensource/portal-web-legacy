@@ -37,14 +37,6 @@
       <!-- Article body -->
       <div class="article-body" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language"
         v-html="article.body"></div>
-      <!-- Translation -->
-      <div>
-        <nuxt-link v-if="article.translations.length && article.language==='en'"
-          :to="/blog/ + article.translations[0].id" class="float-right"> اقرأ هذه المقالة باللغة العربية
-        </nuxt-link>
-        <nuxt-link v-else-if="article.translations.length && article.language==='ar'"
-          :to="/blog/ + article.translations[0].id" class="float-left"> Read this post in English </nuxt-link>
-      </div>
       <hr class="mt-12 mb-6 border-solid border-josa-warm-grey-dark">
       <!-- share buttons  -->
       <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url" />
