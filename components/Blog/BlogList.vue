@@ -11,7 +11,8 @@
       <div class="pagination pt-6 text-center border-t border-dotted">
         <ul>
           <span class="px-3"><a @click="fetchCurrentPage(currentPage - 1)" :class="currentPage == 1 ? 'disabled' : ''">
-              <font-awesome-icon icon="chevron-left"></font-awesome-icon>
+              <font-awesome-icon v-if="$i18n.locale == 'en'" icon="chevron-left"></font-awesome-icon>
+              <font-awesome-icon v-else icon="chevron-right"></font-awesome-icon>
             </a></span>
           <span v-for="i in pageCount" :key="i">
             <li v-if="(i == pageCount || i==1 || Math.abs(i - currentPage) < 3)">
@@ -22,7 +23,8 @@
           </span>
           <span class="px-3"><a @click="fetchCurrentPage(currentPage + 1)"
               :class="currentPage == pageCount ? 'disabled' : ''">
-              <font-awesome-icon icon="chevron-right"></font-awesome-icon>
+              <font-awesome-icon v-if="$i18n.locale == 'en'" icon="chevron-right"></font-awesome-icon>
+              <font-awesome-icon v-else icon="chevron-left"></font-awesome-icon>
             </a></span>
         </ul>
       </div>
@@ -52,7 +54,7 @@
     props: {
       title: {
         type: String,
-        
+
       },
       category: {
         type: String,
