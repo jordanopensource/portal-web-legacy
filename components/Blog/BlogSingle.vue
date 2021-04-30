@@ -14,9 +14,8 @@
         <shareButtons v-if="url" :url="url" class="my-2" />
       </div>
       <!-- Translation -->
-      <div class="mb-4">
-        <nuxt-link v-for="translation in article.translations" v-bind:key="translation.id"
-          :to="translationLink(translation)">
+      <div v-if="article.translations.length" class="mb-4">
+        <nuxt-link v-for="translation in article.translations" :key="translation.id" :to="translationLink(translation)">
           {{$t('blog.readTranslated', translation.language)}}
         </nuxt-link>
       </div>
