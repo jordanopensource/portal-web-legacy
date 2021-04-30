@@ -1,7 +1,11 @@
 <template>
-  <div class="links">
-    <nuxt-link v-for="item in orderBy(menu.menuItems, 'weight')" :key="item.id" tag="a" :to="localePath(item.path)"
+    <div class="links">
+  <span v-for="(item ,index) in orderBy(menu.menuItems, 'weight')" :key="index">
+    <a v-if="external(item.path)" :href="item.path"
+      active-class="active" :class="menuItemClass">{{ item['label_' + $i18n.locale] }}</a>
+    <nuxt-link v-else tag="a" :to="localePath(item.path)"
       active-class="active" :class="menuItemClass">{{ item['label_' + $i18n.locale] }}</nuxt-link>
+  </span>
   </div>
 </template>
 
@@ -17,7 +21,13 @@
         type: String
       }
     },
-    mixins: [Vue2Filters.mixin]
+    mixins: [Vue2Filters.mixin],
+    methods: {
+      external(path) {
+        var re = new RegExp("^(http|https)://", "i");
+        return re.test(path);
+      }
+    }
   }
 
 </script>
