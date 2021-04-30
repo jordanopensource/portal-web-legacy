@@ -6,17 +6,11 @@
     <div ref="content" class="container content">
       <!-- title -->
       <h2 ref="title" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.title }}</h2>
-      <!-- Publish date and share buttons -->
-      <div class="flex flex-row flex-wrap justify-between items-center my-6">
-        <p class="text-josa-warm-grey-dark font-bold my-2">
-          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}
-        </p>
-        <shareButtons v-if="url" :url="url" class="my-2" />
-      </div>
+      <!-- Excerpt -->
       <p v-if="article.excerpt" class="excerpt" :class="article.language"
         :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.excerpt }}</p>
       <!-- authors and translators -->
-      <div v-if="article.authors.length || article.translators.length" class="flex flex-wrap flex-row my-8">
+      <div v-if="article.authors.length || article.translators.length" class="flex flex-wrap flex-row my-2">
         <template v-if="article.authors.length">
           <author v-for="author in article.authors" :key="author.id" class="mb-4 ltr:mr-8 rtl:ml-8 flex-shrink-0"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" />
@@ -27,12 +21,19 @@
             :picture="translator.picture" :translatedBy="true" v-bind:writtenBy="false" />
         </template>
       </div>
+      <!-- Publish date and share buttons -->
+      <div class="flex flex-row flex-wrap justify-between items-center mb-10">
+        <p class="text-josa-warm-grey-dark my-2">
+          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}
+        </p>
+        <shareButtons v-if="url" :url="url" class="my-2 text-2xl" ignore-size/>
+      </div>
       <!-- Article body -->
       <div class="article-body" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language"
         v-html="article.body"></div>
       <hr class="mt-12 mb-6 border-solid border-josa-warm-grey-dark">
       <!-- share buttons  -->
-      <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url" />
+      <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url"/>
       <!-- authors and translators -->
       <div v-if="article.authors.length || article.translators.length" class="my-8">
         <template v-if="article.authors.length">
@@ -124,8 +125,8 @@
   }
 
   .excerpt {
-    opacity: 0.9;
-    @apply font-bold mb-8;
+    opacity: 0.7;
+    @apply font-light mb-8 text-2xl;
   }
 
   /* article-body */
@@ -138,11 +139,12 @@
   }
 
   article .article-body[lang="en"] /deep/ {
-    @apply text-lg font-merriweather leading-relaxed;
+    @apply text-base font-merriweather leading-7;
   }
 
   article .article-body[lang="ar"] /deep/ {
-    @apply text-2xl font-naskh leading-relaxed;
+    @apply text-xl font-naskh leading-7
+    
   }
 
   .article-body>>>h3 {
