@@ -1,16 +1,16 @@
 <template>
     <div class="flex flex-wrap items-stretch">
         <a class="share-button" :href="'https://twitter.com/share?url=' + url" target="_blank">
-            <font-awesome-icon :icon="['fab','twitter']" size="2x" />
+            <font-awesome-icon :icon="['fab','twitter']" :size="faSize" />
         </a>
         <a class="share-button" :href="'https://www.linkedin.com/shareArticle?url=' + url" target="_blank">
-            <font-awesome-icon :icon="['fab','linkedin']" size="2x" />
+            <font-awesome-icon :icon="['fab','linkedin']" :size="faSize" />
         </a>
         <a class="share-button" :href="'https://www.facebook.com/sharer.php?u=' + url" target="_blank">
-            <font-awesome-icon :icon="['fab','facebook-square']" size="2x" />
+            <font-awesome-icon :icon="['fab','facebook-square']" :size="faSize" />
         </a>
         <span class="share-button tooltip" @click="copyToClipboard(url)">
-            <font-awesome-icon icon="link" size="2x" />
+            <font-awesome-icon icon="link" :size="faSize" />
             <span ref="copyButton" class="copy-tooltip-text invisible"></span>
         </span>
     </div>
@@ -23,7 +23,25 @@
             url: {
                 type: String,
                 required: true
+            },
+            size: {
+                type: String,
+                default: null,
+                validator: function validator(value) {
+                    return ['lg', 'xs', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'].indexOf(value) > -1;
+                }
+            },
+            ignoreSize: {
+                type: Boolean,
+                default: false,
             }
+        },
+        computed: {
+            faSize () {
+                return this.ignoreSize 
+                    ? null
+                    : this.size ?? '2x';
+            },
         },
         methods: {
             copyToClipboard(str) {
