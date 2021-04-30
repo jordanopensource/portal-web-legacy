@@ -10,8 +10,7 @@
         <ul>
           <span class="px-3"><a @click="calculateCurrentPage(currentPage - 1)"
               :class="currentPage == 1 ? 'disabled' : ''">
-              <font-awesome-icon v-if="$i18n.locale == 'en'" icon="chevron-left"></font-awesome-icon>
-              <font-awesome-icon v-else icon="chevron-right"></font-awesome-icon>
+              <font-awesome-icon :icon="$i18n.locale == 'ar' ? 'chevron-right' : 'chevron-left'"></font-awesome-icon>
             </a></span>
           <span v-for="i in calculatePages()" :key="i">
             <li
@@ -24,8 +23,7 @@
           <span class="px-3">
             <a @click="calculateCurrentPage(currentPage + 1)"
               :class="currentPage == calculatePages() ? 'disabled' : ''">
-              <font-awesome-icon v-if="$i18n.locale == 'en'" icon="chevron-right"></font-awesome-icon>
-              <font-awesome-icon v-else icon="chevron-left"></font-awesome-icon>
+              <font-awesome-icon :icon="$i18n.locale == 'ar' ? 'chevron-left' : 'chevron-right'"></font-awesome-icon>
             </a>
           </span>
         </ul>
