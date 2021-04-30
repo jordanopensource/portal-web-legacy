@@ -148,8 +148,6 @@ export default {
     more: 'More from our blog',
     featured: 'Featured Articles',
     spotlight: 'Spotlight',
-    readTranslated: 'Read this post in English',
-    
   },
   // Time Card
   timeCard: {

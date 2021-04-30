@@ -12,7 +12,6 @@ export default {
     more: 'المزيد من المقالات',
     featured: 'مقالات مختارة',
     spotlight: 'آخر المقالات',
-    readTranslated: 'اقرأ هذه المقالة باللغة العربية',
   },
   // Time Card
   timeCard: {

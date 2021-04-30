@@ -15,9 +15,7 @@
       </div>
       <!-- Translation -->
       <div v-if="article.translations.length" class="mb-4">
-        <nuxt-link v-for="translation in article.translations" :key="translation.id" :to="translationLink(translation)">
-          {{$t('blog.readTranslated', translation.language)}}
-        </nuxt-link>
+        <nuxt-link v-for="translation in article.translations" :key="translation.language" :to="translationLink(translation)" :class="translation.language">{{ translationText(translation.language) }}</nuxt-link>
       </div>
       <p v-if="article.excerpt" class="excerpt" :class="article.language"
         :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.excerpt }}</p>
@@ -104,6 +102,14 @@
       translationLink(translation) {
         const slug = this.$options.filters.stringToSlug(translation.title)
         return this.localePath('/blog/' + translation.id + '/' + slug)
+      },
+      translationText(lang) {
+        switch (lang) {
+          case 'en':
+            return 'Read this post in English'
+          case 'ar':
+            return 'اقرأ هذه المقالة باللغة العربية'
+        }
       }
     }
   }
