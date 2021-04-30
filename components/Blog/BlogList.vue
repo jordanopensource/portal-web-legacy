@@ -6,7 +6,7 @@
     </div>
     <div v-else>
       <h2>{{ title }}</h2>
-      <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
+     <articlePreview v-for="article in loadedArticles" v-show="isNotFeaturedArticle(article)" :key="article.id" :id="article.id" :article="article" />
       <!-- Pagination -->
       <div class="pagination pt-6 text-center border-t border-dotted">
         <ul>
@@ -161,6 +161,13 @@
       calculateCurrentPage(num) {
         this.currentPage = this.limitNumberWithinRange(num, 1, this.pageCount)
         return this.currentPage
+      },
+            isNotFeaturedArticle(article){
+        if(article.tags !== null){
+          return !article.tags.includes('featured')
+        }else{
+          return true
+        }
       }
     },
   }
