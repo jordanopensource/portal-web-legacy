@@ -14,18 +14,18 @@
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
-            <modal 
-              v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false && running == true "
+            <modal v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false"
               @close="showModal=false">
-              <slot>
+              <slot v-if="running == true">
                 <joinForm :event="event" />
+              </slot>
+              <slot v-else>
+                <notStarted :event="event" v-if="event.startDate" :from="event.startDate" :to="event.endDate" />
               </slot>
             </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
               :registrants="event.registrants" />
-            <div 
-              v-if="event.onlineEvent && event.onlineMeeting.password == false && running == true"
-              class="mb-8">
+            <div v-if="event.onlineEvent && event.onlineMeeting.password == false && running == true" class="mb-8">
               <joinFormCard :event="event" />
             </div>
             <timeCard v-if="event.startDate" class="mb-8" :from="event.startDate" :to="event.endDate" />
@@ -50,6 +50,7 @@
   import onlineEventCard from '~/components/Events/OnlineEventCard';
   import shareButtons from '~/components/ShareButtons/ShareButtons'
   import joinFormCard from '~/components/Events/JoinFormCard'
+  import notStarted from '~/components/Events/NotStarted';
 
   export default {
     name: 'EventSingle',
@@ -82,9 +83,9 @@
       const parser = new DOMParser();
       const xmlDOM = parser.parseFromString(response.data, "text/xml");
       const value = xmlDOM.getElementsByTagName("running")[0];
-      if(value.childNodes[0].nodeValue == "false"){
+      if (value.childNodes[0].nodeValue == "false") {
         this.running = false
-      }else{
+      } else {
         this.running = true
       }
     },
@@ -99,7 +100,8 @@
       modal,
       onlineEventCard,
       shareButtons,
-      joinFormCard
+      joinFormCard,
+      notStarted
     },
     props: {
       event: {
