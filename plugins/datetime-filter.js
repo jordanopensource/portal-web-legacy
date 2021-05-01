@@ -1,17 +1,38 @@
 import Vue from 'vue';
 import moment from 'moment';
 
+function lang2locale(lang) {
+  return lang === 'ar'
+    ? 'ar-JO'
+    : 'en-UK'
+}
 
 const fullDate = (dt, lang) => {
-    return moment(dt).locale(lang).format("D MMMM YYYY");
+  // 25 May 2021
+  const options = { 
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }
+  return new Intl.DateTimeFormat(lang2locale(lang), options).format(new Date(dt))
 }
 
 const dayDate = (dt, lang) => {
-  return moment(dt).locale(lang).format("dddd - D MMMM");
+  // Tuesday - 5 May
+  const weekday =  moment(dt).locale(lang).format("dddd");
+  const dayMonth = new Intl.DateTimeFormat(lang2locale(lang), { day: 'numeric', month: 'long'}).format(new Date(dt))
+  return `${weekday} - ${dayMonth}`
 }
 
 const dayFullDate = (dt, lang) => {
-  return moment(dt).locale(lang).format("dddd, D MMM YYYY");
+  // Tuesday, 25 May 2021
+  const options = { 
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }
+  return new Intl.DateTimeFormat(lang2locale(lang), options).format(new Date(dt))
 }
 
 const time = (dt, lang) => {
