@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-wrap">
-        <div class="w-full md:w-3/5 p-8">
+        <div v-if="running==true" class="w-full md:w-3/5 p-8">
             <h3>{{event['title_' + $i18n.locale]}}</h3>
             <p class="">{{ $t('events.hostedBy') }}</p>
             <div class="flex flex-col lg:flex-row mt-8 mb-4">
@@ -20,7 +20,7 @@
                     {{ $t('events.here') }}</span>.
             </p>
         </div>
-        <div class="join-form w-full md:w-2/5 flex-shrink-0 p-8 mb-8 md:mb-0">
+        <div v-if="running==true" class="join-form w-full md:w-2/5 flex-shrink-0 p-8 mb-8 md:mb-0">
             <h3>{{ $t('events.join') }}</h3>
             <div class="block py-4">
                 <hr>
@@ -38,69 +38,99 @@
                 </appButton>
             </form>
         </div>
+        <div v-else class="w-full p-8">
+            <h3>{{event['title_' + $i18n.locale]}}</h3>
+            <p class="">{{ $t('events.hostedBy') }}</p>
+            <div class="flex flex-col lg:flex-row mt-8 mb-4">
+                <appImage v-if="event.thumbnail" :image="event.thumbnail" size="small"
+                    class="thumbnail w-full lg:w-1/2 lg:ltr:mr-2 lg:rtl:ml-2" />
+                <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
+                <div class="w-full lg:w-1/2 lg:ltr:ml-2 lg:rtl:mr-2 mt-4">
+                    <div class="flex">
+                        <font-awesome-icon class="flex ltr:mr-2 rtl:ml-2" size="lg"
+                            :icon="['fas', 'exclamation-triangle']" />
+                        <p class="text-lg uppercase mb-2">{{ $t('events.notStarted')}}</p>
+                    </div>
+                    <p>{{ $t('events.waitMessage')}}</p>
+                    <p class="font-bold">{{ from | dayFullDate($i18n.locale) }}</p>
+                    <p class="font-bold">{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }}
+                        {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} {{ $t('timeString.time') }}</p>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-    import axios from 'axios';
-    import appImage from '~/components/UI/appImage';
-    import appControlInput from "@/components/FormComponents/AppControlInput";
-    import appButton from "@/components/FormComponents/AppButton";
+import axios from 'axios';
+import appImage from '~/components/UI/appImage';
+import appControlInput from "@/components/FormComponents/AppControlInput";
+import appButton from "@/components/FormComponents/AppButton";
 
-    export default {
-        name: 'EventJoinForm',
-        data() {
-            return {
-                form: {
-                    fullName: '',
-                    password: ''
-                },
-                placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
-            }
+export default {
+    name: 'EventJoinForm',
+    data() {
+        return {
+            form: {
+                fullName: '',
+                password: ''
+            },
+            placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
+        }
+    },
+    components: {
+        appControlInput,
+        appButton,
+        appImage
+    },
+    props: {
+        event: {
+            type: Object,
+            required: true
         },
-        components: {
-            appControlInput,
-            appButton,
-            appImage
+        running: {
+            type: Boolean,
+            required: true
         },
-        props: {
-            event: {
-                type: Object,
+        from: {
                 required: true
-            }
         },
-        methods: {
-            removeJoin() {
-                this.$route.query.join == 'false'
-            },
-            createHash(data) {
-                const crypto = require('crypto');
-                const hash = crypto.createHash('sha1');
-                hash.update(data);
-                return hash.digest('hex');
-            },
-            joinMeeting() {
-                let fullName = this.form.fullName.replaceAll(' ', '+')
+        to: {
+            required: true
+        }
+    },
+    methods: {
+        removeJoin() {
+            this.$route.query.join == 'false'
+        },
+        createHash(data) {
+            const crypto = require('crypto');
+            const hash = crypto.createHash('sha1');
+            hash.update(data);
+            return hash.digest('hex');
+        },
+        joinMeeting() {
+            let fullName = this.form.fullName.replaceAll(' ', '+')
+            let password = this.form.password
+            let meetingID = this.event.onlineMeeting.meetingID
+            let attendeePW = this.event.onlineMeeting.attendeePW
+            let url = this.$config.bbbAPIUrl
+            let secret = this.$config.bbbAPISecret
+            let call
+            if (this.event.onlineMeeting.password) {
                 let password = this.form.password
-                let meetingID = this.event.onlineMeeting.meetingID
-                let attendeePW = this.event.onlineMeeting.attendeePW
-                let url = this.$config.bbbAPIUrl
-                let secret = this.$config.bbbAPISecret
-                let call
-                if (this.event.onlineMeeting.password) {
-                    let password = this.form.password
-                    call = `meetingID=${meetingID}&password=${password}&fullName=${fullName}`
-                } else {
-                    call = `meetingID=${meetingID}&password=${attendeePW}&fullName=${fullName}`
-                }
-                let data = `join${call}${secret}`
-                let encoded = encodeURI(data)
-                let checksum = this.createHash(encoded)
-                let redirect = `${url}join?${call}&checksum=${checksum}`
-                window.open(redirect, '_blank');
+                call = `meetingID=${meetingID}&password=${password}&fullName=${fullName}`
+            } else {
+                call = `meetingID=${meetingID}&password=${attendeePW}&fullName=${fullName}`
             }
+            let data = `join${call}${secret}`
+            let encoded = encodeURI(data)
+            let checksum = this.createHash(encoded)
+            let redirect = `${url}join?${call}&checksum=${checksum}`
+            window.open(redirect, '_blank');
         }
     }
+}
 </script>
 
 <style scoped>

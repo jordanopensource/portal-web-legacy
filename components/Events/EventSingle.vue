@@ -16,11 +16,8 @@
           <div class="w-full md:w-2/5 mb-8">
             <modal v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false"
               @close="showModal=false">
-              <slot v-if="running == true">
-                <joinForm :event="event" />
-              </slot>
-              <slot v-else>
-                <notStarted :event="event" v-if="event.startDate" :from="event.startDate" :to="event.endDate" />
+              <slot>
+                <joinForm :event="event" :running="running" v-if="event.startDate" :from="event.startDate" :to="event.endDate" />
               </slot>
             </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
@@ -48,9 +45,8 @@
   import joinForm from '~/components/Events/JoinForm';
   import modal from '~/components/UI/Modal';
   import onlineEventCard from '~/components/Events/OnlineEventCard';
-  import shareButtons from '~/components/ShareButtons/ShareButtons'
-  import joinFormCard from '~/components/Events/JoinFormCard'
-  import notStarted from '~/components/Events/NotStarted';
+  import shareButtons from '~/components/ShareButtons/ShareButtons';
+  import joinFormCard from '~/components/Events/JoinFormCard';
 
   export default {
     name: 'EventSingle',
@@ -101,7 +97,6 @@
       onlineEventCard,
       shareButtons,
       joinFormCard,
-      notStarted
     },
     props: {
       event: {
