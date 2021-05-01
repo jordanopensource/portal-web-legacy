@@ -48,6 +48,11 @@
             :bio="translator['bio_' + $i18n.locale]" v-bind:writtenBy="false" />
         </template>
       </div>
+      <!--  disclaimer  -->
+      <hr id="hrDisclaimer" class="mt-12 border-solid">
+      <div id="disclaimer" class="font-bold my-2" v-if="showDisclaimer">
+      <p>{{ $t('blog.disclaimer') }}</p>
+      </div>
     </div>
   </article>
 </template>
@@ -80,6 +85,11 @@
       var w = window.innerWidth;
       if (w > 640) {
         this.setContentNegMargin();
+      }
+    },
+    computed:{
+     showDisclaimer(){
+       return this.article.category.name !== 'statements'
       }
     },
     methods: {
@@ -186,4 +196,17 @@
   }
 
   /* Authors */
+  
+  /* disclaimer */
+  
+  #hrDisclaimer {
+  border-color: #dcdcdc;
+  }
+  
+  #disclaimer {
+  font-size: 0.9rem;
+  color: #c0c0c0;
+  }
+  
+  /* disclaimer */
 </style>
