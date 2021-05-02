@@ -19,6 +19,8 @@
         <div class="flex flex-wrap lg:flex-no-wrap">
           <!-- Description -->
           <div class="w-full lg:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
+            <!-- share buttons  -->
+            <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url" />
             <div v-if="dossier['description_' + $i18n.locale]" v-html="dossier['description_' + $i18n.locale]"></div>
           </div>
           <!-- Content List -->
@@ -31,25 +33,25 @@
         </div>
         <!-- Articles -->
         <section v-if="ifArticles" class="mt-20">
-          <articlePreviewAlt class="my-16" v-for="article in orderBy(articlesByLanguage, 'publishDate', -1)" :key="article.id"
-            :article="article" />
+          <articlePreviewAlt class="my-16" v-for="article in orderBy(articlesByLanguage, 'publishDate', -1)"
+            :key="article.id" :article="article" />
         </section>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
   import axios from 'axios';
   import articlePreviewAlt from '~/components/Blog/ArticlePreviewAlt';
+  import shareButtons from '~/components/ShareButtons/ShareButtons';
   import Vue2Filters from 'vue2-filters';
-
   export default {
     layout: "default",
     mixins: [Vue2Filters.mixin],
     components: {
-      articlePreviewAlt
+      articlePreviewAlt,
+      shareButtons
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
@@ -92,6 +94,11 @@
           })
         })
     },
+    data() {
+      return {
+        url: null
+      }
+    },
     computed: {
       backgroundUrl() {
         return process.env.baseUrl + this.dossier.thumbnail.url
@@ -107,7 +114,10 @@
           return true;
         else
           return false;
-      },
+      }
+    },
+    mounted() {
+      this.url = window.location.href;
     }
   }
 </script>
