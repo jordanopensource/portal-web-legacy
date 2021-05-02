@@ -14,7 +14,7 @@
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
-            <modal v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false"
+            <modal v-if="showModal && event.onlineEvent"
               @close="showModal=false">
               <slot>
                 <joinForm :event="event" :running="running" v-if="event.startDate" :from="event.startDate" :to="event.endDate" />
@@ -22,7 +22,7 @@
             </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
               :registrants="event.registrants" />
-            <div v-if="event.onlineEvent && event.onlineMeeting.password == false && running == true" class="mb-8">
+            <div v-if="event.onlineEvent && running == true" class="mb-8">
               <joinFormCard :event="event" />
             </div>
             <timeCard v-if="event.startDate" class="mb-8" :from="event.startDate" :to="event.endDate" />
@@ -67,14 +67,12 @@
     },
     async fetch() {
       let url = this.$config.bbbAPIUrl
-      let attendeePW = this.event.onlineMeeting.attendeePW
       let secret = this.$config.bbbAPISecret
       let meetingID = this.event.onlineMeeting.meetingID
-      let call = `meetingID=${meetingID}&password=${attendeePW}&fullName=test+name`
-      let data = `isMeetingRunning${call}${secret}`
+      let data = `isMeetingRunningmeetingID=${meetingID}${secret}`
       let encoded = encodeURI(data)
       let checksum = this.createHash(encoded)
-      let redirect = `${url}isMeetingRunning?${call}&checksum=${checksum}`
+      let redirect = `${url}isMeetingRunning?meetingID=${meetingID}&checksum=${checksum}`
       const response = await axios.get(redirect);
       const parser = new DOMParser();
       const xmlDOM = parser.parseFromString(response.data, "text/xml");
