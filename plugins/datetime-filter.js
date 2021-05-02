@@ -44,6 +44,11 @@ const monthYearDate = (dt, lang) => {
   return new Intl.DateTimeFormat(lang2locale(lang), options).format(new Date(dt))
 }
 
+const monthDate = (dt, lang) => {
+  // May
+  return new Intl.DateTimeFormat(lang2locale(lang), { month: 'long' }).format(new Date(dt))
+}
+
 const time = (dt, lang) => {
   return moment(dt).locale(lang).format("H:mm A");
 }
@@ -56,5 +61,6 @@ Vue.filter('fullDate', fullDate)
 Vue.filter('dayDate', dayDate)
 Vue.filter('dayFullDate', dayFullDate)
 Vue.filter('monthYearDate', monthYearDate)
+Vue.filter('monthDate', monthDate)
 Vue.filter('time', time)
 Vue.filter('day', day)
