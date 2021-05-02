@@ -56,9 +56,53 @@
         <div class="block md:hidden py-8">
           <hr>
         </div>
-        <div id="copyright-info" class="">
-          <img class="cc-logo ltr:pr-4 rtl:pl-4" src="~/static/logo/cc.svg" alt="cc-logo">
-          <p>{{ $t('copyright.info') }}</p>
+        <div v-if="$i18n.locale == 'en'" id="copyright-info" class="ccAnchors">
+          <div class="column cc-footer-license">
+            <div class="license-icons">
+              <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"
+                title="Creative Commons Attribution 4.0 International license">
+                <i class="cc-icon-cc">
+                  <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fab', 'creative-commons']" />
+                </i>
+                <i class="cc-icon-cc-by">
+                  <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fab', 'creative-commons-by']" />
+                </i>
+              </a>
+            </div>
+            <aside>
+              <div xmlns:cc="https://creativecommons.org/ns#" about="https://creativecommons.org">
+                {{ $t('copyright.except') }}
+                <a class="subfoot" href="https://jordanopensource.org/info/privacypolicy">{{ $t('copyright.noted') }}</a>
+                {{ $t('copyright.content') }}
+                <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license">
+                  {{ $t('copyright.creative') }}</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <div v-if="$i18n.locale == 'ar'" id="copyright-info" class="ccAnchors">
+          <div class="column cc-footer-license">
+            <div class="license-icons-ar">
+              <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"
+                title="Creative Commons Attribution 4.0 International license">
+                <i class="cc-icon-cc">
+                  <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fab', 'creative-commons']" />
+                </i>
+                <i class="cc-icon-cc-by">
+                  <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fab', 'creative-commons-by']" />
+                </i>
+              </a>
+            </div>
+            <aside>
+              <div xmlns:cc="https://creativecommons.org/ns#" about="https://creativecommons.org">
+                {{ $t('copyright.content') }}
+                <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license">
+                  {{ $t('copyright.creative') }}</a>
+                  {{ $t('copyright.except') }}
+                <a class="subfoot" href="https://jordanopensource.org/ar/info/privacypolicy"> {{ $t('copyright.noted') }}</a>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
     </div>
@@ -111,91 +155,100 @@
     @apply bg-josa-black text-josa-warm-grey-light;
     line-height: 1.6;
   }
-
+  .cc-footer p {
+    margin-bottom: .25em;
+    font-family: lato;
+  }
+  .license-icons {
+    font-size: 1.7rem;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: .25em;
+    text-align: left;
+  }
+  
+    .license-icons-ar {
+    font-size: 1.7rem;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: .25em;
+    text-align: right;
+  }
+  
+  .subfoot {
+    text-decoration: underline;
+    font-size: 13px;
+  }
+  .fa-creative-commons.fa-w-16 {
+    color: #ffffff;
+  }
+  .fa-creative-commons-by.fa-w-16 {
+    color: #ffffff;
+  }
   .container {
     @apply px-12 py-24 !important;
   }
-
   #site-info {
     background-color: #282e30;
   }
-
   #site-info .container {
     @apply py-10 !important;
   }
-
   section {
     @apply flex-grow;
   }
-
   [dir="ltr"] section:first-child {
     @apply pl-0;
   }
-
   [dir="ltr"] section:last-child {
     @apply pr-0;
   }
-
   [dir="rtl"] section:first-child {
     @apply pr-0;
   }
-
   [dir="rtl"] section:last-child {
     @apply pl-0;
   }
-
-
   h6 {
-    @apply uppercase pb-2 text-josa-warm-grey-light;
+    @apply uppercase pb-2;
   }
-
   hr {
     @apply border-dotted;
   }
-
   img {
     max-width: 240px;
   }
-
-  /deep/ a {
-    @apply block;
-  }
-
   .logo,
   #copyright-info {
     @apply w-full flex align-middle justify-center text-sm;
   }
-
   @screen md {
-
-      .logo,
-      #copyright-info {
-        @apply w-1/2 justify-start;
-      }
+    .logo,
+    #copyright-info {
+      @apply w-1/2 justify-start;
     }
-
+  }
   @screen md {
     section {
       @apply px-4;
     }
   }
-
   @screen lg {
     .logo {
-      @apply w-2/3;
+      @apply w-4/5;
     }
-
     #copyright-info {
       @apply w-1/3;
     }
   }
-  @screen lg {
-      .logo {
-        @apply w-2/3;
-      }
+  
+   /deep/ a {
+     @apply block;
+    } 
+    
+    .ccAnchors a {
+    @apply inline;
+}
 
-      #copyright-info {
-        @apply w-1/3;
-      }
-    }
 </style>
+

@@ -36,7 +36,11 @@ export default {
   },
   // Footer
   copyright: {
-    info: 'All the content on this website is licensed under a Creative Commons Attribution-ShareAlike Unported license, except where otherwise mentioned.'
+    info: 'Creative Commons Attribution 3.0 Unported License.',
+    except: 'Except where otherwise',
+    noted: 'noted,',
+    content: 'content on this site is licensed under a',
+    creative: 'Creative Commons Attribution 4.0 International license.'
   },
   // Buttons
   button: {
@@ -147,8 +151,7 @@ export default {
     latest: 'Latest Articles',
     more: 'More from our blog',
     featured: 'Featured Articles',
-    spotlight: 'Spotlight',
-    disclaimer: 'The views expressed in this article are those of the author and do not necessarily reflect those of the Jordan Open Source Association (JOSA)'
+    spotlight: 'Spotlight'
   },
   // Time Card
   timeCard: {
@@ -291,7 +294,4 @@ export default {
   tooltip: {
     copied: 'Copied!'
   },
-  timeString:{
-    time:'Amman time'
-  }
 }

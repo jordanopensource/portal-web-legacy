@@ -98,7 +98,11 @@ export default {
   speakers: 'المتحدثون',
   // Footer
   copyright: {
-    info: 'محتوى هذا الموقع مُرخّص برخصة المشاع الإبداعي Creative Commons نسب المصنف - الترخيص بالمثل 4.0 دولي (CC BY-SA 4.0),  إلا اذا ورد خلاف ذلك. '
+    info: 'Creative Commons Attribution 3.0 Unported License.',
+    except: 'إلا اذا',
+    noted: 'ورد خلاف ذلك.',
+    content: 'محتوى هذا الموقع مُرخّص برخصة',
+    creative: 'المشاع الإبداعي Creative Commons نَسب المُصنَّف 4.0 دولي  (CC BY 4.0) ،'
   },
   careers: {
     all: 'جميع الوظائف',
