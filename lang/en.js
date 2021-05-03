@@ -148,6 +148,7 @@ export default {
     more: 'More from our blog',
     featured: 'Featured Articles',
     spotlight: 'Spotlight',
+    disclaimer: 'The views expressed in this article are those of the author and do not necessarily reflect those of the Jordan Open Source Association (JOSA)'
   },
   // Time Card
   timeCard: {
