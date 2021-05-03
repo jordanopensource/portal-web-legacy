@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const state = {
   loadedBlogs: [],
-  featuredBlogs: [],
+  featuredBlogs: new Set(),
 };
 
 const getters = {
@@ -20,7 +20,7 @@ const mutations = {
     state.loadedBlogs = blogs
   },
   setFeaturedBlogs(state, featuredBlogID) {
-    state.featuredBlogs.push(featuredBlogID)
+    state.featuredBlogs.add(featuredBlogID)
   }
 };
 

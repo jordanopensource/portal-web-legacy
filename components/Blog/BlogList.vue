@@ -7,7 +7,7 @@
     <div v-else>
       <h2>{{ title }}</h2>
       <template v-for="article in loadedArticles">
-        <articlePreview v-if="!featuredBlogs.includes(article.id)" :key="article.id" :id="article.id" :article="article" />
+        <articlePreview v-if="!featuredBlogs.has(article.id)" :key="article.id" :id="article.id" :article="article" />
       </template>
       <!-- Pagination -->
       <div class="pagination pt-6 text-center border-t border-dotted">
