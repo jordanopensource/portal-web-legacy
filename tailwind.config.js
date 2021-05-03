@@ -54,7 +54,9 @@ module.exports = {
         'bukraBold': 'bukra-Bold',
         'bukraBoldItalic': 'bukra-Bold-Italic',
         'almarai': 'Almarai',
-        'naskh': 'Uthman Naskh'
+        'naskh': 'Uthman Naskh',
+        'IBMPlexSansArabic': 'IBM Plex Sans Arabic',
+        'IBMPlexMono': 'IBM Plex Mono',
       },
       padding: {
         '15px': '15px',
