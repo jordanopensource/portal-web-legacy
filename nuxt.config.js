@@ -38,6 +38,7 @@ export default {
     '@/assets/css/typography.css',
     '@/assets/css/layout.css',
     '@/assets/css/global.css',
+    '@/assets/css/fonts/ibm-plex.css',
   ],
   /*
   ** Plugins to load before mounting the App
