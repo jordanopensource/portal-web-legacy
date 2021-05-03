@@ -6,7 +6,9 @@
     </div>
     <div v-else>
       <h2>{{ title }}</h2>
-      <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
+      <template v-for="article in loadedArticles">
+        <articlePreview v-if="!featuredBlogs.includes(article.id)" :key="article.id" :id="article.id" :article="article" />
+      </template>
       <!-- Pagination -->
       <div class="pagination pt-6 text-center border-t border-dotted">
         <ul>
@@ -73,6 +75,10 @@
     computed: {
       pageCount() {
         return Math.ceil(this.count / this.numberPerPage)
+      },
+      featuredBlogs() {
+        console.log("HERE are hte featured blogs!!!: " + this.$store.getters.featuredBlogs)
+        return this.$store.getters.getFeaturedBlogs
       }
     },
     created() {
