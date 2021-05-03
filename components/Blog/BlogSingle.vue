@@ -13,6 +13,11 @@
         </p>
         <shareButtons v-if="url" :url="url" class="my-2" />
       </div>
+      <!-- Translation -->
+      <div v-if="article.translations.length" class="mb-4">
+        <a v-for="translation in article.translations" :key="translation.language" :href="translationLink(translation)"
+          :class="translation.language">{{ translationText(translation.language) }}</a>
+      </div>
       <p v-if="article.excerpt" class="excerpt" :class="article.language"
         :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.excerpt }}</p>
       <!-- authors and translators -->
@@ -104,6 +109,18 @@
       getRem() {
         var html = document.getElementsByTagName('html')[0];
         return parseInt(window.getComputedStyle(html)['fontSize']);
+      },
+      translationLink(translation) {
+        const slug = this.$options.filters.stringToSlug(translation.title)
+        return this.localePath('/blog/' + translation.id + '/' + slug, translation.language)
+      },
+      translationText(lang) {
+        switch (lang) {
+          case 'en':
+            return 'Read this post in English'
+          case 'ar':
+            return 'اقرأ هذه المقالة باللغة العربية'
+        }
       }
     }
   }
