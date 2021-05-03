@@ -77,7 +77,6 @@
         return Math.ceil(this.count / this.numberPerPage)
       },
       featuredBlogs() {
-        console.log("HERE are hte featured blogs!!!: " + this.$store.getters.featuredBlogs)
         return this.$store.getters.getFeaturedBlogs
       }
     },
