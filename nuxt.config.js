@@ -32,9 +32,6 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/css/fonts/aleo.css',
-    '@/assets/css/fonts/bukra.css',
-    '@/assets/css/fonts/naskh.css',
     '@/assets/css/typography.css',
     '@/assets/css/layout.css',
     '@/assets/css/global.css',
@@ -165,7 +162,7 @@ export default {
       return JSON.stringify({ result: 'pong' })
     }
   },
-  
+
   /*
   ** Build configuration
   */
