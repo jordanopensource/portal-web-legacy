@@ -137,12 +137,16 @@
     object-fit: cover;
   }
 
+  article h2 {
+  @apply font-IBMPlexSansArabic font-light;
+  }
+
   article h2[lang="en"] {
-    @apply font-aleoLight leading-tight font-light;
+    @apply leading-tight;
   }
 
   article h2[lang="ar"] {
-    @apply font-almarai leading-snug font-light;
+    @apply leading-snug;
   }
 
   .content {
@@ -164,12 +168,16 @@
     text-decoration: underline;
   }
 
+  article .article-body /deep/ {
+  @apply font-IBMPlexSansArabic leading-relaxed;
+  }
+
   article .article-body[lang="en"] /deep/ {
-    @apply text-lg font-merriweather leading-relaxed;
+    @apply text-lg;
   }
 
   article .article-body[lang="ar"] /deep/ {
-    @apply text-2xl font-naskh leading-relaxed;
+    @apply text-2xl;
   }
 
   .article-body>>>h3 {
@@ -213,17 +221,17 @@
   }
 
   /* Authors */
-  
+
   /* disclaimer */
-  
+
   #hrDisclaimer {
   border-color: #dcdcdc;
   }
-  
+
   #disclaimer {
   font-size: 0.9rem;
   color: #c0c0c0;
   }
-  
+
   /* disclaimer */
 </style>

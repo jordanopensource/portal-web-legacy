@@ -14,13 +14,17 @@ body {
 }
 
 /* H */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-IBMPlexSansArabic text-josa-black;
+}
+
 [lang="en"] h1,
 [lang="en"] h2,
 [lang="en"] h3,
 [lang="en"] h4,
 [lang="en"] h5,
 [lang="en"] h6 {
-  @apply font-aleoLight leading-tight text-josa-black;
+  @apply leading-tight;
 }
 
 [lang="ar"] h1,
@@ -29,7 +33,7 @@ body {
 [lang="ar"] h4,
 [lang="ar"] h5,
 [lang="ar"] h6 {
-  @apply font-almarai leading-snug text-josa-black;
+  @apply leading-snug;
 }
 
 a:hover > h1, a:hover > h2, a:hover > h3, a:hover > h4, a:hover > h5, a:hover > h6 {
@@ -40,80 +44,60 @@ a:hover > h1, a:hover > h2, a:hover > h3, a:hover > h4, a:hover > h5, a:hover > 
 
 /* h2 */
 h2 {
-  @apply font-medium text-4xl mb-2;
+  @apply font-IBMPlexSansArabic font-medium text-4xl mb-2;
 }
 
 [lang="en"] h2 {
-  @apply font-aleoLightItalic leading-golden;
+  @apply leading-golden;
 }
 
 [lang="ar"] h2 {
-  @apply font-almarai font-light;
+  @apply font-light;
 }
 
 
 /* h3 */
-[lang="en"] h3 {
-  @apply font-normal text-xl font-lato;
+h3 {
+  @apply font-normal text-xl font-IBMPlexSansArabic;
 }
 
-[lang="ar"] h3 {
-  @apply font-normal text-xl font-almarai;
-}
 
 /* h4 */
 h4 {
-  @apply font-aleoLightItalic font-medium text-5xl mb-2;
+  @apply font-IBMPlexSansArabic font-medium text-5xl mb-2;
 }
 
 [lang="en"] h4 {
-  @apply font-aleoLightItalic leading-none;
+  @apply leading-none;
 }
 
 [lang="ar"] h4 {
-  @apply font-almarai font-light;
+  @apply font-light;
 }
 
 /* h5 */
 h5 {
-  @apply font-normal text-xs font-medium uppercase text-josa-warm-grey-dark;
+  @apply font-IBMPlexSansArabic font-normal text-xs font-medium uppercase text-josa-warm-grey-dark;
 }
 
-[lang="en"] h5 {
-  @apply font-lato;
-}
-
-[lang="ar"] h5 {
-  @apply font-almarai;
-}
 
 /* h6 */
 h6 {
-  @apply font-bold;
+  @apply font-bold font-IBMPlexSansArabic;
 }
 
-[lang="en"] h6 {
-  @apply font-lato;
-}
-
-[lang="ar"] h6 {
-  @apply font-almarai;
-}
 
 /* Display Styles */
 .display-light {
-  @apply font-light text-josa-warm-grey;
-}
-
-[lang="en"] .display-light {
-  @apply font-aleoLight;
-}
-
-[lang="ar"] .display-light {
-  @apply font-almarai;
+  @apply font-IBMPlexSansArabic font-light text-josa-warm-grey;
 }
 
 
 .display-lead {
   @apply text-xl font-light;
+}
+
+/* other */
+pre, code, kbd, samp {
+	@apply font-IBMPlexMono;
 }
