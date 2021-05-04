@@ -5,18 +5,17 @@
       <img v-else :src="placeholderImage" />
     </nuxt-link>
     <div class="flex-grow">
-      <h3 class="uppercase py-2 lg:pt-0 text-sm">
+      <h5 class="uppercase py-2 lg:pt-0">
         <span v-for="(topic, index) in article.topics" :key="topic.id">
           {{ topic['title_' + $i18n.locale] }}{{ index != Object.keys(article.topics).length - 1 ? ', ' : ''}}
         </span>
-      </h3>
+      </h5>
       <nuxt-link :to="articleLink">
-        <h2 class="mb-4 text-3xl">{{ article.title }}</h2>
+        <h3 class="mb-4">{{ article.title }}</h3>
       </nuxt-link>
       <p v-if="article.excerpt">{{article.excerpt}}</p>
       <p v-else>{{article.body | truncate(200) }}</p>
-      <nuxt-link :to="articleLink"
-        class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
+      <nuxt-link :to="articleLink" class="py-4 display-more">
         {{ $t('meta.readTheReport') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
@@ -56,7 +55,6 @@
       }
     }
   }
-
 </script>
 
 <style scoped>
@@ -67,5 +65,4 @@
   [lang="ar"] p {
     @apply leading-normal;
   }
-
 </style>

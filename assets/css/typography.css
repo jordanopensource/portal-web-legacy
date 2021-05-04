@@ -17,7 +17,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-IBMPlexSansArabic leading-normal text-josa-black;
+  @apply font-IBMPlexSansArabic leading-tight text-josa-black mb-2;
 }
 
 a:hover>h1,
@@ -31,29 +31,34 @@ a:hover>h6 {
   -webkit-transition: color 0.25s linear;
 }
 
+/* H1 */
+h1 {
+  @apply text-5xl;
+}
+
 /* h2 */
 h2 {
-  @apply font-medium text-4xl mb-2;
+  @apply text-4xl;
 }
 
 /* h3 */
 h3 {
-  @apply font-normal text-xl;
+  @apply text-3xl;
 }
 
 /* h4 */
 h4 {
-  @apply font-medium text-5xl mb-2;
+  @apply text-xl mb-0;
 }
 
 /* h5 */
 h5 {
-  @apply font-normal text-xs font-medium uppercase text-josa-warm-grey-dark;
+  @apply text-lg font-medium mb-1;
 }
 
 /* h6 */
 h6 {
-  @apply font-bold;
+  @apply text-lg mb-0;
 }
 
 /* Display Styles */
@@ -64,3 +69,15 @@ h6 {
 .display-lead {
   @apply text-xl font-light;
 }
+
+.display-more {
+ @apply block text-josa-blue;
+}
+
+.display-more:hover {
+  @apply opacity-75;
+ }
+
+ .display-faded {
+  @apply text-josa-warm-grey-dark;
+ }

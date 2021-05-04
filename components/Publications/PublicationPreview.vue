@@ -5,31 +5,27 @@
       <img v-else :src="placeholderImage" />
     </nuxt-link>
     <div ref="content" class="flex-grow">
-
-      <h3 class="uppercase py-2 md:pt-0 text-sm">
+      <h5 class="uppercase py-2 md:pt-0">
         <span v-for="(topic, index) in publication.topics" :key="topic.id">
           {{ topic['title_' + $i18n.locale] }}{{ index != Object.keys(publication.topics).length - 1 ? ', ' : ''}}
         </span>
-      </h3>
-
+      </h5>
       <nuxt-link :to="publicationLink">
-        <h2 class="mb-4 text-3xl">{{ publication['title_' + $i18n.locale] ? publication['title_' + $i18n.locale] : publication['title_en'] }}</h2>
+        <h3 class="mb-4">
+          {{ publication['title_' + $i18n.locale] ? publication['title_' + $i18n.locale] : publication['title_en'] }}
+        </h3>
       </nuxt-link>
-
-      <div class="publication-info flex flex-wrap md:flex-no-wrap">
-        <span class="ltr:mr-12 rtl:ml-12">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</span>
-        <span>
-          <font-awesome-icon class="icon" :icon="['fas', 'clock']" />{{ $t('publication.publishDate') }}
-          {{ publication.publishDate | fullDate($i18n.locale) }}</span>
-
+      <div class="publication-info flex flex-wrap lg:flex-no-wrap">
+        <p class="ltr:mr-12 rtl:ml-12 mb-4">{{ $t('meta.by') }} {{ publication['author_' + $i18n.locale]}}</p>
+        <p class="whitespace-no-wrap">
+          <font-awesome-icon class="icon ltr:mr-2 rtl:ml-2" :icon="['fas', 'clock']" />
+          {{ $t('publication.publishDate') }}
+          {{ publication.publishDate | fullDate($i18n.locale) }}</p>
       </div>
-
-      <nuxt-link :to="publicationLink"
-        class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
+      <nuxt-link :to="publicationLink" class="py-4 text-josa-blue display-more">
         {{ $t('meta.readTheReport') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
-
     </div>
   </div>
 </template>
@@ -72,28 +68,11 @@
       }
     }
   }
-
 </script>
 
 <style scoped>
-  [lang="en"] p {
-    @apply leading-golden;
-  }
-
-  [lang="ar"] p {
-    @apply leading-normal;
-  }
-
   .icon {
     @apply text-josa-warm-grey-dark;
-  }
-
-  [dir="ltr"] .icon {
-    @apply mr-2;
-  }
-
-  [dir="ltr"] .icon {
-    @apply ml-2;
   }
 
   .preview .thumbnail,
@@ -126,5 +105,4 @@
       width: 250px;
     }
   }
-
 </style>

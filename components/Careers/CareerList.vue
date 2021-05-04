@@ -1,7 +1,7 @@
 <!-- Fetch and list careers based on career types-->
 <template>
   <section v-if="ifNotEmpty()">
-    <h3 v-if="title">{{ title }}</h3>
+    <h2 v-if="title">{{ title }}</h2>
     <careerPreview v-for="career in loadedCareers" :key="career.id" :id="'career' + career.id" :career="career" />
     <!-- Pagination -->
     <div v-if="pageCount > 1" class="pagination pt-6 text-center border-t border-dotted">

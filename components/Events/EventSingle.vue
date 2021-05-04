@@ -2,7 +2,7 @@
   <section>
     <div class="container">
       <div class="p-6 md:p-12">
-        <div class="text-josa-blue text-xl mb-2">{{ event.startDate | dayDate($i18n.locale) }} </div>
+        <h4 class="text-josa-blue mb-2">{{ event.startDate | dayDate($i18n.locale) }}</h4>
         <h2>{{ event['title_' + $i18n.locale] }}</h2>
         <div class="content flex flex-wrap md:flex-no-wrap mt-12">
           <div class="w-full md:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
@@ -14,10 +14,10 @@
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
-            <modal v-if="showModal && event.onlineEvent"
-              @close="showModal=false">
+            <modal v-if="showModal && event.onlineEvent" @close="showModal=false">
               <slot>
-                <joinForm :event="event" :running="running" v-if="event.startDate" :from="event.startDate" :to="event.endDate" />
+                <joinForm :event="event" :running="running" v-if="event.startDate" :from="event.startDate"
+                  :to="event.endDate" />
               </slot>
             </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"

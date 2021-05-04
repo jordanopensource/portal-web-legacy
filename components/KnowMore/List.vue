@@ -3,7 +3,7 @@
     <div class="container">
       <div class="px-6 md:px-12 p-20 flex flex-wrap md:flex-no-wrap justify-between">
         <div class="w-full sm:ltr:pr-12 md:ltr:pr-20 lg:ltr:pr-32 sm:rtl:pl-12 md:rtl:pl-20 lg:rtl:pl-32">
-          <h4 class="pb-2">{{ $t('meta.knowMoreAboutUs') }}</h4>
+          <h1 class="my-8">{{ $t('meta.knowMoreAboutUs') }}</h1>
         </div>
         <div>
           <preview v-for="page in loadedPages" :key="page.id" :id="page.id" :page="page" />

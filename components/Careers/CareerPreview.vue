@@ -7,7 +7,7 @@
     <div ref="content" class="flex-grow">
       <p v-if="career.status == false" class="closed">{{ $t('meta.closed') }}</p>
       <nuxt-link :to="careerLink">
-        <h2>{{ career['title_' + $i18n.locale] ? career['title_' + $i18n.locale] : career['title_en'] }}</h2>
+        <h3>{{ career['title_' + $i18n.locale] ? career['title_' + $i18n.locale] : career['title_en'] }}</h3>
       </nuxt-link>
 
       <div class="career-info flex flex-wrap lg:flex-no-wrap">
@@ -22,7 +22,7 @@
         </span>
       </div>
 
-      <nuxt-link :to="careerLink" class="block py-4 text-josa-blue font-bold text-sm hover:opacity-75">
+      <nuxt-link :to="careerLink" class="py-4 display-more">
         {{ $t('meta.knowMore') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
@@ -69,7 +69,6 @@
       }
     }
   }
-
 </script>
 
 <style scoped>
@@ -80,5 +79,4 @@
   .icon {
     @apply text-josa-warm-grey-dark;
   }
-
 </style>

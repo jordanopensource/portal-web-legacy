@@ -1,7 +1,7 @@
 <!-- Fetch and list board and staff personnels based on role-->
 <template>
   <section>
-    <h3 class="font-bold">{{ title }}</h3>
+    <h2>{{ title }}</h2>
     <div class="mt-8" v-if="compact">
       <div v-for="personnel in loadedPersonnels" :key="personnel.id" :id="personnel.id">{{ personnel['fullName_' + $i18n.locale] }}</div>
     </div>

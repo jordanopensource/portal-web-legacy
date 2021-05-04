@@ -30,21 +30,12 @@
       appImage
     }
   }
-
 </script>
 
 <style scoped>
-    [lang="en"] p {
-        @apply leading-golden;
-    }
-
-    [lang="ar"] p {
-        @apply leading-normal;
-    }
-
-    .preview .thumbnail,
-    .preview .thumbnail img {
-        width: 100%;
-        padding: 0;
-    }
+  .preview .thumbnail,
+  .preview .thumbnail img {
+    width: 100%;
+    padding: 0;
+  }
 </style>

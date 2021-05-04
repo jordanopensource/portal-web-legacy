@@ -8,9 +8,9 @@
       <h2 ref="title" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.title }}</h2>
       <!-- Publish date and share buttons -->
       <div class="flex flex-row flex-wrap justify-between items-center my-6">
-        <p class="text-josa-warm-grey-dark font-bold my-2">
+        <h6 class="display-faded my-2">
           {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}
-        </p>
+        </h6>
         <shareButtons v-if="url" :url="url" class="my-2" />
       </div>
       <!-- Translation -->
@@ -41,13 +41,13 @@
       <!-- authors and translators -->
       <div v-if="article.authors.length || article.translators.length" class="my-8">
         <template v-if="article.authors.length">
-          <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.writtenBy')}}</h5>
+          <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by font-medium uppercase"> {{$t('meta.writtenBy')}}</h5>
           <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 bio"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" :bio="author['bio_' + $i18n.locale]"
             v-bind:writtenBy="false" />
         </template>
         <template v-if="article.translators.length">
-          <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.translatedBy')}}</h5>
+          <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by font-medium uppercase"> {{$t('meta.translatedBy')}}</h5>
           <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4"
             :name="translator['name_' + $i18n.locale]" :picture="translator.picture"
             :bio="translator['bio_' + $i18n.locale]" v-bind:writtenBy="false" />

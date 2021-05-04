@@ -2,7 +2,7 @@
   <div class="preview grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 col-gap-8 row-gap-4">
     <div>
       <nuxt-link :to="publicationLink">
-        <h2 class="mb-4 text-3xl">{{ publication['title_' + $i18n.locale] }}</h2>
+        <h3 class="mb-4">{{ publication['title_' + $i18n.locale] }}</h3>
       </nuxt-link>
       <p v-if="publication['excerpt_' + $i18n.locale]">{{ publication['excerpt_' + $i18n.locale] }}</p>
     </div>
