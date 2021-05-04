@@ -2,37 +2,30 @@
 
 /* Body */
 body {
-  @apply text-josa-black font-IBMPlexSansArabic;
+  @apply font-IBMPlexSansArabic text-josa-black leading-normal text-base;
 }
 
-[lang="en"] body, .en {
-  @apply text-base leading-normal;
-}
-
-[lang="ar"] body, .ar {
-  @apply text-base leading-normal;
+/* Mono */ 
+pre, code, kbd, samp {
+  @apply font-IBMPlexMono;
 }
 
 /* H */
-[lang="en"] h1,
-[lang="en"] h2,
-[lang="en"] h3,
-[lang="en"] h4,
-[lang="en"] h5,
-[lang="en"] h6 {
-  @apply font-aleoLight leading-tight text-josa-black;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-IBMPlexSansArabic leading-normal text-josa-black;
 }
 
-[lang="ar"] h1,
-[lang="ar"] h2,
-[lang="ar"] h3,
-[lang="ar"] h4,
-[lang="ar"] h5,
-[lang="ar"] h6 {
-  @apply font-almarai leading-snug text-josa-black;
-}
-
-a:hover > h1, a:hover > h2, a:hover > h3, a:hover > h4, a:hover > h5, a:hover > h6 {
+a:hover>h1,
+a:hover>h2,
+a:hover>h3,
+a:hover>h4,
+a:hover>h5,
+a:hover>h6 {
   @apply text-josa-blue;
   transition: color 0.25s linear;
   -webkit-transition: color 0.25s linear;
@@ -43,35 +36,14 @@ h2 {
   @apply font-medium text-4xl mb-2;
 }
 
-[lang="en"] h2 {
-  @apply font-aleoLightItalic leading-golden;
-}
-
-[lang="ar"] h2 {
-  @apply font-almarai font-light;
-}
-
-
 /* h3 */
-[lang="en"] h3 {
-  @apply font-normal text-xl font-lato;
-}
-
-[lang="ar"] h3 {
-  @apply font-normal text-xl font-almarai;
+h3 {
+  @apply font-normal text-xl;
 }
 
 /* h4 */
 h4 {
-  @apply font-aleoLightItalic font-medium text-5xl mb-2;
-}
-
-[lang="en"] h4 {
-  @apply font-aleoLightItalic leading-none;
-}
-
-[lang="ar"] h4 {
-  @apply font-almarai font-light;
+  @apply font-medium text-5xl mb-2;
 }
 
 /* h5 */
@@ -79,40 +51,15 @@ h5 {
   @apply font-normal text-xs font-medium uppercase text-josa-warm-grey-dark;
 }
 
-[lang="en"] h5 {
-  @apply font-lato;
-}
-
-[lang="ar"] h5 {
-  @apply font-almarai;
-}
-
 /* h6 */
 h6 {
   @apply font-bold;
-}
-
-[lang="en"] h6 {
-  @apply font-lato;
-}
-
-[lang="ar"] h6 {
-  @apply font-almarai;
 }
 
 /* Display Styles */
 .display-light {
   @apply font-light text-josa-warm-grey;
 }
-
-[lang="en"] .display-light {
-  @apply font-aleoLight;
-}
-
-[lang="ar"] .display-light {
-  @apply font-almarai;
-}
-
 
 .display-lead {
   @apply text-xl font-light;

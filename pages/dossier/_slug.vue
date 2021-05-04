@@ -7,7 +7,7 @@
         <div class="px-12">
           <div class="my-auto w-full lg:max-w-1/2">
             <h5 class="mb-2">{{$t('dossier.dossier')}}</h5>
-            <h4 class="font-aleoLightItalic mb-4">{{ dossier['title_' + $i18n.locale] }}</h4>
+            <h4 class="mb-4">{{ dossier['title_' + $i18n.locale] }}</h4>
             <p v-if="dossier['tagline_' + $i18n.locale]" class="ltr:leading-normal rtl:leading-relaxed">
               {{ dossier['tagline_' + $i18n.locale] }}</p>
           </div>

@@ -137,14 +137,6 @@
     object-fit: cover;
   }
 
-  article h2[lang="en"] {
-    @apply font-aleoLight leading-tight font-light;
-  }
-
-  article h2[lang="ar"] {
-    @apply font-almarai leading-snug font-light;
-  }
-
   .content {
     @apply bg-white py-8 px-6 relative z-50 mx-auto;
     max-width: 766px;
@@ -171,11 +163,11 @@
   }
 
   article .article-body[lang="en"] /deep/ {
-    @apply text-lg font-merriweather leading-relaxed;
+    @apply text-lg leading-relaxed;
   }
 
   article .article-body[lang="ar"] /deep/ {
-    @apply text-2xl font-naskh leading-relaxed;
+    @apply text-2xl leading-relaxed;
   }
 
   .article-body>>>h3 {
