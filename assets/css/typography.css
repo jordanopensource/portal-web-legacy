@@ -2,15 +2,15 @@
 
 /* Body */
 body {
-  @apply text-josa-black;
+  @apply text-josa-black font-IBMPlexSansArabic;
 }
 
 [lang="en"] body, .en {
-  @apply font-lato text-base leading-normal;
+  @apply text-base leading-normal;
 }
 
 [lang="ar"] body, .ar {
-  @apply font-almarai text-base leading-normal;
+  @apply text-base leading-normal;
 }
 
 /* H */
