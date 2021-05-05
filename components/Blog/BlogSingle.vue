@@ -6,22 +6,10 @@
     <div ref="content" class="container content">
       <!-- title -->
       <h2 ref="title" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.title }}</h2>
-      <!-- Publish date and share buttons -->
-      <div class="flex flex-row flex-wrap justify-between items-center my-6">
-        <h6 class="display-faded my-2">
-          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}
-        </h6>
-        <shareButtons v-if="url" :url="url" class="my-2" />
-      </div>
-      <!-- Translation -->
-      <div v-if="article.translations.length" class="mb-4">
-        <a v-for="translation in article.translations" :key="translation.language" :href="translationLink(translation)"
-          :class="translation.language">{{ translationText(translation.language) }}</a>
-      </div>
-      <p v-if="article.excerpt" class="excerpt" :class="article.language"
+      <p v-if="article.excerpt" class="display-lead my-8" :class="article.language"
         :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.excerpt }}</p>
       <!-- authors and translators -->
-      <div v-if="article.authors.length || article.translators.length" class="flex flex-wrap flex-row my-8">
+      <div v-if="article.authors.length || article.translators.length" class="flex flex-wrap flex-row mb-t mb-4">
         <template v-if="article.authors.length">
           <author v-for="author in article.authors" :key="author.id" class="mb-4 ltr:mr-8 rtl:ml-8 flex-shrink-0"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" />
@@ -31,6 +19,17 @@
             class="mb-4 ltr:mr-8 rtl:ml-8 flex-shrink-0" :name="translator['name_' + $i18n.locale]"
             :picture="translator.picture" :translatedBy="true" v-bind:writtenBy="false" />
         </template>
+      </div>
+      <!-- Publish date and share buttons -->
+      <div class="flex flex-row flex-wrap justify-between items-center mb-8 mt-4">
+        <h6 class="display-faded my-2">
+          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</h6>
+        <shareButtons v-if="url" :url="url" class="my-2" />
+      </div>
+      <!-- Translation -->
+      <div v-if="article.translations.length" class="my-4">
+        <a v-for="translation in article.translations" :key="translation.language" :href="translationLink(translation)"
+          :class="translation.language">{{ translationText(translation.language) }}</a>
       </div>
       <!-- Article body -->
       <div class="article-body" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language"
@@ -54,9 +53,9 @@
         </template>
       </div>
       <!--  disclaimer  -->
-      <hr id="hrDisclaimer" class="mt-12 border-solid">
-      <div id="disclaimer" class="font-bold my-2" v-if="showDisclaimer">
-      <p>{{ $t('blog.disclaimer') }}</p>
+      <div class="my-8 display-faded" v-if="showDisclaimer">
+        <hr class="mb-2 border-solid border-josa-warm-grey-dark opacity-50">
+        <p>{{ $t('blog.disclaimer') }}</p>
       </div>
     </div>
   </article>
@@ -92,9 +91,9 @@
         this.setContentNegMargin();
       }
     },
-    computed:{
-     showDisclaimer(){
-       return this.article.category.name !== 'statements'
+    computed: {
+      showDisclaimer() {
+        return this.article.category.name !== 'statements'
       }
     },
     methods: {
@@ -148,30 +147,21 @@
     }
   }
 
-  .excerpt {
-    opacity: 0.9;
-    @apply font-bold mb-8;
-  }
-
   /* article-body */
   .article-body>>>p {
-    @apply font-normal mb-4;
+    @apply mb-4;
   }
 
   .article-body>>>a {
     text-decoration: underline;
   }
 
-  article .article-body[lang="en"] /deep/ {
-    @apply text-lg leading-relaxed;
+  .article-body>>>a:hover {
+    @apply text-josa-blue-dark;
   }
 
-  article .article-body[lang="ar"] /deep/ {
-    @apply text-2xl leading-relaxed;
-  }
-
-  .article-body>>>h3 {
-    @apply text-2xl py-2 font-bold opacity-90;
+  article .article-body /deep/ {
+    @apply text-xl font-normal leading-18;
   }
 
   /* article-body */
@@ -211,17 +201,4 @@
   }
 
   /* Authors */
-  
-  /* disclaimer */
-  
-  #hrDisclaimer {
-  border-color: #dcdcdc;
-  }
-  
-  #disclaimer {
-  font-size: 0.9rem;
-  color: #c0c0c0;
-  }
-  
-  /* disclaimer */
 </style>

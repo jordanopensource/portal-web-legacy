@@ -67,7 +67,7 @@ h6 {
 }
 
 .display-lead {
-  @apply text-xl font-light;
+  @apply text-2xl text-josa-black font-light opacity-70;
 }
 
 .display-more {

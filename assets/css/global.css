@@ -306,7 +306,7 @@ ul {
 }
 
 .copy-tooltip-text {
-  @apply p-2 absolute z-10 bg-josa-blue font-bold text-white text-left text-xs leading-4 rounded-md opacity-75;
+  @apply p-2 absolute z-10 bg-josa-blue font-medium text-white text-left text-xs leading-4 rounded-md opacity-75;
 }
 
 [dir="ltr"] .copy-tooltip-text {
