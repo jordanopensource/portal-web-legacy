@@ -178,7 +178,9 @@ export default {
     joinCall: 'This event is happening online. You can join and participate by submitting the information in the form.',
     notRegistered: 'You haven\'t registered? you can register',
     here: 'here',
-    onlineEvent: 'Online Event'
+    onlineEvent: 'Online Event',
+    notStarted:'the event has not started yet',
+    waitMessage:'Please wait, this event has not started yet. The event is scheduled to start on:'
   },
   eventCats: {
     all: 'All Events',
