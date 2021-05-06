@@ -27,7 +27,7 @@
     </div>
     <!-- Upcoming Events -->
     <div class="container">
-      <div class="row">
+      <div class="row pb-20">
         <upcomingEvents :title="$t('events.upcoming')" category="all" :numberOfEvents="2" />
       </div>
     </div>

@@ -37,6 +37,9 @@
         const slug = this.$options.filters.stringToSlug(this.article.title)
         return this.localePath('/blog/' + this.article.id + '/' + slug)
       }
+    },
+    mounted() {
+      this.$store.commit('setFeaturedBlogs', this.article.id)
     }
   }
 
