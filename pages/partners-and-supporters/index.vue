@@ -50,9 +50,10 @@
   .partners-list {
     @apply px-6 mt-20;
   }
-  @screen md{
+
+  @screen md {
     .partners-list {
-      @apply px-12 mt-20;
-  }
+      @apply px-12;
+    }
   }
 </style>

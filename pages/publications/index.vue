@@ -76,9 +76,9 @@
     @apply px-6 mt-20;
   }
 
-  @screen md{
+  @screen md {
     .publication-list {
-      @apply px-12 mt-20;
-  }
+      @apply px-12;
+    }
   }
 </style>

@@ -119,16 +119,16 @@
   }
 
   .content {
-    @apply bg-white p-6 relative z-50 mx-auto;
+    @apply bg-white py-8 px-6 relative z-50 mx-auto;
     max-width: 766px;
   }
-  
-  @screen md{
+
+  @screen md {
     .content {
-      @apply bg-white p-8 relative z-50 mx-auto;
-      max-width: 766px;
+      @apply px-8;
+    }
   }
-  }
+
   .excerpt {
     opacity: 0.9;
     @apply font-bold mb-8;
