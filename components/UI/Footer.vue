@@ -113,7 +113,13 @@
   }
 
   .container {
+    @apply px-6 py-24 !important;
+  }
+  @screen md{
+    .container {
     @apply px-12 py-24 !important;
+  }
+
   }
 
   #site-info {

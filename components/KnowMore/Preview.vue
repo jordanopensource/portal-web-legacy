@@ -1,6 +1,6 @@
 <template>
   <div class="preview my-8 flex flex-wrap lg:flex-no-wrap">
-    <appImage v-if="page.image" :image="page.image" size="medium" class="w-full mb-4 px-8 bot mx-auto flex-shrink-0" />
+    <appImage v-if="page.image" :image="page.image" size="medium" class="w-full mb-4 px-4 md:px-8 bot mx-auto flex-shrink-0" />
     <img v-else :src="placeholderImage" class="bot" />
     <div class="flex-grow mt-4">
       <nuxt-link :to="pageLink">

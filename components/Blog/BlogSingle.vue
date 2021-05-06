@@ -146,8 +146,14 @@
   }
 
   .content {
-    @apply bg-white p-8 relative z-50 mx-auto;
+    @apply bg-white py-8 px-6 relative z-50 mx-auto;
     max-width: 766px;
+  }
+
+  @screen md {
+    .content {
+      @apply px-8;
+    }
   }
 
   .excerpt {

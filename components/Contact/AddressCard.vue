@@ -1,6 +1,6 @@
 <template>
   <div class="address-card container">
-    <div class="px-12 py-20">
+    <div class="px-6 md:px-12 py-20">
       <h4 class="mb-12">{{ $t('contact.address') }}</h4>
 
       <div class="flex flex-wrap md:flex-no-wrap justify-between">

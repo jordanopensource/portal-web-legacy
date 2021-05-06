@@ -2,7 +2,7 @@
     <div>
         <div class="__nuxt-error-page container">
             <div
-                class="flex flex-col-reverse md:flex-row justify-between align-middle flex-wrap sm:flex-no-wrap py-12 md:py-6 px-12">
+                class="flex flex-col-reverse md:flex-row justify-between align-middle flex-wrap sm:flex-no-wrap py-12 md:py-6 px-6 md:px-12">
                 <div class="my-auto sm:max-w-1/2 lg:max-w-1/3">
                     <h2>{{ $t('error.ops') }}</h2>
                     <p class="description">{{ $t('error.lost') }}</p>

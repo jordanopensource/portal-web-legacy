@@ -3,7 +3,7 @@
     <pageBanner :pageMeta="meta" />
     <!-- HTML Content -->
     <div v-if="meta.htmlContent['content_' + $i18n.locale]" id="content" class="container py-20">
-      <div class="px-12" v-html="meta.htmlContent['content_' + $i18n.locale]"></div>
+      <div class="px-6 md:px-12" v-html="meta.htmlContent['content_' + $i18n.locale]"></div>
     </div>
     <!-- Know More -->
     <list />
