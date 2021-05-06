@@ -5,12 +5,11 @@
     <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
     <div ref="content" class="container content">
       <!-- title -->
-      <h2 ref="title" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.title }}</h2>
-      <!-- Excerpt -->
-      <p v-if="article.excerpt" class="excerpt" :class="article.language"
+      <h2 ref="title" class="font-bold" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.title }}</h2>
+      <p v-if="article.excerpt" class="display-lead my-8" :class="article.language"
         :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language">{{ article.excerpt }}</p>
       <!-- authors and translators -->
-      <div v-if="article.authors.length || article.translators.length" class="flex flex-wrap flex-row my-2">
+      <div v-if="article.authors.length || article.translators.length" class="flex flex-wrap flex-row mb-t mb-4">
         <template v-if="article.authors.length">
           <author v-for="author in article.authors" :key="author.id" class="mb-4 ltr:mr-8 rtl:ml-8 flex-shrink-0"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" />
@@ -22,11 +21,15 @@
         </template>
       </div>
       <!-- Publish date and share buttons -->
-      <div class="flex flex-row flex-wrap justify-between items-center mb-10">
-        <p class="text-josa-warm-grey-dark my-2">
-          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}
-        </p>
-        <shareButtons v-if="url" :url="url" class="my-2 text-2xl" ignore-size/>
+      <div class="flex flex-row flex-wrap justify-between items-center mb-8 mt-4">
+        <h6 class="display-faded text-xl my-2">
+          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</h6>
+        <shareButtons v-if="url" :url="url" class="my-2" />
+      </div>
+      <!-- Translation -->
+      <div v-if="article.translations.length" class="my-4">
+        <a v-for="translation in article.translations" :key="translation.language" :href="translationLink(translation)"
+          :class="translation.language">{{ translationText(translation.language) }}</a>
       </div>
       <!-- Article body -->
       <div class="article-body" :dir="article.language == 'ar' ? 'rtl' : 'ltr'" :lang="article.language"
@@ -37,22 +40,22 @@
       <!-- authors and translators -->
       <div v-if="article.authors.length || article.translators.length" class="my-8">
         <template v-if="article.authors.length">
-          <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.writtenBy')}}</h5>
+          <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by font-medium uppercase"> {{$t('meta.writtenBy')}}</h5>
           <author v-for="author in article.authors" v-bind:key="author.id" class="mb-4 bio"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" :bio="author['bio_' + $i18n.locale]"
             v-bind:writtenBy="false" />
         </template>
         <template v-if="article.translators.length">
-          <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by text-base"> {{$t('meta.translatedBy')}}</h5>
+          <h5 class="pb-2 rtl:pr-4 ltr:pl-4 written-by font-medium uppercase"> {{$t('meta.translatedBy')}}</h5>
           <author v-for="translator in article.translators" v-bind:key="translator.id" class="mb-4"
             :name="translator['name_' + $i18n.locale]" :picture="translator.picture"
             :bio="translator['bio_' + $i18n.locale]" v-bind:writtenBy="false" />
         </template>
       </div>
       <!--  disclaimer  -->
-      <hr id="hrDisclaimer" class="mt-12 border-solid">
-      <div id="disclaimer" class="font-bold my-2" v-if="showDisclaimer">
-      <p>{{ $t('blog.disclaimer') }}</p>
+      <div class="my-8 display-faded" v-if="showDisclaimer">
+        <hr class="mb-2 border-solid border-josa-warm-grey-dark opacity-50">
+        <p>{{ $t('blog.disclaimer') }}</p>
       </div>
     </div>
   </article>
@@ -88,9 +91,9 @@
         this.setContentNegMargin();
       }
     },
-    computed:{
-     showDisclaimer(){
-       return this.article.category.name !== 'statements'
+    computed: {
+      showDisclaimer() {
+        return this.article.category.name !== 'statements'
       }
     },
     methods: {
@@ -105,6 +108,18 @@
       getRem() {
         var html = document.getElementsByTagName('html')[0];
         return parseInt(window.getComputedStyle(html)['fontSize']);
+      },
+      translationLink(translation) {
+        const slug = this.$options.filters.stringToSlug(translation.title)
+        return this.localePath('/blog/' + translation.id + '/' + slug, translation.language)
+      },
+      translationText(lang) {
+        switch (lang) {
+          case 'en':
+            return 'Read this post in English'
+          case 'ar':
+            return 'اقرأ هذه المقالة باللغة العربية'
+        }
       }
     }
   }
@@ -121,44 +136,32 @@
     object-fit: cover;
   }
 
-  article h2[lang="en"] {
-    @apply font-aleoLight leading-tight font-light;
-  }
-
-  article h2[lang="ar"] {
-    @apply font-almarai leading-snug font-light;
-  }
-
   .content {
-    @apply bg-white p-8 relative z-50 mx-auto;
+    @apply bg-white py-8 px-6 relative z-50 mx-auto;
     max-width: 766px;
   }
 
-  .excerpt {
-    opacity: 0.7;
-    @apply font-light mb-8 text-2xl;
+  @screen md {
+    .content {
+      @apply px-8;
+    }
   }
 
   /* article-body */
   .article-body>>>p {
-    @apply font-normal mb-4;
+    @apply mb-4;
   }
 
   .article-body>>>a {
     text-decoration: underline;
   }
 
-  article .article-body[lang="en"] /deep/ {
-    @apply text-base font-merriweather leading-7;
+  .article-body>>>a:hover {
+    @apply text-josa-blue-dark;
   }
 
-  article .article-body[lang="ar"] /deep/ {
-    @apply text-xl font-naskh leading-7
-    
-  }
-
-  .article-body>>>h3 {
-    @apply text-2xl py-2 font-bold opacity-90;
+  article .article-body /deep/ {
+    @apply text-xl font-normal leading-18;
   }
 
   /* article-body */
@@ -198,17 +201,4 @@
   }
 
   /* Authors */
-  
-  /* disclaimer */
-  
-  #hrDisclaimer {
-  border-color: #dcdcdc;
-  }
-  
-  #disclaimer {
-  font-size: 0.9rem;
-  color: #c0c0c0;
-  }
-  
-  /* disclaimer */
 </style>

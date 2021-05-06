@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="mb-2">
-      <h5 class="py-2 font-bold text-josa-black inline">{{ event.category['title_' + $i18n.locale] }}</h5>
-      <span class="leading-none text-xs"> | </span>
-      <h5 class="py-2 font-bold text-josa-blue inline">{{ event.startDate | fullDate($i18n.locale) }}</h5>
+      <h5 class="py-2 text-josa-black inline">{{ event.category['title_' + $i18n.locale] }}</h5>
+      <span class="leading-none"> | </span>
+      <h5 class="py-2 text-josa-blue inline">{{ event.startDate | fullDate($i18n.locale) }}</h5>
     </div>
     <nuxt-link :to="eventLink">
-      <h3>
-        {{ event['title_' + $i18n.locale] ? event['title_' + $i18n.locale] : event['title_en'] }}</h3>
+      <h3>{{ event['title_' + $i18n.locale] ? event['title_' + $i18n.locale] : event['title_en'] }}</h3>
     </nuxt-link>
   </div>
 </template>
@@ -37,7 +36,4 @@
 </script>
 
 <style scoped>
-  h3 {
-    @apply font-bold;
-  }
 </style>

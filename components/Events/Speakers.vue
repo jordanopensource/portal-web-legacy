@@ -4,7 +4,7 @@
     <div class="info" v-for="speaker in speakers" :key='speaker.id'>
       <appImage class="profilePicture" :image="speaker.picture" />
       <div>
-        <p class="font-bold">{{ speaker['fullName_' + $i18n.locale] }}</p>
+        <h4 class="font-medium">{{ speaker['fullName_' + $i18n.locale] }}</h4>
         <p>{{ speaker['title_' + $i18n.locale] }}</p>
       </div>
     </div>

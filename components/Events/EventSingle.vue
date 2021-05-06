@@ -1,8 +1,8 @@
 <template>
   <section>
     <div class="container">
-      <div class="p-12">
-        <div class="text-josa-blue text-xl mb-2">{{ event.startDate | dayDate($i18n.locale) }} </div>
+      <div class="p-6 md:p-12">
+        <h4 class="text-josa-blue mb-2">{{ event.startDate | dayDate($i18n.locale) }}</h4>
         <h2>{{ event['title_' + $i18n.locale] }}</h2>
         <div class="content flex flex-wrap md:flex-no-wrap mt-12">
           <div class="w-full md:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
@@ -14,18 +14,15 @@
             <speakers v-if="event.speakers.length > 0" :speakers="event.speakers" />
           </div>
           <div class="w-full md:w-2/5 mb-8">
-            <modal 
-              v-if="showModal && event.onlineEvent && event.onlineMeeting.password == false && running == true "
-              @close="showModal=false">
+            <modal v-if="showModal && event.onlineEvent" @close="showModal=false">
               <slot>
-                <joinForm :event="event" />
+                <joinForm :event="event" :running="running" v-if="event.startDate" :from="event.startDate"
+                  :to="event.endDate" />
               </slot>
             </modal>
             <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
               :registrants="event.registrants" />
-            <div 
-              v-if="event.onlineEvent && event.onlineMeeting.password == false && running == true"
-              class="mb-8">
+            <div v-if="event.onlineEvent && running == true" class="mb-8">
               <joinFormCard :event="event" />
             </div>
             <timeCard v-if="event.startDate" class="mb-8" :from="event.startDate" :to="event.endDate" />
@@ -48,8 +45,8 @@
   import joinForm from '~/components/Events/JoinForm';
   import modal from '~/components/UI/Modal';
   import onlineEventCard from '~/components/Events/OnlineEventCard';
-  import shareButtons from '~/components/ShareButtons/ShareButtons'
-  import joinFormCard from '~/components/Events/JoinFormCard'
+  import shareButtons from '~/components/ShareButtons/ShareButtons';
+  import joinFormCard from '~/components/Events/JoinFormCard';
 
   export default {
     name: 'EventSingle',
@@ -70,21 +67,19 @@
     },
     async fetch() {
       let url = this.$config.bbbAPIUrl
-      let attendeePW = this.event.onlineMeeting.attendeePW
       let secret = this.$config.bbbAPISecret
       let meetingID = this.event.onlineMeeting.meetingID
-      let call = `meetingID=${meetingID}&password=${attendeePW}&fullName=test+name`
-      let data = `isMeetingRunning${call}${secret}`
+      let data = `isMeetingRunningmeetingID=${meetingID}${secret}`
       let encoded = encodeURI(data)
       let checksum = this.createHash(encoded)
-      let redirect = `${url}isMeetingRunning?${call}&checksum=${checksum}`
+      let redirect = `${url}isMeetingRunning?meetingID=${meetingID}&checksum=${checksum}`
       const response = await axios.get(redirect);
       const parser = new DOMParser();
       const xmlDOM = parser.parseFromString(response.data, "text/xml");
       const value = xmlDOM.getElementsByTagName("running")[0];
-      if(value.childNodes[0].nodeValue == "false"){
+      if (value.childNodes[0].nodeValue == "false") {
         this.running = false
-      }else{
+      } else {
         this.running = true
       }
     },
@@ -99,7 +94,7 @@
       modal,
       onlineEventCard,
       shareButtons,
-      joinFormCard
+      joinFormCard,
     },
     props: {
       event: {

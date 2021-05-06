@@ -2,18 +2,25 @@
 import axios from 'axios';
 
 const state = {
-  loadedBlogs: []
+  loadedBlogs: [],
+  featuredBlogs: new Set(),
 };
 
 const getters = {
   loadedBlogs(state) {
     return (state.loadedBlogs)
+  },
+  getFeaturedBlogs(state) {
+    return (state.featuredBlogs)
   }
 };
 
 const mutations = {
   setBlogs(state, blogs) {
     state.loadedBlogs = blogs
+  },
+  setFeaturedBlogs(state, featuredBlogID) {
+    state.featuredBlogs.add(featuredBlogID)
   }
 };
 

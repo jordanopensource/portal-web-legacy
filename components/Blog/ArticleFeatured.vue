@@ -6,7 +6,7 @@
     </nuxt-link> 
     <div>
       <nuxt-link :to="articleLink">
-        <h2 class="mb-4">{{ article.title }}</h2>
+        <h3 class="mb-4">{{ article.title }}</h3>
       </nuxt-link>
       <p v-if="article.excerpt" class="excerpt">{{article.excerpt}}</p>
       <p v-else class="excerpt">{{article.body | truncate(200) }}</p>
@@ -37,6 +37,9 @@
         const slug = this.$options.filters.stringToSlug(this.article.title)
         return this.localePath('/blog/' + this.article.id + '/' + slug)
       }
+    },
+    mounted() {
+      this.$store.commit('setFeaturedBlogs', this.article.id)
     }
   }
 
@@ -52,15 +55,8 @@
   }
 
   .excerpt {
-    @apply font-bold opacity-80;
+    @apply font-medium opacity-80;
   }
 
-  [lang="en"] .excerpt {
-    @apply leading-tight;
-  }
-
-  [lang="ar"] .excerpt {
-    @apply leading-normal;
-  }
 
 </style>

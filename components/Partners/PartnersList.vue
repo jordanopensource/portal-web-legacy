@@ -1,7 +1,7 @@
 <!-- Fetch and list partner based on partner categories-->
 <template>
   <div v-if="ifNotEmpty()">
-      <h3>{{ title }}</h3>
+      <h2>{{ title }}</h2>
       <partnerPreview v-for="partner in loadedPartners" :key="partner.id" :id="partner.id" :partner="partner" />
   </div>
 </template>

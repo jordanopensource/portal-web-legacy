@@ -146,7 +146,7 @@
       sortedEvents() {
         var data = this.loadedEvents
         var sorted = {};
-        data.forEach((e, i) => (i = moment(e.startDate).locale(this.$i18n.locale).format("MMMM YYYY"), sorted[i] ?
+        data.forEach((e, i) => (i = this.$options.filters.monthYearDate(e.startDate, this.$i18n.locale), sorted[i] ?
           sorted[i]
           .push(e) : (sorted[i] = [e])));
         return sorted

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="card">
+    <div class="online-card">
       <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'globe']" />
-      <p class="font-bold">{{ $t('events.onlineEvent') }}</p>
+      <h5>{{ $t('events.onlineEvent') }}</h5>
     </div>
   </div>
 </template>
@@ -15,9 +15,8 @@
 </script>
 
 <style scoped>
-  .card {
+  .online-card {
     @apply bg-josa-warm-grey-light p-8 flex flex-row align-top;
-
   }
 
   .icon {

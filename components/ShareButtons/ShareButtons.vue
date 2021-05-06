@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap items-stretch">
+    <div class="flex flex-wrap items-stretch text-xl">
         <a class="share-button" :href="'https://twitter.com/share?url=' + url" target="_blank">
             <font-awesome-icon :icon="['fab','twitter']" :size="faSize" />
         </a>
@@ -40,7 +40,7 @@
             faSize () {
                 return this.ignoreSize 
                     ? null
-                    : this.size ?? '2x';
+                    : this.size ?? 'lg';
             },
         },
         methods: {

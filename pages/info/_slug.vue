@@ -1,9 +1,8 @@
 <template>
   <div>
     <pageBanner :pageMeta="pageContent" />
-
     <div class="container py-20">
-      <div class="px-12 flex flex-wrap md:flex-no-wrap" v-if="ifNotEmpty()">
+      <div class="px-6 md:px-12 flex flex-wrap md:flex-no-wrap" v-if="ifNotEmpty()">
         <!-- Sections Menu -->
         <div class="sections-menu md:ltr:pr-12 md:rtl:pl-12 pb-8 md:pb-0 w-full md:w-1/4 flex-shrink-0">
           <div v-for="section in pageContent.section" :key="section.sectionId"
@@ -22,7 +21,6 @@
         </template>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -126,10 +124,6 @@
 
   [dir="rtl"] .section-link {
     padding-right: 8px;
-  }
-
-  .section-content>>>h3 {
-    @apply text-2xl pb-4 font-bold opacity-90;
   }
 
   .section-content>>>p {

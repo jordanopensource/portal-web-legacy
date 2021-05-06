@@ -2,7 +2,7 @@
   <div class="time-card">
     <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'clock']" />
     <div>
-      <p class="font-bold ltr:leading-none rtl:leading-tight">{{ $t('publication.publishDate') }}</p>
+      <h5 class="leading-none mb-1">{{ $t('publication.publishDate') }}</h5>
       <p>{{ date | fullDate($i18n.locale) }}</p>
     </div>
   </div>

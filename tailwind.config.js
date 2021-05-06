@@ -42,33 +42,24 @@ module.exports = {
         'grey90': '#e5e5e5'
       },
       fontFamily: {
-        'aleoLight': 'aleo-light',
-        'aleo': 'aleo',
-        'aleoItalic': 'aleo-italic',
-        'aleoLightItalic': 'aleo-light-italic',
-        'lato': 'lato',
-        'merriweather': 'Merriweather',
-        'markazi': 'Markazi Text',
-        'bukra': 'bukra',
-        'bukraLight': 'bukra-light',
-        'bukraBold': 'bukra-Bold',
-        'bukraBoldItalic': 'bukra-Bold-Italic',
-        'almarai': 'Almarai',
-        'naskh': 'Uthman Naskh'
+        'IBMPlexSansArabic': 'IBM Plex Sans Arabic',
+        'IBMPlexMono': 'IBM Plex Mono',
       },
       padding: {
         '15px': '15px',
       },
       opacity: {
         '90': '0.9',
-        '80': '0.8'
+        '80': '0.8',
+        '70': '0.7',
       },
       maxWidth: {
         '1/4': '25%',
         '1/2': '50%'
       },
       lineHeight: {
-        'golden': '1.1618'
+        'golden': '1.1618',
+        '18': '1.8',
       },
       width: {
         '175': '175px',
