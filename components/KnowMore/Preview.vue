@@ -4,11 +4,10 @@
     <img v-else :src="placeholderImage" class="bot" />
     <div class="flex-grow mt-4">
       <nuxt-link :to="pageLink">
-        <h2 class="mb-4 text-3xl">{{ page['title_' + $i18n.locale] ? page['title_' + $i18n.locale] : page['title_en'] }}
-        </h2>
+        <h3 class="mb-4">{{ page['title_' + $i18n.locale] ? page['title_' + $i18n.locale] : page['title_en'] }}</h3>
       </nuxt-link>
       <p v-if="page['description_' + $i18n.locale]">{{ page['description_' + $i18n.locale] }}</p>
-      <nuxt-link :to="pageLink" class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
+      <nuxt-link :to="pageLink" class="py-4 display-more">
         {{ $t('meta.knowMore') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>

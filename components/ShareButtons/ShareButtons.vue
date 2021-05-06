@@ -1,16 +1,16 @@
 <template>
-    <div class="flex flex-wrap items-stretch">
+    <div class="flex flex-wrap items-stretch text-xl">
         <a class="share-button" :href="'https://twitter.com/share?url=' + url" target="_blank">
-            <font-awesome-icon :icon="['fab','twitter']" size="2x" />
+            <font-awesome-icon :icon="['fab','twitter']" :size="faSize" />
         </a>
         <a class="share-button" :href="'https://www.linkedin.com/shareArticle?url=' + url" target="_blank">
-            <font-awesome-icon :icon="['fab','linkedin']" size="2x" />
+            <font-awesome-icon :icon="['fab','linkedin']" :size="faSize" />
         </a>
         <a class="share-button" :href="'https://www.facebook.com/sharer.php?u=' + url" target="_blank">
-            <font-awesome-icon :icon="['fab','facebook-square']" size="2x" />
+            <font-awesome-icon :icon="['fab','facebook-square']" :size="faSize" />
         </a>
         <span class="share-button tooltip" @click="copyToClipboard(url)">
-            <font-awesome-icon icon="link" size="2x" />
+            <font-awesome-icon icon="link" :size="faSize" />
             <span ref="copyButton" class="copy-tooltip-text invisible"></span>
         </span>
     </div>
@@ -19,6 +19,11 @@
 <script>
     export default {
         name: 'ShareButtons',
+        data() {
+            return {
+                faSize: 'lg'
+            }
+        },
         props: {
             url: {
                 type: String,

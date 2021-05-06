@@ -62,7 +62,6 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import appImage from '~/components/UI/appImage';
     import appControlInput from "@/components/FormComponents/AppControlInput";
     import appButton from "@/components/FormComponents/AppButton";
@@ -142,16 +141,8 @@
         @apply object-cover object-center;
     }
 
-    h3 {
-        @apply text-2xl;
-    }
-
     hr {
         @apply border-josa-warm-grey-dark;
-    }
-
-    /deep/ label {
-        @apply font-bold mb-1;
     }
 
     .icon {

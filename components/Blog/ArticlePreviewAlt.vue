@@ -6,16 +6,17 @@
     </nuxt-link>
     <div class="flex-grow">
       <nuxt-link :to="articleLink">
-        <h3 class="mb-4 text-3xl font-bold">{{ article.title }}</h3>
+        <h3 class="mb-4">{{ article.title }}</h3>
       </nuxt-link>
-      <p class="text-josa-warm-grey-dark mb-2">
+      <p class="display-faded mb-2">
         <span>{{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</span>
-        <span v-if="typeof article.author == 'object' && article.author !== null">{{ $t('meta.by') }} {{article.author['name_' + $i18n.locale]}}</span>
+        <span v-if="typeof article.author == 'object' && article.author !== null">{{ $t('meta.by') }}
+          {{article.author['name_' + $i18n.locale]}}</span>
       </p>
       <p v-if="article.excerpt">{{article.excerpt}}</p>
       <p v-else>{{article.body | truncate(250) }}</p>
       <nuxt-link :to="articleLink"
-        class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
+        class="py-4 display-more">
         {{ $t('meta.readMore') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
@@ -58,15 +59,4 @@
 </script>
 
 <style scoped>
-  h3 {
-    @apply font-bold;
-  }
-
-  [lang="en"] p {
-    @apply leading-normal;
-  }
-
-  [lang="ar"] p {
-    @apply leading-normal;
-  }
 </style>

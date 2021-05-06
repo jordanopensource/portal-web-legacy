@@ -1,10 +1,8 @@
 <template>
   <section>
-    <div class="container">
+    <div class="container">EAD
       <div class="py-12 px-6 md:px-12">
-        <div class="text-josa-blue text-xl mb-2">
-         {{ career.careerType['title_' + $i18n.locale] }}
-        </div>
+        <h4 class="text-josa-blue mb-2">{{ career.careerType['title_' + $i18n.locale] }}</h4>
         <div>
           <h2>{{ career['title_' + $i18n.locale] }}</h2>
           <p v-if="career.status == false" class="closed">{{ $t('meta.closed') }}</p>
@@ -47,7 +45,6 @@
       }
     },
   }
-
 </script>
 
 <style scoped>
@@ -63,5 +60,4 @@
   .description>>>h3 {
     @apply mb-4;
   }
-
 </style>

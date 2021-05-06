@@ -5,7 +5,7 @@
       <nuxt-link :to="publicationLink">
         <h3 class="mb-4">{{ publication['title_' + $i18n.locale] }}</h3>
       </nuxt-link>
-      <p class="text-josa-warm-grey-dark mb-2">
+      <p class="display-faded mb-2">
         {{ publication.publishDate ? publication.publishDate: publication.created_at | fullDate($i18n.locale) }}</p>
     </div>
   </div>
@@ -36,7 +36,4 @@
 </script>
 
 <style scoped>
-  h3 {
-    @apply font-bold;
-  }
 </style>

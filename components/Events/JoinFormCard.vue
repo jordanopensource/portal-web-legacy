@@ -3,7 +3,7 @@
         <div>
             <div class="w-full lg:ltr:ml-2 lg:rtl:mr-2 mt-4">
                 <p class="live text-xs uppercase mb-2">{{ $t('events.happening')}}</p>
-                <p>{{ $t('events.joinCall')}} below and press 'Join .'</p>
+                <p>{{ $t('events.joinCall')}}</p>
             </div>
             <div v-if="event.onlineMeeting.password" class="block py-4">
                 <hr>
@@ -87,7 +87,6 @@ name: 'JoinFormCard',
 <style scoped>
     .join-form-card {
         @apply bg-josa-warm-grey-light p-8 flex align-top;
-
     }
 
     .icon {
@@ -102,17 +101,8 @@ name: 'JoinFormCard',
         @apply bg-josa-warm-grey-light align-top;
     }
 
-
-    h3 {
-        @apply text-2xl;
-    }
-
     hr {
         @apply border-josa-warm-grey-dark;
-    }
-
-    /deep/ label {
-        @apply font-bold mb-1;
     }
 
     [dir="rtl"] .icon {

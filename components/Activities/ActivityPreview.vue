@@ -3,8 +3,8 @@
         <appImage v-if="activity.image" :image="activity.image" size="medium" class="thumbnail" />
         <img v-else :src="placeholderImage" class="thumbnail" />
         <div class="my-auto">
-            <div class="text-josa-warm-grey-dark font-bold uppercase">{{ date }}</div>
-            <h2 class="mb-4 mt-2 text-3xl">{{ activity['title_' + $i18n.locale] }}</h2>
+            <h5 class="display-faded uppercase">{{ date }}</h5>
+            <h3 class="mb-4 mt-2">{{ activity['title_' + $i18n.locale] }}</h3>
             <div v-html="activity['description_' + $i18n.locale]"></div>
         </div>
     </div>

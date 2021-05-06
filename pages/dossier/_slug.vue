@@ -6,8 +6,8 @@
       <div class="container">
         <div class="px-12">
           <div class="my-auto w-full lg:max-w-1/2">
-            <h5 class="mb-2">{{$t('dossier.dossier')}}</h5>
-            <h4 class="font-aleoLightItalic mb-4">{{ dossier['title_' + $i18n.locale] }}</h4>
+            <h4 class="mb-2">{{$t('dossier.dossier')}}</h4>
+            <h1 class="mb-4">{{ dossier['title_' + $i18n.locale] }}</h1>
             <p v-if="dossier['tagline_' + $i18n.locale]" class="ltr:leading-normal rtl:leading-relaxed">
               {{ dossier['tagline_' + $i18n.locale] }}</p>
           </div>
@@ -26,7 +26,7 @@
           <!-- Content List -->
           <div class="w-full lg:w-2/5 mb-8">
             <div class="bg-josa-warm-grey-light p-8">
-              <p class="font-bold uppercase mb-8">{{$t('dossier.inDossier')}}</p>
+              <h5 class="uppercase mb-8">{{$t('dossier.inDossier')}}</h5>
               <div v-if="dossier['content_' + $i18n.locale]" v-html="dossier['content_' + $i18n.locale]"></div>
             </div>
           </div>

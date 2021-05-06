@@ -88,15 +88,11 @@
         @apply bg-josa-warm-grey-light p-8 align-top;
     }
 
-    h3 {
-        @apply font-bold mb-2;
-    }
-
     hr {
         @apply border-josa-warm-grey-dark;
     }
 
     /deep/ label {
-        @apply font-bold mb-1;
+        @apply mb-1;
     }
 </style>

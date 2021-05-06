@@ -1,7 +1,6 @@
 <template>
   <div>
     <pageBanner :pageMeta="pageContent" />
-
     <div class="container py-20">
       <div class="px-6 md:px-12 flex flex-wrap md:flex-no-wrap" v-if="ifNotEmpty()">
         <!-- Sections Menu -->
@@ -22,7 +21,6 @@
         </template>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -126,10 +124,6 @@
 
   [dir="rtl"] .section-link {
     padding-right: 8px;
-  }
-
-  .section-content>>>h3 {
-    @apply text-2xl pb-4 font-bold opacity-90;
   }
 
   .section-content>>>p {
