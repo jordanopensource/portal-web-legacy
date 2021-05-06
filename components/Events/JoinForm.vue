@@ -46,10 +46,10 @@
                     class="thumbnail w-full lg:w-1/2 lg:ltr:mr-2 lg:rtl:ml-2" />
                 <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
                 <div class="w-full lg:w-1/2 lg:ltr:ml-2 lg:rtl:mr-2 mt-4">
-                    <div class="flex">
-                        <font-awesome-icon class="flex ltr:mr-2 rtl:ml-2" size="lg"
+                    <div class="flex items-center mb-4">
+                        <font-awesome-icon class="flex ltr:mr-2 rtl:ml-2"
                             :icon="['fas', 'exclamation-triangle']" />
-                        <p class="text-lg uppercase mb-2">{{ $t('events.notStarted')}}</p>
+                        <h6 class="text-lg uppercase">{{ $t('events.notStarted')}}</h6>
                     </div>
                     <p>{{ $t('events.waitMessage')}}</p>
                     <p class="font-bold">{{ from | dayFullDate($i18n.locale) }}</p>
@@ -62,75 +62,75 @@
 </template>
 
 <script>
-import axios from 'axios';
-import appImage from '~/components/UI/appImage';
-import appControlInput from "@/components/FormComponents/AppControlInput";
-import appButton from "@/components/FormComponents/AppButton";
+    import axios from 'axios';
+    import appImage from '~/components/UI/appImage';
+    import appControlInput from "@/components/FormComponents/AppControlInput";
+    import appButton from "@/components/FormComponents/AppButton";
 
-export default {
-    name: 'EventJoinForm',
-    data() {
-        return {
-            form: {
-                fullName: '',
-                password: ''
-            },
-            placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
-        }
-    },
-    components: {
-        appControlInput,
-        appButton,
-        appImage
-    },
-    props: {
-        event: {
-            type: Object,
-            required: true
-        },
-        running: {
-            type: Boolean,
-            required: true
-        },
-        from: {
-                required: true
-        },
-        to: {
-            required: true
-        }
-    },
-    methods: {
-        removeJoin() {
-            this.$route.query.join == 'false'
-        },
-        createHash(data) {
-            const crypto = require('crypto');
-            const hash = crypto.createHash('sha1');
-            hash.update(data);
-            return hash.digest('hex');
-        },
-        joinMeeting() {
-            let fullName = this.form.fullName.replaceAll(' ', '+')
-            let password = this.form.password
-            let meetingID = this.event.onlineMeeting.meetingID
-            let attendeePW = this.event.onlineMeeting.attendeePW
-            let url = this.$config.bbbAPIUrl
-            let secret = this.$config.bbbAPISecret
-            let call
-            if (this.event.onlineMeeting.password) {
-                let password = this.form.password
-                call = `meetingID=${meetingID}&password=${password}&fullName=${fullName}`
-            } else {
-                call = `meetingID=${meetingID}&password=${attendeePW}&fullName=${fullName}`
+    export default {
+        name: 'EventJoinForm',
+        data() {
+            return {
+                form: {
+                    fullName: '',
+                    password: ''
+                },
+                placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
             }
-            let data = `join${call}${secret}`
-            let encoded = encodeURI(data)
-            let checksum = this.createHash(encoded)
-            let redirect = `${url}join?${call}&checksum=${checksum}`
-            window.open(redirect, '_blank');
+        },
+        components: {
+            appControlInput,
+            appButton,
+            appImage
+        },
+        props: {
+            event: {
+                type: Object,
+                required: true
+            },
+            running: {
+                type: Boolean,
+                required: true
+            },
+            from: {
+                required: true
+            },
+            to: {
+                required: true
+            }
+        },
+        methods: {
+            removeJoin() {
+                this.$route.query.join == 'false'
+            },
+            createHash(data) {
+                const crypto = require('crypto');
+                const hash = crypto.createHash('sha1');
+                hash.update(data);
+                return hash.digest('hex');
+            },
+            joinMeeting() {
+                let fullName = this.form.fullName.replaceAll(' ', '+')
+                let password = this.form.password
+                let meetingID = this.event.onlineMeeting.meetingID
+                let attendeePW = this.event.onlineMeeting.attendeePW
+                let url = this.$config.bbbAPIUrl
+                let secret = this.$config.bbbAPISecret
+                let call
+                if (this.event.onlineMeeting.password) {
+                    let password = this.form.password
+                    call = `meetingID=${meetingID}&password=${password}&fullName=${fullName}`
+                } else {
+                    call = `meetingID=${meetingID}&password=${attendeePW}&fullName=${fullName}`
+                }
+                let data = `join${call}${secret}`
+                let encoded = encodeURI(data)
+                let checksum = this.createHash(encoded)
+                let redirect = `${url}join?${call}&checksum=${checksum}`
+                window.open(redirect, '_blank');
+            }
         }
     }
-}
 </script>
 
 <style scoped>
