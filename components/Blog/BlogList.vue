@@ -6,12 +6,17 @@
     </div>
     <div v-else>
       <h2>{{ title }}</h2>
-      <articlePreview v-for="article in loadedArticles" :key="article.id" :id="article.id" :article="article" />
+      <template v-for="article in loadedArticles">
+        <template v-if="category=='all'">
+          <articlePreview v-show="!featuredBlogs.has(article.id)" :key="article.id" :id="article.id" :article="article" />
+        </template>
+        <articlePreview v-else :key="article.id" :id="article.id" :article="article" />
+      </template>
       <!-- Pagination -->
       <div class="pagination pt-6 text-center border-t border-dotted">
         <ul>
           <span class="px-3"><a @click="fetchCurrentPage(currentPage - 1)" :class="currentPage == 1 ? 'disabled' : ''">
-              <font-awesome-icon icon="chevron-left"></font-awesome-icon>
+              <font-awesome-icon :icon="$i18n.locale == 'ar' ? 'chevron-right' : 'chevron-left'"></font-awesome-icon>
             </a></span>
           <span v-for="i in pageCount" :key="i">
             <li v-if="(i == pageCount || i==1 || Math.abs(i - currentPage) < 3)">
@@ -22,7 +27,7 @@
           </span>
           <span class="px-3"><a @click="fetchCurrentPage(currentPage + 1)"
               :class="currentPage == pageCount ? 'disabled' : ''">
-              <font-awesome-icon icon="chevron-right"></font-awesome-icon>
+              <font-awesome-icon :icon="$i18n.locale == 'ar' ? 'chevron-left' : 'chevron-right'"></font-awesome-icon>
             </a></span>
         </ul>
       </div>
@@ -52,7 +57,6 @@
     props: {
       title: {
         type: String,
-        
       },
       category: {
         type: String,
@@ -74,6 +78,9 @@
     computed: {
       pageCount() {
         return Math.ceil(this.count / this.numberPerPage)
+      },
+      featuredBlogs() {
+        return this.$store.getters.getFeaturedBlogs
       }
     },
     created() {

@@ -11,7 +11,8 @@ export default {
     latest: 'آخر المقالات',
     more: 'المزيد من المقالات',
     featured: 'مقالات مختارة',
-    spotlight: 'آخر المقالات'
+    spotlight: 'آخر المقالات',
+    disclaimer: 'الآراء المنشورة تعبر عن رأي صاحبها ولا تعبر بالضرورة عن رأي الجمعية الأردنية للمصدر المفتوح (جوسا)'
   },
   // Time Card
   timeCard: {
@@ -189,4 +190,7 @@ export default {
   tooltip: {
     copied: 'تم النسخ!'
   },
+  timeString:{
+    time:'بتوقيت عمان'
+  }
 }
