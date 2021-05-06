@@ -5,8 +5,11 @@ body {
   @apply font-IBMPlexSansArabic text-josa-black leading-normal text-base;
 }
 
-/* Mono */ 
-pre, code, kbd, samp {
+/* Mono */
+pre,
+code,
+kbd,
+samp {
   @apply font-IBMPlexMono;
 }
 
@@ -33,32 +36,32 @@ a:hover>h6 {
 
 /* H1 */
 h1 {
-  @apply text-5xl;
+  @apply text-4xl;
 }
 
 /* h2 */
 h2 {
-  @apply text-4xl;
+  @apply text-3xl;
 }
 
 /* h3 */
 h3 {
-  @apply text-2xl font-medium;
+  @apply text-xl font-medium;
 }
 
 /* h4 */
 h4 {
-  @apply text-xl mb-0;
+  @apply text-lg mb-0;
 }
 
 /* h5 */
 h5 {
-  @apply text-lg font-medium mb-1;
+  @apply text-base font-medium mb-1;
 }
 
 /* h6 */
 h6 {
-  @apply text-lg mb-0;
+  @apply text-base mb-0;
 }
 
 /* Display Styles */
@@ -67,17 +70,55 @@ h6 {
 }
 
 .display-lead {
-  @apply text-2xl text-josa-black font-light opacity-70;
+  @apply text-xl text-josa-black font-light opacity-70;
 }
 
 .display-more {
- @apply block text-josa-blue;
+  @apply block text-josa-blue;
 }
 
 .display-more:hover {
   @apply opacity-75;
- }
+}
 
- .display-faded {
+.display-faded {
   @apply text-josa-warm-grey-dark;
- }
+}
+
+
+@screen md {
+
+  /* H1 */
+  h1 {
+    @apply text-5xl;
+  }
+
+  /* h2 */
+  h2 {
+    @apply text-4xl;
+  }
+
+  /* h3 */
+  h3 {
+    @apply text-2xl font-medium;
+  }
+
+  /* h4 */
+  h4 {
+    @apply text-xl mb-0;
+  }
+
+  /* h5 */
+  h5 {
+    @apply text-lg font-medium mb-1;
+  }
+
+  /* h6 */
+  h6 {
+    @apply text-lg mb-0;
+  }
+
+  .display-lead {
+    @apply text-2xl;
+  }
+}

@@ -161,7 +161,13 @@
   }
 
   article .article-body /deep/ {
-    @apply text-xl font-normal leading-18;
+    @apply text-lg font-normal leading-18;
+  }
+
+  @screen md {
+    article .article-body /deep/ {
+      @apply text-xl;
+    }
   }
 
   /* article-body */

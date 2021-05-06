@@ -45,10 +45,6 @@
   }
 </script>
 <style scoped>
-  h2 {
-    font-size: 2.5rem;
-  }
-
   .button-sharp {
     @apply px-8;
   }
