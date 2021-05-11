@@ -51,6 +51,12 @@
 
 <style scoped>
   .board-staff-list {
-    @apply px-12 mt-20;
+    @apply px-6 mt-20;
+  }
+
+  @screen md {
+    .board-staff-list {
+      @apply px-12;
+    }
   }
 </style>

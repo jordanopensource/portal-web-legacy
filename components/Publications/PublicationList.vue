@@ -2,7 +2,7 @@
 <template>
   <section v-if="ifNotEmpty()">
     <div v-if="featured">
-      <h5 class="py-2 lg:pt-0 font-bold text-josa-blue">{{ title }}</h5>
+      <h5 class="py-2 lg:pt-0 text-josa-blue">{{ title }}</h5>
       <publicationFeatured v-for="publication in loadedPublications" :key="publication.id" :id="publication.id"
         :publication="publication" />
     </div>

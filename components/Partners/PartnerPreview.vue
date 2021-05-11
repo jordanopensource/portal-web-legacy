@@ -3,11 +3,11 @@
     <appImage v-if="partner.logo" :image="partner.logo" size="medium" class="thumbnail" />
     <img v-else :src="placeholderImage" class="thumbnail" />
     <div class="flex-grow">
-      <h2 class="mb-4 text-3xl">{{ partner['title_' + $i18n.locale] }}</h2>
+      <h3 class="mb-4">{{ partner['title_' + $i18n.locale] }}</h3>
       <p v-if="partner['description_' + $i18n.locale]">{{ partner['description_' + $i18n.locale] }}</p>
       <p v-else>{{ partner['description_' + $i18n.locale] }}</p>
       <a :href="partner.websiteUrl" target="_blank"
-        class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
+        class="py-4 display-more">
         {{ $t('meta.visitWebsite') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </a>

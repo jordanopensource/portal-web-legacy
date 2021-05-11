@@ -6,8 +6,8 @@
       <div class="container">
         <div class="px-12">
           <div class="my-auto w-full lg:max-w-1/2">
-            <h5 class="mb-2">{{$t('dossier.dossier')}}</h5>
-            <h4 class="font-aleoLightItalic mb-4">{{ dossier['title_' + $i18n.locale] }}</h4>
+            <h4 class="mb-2">{{$t('dossier.dossier')}}</h4>
+            <h1 class="mb-4">{{ dossier['title_' + $i18n.locale] }}</h1>
             <p v-if="dossier['tagline_' + $i18n.locale]" class="ltr:leading-normal rtl:leading-relaxed">
               {{ dossier['tagline_' + $i18n.locale] }}</p>
           </div>
@@ -19,37 +19,39 @@
         <div class="flex flex-wrap lg:flex-no-wrap">
           <!-- Description -->
           <div class="w-full lg:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
+            <!-- share buttons  -->
+            <shareButtons v-if="url" class="mb-4 w-full justify-end" :url="url" />
             <div v-if="dossier['description_' + $i18n.locale]" v-html="dossier['description_' + $i18n.locale]"></div>
           </div>
           <!-- Content List -->
           <div class="w-full lg:w-2/5 mb-8">
             <div class="bg-josa-warm-grey-light p-8">
-              <p class="font-bold uppercase mb-8">{{$t('dossier.inDossier')}}</p>
+              <h5 class="uppercase mb-8">{{$t('dossier.inDossier')}}</h5>
               <div v-if="dossier['content_' + $i18n.locale]" v-html="dossier['content_' + $i18n.locale]"></div>
             </div>
           </div>
         </div>
         <!-- Articles -->
         <section v-if="ifArticles" class="mt-20">
-          <articlePreviewAlt class="my-16" v-for="article in orderBy(articlesByLanguage, 'publishDate', -1)" :key="article.id"
-            :article="article" />
+          <articlePreviewAlt class="my-16" v-for="article in orderBy(articlesByLanguage, 'publishDate', -1)"
+            :key="article.id" :article="article" />
         </section>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
   import axios from 'axios';
   import articlePreviewAlt from '~/components/Blog/ArticlePreviewAlt';
+  import shareButtons from '~/components/ShareButtons/ShareButtons';
   import Vue2Filters from 'vue2-filters';
-
   export default {
     layout: "default",
     mixins: [Vue2Filters.mixin],
     components: {
-      articlePreviewAlt
+      articlePreviewAlt,
+      shareButtons
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
@@ -59,7 +61,7 @@
           'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.dossier['metaDescription_' + this.$i18n.locale] ? this.dossier['metaDescription_' + this
+            content: this.dossier['tagline_' + this.$i18n.locale] ? this.dossier['tagline_' + this
               .$i18n.locale] : ''
           },
           ...this.$options.filters.ogTags('dossier', this.dossier, this.$route.path, this.$i18n.locale),
@@ -92,6 +94,11 @@
           })
         })
     },
+    data() {
+      return {
+        url: null
+      }
+    },
     computed: {
       backgroundUrl() {
         return process.env.baseUrl + this.dossier.thumbnail.url
@@ -107,7 +114,10 @@
           return true;
         else
           return false;
-      },
+      }
+    },
+    mounted() {
+      this.url = window.location.href;
     }
   }
 </script>

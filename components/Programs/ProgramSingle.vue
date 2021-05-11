@@ -3,7 +3,7 @@
     <pageBanner :pageMeta="program" />
     <div class="container py-20">
       <!-- HTML Content -->
-      <div v-if="program['content_' + $i18n.locale]" id="content" class="px-12">
+      <div v-if="program['content_' + $i18n.locale]" id="content" class="px-6 md:px-12">
         <div v-html="program['content_' + $i18n.locale]"></div>
         <div class="block py-8 my-4 border-josa-warm-grey-dark">
           <hr>
@@ -11,13 +11,13 @@
       </div>
       <!-- Highlighted Activities -->
       <activitiesList v-if="ifActivities" :activities="program.activities" :title="$t('activities.highlighted')"
-        class="px-12" />
-      <div v-if="ifActivities" class="block py-8 my-4 mx-12 border-josa-warm-grey-dark">
+        class="px-6 md:px-12" />
+      <div v-if="ifActivities" class="block py-8 my-4 mx-6 md:mx-12 border-josa-warm-grey-dark">
         <hr>
       </div>
       <!-- Featured Articles -->
-      <latestArticles :articles="filteredByLanguage" :numberOfArticles="2" :title="$t('blog.featured')" class="px-12" />
-      <div v-if="ifNotEmpty()" class="block py-8 my-4 mx-12 border-josa-warm-grey-dark">
+      <latestArticles :articles="filteredByLanguage" :numberOfArticles="2" :title="$t('blog.featured')" class="px-6 md:px-12" />
+      <div v-if="ifNotEmpty()" class="block py-8 my-4 mx-6 md:mx-12 border-josa-warm-grey-dark">
         <hr>
       </div>
       <!-- Trivia -->

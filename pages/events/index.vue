@@ -5,7 +5,7 @@
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
-        <div class="px-12 flex flex-col sm:flex-row">
+        <div class="px-6 md:px-12 flex flex-col sm:flex-row">
           <span :class="activeCat == 'all' ? 'active': ''" class="cat-link"
             @click="setActiveCat('all')">{{ $t('eventCats.all') }}</span>
           <span :class="activeCat == cat.name ? 'active': ''" class="cat-link" v-for="cat in eventCategories"
@@ -15,7 +15,7 @@
     </div>
     <!-- Upcoming Events -->
     <div class="container pb-8 mt-20">
-      <div class="px-12">
+      <div class="px-6 md:px-12">
         <h2 class="mb-8">{{ $t('events.upcoming') }}</h2>
         <eventListUpcoming v-if="activeCat=='all'" category="all" />
         <template v-for="cat in eventCategories" >
@@ -25,7 +25,7 @@
     </div>
     <!-- Previous Events -->
     <div class="container pb-8 mt-20">
-      <div class="px-12 ">
+      <div class="px-6 md:px-12 ">
         <h2 class="mb-8">{{ $t('events.previous') }}</h2>
         <eventListPrevious v-if="activeCat=='all'" category="all" />
         <template v-for="cat in eventCategories">

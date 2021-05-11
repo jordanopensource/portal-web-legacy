@@ -30,6 +30,8 @@ function ogData(type, content, path, lang) {
   // Set description
   if (content.excerpt) {
     description = content.excerpt
+  } else if (content['tagline_' + lang]) {
+    description = content['tagline_' + lang]
   } else if (content['metaDescription_' + lang]) {
     description = content['metaDescription_' + lang]
   } else if (content['excerpt_' + lang]) {

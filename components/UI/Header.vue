@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container">
-      <div class="px-12 flex justify-between flex-wrap lg:flex-no-wrap items-center">
+      <div class="px-6 md:px-12 flex justify-between flex-wrap lg:flex-no-wrap items-center">
         <div class="flex items-center flex-shrink-0">
           <nuxt-link id="brand" tag="div" :to="localePath('index')">
             <a>

@@ -5,13 +5,13 @@
       <img v-else :src="placeholderImage" />
     </nuxt-link>
     <div class="flex-grow">
-      <h5 class="py-2 lg:pt-0 font-bold text-josa-blue">
+      <h4 class="py-2 lg:pt-0 text-josa-blue">
         <span v-for="(topic, index) in article.topics" :key="topic.id">
           {{ topic['title_' + $i18n.locale] }}{{ index != Object.keys(article.topics).length - 1 ? ', ' : ''}}
         </span>
-      </h5>
+      </h4>
       <nuxt-link :to="articleLink">
-        <h2 class="mb-4 text-3xl">{{ article.title }}</h2>
+        <h3 class="mb-4">{{ article.title }}</h3>
       </nuxt-link>
     </div>
   </div>
