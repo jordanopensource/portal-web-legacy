@@ -8,7 +8,7 @@
       <h2>{{ title }}</h2>
       <template v-for="article in loadedArticles">
         <template v-if="category=='all'">
-          <articlePreview v-show="!featuredBlogs.has(article.id)" :key="article.id" :id="article.id" :article="article" />
+          <articlePreview v-show="!featuredArticles.has(article.id)" :key="article.id" :id="article.id" :article="article" />
         </template>
         <articlePreview v-else :key="article.id" :id="article.id" :article="article" />
       </template>
@@ -79,8 +79,8 @@
       pageCount() {
         return Math.ceil(this.count / this.numberPerPage)
       },
-      featuredBlogs() {
-        return this.$store.getters.getFeaturedBlogs
+      featuredArticles() {
+        return this.$store.state.blog.featuredArticles
       }
     },
     created() {
