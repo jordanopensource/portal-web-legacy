@@ -99,7 +99,7 @@
     },
     computed: {
       menus() {
-        return this.$store.getters.loadedMenus
+        return this.$store.state.loadedMenus
       }
     }
   }
