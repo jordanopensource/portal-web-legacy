@@ -2,7 +2,7 @@
   <div class="board-staff-page">
 
     <!-- Banner -->
-    <pageBanner :pageMeta="boardStaffMeta" />
+    <pageBanner :pageMeta="pageInfo" />
 
     <!-- Lists -->
     <div class="container pb-20">
@@ -24,12 +24,11 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.boardStaffMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+        title: this.pageInfo['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.boardStaffMeta['metaDescription_' + this.$i18n.locale] ? this.boardStaffMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -40,10 +39,9 @@
       pageBanner,
       boardStaffList
     },
-    async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=boardandstaff');
-      return {
-        boardStaffMeta: pageMeta.data[0]
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.boardandstaff
       }
     }
   };

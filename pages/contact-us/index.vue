@@ -1,6 +1,6 @@
 <template>
   <div id="contact-us">
-    <pageBanner :pageMeta="contactUsMeta" />
+    <pageBanner :pageMeta="pageInfo" />
     <locationMap :latitude="contactInfo.address.latitude" :longitude="contactInfo.address.longitude"
       :mLongitude="contactInfo.address.markerLongitude" :mLatitude="contactInfo.address.markerLatitude"
       mapHeight="500px" />
@@ -20,12 +20,11 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.contactUsMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+        title: this.pageInfo['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.contactUsMeta['metaDescription_' + this.$i18n.locale] ? this.contactUsMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -38,11 +37,14 @@
       feedback,
       locationMap
     },
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.contact
+      }
+    },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=contact-us');
       const contactData = await axios.get(process.env.baseUrl + '/contact-info');
       return {
-        contactUsMeta: pageMeta.data[0],
         contactInfo: contactData.data
       }
     },

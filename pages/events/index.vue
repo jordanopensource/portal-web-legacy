@@ -1,7 +1,7 @@
 <template>
   <div class="event-page">
     <!-- Banner -->
-    <pageBanner :pageMeta="eventMeta" />
+    <pageBanner :pageMeta="pageInfo" />
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
@@ -18,7 +18,7 @@
       <div class="px-6 md:px-12">
         <h2 class="mb-8">{{ $t('events.upcoming') }}</h2>
         <eventListUpcoming v-if="activeCat=='all'" category="all" />
-        <template v-for="cat in eventCategories" >
+        <template v-for="cat in eventCategories">
           <eventListUpcoming v-if="activeCat==cat.name" :category="cat.name" :key="cat.id" />
         </template>
       </div>
@@ -53,12 +53,11 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.eventMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+        title: this.pageInfo['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.eventMeta['metaDescription_' + this.$i18n.locale] ? this.eventMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -71,11 +70,14 @@
       appButton,
       pageBanner
     },
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.events
+      }
+    },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=event');
       const cats = await axios.get(process.env.baseUrl + '/event-categories');
       return {
-        eventMeta: pageMeta.data[0],
         eventCategories: cats.data
       }
     },
@@ -85,5 +87,4 @@
       }
     }
   };
-
 </script>

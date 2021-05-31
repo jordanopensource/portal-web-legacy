@@ -2,7 +2,7 @@
   <div class="programs-page">
 
     <!-- Banner -->
-    <pageBanner :pageMeta="programsMeta" />
+    <pageBanner :pageMeta="pageInfo" />
 
     <!-- Lists -->
     <div class="container pb-20">
@@ -21,12 +21,11 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.programsMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+        title: this.pageInfo['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.programsMeta['metaDescription_' + this.$i18n.locale] ? this.programsMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -37,12 +36,11 @@
       pageBanner,
       programsList
     },
-    async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=programs');
-      return {
-        programsMeta: pageMeta.data[0]
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.programs
       }
-    }
+    },
   };
 </script>
 

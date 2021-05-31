@@ -1,7 +1,7 @@
 <template>
   <div class="publication-page">
     <!-- Banner -->
-    <pageBanner :pageMeta="publicationMeta" />
+    <pageBanner :pageMeta="pageInfo" />
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
@@ -38,12 +38,11 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.publicationMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+        title: this.pageInfo['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.publicationMeta['metaDescription_' + this.$i18n.locale] ? this.publicationMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -55,11 +54,14 @@
       appButton,
       pageBanner
     },
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.publications
+      }
+    },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=publications');
       const cats = await axios.get(process.env.baseUrl + '/publication-categories');
       return {
-        publicationMeta: pageMeta.data[0],
         publicationCategories: cats.data
       }
     },

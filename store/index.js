@@ -2,7 +2,8 @@
 import axios from 'axios';
 
 export const state = () => ({
-  loadedMenus: []
+  loadedMenus: [],
+  pages: [],
 })
 
 export const mutations = {
@@ -12,6 +13,13 @@ export const mutations = {
       obj[m.menuId] = m;
     });
     state.loadedMenus = obj
+  },
+  setPages(state, pages) {
+    const obj = {}
+    pages.forEach(m => {
+      obj[m.pageId] = m;
+    });
+    state.pages = obj
   }
 }
 
@@ -20,5 +28,8 @@ export const actions = {
     const menusRes = await axios.get(process.env.baseUrl + "/menus");
     const menusArray = menusRes.data;
     commit("setMenus", menusArray);
+    const pagesRes = await axios.get(process.env.baseUrl + '/page-metas');
+    const pagesArray = pagesRes.data;
+    commit("setPages", pagesArray);
   }
 }

@@ -1,12 +1,12 @@
 <template>
   <div>
     <!-- Banner -->
-    <homeBanner :pageMeta="homeMeta" :programs="programs" />
+    <homeBanner :pageMeta="pageInfo" :programs="programs" />
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
         <articlesSpotlight class="w-full p-6 md:p-12" :numberOfArticles="4" :language="$i18n.locale"
-          :title="$t('blog.spotlight')" tag="spotlight"/>
+          :title="$t('blog.spotlight')" tag="spotlight" />
       </div>
     </div>
     <!-- Join Us -->
@@ -60,18 +60,20 @@
         title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association',
         meta: [{
             name: 'description',
-            content: this.homeMeta['metaDescription_' + this.$i18n.locale] ? this.homeMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
       }
     },
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.home
+      }
+    },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=home');
       const programs = await axios.get(process.env.baseUrl + '/programs');
       return {
-        homeMeta: pageMeta.data[0],
         programs: programs.data
       }
     },
