@@ -14,7 +14,8 @@
     <!-- Impact -->
     <div class="container">
       <div class="row">
-        <ourWork class="w-full p-6 md:p-12" :title="$t('impact.title')" :programs="programs" />
+        <ourWork v-if="$fetchState.timestamp && programs.length" class="w-full p-6 md:p-12" :title="$t('impact.title')"
+          :programs="programs" />
       </div>
     </div>
     <!-- Featured publication -->
@@ -35,7 +36,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import articlesSpotlight from "~/components/Blog/ArticlesSpotlight";
   import lastestPublications from '~/components/Publications/LastestPublications';
   import upcomingEvents from '~/components/Events/UpcomingEvents';
@@ -46,6 +46,11 @@
 
   export default {
     layout: 'general',
+    data() {
+      return {
+        programs: []
+      }
+    },
     components: {
       ourWork,
       homeBanner,
@@ -60,7 +65,8 @@
         title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association',
         meta: [{
             name: 'description',
-            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this
+              .$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -71,12 +77,13 @@
         return this.$store.state.pages.home
       }
     },
-    async asyncData(context) {
-      const programs = await axios.get(process.env.baseUrl + '/programs');
-      return {
-        programs: programs.data
+    async fetch() {
+      let list = this.$store.state.programs.list
+      if (!list) {
+        await this.$store.dispatch("programs/fetch")
       }
-    },
+      this.programs = this.$store.state.programs.list
+    }
   }
 </script>
 
