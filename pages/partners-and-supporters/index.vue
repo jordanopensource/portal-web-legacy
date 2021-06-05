@@ -1,23 +1,30 @@
 <template>
   <div class="partners-page">
-
     <!-- Banner -->
     <pageBanner :pageMeta="pageInfo" />
-
     <!-- Lists -->
     <div class="container pb-20">
-      <partnersList class="partners-list" :title="$t('partners.title')" />
+      <partnersList v-if="$fetchState.timestamp" class="partners-list" :title="$t('partners.title')"
+        :partners="partners" />
     </div>
   </div>
 
 </template>
 
 <script>
-  import axios from 'axios';
   import pageBanner from "@/components/UI/PageBanner";
   import partnersList from '@/components/Partners/PartnersList';
 
   export default {
+    data() {
+      return {
+        partners: []
+      }
+    },
+    components: {
+      pageBanner,
+      partnersList
+    },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
@@ -25,21 +32,24 @@
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this
+              .$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
       }
     },
-    layout: "default",
-    components: {
-      pageBanner,
-      partnersList
-    },
     computed: {
       pageInfo() {
         return this.$store.state.pages.partners
+      },
+    },
+    async fetch() {
+      let partnersList = this.$store.state.partners.list
+      if (!partnersList) {
+        await this.$store.dispatch("partners/fetch")
       }
+      this.partners = this.$store.state.partners.list
     },
   };
 </script>
