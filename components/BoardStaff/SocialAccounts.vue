@@ -21,7 +21,7 @@
     },
     props: {
       accounts: {
-        type: Object,
+        type: Array,
         required: true
       }
     }
