@@ -295,5 +295,13 @@ export default {
   },
   timeString:{
     time:'Amman time'
+  },
+  addToCalender:{
+    add:'Add to Calendar',
+    Google:'Google',
+    Outlook:'Outlook',
+    Office:'Office 365',
+    Apple:'Apple',
+    Others:'Other Calendar'
   }
 }
