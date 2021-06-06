@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Banner -->
-    <div id="banner" :style="{backgroundImage: `url(${backgroundUrl})`}">
+    <div id="banner" :style="{backgroundImage: `url(${backgroundUrl})`}" v-if="$fetchState.timestamp && dossier">
       <div class="overlay"></div>
       <div class="container">
         <div class="px-12">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="container py-20">
-      <div class="px-12">
+      <div class="px-12" v-if="$fetchState.timestamp && dossier">
         <div class="flex flex-wrap lg:flex-no-wrap">
           <!-- Description -->
           <div class="w-full lg:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
@@ -42,13 +42,19 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import articlePreviewAlt from '~/components/Blog/ArticlePreviewAlt';
   import shareButtons from '~/components/ShareButtons/ShareButtons';
   import Vue2Filters from 'vue2-filters';
   export default {
     layout: "default",
     mixins: [Vue2Filters.mixin],
+    data() {
+      return {
+        url: null,
+        dossier: null,
+        ogData: null,
+      }
+    },
     components: {
       articlePreviewAlt,
       shareButtons
@@ -56,48 +62,32 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.dossier['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
-          'الجمعية الأردنية للمصدر المفتوح' :
-          'Jordan Open Source Association'),
+        title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ?
+          'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.dossier['tagline_' + this.$i18n.locale] ? this.dossier['tagline_' + this
-              .$i18n.locale] : ''
+            content: this.pageDesc
           },
-          ...this.$options.filters.ogTags('dossier', this.dossier, this.$route.path, this.$i18n.locale),
-          ...i18nSeo.meta
+          ...i18nSeo.meta,
+          ...this.ogTags,
         ]
       }
     },
-    asyncData({
-      params,
-      error
-    }) {
-      return axios
-        .get(process.env.baseUrl + '/dossiers?pageId=' + params.slug)
-        .then(res => {
-          if (res.data[0].id) {
-            return {
-              dossier: res.data[0]
-            }
-          } else {
-            return error({
-              statusCode: 404,
-              message: 'This page could not be found'
-            })
-          }
-        })
-        .catch(e => {
-          error({
-            statusCode: 404,
-            message: 'This page could not be found'
-          })
-        })
-    },
-    data() {
-      return {
-        url: null
+    async fetch() {
+      let dossier = this.$store.state.dossiers.item
+      let slug = this.$route.params.slug
+      if (!dossier || dossier.pageId != slug) {
+        await this.$store.dispatch("dossiers/fetch", slug)
+        dossier = this.$store.state.dossiers.item
       }
+      if (!dossier) {
+        this.$nuxt.error({
+          statusCode: 404,
+          message: 'This page could not be found'
+        })
+      }
+      this.dossier = dossier
+      this.ogData = ['dossier', dossier, this.$route.path, this.$i18n.locale]
     },
     computed: {
       backgroundUrl() {
@@ -106,7 +96,28 @@
       articlesByLanguage() {
         let articlesByLanguage = this.dossier.blogs.filter(article => article.language == this.$i18n.locale)
         return articlesByLanguage
-      }
+      },
+      pageTitle() {
+        try {
+          return this.dossier['title_' + this.$i18n.locale]
+        } catch {
+          return ''
+        }
+      },
+      pageDesc() {
+        try {
+          return this.dossier['tagline_' + this.$i18n.locale]
+        } catch {
+          return ''
+        }
+      },
+      ogTags() {
+        try {
+          return this.$options.filters.ogTags(...this.ogData)
+        } catch {
+          return []
+        }
+      },
     },
     methods: {
       ifArticles() {
