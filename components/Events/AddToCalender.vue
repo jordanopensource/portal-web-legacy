@@ -10,24 +10,24 @@
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/apple.svg">
           <a @click="makeIcsFile(AppleId)" id="download" download="JOSAEvent.ics"
-            class="list-text">{{ $t('addToCalender.Apple') }}</a>
+            class="list-text">{{ $t('addToCalender.apple') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/outlook.svg">
-          <a @click="OutlookEncode(OutlookLink)" class="list-text">{{ $t('addToCalender.Outlook') }}</a>
+          <a @click="OutlookEncode(OutlookLink)" class="list-text">{{ $t('addToCalender.outlook') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/search.svg">
-          <a @click="GoogleEncode(GoogleLink)" class="list-text">{{ $t('addToCalender.Google') }}</a>
+          <a @click="GoogleEncode(GoogleLink)" class="list-text">{{ $t('addToCalender.google') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/office.svg">
-          <a @click="OutlookEncode(OfficeLink)" class="list-text">{{ $t('addToCalender.Office') }}</a>
+          <a @click="OutlookEncode(OfficeLink)" class="list-text">{{ $t('addToCalender.office') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/download.svg">
           <a @click="makeIcsFile(OtherId)" id="download1" download="JOSAEvent.ics"
-            class="list-text">{{ $t('addToCalender.Others') }}</a>
+            class="list-text">{{ $t('addToCalender.others') }}</a>
         </div>
       </div>
     </div>
@@ -61,28 +61,44 @@
       },
       convertDate(date) {
         var event = new Date(date).toISOString();
-        event = event.replace(":", "");
-        event = event.split("-");
-        event = event.join("");
+        event = event.replaceAll(":","");
+        event = event.replaceAll("-","");
+        event = event.replaceAll(".","");
+        // //event = event.join("");
+        console.log(event);
         return event;
       },
       GoogleEncode(Url) {
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
-        let URL =
-          `${Url}action=TEMPLATE&text='${this.event['title_' + this.$i18n.locale]}&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(this.event.endDate)}&details=${desc}&sf=true&output=xml`;
-        console.log(typeof this.event['description_' + this.$i18n.locale])
-        window.open(encodeURI(URL), '_blank');
+        desc = desc.substring(0, 200);
+       // var title  = this.event['title_' + this.$i18n.locale];
+        let URL =`${Url}action=TEMPLATE&text=${this.event['title_' + this.$i18n.locale]}&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(this.event.endDate)}&details=${desc}&sf=true&output=xml`;
+        let encoded = encodeURI(URL)
+        window.open(encoded, '_blank');
+      },
+      OutlookDate(date){
+        var event = new Date(date)
+        //event = new Date(event.getTime() + 60*60000);
+        event = event.toISOString();
+        event = event.replaceAll(".000","");
+        //event = event.replaceAll("Z","");
+        event = encodeURIComponent(event);
+        console.log(event);
+        return event; 
       },
       OutlookEncode(Url) {
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
-        let URL =
-          `${Url}rru=addevent&subject='${this.event['title_' + this.$i18n.locale]}&startdt=${this.event.startDate}&enddt=${this.event.endDate}&body=${desc}`;
-        console.log(typeof this.event['description_' + this.$i18n.locale])
-        window.open(encodeURI(URL), '_blank');
+        desc = desc.substring(0, 200);
+        var title = this.event['title_' + this.$i18n.locale];
+        let URL = `${Url}rru=addevent&subject=${title}&startdt=${this.OutlookDate(this.event.startDate)}&enddt=${this.OutlookDate(this.event.endDate)}&body=${desc}`;
+        let encoded = URL
+        encoded = encodeURI(encoded)
+        //console.log(encoded)
+        window.open(encoded, '_blank');
       },
       makeIcsFile(id) {
         var div = document.createElement("div");
@@ -143,6 +159,8 @@
 
   .list {
     @apply origin-top-right absolute mt-2 w-56 rounded-md shadow-lg bg-white;
+    z-index: 999;
+    
   }
 
   .list-text {
