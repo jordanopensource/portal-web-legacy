@@ -25,6 +25,11 @@
           <a @click="OutlookEncode(OfficeLink)" class="list-text">{{ $t('addToCalender.office') }}</a>
         </div>
         <div class="flex">
+          <img class="icon rtl:mr-2" src="~/static/images/icons/android.svg">
+          <a @click="makeIcsFile(AndroidId)" id="download2" download="JOSAEvent.ics"
+            class="list-text">{{ $t('addToCalender.android') }}</a>
+        </div>
+        <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/download.svg">
           <a @click="makeIcsFile(OtherId)" id="download1" download="JOSAEvent.ics"
             class="list-text">{{ $t('addToCalender.others') }}</a>
@@ -45,6 +50,7 @@
         OfficeLink: "https://outlook.office.com/calendar/0/deeplink/compose?",
         AppleId: "#download",
         OtherId: "#download1",
+        AndroidId: "#download2",
       }
     },
     components: {
@@ -61,43 +67,38 @@
       },
       convertDate(date) {
         var event = new Date(date).toISOString();
-        event = event.replaceAll(":","");
-        event = event.replaceAll("-","");
-        event = event.replaceAll(".","");
-        // //event = event.join("");
-        console.log(event);
+        event = event.replaceAll(":", "");
+        event = event.replaceAll("-", "");
+        event = event.replaceAll(".", "");
         return event;
       },
       GoogleEncode(Url) {
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
-        desc = desc.substring(0, 200);
-       // var title  = this.event['title_' + this.$i18n.locale];
-        let URL =`${Url}action=TEMPLATE&text=${this.event['title_' + this.$i18n.locale]}&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(this.event.endDate)}&details=${desc}&sf=true&output=xml`;
+        desc = desc.substring(0, 200) + "...";
+        let URL =
+          `${Url}action=TEMPLATE&text=${this.event['title_' + this.$i18n.locale]}&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(this.event.endDate)}&details=${desc}&sf=true&output=xml`;
         let encoded = encodeURI(URL)
         window.open(encoded, '_blank');
       },
-      OutlookDate(date){
-        var event = new Date(date)
-        //event = new Date(event.getTime() + 60*60000);
+      OutlookDate(date) {
+        var event = new Date(date);
+        event.setMinutes(event.getMinutes() - event.getTimezoneOffset());
         event = event.toISOString();
-        event = event.replaceAll(".000","");
-        //event = event.replaceAll("Z","");
-        event = encodeURIComponent(event);
-        console.log(event);
-        return event; 
+        event = event.replaceAll("Z", "");
+        return event;
       },
       OutlookEncode(Url) {
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
-        desc = desc.substring(0, 200);
+        desc = desc.substring(0, 200) + "...";
         var title = this.event['title_' + this.$i18n.locale];
-        let URL = `${Url}rru=addevent&subject=${title}&startdt=${this.OutlookDate(this.event.startDate)}&enddt=${this.OutlookDate(this.event.endDate)}&body=${desc}`;
+        let URL =
+          `${Url}rru=addevent&subject=${title}&startdt=${this.OutlookDate(this.event.startDate)}&enddt=${this.OutlookDate(this.event.endDate)}&body=${desc}`;
         let encoded = URL
         encoded = encodeURI(encoded)
-        //console.log(encoded)
         window.open(encoded, '_blank');
       },
       makeIcsFile(id) {
@@ -109,6 +110,7 @@
           "BEGIN:VCALENDAR\n" +
           "CALSCALE:GREGORIAN\n" +
           "METHOD:PUBLISH\n" +
+          "X-WR-TIMEZONE:Asia/Amman" +
           "PRODID:-//Test Cal//EN\n" +
           "VERSION:2.0\n" +
           "BEGIN:VEVENT\n" +
@@ -160,7 +162,7 @@
   .list {
     @apply origin-top-right absolute mt-2 w-56 rounded-md shadow-lg bg-white;
     z-index: 999;
-    
+
   }
 
   .list-text {
