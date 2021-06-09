@@ -298,10 +298,11 @@ export default {
   },
   addToCalender:{
     add:'Add to Calendar',
-    Google:'Google',
-    Outlook:'Outlook',
-    Office:'Office 365',
-    Apple:'Apple',
-    Others:'Other Calendar'
+    google:'Google',
+    outlook:'Outlook',
+    office:'Office 365',
+    apple:'Apple',
+    android:'Android',
+    others:'Other Calendar'
   }
 }

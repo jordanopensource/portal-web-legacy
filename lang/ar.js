@@ -192,5 +192,14 @@ export default {
   },
   timeString:{
     time:'بتوقيت عمان'
+  },
+  addToCalender:{
+    add:'اضف إلى التقويم',
+    google:'جوجل',
+    outlook:'أوتلوك',
+    office:'أوفيس 365',
+    apple:'آبل',
+    android:'أندرويد',
+    others:'تقويم آخر'
   }
 }
