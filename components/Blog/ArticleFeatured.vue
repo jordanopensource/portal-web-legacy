@@ -10,14 +10,14 @@
       </nuxt-link>
       <div v-if="article.authors.length || article.translators.length" class="flex flex-no-wrap items-center flex-row mb-t mb-4">
         <template v-if="article.authors.length">
-          <h6 class="ltr:mr-8 rtl:ml-8">
-          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</h6>
-          <author v-for="author in article.authors" :key="author.id" class="mb-4 ltr:mr-8 rtl:ml-8 flex-shrink-0"
+          <p class="text-sm opacity-80 ltr:mr-4 rtl:ml-4">
+          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</p>
+          <author v-for="author in article.authors" :key="author.id" class="mb-4 ltr:mr-2 rtl:ml-2 flex-shrink-0"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" />
         </template>
         <template v-if="article.translators.length">
           <author v-for="translator in article.translators" :key="translator.id"
-            class="ltr:mr-8 rtl:ml-8 flex-shrink-0" :name="translator['name_' + $i18n.locale]"
+            class="ltr:mr-2 rtl:ml-2 flex-shrink-0" :name="translator['name_' + $i18n.locale]"
             :picture="translator.picture" :translatedBy="true" v-bind:writtenBy="false" />
         </template>
       </div>

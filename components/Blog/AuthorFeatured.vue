@@ -2,10 +2,10 @@
   <div class="md:flex flex-no-wrap items-center mt-4 ">  
     <appImage v-if="picture" :image="picture" size="small" class="profilePicture" />
     <img v-else size="small" class="profilePicture" src="/images/icons/authorimage_default.png" />
-    <div class="md:flex items-center opacity-90">
-      <p v-if="writtenBy" class="ltr:text-sm ltr:mr-1 rtl:ml-1 uppercase">{{ $t('meta.writtenBy')}}</p>
-      <p v-else-if="translatedBy" class="ltr:mr-1 rtl:ml-1 ltr:text-sm uppercase">{{ $t('meta.translatedBy')}}</p>
-      <h4>{{ name }}</h4>
+    <div class="md:flex items-center opacity-80">
+      <p v-if="writtenBy" class="text-sm ltr:mr-1 uppercase">{{ $t('meta.by')}}</p>
+      <p v-else-if="translatedBy" class="ltr:mr-1 rtl:ml-1 text-xs uppercase">{{ $t('meta.translatedBy')}}</p>
+      <p class="text-sm">{{ name }}</p>
       <p v-if="bio">{{ bio }}</p>
     </div>
   </div>
@@ -43,6 +43,6 @@
 </script>
 <style scoped>
 .profilePicture{
-    @apply w-10 ;
+    @apply w-5 ;
 }
 </style>
