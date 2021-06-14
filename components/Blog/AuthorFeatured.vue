@@ -42,7 +42,10 @@
 
 </script>
 <style scoped>
-.profilePicture{
-    @apply w-5 ;
+:dir(ltr).profilePicture{
+    @apply w-5 mr-1;
+}
+:dir(rtl).profilePicture{
+    @apply w-5 ml-1;
 }
 </style>

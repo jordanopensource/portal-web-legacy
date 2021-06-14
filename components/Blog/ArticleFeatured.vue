@@ -8,6 +8,8 @@
       <nuxt-link :to="articleLink">
         <h3 class="mb-4">{{ article.title }}</h3>
       </nuxt-link>
+      <p v-if="article.excerpt" class="excerpt">{{article.excerpt}}</p>
+      <p v-else class="excerpt">{{article.body | truncate(200) }}</p>
       <div v-if="article.authors.length || article.translators.length" class="flex flex-no-wrap items-center flex-row mb-t mb-4">
         <template v-if="article.authors.length">
           <p class="text-sm opacity-80 ltr:mr-4 rtl:ml-4">
@@ -21,8 +23,6 @@
             :picture="translator.picture" :translatedBy="true" v-bind:writtenBy="false" />
         </template>
       </div>
-      <p v-if="article.excerpt" class="excerpt">{{article.excerpt}}</p>
-      <p v-else class="excerpt">{{article.body | truncate(200) }}</p>
     </div>
   </div>
 </template>
