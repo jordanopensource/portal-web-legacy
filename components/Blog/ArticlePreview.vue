@@ -11,8 +11,21 @@
         </span>
       </h5>
       <nuxt-link :to="articleLink">
-        <h3 class="mb-4">{{ article.title }}</h3>
+        <h3 class="mb-2">{{ article.title }}</h3>
       </nuxt-link>
+      <div v-if="article.authors.length || article.translators.length" class="flex flex-no-wrap items-center flex-row mb-t mb-2">
+        <template v-if="article.authors.length">
+          <h6 class="ltr:mr-8 rtl:ml-8 mt-4">
+          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</h6>
+          <author v-for="author in article.authors" :key="author.id" class="ltr:mr-8 rtl:ml-8 flex-shrink-0"
+            :name="author['name_' + $i18n.locale]" :picture="author.picture" />
+        </template>
+        <template v-if="article.translators.length">
+          <author v-for="translator in article.translators" :key="translator.id"
+            class="ltr:mr-8 rtl:ml-8 flex-shrink-0" :name="translator['name_' + $i18n.locale]"
+            :picture="translator.picture" :translatedBy="true" v-bind:writtenBy="false" />
+        </template>
+      </div>
       <p v-if="article.excerpt">{{article.excerpt}}</p>
       <p v-else>{{article.body | truncate(200) }}</p>
       <nuxt-link :to="articleLink" class="py-4 display-more">
@@ -25,6 +38,7 @@
 
 <script>
   import appImage from '~/components/UI/appImage';
+  import author from '~/components/Blog/AuthorFeatured';
   export default {
     name: 'BlogPreview',
     data() {
@@ -33,7 +47,8 @@
       }
     },
     components: {
-      appImage
+      appImage,
+      author
     },
     props: {
       article: {
