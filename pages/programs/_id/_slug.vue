@@ -26,8 +26,9 @@
         title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.program['description_' + this.$i18n.locale] ? this.program[
-              'description_' + this.$i18n.locale] : ''
+            content: this.program['metaDescription_' + this.$i18n.locale] ? this.program[
+              'metaDescription_' + this.$i18n.locale] : this.program[
+              'description_' + this.$i18n.locale] || ''
           },
           ...i18nSeo.meta
         ]

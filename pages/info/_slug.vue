@@ -29,7 +29,6 @@
   import pageBanner from "~/components/UI/PageBanner";
   export default {
     head() {
-      console.log(this.pageContent)
       const i18nSeo = this.$nuxtI18nSeo()
       return {
         title: this.pageContent['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
