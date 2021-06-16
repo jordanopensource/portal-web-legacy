@@ -296,7 +296,7 @@ export default {
   timeString:{
     time:'Amman time'
   },
-  addToCalender:{
+  addToCalendar:{
     add:'Add to Calendar',
     google:'Google',
     outlook:'Outlook',

@@ -193,7 +193,7 @@ export default {
   timeString:{
     time:'بتوقيت عمان'
   },
-  addToCalender:{
+  addToCalendar:{
     add:'اضف إلى التقويم',
     google:'جوجل',
     outlook:'أوتلوك',

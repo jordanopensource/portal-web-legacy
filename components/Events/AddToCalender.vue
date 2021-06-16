@@ -2,7 +2,7 @@
   <div>
     <AppButton @click="OpendDropdown()" btn-style="button-flat">
       <p calss="text">
-        {{ $t('addToCalender.add') }}
+        {{ $t('addToCalendar.add') }}
       </p>
     </AppButton>
     <div v-if="Opened" class="list">
@@ -10,29 +10,29 @@
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/apple.svg">
           <a @click="makeIcsFile(AppleId)" id="download" download="JOSAEvent.ics"
-            class="list-text">{{ $t('addToCalender.apple') }}</a>
+            class="list-text">{{ $t('addToCalendar.apple') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/outlook.svg">
-          <a @click="OutlookEncode(OutlookLink)" class="list-text">{{ $t('addToCalender.outlook') }}</a>
+          <a @click="OutlookEncode(OutlookLink)" class="list-text">{{ $t('addToCalendar.outlook') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/search.svg">
-          <a @click="GoogleEncode(GoogleLink)" class="list-text">{{ $t('addToCalender.google') }}</a>
+          <a @click="GoogleEncode(GoogleLink)" class="list-text">{{ $t('addToCalendar.google') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/office.svg">
-          <a @click="OutlookEncode(OfficeLink)" class="list-text">{{ $t('addToCalender.office') }}</a>
+          <a @click="OutlookEncode(OfficeLink)" class="list-text">{{ $t('addToCalendar.office') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/android.svg">
           <a @click="makeIcsFile(AndroidId)" id="download2" download="JOSAEvent.ics"
-            class="list-text">{{ $t('addToCalender.android') }}</a>
+            class="list-text">{{ $t('addToCalendar.android') }}</a>
         </div>
         <div class="flex">
           <img class="icon rtl:mr-2" src="~/static/images/icons/download.svg">
           <a @click="makeIcsFile(OtherId)" id="download1" download="JOSAEvent.ics"
-            class="list-text">{{ $t('addToCalender.others') }}</a>
+            class="list-text">{{ $t('addToCalendar.others') }}</a>
         </div>
       </div>
     </div>
