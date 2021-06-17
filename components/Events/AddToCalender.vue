@@ -1,11 +1,11 @@
 <template>
   <div>
-    <AppButton @click="OpendDropdown()" btn-style="button-flat">
+    <AppButton @click="OpendDropDown()" btn-style="button-flat">
       <p calss="text">
         {{ $t('addToCalendar.add') }}
       </p>
     </AppButton>
-    <div v-if="Opened" class="list">
+    <div v-if="opened" class="list">
       <div class="py-1">
         <div class="flex">
           <img class="icon" src="~/static/images/icons/apple.svg">
@@ -44,7 +44,7 @@
     name: 'AddToCalender',
     data() {
       return {
-        Opened: false,
+        opened: false,
         GoogleLink: "https://calendar.google.com/calendar/render?",
         OutlookLink: "https://outlook.live.com/calendar/0/deeplink/compose?",
         OfficeLink: "https://outlook.office.com/calendar/0/deeplink/compose?",
@@ -57,17 +57,12 @@
       AppButton
     },
     methods: {
-      OpendDropdown() {
-        if(this.Opened == true){
-          this.Opened = false;
-        }else{
-          this.Opened = true;
-        }
-        
+      OpendDropDown() {
+        this.opened = !this.opened
       },
       CloseDropdown(e) {
         if (!this.$el.contains(e.target)) {
-          this.Opened = false;
+          this.opened = false;
         }
       },
       convertDate(date) {
@@ -177,11 +172,11 @@
     @apply text-josa-black block px-4 py-2 text-lg;
   }
 
-  .icon {
-    @apply w-5 ml-2;
+  [dir="ltr"] .icon {
+    @apply w-5 ml-2 mr-0;
   }
 
-  :dir(rtl).icon {
-    @apply w-5 mr-2;
+  [dir="rtl"] .icon {
+    @apply w-5 mr-2 ml-0;
   }
 </style>
