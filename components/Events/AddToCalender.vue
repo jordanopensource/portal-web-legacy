@@ -1,38 +1,38 @@
 <template>
   <div>
-    <AppButton @click="OpendDropdown()" btn-style="button-flat">
+    <AppButton @click="OpenMenu()" btn-style="button-flat">
       <p calss="text">
-        {{ $t('addToCalender.add') }}
+        {{ $t('addToCalendar.add') }}
       </p>
     </AppButton>
-    <div v-if="Opened" class="list">
+    <div v-if="opened" class="list">
       <div class="py-1">
         <div class="flex">
-          <img class="icon rtl:mr-2" src="~/static/images/icons/apple.svg">
+          <img class="icon" src="~/static/images/icons/apple.svg">
           <a @click="makeIcsFile(AppleId)" id="download" download="JOSAEvent.ics"
-            class="list-text">{{ $t('addToCalender.apple') }}</a>
+            class="list-text">{{ $t('addToCalendar.apple') }}</a>
         </div>
         <div class="flex">
-          <img class="icon rtl:mr-2" src="~/static/images/icons/outlook.svg">
-          <a @click="OutlookEncode(OutlookLink)" class="list-text">{{ $t('addToCalender.outlook') }}</a>
+          <img class="icon" src="~/static/images/icons/outlook.svg">
+          <a @click="OutlookEncode(OutlookLink)" class="list-text">{{ $t('addToCalendar.outlook') }}</a>
         </div>
         <div class="flex">
-          <img class="icon rtl:mr-2" src="~/static/images/icons/search.svg">
-          <a @click="GoogleEncode(GoogleLink)" class="list-text">{{ $t('addToCalender.google') }}</a>
+          <img class="icon" src="~/static/images/icons/search.svg">
+          <a @click="GoogleEncode(GoogleLink)" class="list-text">{{ $t('addToCalendar.google') }}</a>
         </div>
         <div class="flex">
-          <img class="icon rtl:mr-2" src="~/static/images/icons/office.svg">
-          <a @click="OutlookEncode(OfficeLink)" class="list-text">{{ $t('addToCalender.office') }}</a>
+          <img class="icon" src="~/static/images/icons/office.svg">
+          <a @click="OutlookEncode(OfficeLink)" class="list-text">{{ $t('addToCalendar.office') }}</a>
         </div>
         <div class="flex">
-          <img class="icon rtl:mr-2" src="~/static/images/icons/android.svg">
+          <img class="icon" src="~/static/images/icons/android.svg">
           <a @click="makeIcsFile(AndroidId)" id="download2" download="JOSAEvent.ics"
-            class="list-text">{{ $t('addToCalender.android') }}</a>
+            class="list-text">{{ $t('addToCalendar.android') }}</a>
         </div>
         <div class="flex">
-          <img class="icon rtl:mr-2" src="~/static/images/icons/download.svg">
+          <img class="icon" src="~/static/images/icons/download.svg">
           <a @click="makeIcsFile(OtherId)" id="download1" download="JOSAEvent.ics"
-            class="list-text">{{ $t('addToCalender.others') }}</a>
+            class="list-text">{{ $t('addToCalendar.others') }}</a>
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@
     name: 'AddToCalender',
     data() {
       return {
-        Opened: false,
+        opened: false,
         GoogleLink: "https://calendar.google.com/calendar/render?",
         OutlookLink: "https://outlook.live.com/calendar/0/deeplink/compose?",
         OfficeLink: "https://outlook.office.com/calendar/0/deeplink/compose?",
@@ -57,12 +57,12 @@
       AppButton
     },
     methods: {
-      OpendDropdown() {
-        this.Opened = true;
+      OpenMenu() {
+        this.opened = !this.opened
       },
-      CloseDropdown(e) {
+      CloseMenu(e) {
         if (!this.$el.contains(e.target)) {
-          this.Opened = false;
+          this.opened = false;
         }
       },
       convertDate(date) {
@@ -149,7 +149,7 @@
       }
     },
     mounted() {
-      document.addEventListener('click', this.CloseDropdown)
+      document.addEventListener('click', this.CloseMenu)
     }
   }
 </script>
@@ -162,14 +162,21 @@
   .list {
     @apply origin-top-right absolute mt-2 w-56 rounded-md shadow-lg bg-white;
     z-index: 999;
+  }
 
+  .list-text:hover {
+    @apply text-josa-blue;
   }
 
   .list-text {
-    @apply block px-4 py-2 text-lg;
+    @apply text-josa-black block px-4 py-2 text-lg;
   }
 
-  .icon {
-    @apply w-5 ml-2;
+  [dir="ltr"] .icon {
+    @apply w-5 ml-2 mr-0;
+  }
+
+  [dir="rtl"] .icon {
+    @apply w-5 mr-2 ml-0;
   }
 </style>
