@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="container">EAD
+    <div class="container">
       <div class="py-12 px-6 md:px-12">
         <h4 class="text-josa-blue mb-2">{{ career.careerType['title_' + $i18n.locale] }}</h4>
         <div>
