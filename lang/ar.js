@@ -194,7 +194,7 @@ export default {
     time:'بتوقيت عمان'
   },
   addToCalendar:{
-    add:'اضف إلى التقويم',
+    add:'أضف إلى التقويم',
     google:'جوجل',
     outlook:'أوتلوك',
     office:'أوفيس 365',
