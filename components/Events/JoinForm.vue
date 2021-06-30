@@ -38,7 +38,7 @@
                 </appButton>
             </form>
         </div>
-        <div v-else-if="finisedEvents()" class="w-full p-8">
+        <div v-else-if="isFinishedEvent()" class="w-full p-8">
             <h3>{{event['title_' + $i18n.locale]}}</h3>
             <p class="">{{ $t('events.hostedBy') }}</p>
             <div class="flex flex-col lg:flex-row mt-8 mb-4">
@@ -116,10 +116,10 @@
             }
         },
         methods: {
-            finisedEvents(){
-                let startDate = new Date(this.from).getTime();
+            isFinishedEvent(){
+                let endDate = new Date(this.to).getTime();
                 let currentDate = new Date().getTime();
-                return currentDate > startDate; 
+                return currentDate > endDate; 
             },
             removeJoin() {
                 this.$route.query.join == 'false'
