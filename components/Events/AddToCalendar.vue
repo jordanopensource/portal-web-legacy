@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppButton @click="OpenMenu()" btn-style="button-flat">
+    <AppButton @click="openMenu()" btn-style="button-flat">
       <p calss="text">
         {{ $t('addToCalendar.add') }}
       </p>
@@ -9,29 +9,29 @@
       <div class="py-1">
         <div class="flex">
           <img class="icon" src="~/static/images/icons/apple.svg">
-          <a @click="makeIcsFile(AppleId)" id="download" download="JOSAEvent.ics"
+          <a @click="makeIcsFile(appleId)" id="download" download="JOSAEvent.ics"
             class="list-text">{{ $t('addToCalendar.apple') }}</a>
         </div>
         <div class="flex">
           <img class="icon" src="~/static/images/icons/outlook.svg">
-          <a @click="OutlookEncode(OutlookLink)" class="list-text">{{ $t('addToCalendar.outlook') }}</a>
+          <a @click="outlookEncode(outlookLink)" class="list-text">{{ $t('addToCalendar.outlook') }}</a>
         </div>
         <div class="flex">
           <img class="icon" src="~/static/images/icons/search.svg">
-          <a @click="GoogleEncode(GoogleLink)" class="list-text">{{ $t('addToCalendar.google') }}</a>
+          <a @click="googleEncode(googleLink)" class="list-text">{{ $t('addToCalendar.google') }}</a>
         </div>
         <div class="flex">
           <img class="icon" src="~/static/images/icons/office.svg">
-          <a @click="OutlookEncode(OfficeLink)" class="list-text">{{ $t('addToCalendar.office') }}</a>
+          <a @click="outlookEncode(officeLink)" class="list-text">{{ $t('addToCalendar.office') }}</a>
         </div>
         <div class="flex">
           <img class="icon" src="~/static/images/icons/android.svg">
-          <a @click="makeIcsFile(AndroidId)" id="download2" download="JOSAEvent.ics"
+          <a @click="makeIcsFile(androidId)" id="download2" download="JOSAEvent.ics"
             class="list-text">{{ $t('addToCalendar.android') }}</a>
         </div>
         <div class="flex">
           <img class="icon" src="~/static/images/icons/download.svg">
-          <a @click="makeIcsFile(OtherId)" id="download1" download="JOSAEvent.ics"
+          <a @click="makeIcsFile(otherId)" id="download1" download="JOSAEvent.ics"
             class="list-text">{{ $t('addToCalendar.others') }}</a>
         </div>
       </div>
@@ -45,22 +45,22 @@
     data() {
       return {
         opened: false,
-        GoogleLink: "https://calendar.google.com/calendar/render?",
-        OutlookLink: "https://outlook.live.com/calendar/0/deeplink/compose?",
-        OfficeLink: "https://outlook.office.com/calendar/0/deeplink/compose?",
-        AppleId: "#download",
-        OtherId: "#download1",
-        AndroidId: "#download2",
+        googleLink: "https://calendar.google.com/calendar/render?",
+        outlookLink: "https://outlook.live.com/calendar/0/deeplink/compose?",
+        officeLink: "https://outlook.office.com/calendar/0/deeplink/compose?",
+        appleId: "#download",
+        otherId: "#download1",
+        androidId: "#download2",
       }
     },
     components: {
       AppButton
     },
     methods: {
-      OpenMenu() {
+      openMenu() {
         this.opened = !this.opened
       },
-      CloseMenu(e) {
+      closeMenu(e) {
         if (!this.$el.contains(e.target)) {
           this.opened = false;
         }
@@ -72,31 +72,34 @@
         event = event.replaceAll(".", "");
         return event;
       },
-      GoogleEncode(Url) {
+      googleEncode(Url) {
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
-        desc = desc.substring(0, 200) + "...";
+        desc = desc.substring(0,1200)+"...";
         let URL =
-          `${Url}action=TEMPLATE&text=${this.event['title_' + this.$i18n.locale]}&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(this.event.endDate)}&details=${desc}&sf=true&output=xml`;
+          `${Url}action=TEMPLATE&text=${this.event['title_' + this.$i18n.locale]}`+
+          `&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(this.event.endDate)}`+
+          `&details=${desc}&sf=true&output=xml`;
         let encoded = encodeURI(URL)
         window.open(encoded, '_blank');
       },
-      OutlookDate(date) {
+      outlookDate(date) {
         var event = new Date(date);
         event.setMinutes(event.getMinutes() - event.getTimezoneOffset());
         event = event.toISOString();
         event = event.replaceAll("Z", "");
         return event;
       },
-      OutlookEncode(Url) {
+      outlookEncode(Url) {
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
-        desc = desc.substring(0, 200) + "...";
+        desc = desc.substring(0,1200)+"...";
         var title = this.event['title_' + this.$i18n.locale];
         let URL =
-          `${Url}rru=addevent&subject=${title}&startdt=${this.OutlookDate(this.event.startDate)}&enddt=${this.OutlookDate(this.event.endDate)}&body=${desc}`;
+          `${Url}rru=addevent&subject=${title}&startdt=${this.outlookDate(this.event.startDate)}`+
+          `&enddt=${this.outlookDate(this.event.endDate)}&body=${desc}`;
         let encoded = URL
         encoded = encodeURI(encoded)
         window.open(encoded, '_blank');
@@ -129,7 +132,6 @@
           "\n" +
           "END:VEVENT\n" +
           "END:VCALENDAR";
-
         var data = new File([test], {
           type: "text/plain"
         });
@@ -138,8 +140,8 @@
         }
         icsFile = window.URL.createObjectURL(data);
         let link = document.querySelector(id);
-        link.href = icsFile
-        link.download
+        link.href = icsFile;
+        link.download;
       }
     },
     props: {
@@ -149,7 +151,7 @@
       }
     },
     mounted() {
-      document.addEventListener('click', this.CloseMenu)
+      document.addEventListener('click', this.closeMenu)
     }
   }
 </script>
