@@ -48,7 +48,7 @@
 
 <style scoped>
   [lang="en"] p {
-    @apply leading-golden;
+    @apply leading-normal;
   }
 
   [lang="ar"] p {
