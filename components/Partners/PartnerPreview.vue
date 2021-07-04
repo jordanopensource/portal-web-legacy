@@ -47,13 +47,6 @@
 </script>
 
 <style scoped>
-  [lang="en"] p {
-    @apply leading-normal;
-  }
-
-  [lang="ar"] p {
-    @apply leading-normal;
-  }
   .preview .thumbnail{
     @apply object-contain bg-josa-warm-grey-light;
   }
