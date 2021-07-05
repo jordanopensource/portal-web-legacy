@@ -42,7 +42,7 @@ function ogData(type, content, path, lang) {
   // Set data
   let data = {
     title: title,
-    url: 'https://jordanopensource.org' + path,
+    url: 'https://josa.ngo' + path,
     type: type,
     publishedTime: content.publishDate ? content.publishDate : content.created_at,
     modifiedTime: content.created_at,
