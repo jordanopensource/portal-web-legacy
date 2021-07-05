@@ -11,7 +11,7 @@ node_selector:
   doks.digitalocean.com/node-pool: josa-cloud-np
 
 steps:
-  - name: build and release DSP web client
+  - name: build and release JOSA portal web client
     image: plugins/docker
     settings:
       # context: josa/
@@ -32,4 +32,4 @@ steps:
         from_secret: slack_webhook
       channel: heartbeat
     depends_on:
-      - build and release JOSA strapi
+      - build and release JOSA portal web client
