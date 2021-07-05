@@ -2,102 +2,66 @@
 
 /* Body */
 body {
-  @apply text-josa-black;
+  @apply font-IBMPlexSansArabic text-josa-black leading-normal text-base;
 }
 
-[lang="en"] body, .en {
-  @apply font-lato text-base leading-normal;
-}
-
-[lang="ar"] body, .ar {
-  @apply font-almarai text-base leading-normal;
+/* Mono */
+pre,
+code,
+kbd,
+samp {
+  @apply font-IBMPlexMono;
 }
 
 /* H */
-[lang="en"] h1,
-[lang="en"] h2,
-[lang="en"] h3,
-[lang="en"] h4,
-[lang="en"] h5,
-[lang="en"] h6 {
-  @apply font-aleoLight leading-tight text-josa-black;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-IBMPlexSansArabic leading-tight text-josa-black mb-2;
 }
 
-[lang="ar"] h1,
-[lang="ar"] h2,
-[lang="ar"] h3,
-[lang="ar"] h4,
-[lang="ar"] h5,
-[lang="ar"] h6 {
-  @apply font-almarai leading-snug text-josa-black;
-}
-
-a:hover > h1, a:hover > h2, a:hover > h3, a:hover > h4, a:hover > h5, a:hover > h6 {
+a:hover>h1,
+a:hover>h2,
+a:hover>h3,
+a:hover>h4,
+a:hover>h5,
+a:hover>h6 {
   @apply text-josa-blue;
   transition: color 0.25s linear;
   -webkit-transition: color 0.25s linear;
 }
 
+/* H1 */
+h1 {
+  @apply text-4xl;
+}
+
 /* h2 */
 h2 {
-  @apply font-medium text-4xl mb-2;
+  @apply text-3xl;
 }
-
-[lang="en"] h2 {
-  @apply font-aleoLightItalic leading-golden;
-}
-
-[lang="ar"] h2 {
-  @apply font-almarai font-light;
-}
-
 
 /* h3 */
-[lang="en"] h3 {
-  @apply font-normal text-xl font-lato;
-}
-
-[lang="ar"] h3 {
-  @apply font-normal text-xl font-almarai;
+h3 {
+  @apply text-xl font-medium;
 }
 
 /* h4 */
 h4 {
-  @apply font-aleoLightItalic font-medium text-5xl mb-2;
-}
-
-[lang="en"] h4 {
-  @apply font-aleoLightItalic leading-none;
-}
-
-[lang="ar"] h4 {
-  @apply font-almarai font-light;
+  @apply text-lg mb-0;
 }
 
 /* h5 */
 h5 {
-  @apply font-normal text-xs font-medium uppercase text-josa-warm-grey-dark;
-}
-
-[lang="en"] h5 {
-  @apply font-lato;
-}
-
-[lang="ar"] h5 {
-  @apply font-almarai;
+  @apply text-base font-medium mb-1;
 }
 
 /* h6 */
 h6 {
-  @apply font-bold;
-}
-
-[lang="en"] h6 {
-  @apply font-lato;
-}
-
-[lang="ar"] h6 {
-  @apply font-almarai;
+  @apply text-base mb-0;
 }
 
 /* Display Styles */
@@ -105,15 +69,56 @@ h6 {
   @apply font-light text-josa-warm-grey;
 }
 
-[lang="en"] .display-light {
-  @apply font-aleoLight;
-}
-
-[lang="ar"] .display-light {
-  @apply font-almarai;
-}
-
-
 .display-lead {
-  @apply text-xl font-light;
+  @apply text-xl text-josa-black font-light opacity-70;
+}
+
+.display-more {
+  @apply block text-josa-blue;
+}
+
+.display-more:hover {
+  @apply opacity-75;
+}
+
+.display-faded {
+  @apply text-josa-warm-grey-dark;
+}
+
+
+@screen md {
+
+  /* H1 */
+  h1 {
+    @apply text-5xl;
+  }
+
+  /* h2 */
+  h2 {
+    @apply text-4xl;
+  }
+
+  /* h3 */
+  h3 {
+    @apply text-2xl font-medium;
+  }
+
+  /* h4 */
+  h4 {
+    @apply text-xl mb-0;
+  }
+
+  /* h5 */
+  h5 {
+    @apply text-lg font-medium mb-1;
+  }
+
+  /* h6 */
+  h6 {
+    @apply text-lg mb-0;
+  }
+
+  .display-lead {
+    @apply text-2xl;
+  }
 }

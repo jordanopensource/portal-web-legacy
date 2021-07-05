@@ -30,6 +30,8 @@ function ogData(type, content, path, lang) {
   // Set description
   if (content.excerpt) {
     description = content.excerpt
+  } else if (content['tagline_' + lang]) {
+    description = content['tagline_' + lang]
   } else if (content['metaDescription_' + lang]) {
     description = content['metaDescription_' + lang]
   } else if (content['excerpt_' + lang]) {
@@ -40,7 +42,7 @@ function ogData(type, content, path, lang) {
   // Set data
   let data = {
     title: title,
-    url: 'https://jordanopensource.org' + path,
+    url: 'https://josa.ngo' + path,
     type: type,
     publishedTime: content.publishDate ? content.publishDate : content.created_at,
     modifiedTime: content.created_at,

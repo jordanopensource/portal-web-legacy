@@ -40,7 +40,7 @@
 
 <style scoped>
   input {
-    @apply w-full mb-4 p-4 rounded-sm;
+    @apply w-full p-4 rounded-sm;
   }
 
   input::placeholder {
@@ -53,6 +53,7 @@
 
   .input-control label {
     display: block;
+    margin-bottom: 0.5rem;
   }
 
   .input-control input,
@@ -63,6 +64,7 @@
     font: inherit;
     border: 1px solid #e0dddb;
     padding: 10px;
+    margin-bottom: 1rem;
   }
 
   .input-control input:focus,

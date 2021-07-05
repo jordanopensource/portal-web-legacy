@@ -1,10 +1,11 @@
 <template>
   <div class="flex flex-no-wrap items-center">
     <appImage v-if="picture" :image="picture" size="small" class="profilePicture" />
+    <img v-else size="small" class="profilePicture" src="/images/icons/authorimage_default.png" />
     <div class="opacity-90">
       <p v-if="writtenBy" class="block ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.writtenBy')}}</p>
       <p v-else-if="translatedBy" class="block ltr:text-xs rtl:text-sm uppercase">{{ $t('meta.translatedBy')}}</p>
-      <h3 class="font-bold">{{ name }}</h3>
+      <h4>{{ name }}</h4>
       <p v-if="bio">{{ bio }}</p>
     </div>
   </div>

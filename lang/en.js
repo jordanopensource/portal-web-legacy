@@ -147,7 +147,8 @@ export default {
     latest: 'Latest Articles',
     more: 'More from our blog',
     featured: 'Featured Articles',
-    spotlight: 'Spotlight'
+    spotlight: 'Spotlight',
+    disclaimer: 'The views expressed in this article are those of the author and do not necessarily reflect those of the Jordan Open Source Association (JOSA)'
   },
   // Time Card
   timeCard: {
@@ -174,10 +175,12 @@ export default {
     join: 'Join this event',
     hostedBy: 'Hosted by Jordan Open Source Association',
     happening: 'Happening now',
-    joinCall: 'This event is happening online. You can join and participate by submitting the information in the form.',
+    joinCall: 'This event is happening online. You can join and participate by submitting the information in the form below then clicking on \'Join\'.',
     notRegistered: 'You haven\'t registered? you can register',
     here: 'here',
-    onlineEvent: 'Online Event'
+    onlineEvent: 'Online Event',
+    notStarted:'the event has not started yet',
+    waitMessage:'Please wait, this event has not started yet. The event is scheduled to start on:'
   },
   eventCats: {
     all: 'All Events',
@@ -290,4 +293,7 @@ export default {
   tooltip: {
     copied: 'Copied!'
   },
+  timeString:{
+    time:'Amman time'
+  }
 }

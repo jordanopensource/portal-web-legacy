@@ -3,7 +3,7 @@
     <pageBanner :pageMeta="blogMeta" />
     <div class="bg-josa-black py-8">
       <div class="container">
-        <div class="px-12 flex flex-col sm:flex-row">
+        <div class="px-6 md:px-12 flex flex-col sm:flex-row">
           <span :class="activeCat == 'all' ? 'active': ''" class="cat-link"
             @click="setActiveCat('all')">{{ $t('blog.all') }}</span>
           <span :class="activeCat == cat.name ? 'active': ''" class="cat-link" v-for="cat in blogCategories"
@@ -14,14 +14,11 @@
     <div class="container pb-20">
       <blogList v-if="activeCat=='all'" class="blog-list" title="featured" category="all" :language="$i18n.locale"
         :limit="1" featured />
-      <div v-if="activeCat=='all'">
-        <blogList v-if="activeCat=='all' || activeCat=='all'" class="blog-list" :category="'all'"
-          :language="$i18n.locale" />
-      </div>
-      <div v-else v-for="cat in blogCategories" :key="cat.id">
-        <blogList v-if="activeCat=='all' || activeCat==cat.name" class="blog-list" :category="cat.name"
-          :language="$i18n.locale" :title="cat['title_' + $i18n.locale]" />
-      </div>
+      <blogList v-if="activeCat=='all'" class="blog-list" :category="'all'" :language="$i18n.locale" />
+      <template v-else v-for="cat in blogCategories">
+        <blogList v-if="activeCat==cat.name" :key="cat.id" class="blog-list" :category="cat.name" :language="$i18n.locale"
+          :title="cat['title_' + $i18n.locale]" />
+      </template>
     </div>
   </div>
 </template>
@@ -76,6 +73,12 @@
 
 <style scoped>
   .blog-list {
-    @apply px-12 mt-20;
+    @apply px-6 mt-20;
+  }
+
+  @screen md {
+    .blog-list {
+      @apply px-12;
+    }
   }
 </style>

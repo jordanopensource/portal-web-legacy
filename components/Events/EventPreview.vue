@@ -5,29 +5,25 @@
       <img v-else :src="placeholderImage" />
     </nuxt-link>
     <div ref="content" class="flex-grow">
-      <p class="text-josa-blue text-lg pb-2">{{ event.startDate | dayDate($i18n.locale) }}</p>
-
+      <h5 class="text-josa-blue mb-2 uppercase">{{ event.startDate | dayDate($i18n.locale) }}</h5>
       <nuxt-link :to="eventLink">
-        <h2 class="mb-4 text-3xl">{{ event['title_' + $i18n.locale] ? event['title_' + $i18n.locale] : event['title_en'] }}</h2>
+        <h3 class="mb-4">{{ event['title_' + $i18n.locale] ? event['title_' + $i18n.locale] : event['title_en'] }}</h3>
       </nuxt-link>
-
       <div class="event-info flex flex-wrap lg:flex-no-wrap">
-        <span class="ltr:mr-4 rtl:ml-4">
-          <font-awesome-icon class="icon" :icon="['fas', 'clock']" />
+        <p class="ltr:mr-4 rtl:ml-4">
+          <font-awesome-icon class="icon rtl:ml-2 ltr:mr-2" :icon="['fas', 'clock']" />
           {{ event.startDate | time($i18n.locale) }} - {{ event.endDate | time($i18n.locale) }}
-        </span>
-
-        <span v-if="event.address">
-          <font-awesome-icon class="icon" :icon="['fas', 'map-marker-alt']" />
+          {{ $t('timeString.time') }}
+        </p>
+        <p v-if="event.address">
+          <font-awesome-icon class="icon rtl:ml-2 ltr:mr-2" :icon="['fas', 'map-marker-alt']" />
           {{ event.address['addressOne_' + $i18n.locale] }}
-        </span>
+        </p>
       </div>
-
-      <nuxt-link :to="eventLink" class="block py-4 text-josa-blue font-bold ltr:text-sm rtl:text-base hover:opacity-75">
+      <nuxt-link :to="eventLink" class="py-4 display-more">
         {{ $t('meta.knowMore') }}
         <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
       </nuxt-link>
-
     </div>
   </div>
 </template>
@@ -70,20 +66,10 @@
       }
     }
   }
-
 </script>
 
 <style scoped>
-  [lang="en"] p {
-    @apply leading-golden;
-  }
-
-  [lang="ar"] p {
-    @apply leading-normal;
-  }
-
   .icon {
     @apply text-josa-warm-grey-dark;
   }
-
 </style>

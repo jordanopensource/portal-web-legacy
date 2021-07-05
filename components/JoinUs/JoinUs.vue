@@ -1,7 +1,7 @@
 <template>
   <div class="banner py-20 md:py-32">
     <div class="container">
-      <div class="px-12 flex align-middle">
+      <div class="px-6 md:px-12 flex align-middle">
         <div class="my-auto sm:max-w-1/2 lg:max-w-1/3">
           <h2>{{ $t('joinUs.title') }}</h2>
           <p class="my-8">{{ $t('joinUs.desc') }}</p>

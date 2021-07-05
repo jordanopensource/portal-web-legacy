@@ -6,7 +6,7 @@
     </nuxt-link>
     <div>
       <nuxt-link :to="articleLink">
-        <h2 class="mb-4 text-3xl">{{ article.title }}</h2>
+        <h3 class="mb-4">{{ article.title }}</h3>
       </nuxt-link>
       <p v-if="article.excerpt">{{article.excerpt}}</p>
       <p v-else>{{article.body | truncate(200) }}</p>
