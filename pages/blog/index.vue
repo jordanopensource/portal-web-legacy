@@ -1,6 +1,6 @@
 <template>
   <div class="blog-page">
-    <pageBanner :pageMeta="blogMeta" />
+    <pageBanner :pageMeta="pageInfo" />
     <div class="bg-josa-black py-8">
       <div class="container">
         <div class="px-6 md:px-12 flex flex-col sm:flex-row">
@@ -16,8 +16,8 @@
         :limit="1" featured />
       <blogList v-if="activeCat=='all'" class="blog-list" :category="'all'" :language="$i18n.locale" />
       <template v-else v-for="cat in blogCategories">
-        <blogList v-if="activeCat==cat.name" :key="cat.id" class="blog-list" :category="cat.name" :language="$i18n.locale"
-          :title="cat['title_' + $i18n.locale]" />
+        <blogList v-if="activeCat==cat.name" :key="cat.id" class="blog-list" :category="cat.name"
+          :language="$i18n.locale" :title="cat['title_' + $i18n.locale]" />
       </template>
     </div>
   </div>
@@ -38,12 +38,11 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.blogMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+        title: this.pageInfo['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.blogMeta['metaDescription_' + this.$i18n.locale] ? this.blogMeta['metaDescription_' + this
-              .$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -55,11 +54,14 @@
       appButton,
       pageBanner
     },
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.blog
+      }
+    },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=blog');
       const cats = await axios.get(process.env.baseUrl + '/blog-categories');
       return {
-        blogMeta: pageMeta.data[0],
         blogCategories: cats.data
       }
     },

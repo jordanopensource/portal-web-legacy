@@ -16,7 +16,7 @@
                 <hr>
             </div>
             <p v-if="event.onlineMeeting.password" class="text-xs">{{ $t('events.notRegistered') }}
-                <span class="text-josa-blue cursor-pointer" @click="$store.dispatch('setShowModal', false)">
+                <span class="text-josa-blue cursor-pointer" @click="$store.dispatch('modal/setShowModal', false)">
                     {{ $t('events.here') }}</span>.
             </p>
         </div>

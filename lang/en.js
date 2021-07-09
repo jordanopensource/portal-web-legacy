@@ -140,6 +140,8 @@ export default {
     and: 'And',
     to: 'To',
     translatedBy: 'Translated by',
+    loading: 'Loading',
+    nothing: 'Nothing to show!',
   },
   // Blog
   blog: {

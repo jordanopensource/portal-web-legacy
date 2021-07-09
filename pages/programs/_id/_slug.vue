@@ -1,21 +1,19 @@
 <template>
-  <programSingle :id="'program-' + program.id" :program="program" />
+  <div>
+    <!-- <p v-if="$fetchState.pending">Loading</p> -->
+    <programSingle v-if="$fetchState.timestamp && program.id" :id="'program-' + program.id" :program="program" />
+  </div>
 </template>
 
 <script>
-  import axios from 'axios';
   import programSingle from '~/components/Programs/ProgramSingle';
 
   export default {
     layout: "default",
-    asyncData(context) {
-      return axios.get(process.env.baseUrl + '/programs/' + context.params.id)
-        .then(res => {
-          return {
-            program: res.data
-          }
-        })
-        .catch(e => context.error(e))
+    data() {
+      return {
+        program: {}
+      }
     },
     components: {
       programSingle
@@ -23,11 +21,11 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح': 'Jordan Open Source Association'),
+        title: this.pageTitle + ' - ' + (this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' :
+          'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.program['metaDescription_' + this.$i18n.locale] ? this.program[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageDesc
           },
           ...i18nSeo.meta
         ]
@@ -40,8 +38,21 @@
         } catch {
           return this.program['title_en']
         }
+      },
+      pageDesc() {
+        try {
+          return this.program['metaDescription_' + this.$i18n.locale]
+        } catch {
+          return ''
+        }
       }
-    }
+    },
+    async fetch() {
+      let programsList = this.$store.state.programs.list
+      if (!programsList) {
+        await this.$store.dispatch("programs/fetch")
+      }
+      this.program = this.$store.state.programs.list.find(p => p.id == this.$route.params.id)
+    },
   };
-
 </script>

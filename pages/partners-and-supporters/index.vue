@@ -1,48 +1,56 @@
 <template>
   <div class="partners-page">
-
     <!-- Banner -->
-    <pageBanner :pageMeta="partnersMeta" />
-
+    <pageBanner :pageMeta="pageInfo" />
     <!-- Lists -->
     <div class="container pb-20">
-      <partnersList class="partners-list" :title="$t('partners.title')" />
+      <partnersList v-if="$fetchState.timestamp" class="partners-list" :title="$t('partners.title')"
+        :partners="partners" />
     </div>
   </div>
 
 </template>
 
 <script>
-  import axios from 'axios';
   import pageBanner from "@/components/UI/PageBanner";
   import partnersList from '@/components/Partners/PartnersList';
 
   export default {
+    data() {
+      return {
+        partners: []
+      }
+    },
+    components: {
+      pageBanner,
+      partnersList
+    },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.partnersMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+        title: this.pageInfo['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.partnersMeta['metaDescription_' + this.$i18n.locale] ? this.partnersMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this
+              .$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
       }
     },
-    layout: "default",
-    components: {
-      pageBanner,
-      partnersList
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.partners
+      },
     },
-    async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=partners');
-      return {
-        partnersMeta: pageMeta.data[0]
+    async fetch() {
+      let partnersList = this.$store.state.partners.list
+      if (!partnersList) {
+        await this.$store.dispatch("partners/fetch")
       }
-    }
+      this.partners = this.$store.state.partners.list
+    },
   };
 </script>
 

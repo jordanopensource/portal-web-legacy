@@ -127,6 +127,8 @@ export default {
     and: 'و',
     to: 'إلى',
     translatedBy: 'ترجمة',
+    loading: 'جاري التحميل',
+    nothing: 'لا يوجد!',
   },
   // Partners
   partners: {

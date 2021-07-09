@@ -1,7 +1,7 @@
 <template>
     <transition name="modal">
         <div class="modal-mask">
-            <div class="modal-wrapper" @click.self="$store.dispatch('setShowModal', false)">
+            <div class="modal-wrapper" @click.self="$store.dispatch('modal/setShowModal', false)">
                 <div class="container">
                     <div class="md:px-12 py-12">
                         <div class="modal-container absolute md:relative top-12 md:top-0">

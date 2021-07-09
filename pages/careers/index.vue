@@ -1,7 +1,7 @@
 <template>
   <div class="career-page">
     <!-- Banner -->
-    <pageBanner :pageMeta="careerMeta" />
+    <pageBanner :pageMeta="pageInfo" />
     <!-- Menu -->
     <div class="bg-josa-black py-8">
       <div class="container">
@@ -39,7 +39,7 @@
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
       return {
-        title: this.careerMeta['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
+        title: this.pageInfo['title_' + this.$i18n.locale] + ' - ' + (this.$i18n.locale == 'ar' ?
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             hid: 'careers',
@@ -47,8 +47,7 @@
           },
           {
             name: 'description',
-            content: this.careerMeta['metaDescription_' + this.$i18n.locale] ? this.careerMeta['metaDescription_' +
-              this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this.$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
@@ -60,11 +59,14 @@
       appButton,
       pageBanner
     },
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.careers
+      }
+    },
     async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=careers');
       const cats = await axios.get(process.env.baseUrl + '/career-types');
       return {
-        careerMeta: pageMeta.data[0],
         careerCategories: cats.data
       }
     },

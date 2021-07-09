@@ -1,12 +1,12 @@
 <template>
   <div>
     <!-- Banner -->
-    <homeBanner :pageMeta="homeMeta" :programs="programs" />
+    <homeBanner :pageMeta="pageInfo" :programs="programs" />
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
         <articlesSpotlight class="w-full p-6 md:p-12" :numberOfArticles="4" :language="$i18n.locale"
-          :title="$t('blog.spotlight')" tag="spotlight"/>
+          :title="$t('blog.spotlight')" tag="spotlight" />
       </div>
     </div>
     <!-- Join Us -->
@@ -14,7 +14,8 @@
     <!-- Impact -->
     <div class="container">
       <div class="row">
-        <ourWork class="w-full p-6 md:p-12" :title="$t('impact.title')" :programs="programs" />
+        <ourWork v-if="$fetchState.timestamp && programs.length" class="w-full p-6 md:p-12" :title="$t('impact.title')"
+          :programs="programs" />
       </div>
     </div>
     <!-- Featured publication -->
@@ -35,7 +36,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import articlesSpotlight from "~/components/Blog/ArticlesSpotlight";
   import lastestPublications from '~/components/Publications/LastestPublications';
   import upcomingEvents from '~/components/Events/UpcomingEvents';
@@ -46,6 +46,11 @@
 
   export default {
     layout: 'general',
+    data() {
+      return {
+        programs: []
+      }
+    },
     components: {
       ourWork,
       homeBanner,
@@ -60,21 +65,25 @@
         title: this.$i18n.locale == 'ar' ? 'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association',
         meta: [{
             name: 'description',
-            content: this.homeMeta['metaDescription_' + this.$i18n.locale] ? this.homeMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.pageInfo['metaDescription_' + this.$i18n.locale] ? this.pageInfo['metaDescription_' + this
+              .$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]
       }
     },
-    async asyncData(context) {
-      const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=home');
-      const programs = await axios.get(process.env.baseUrl + '/programs');
-      return {
-        homeMeta: pageMeta.data[0],
-        programs: programs.data
+    computed: {
+      pageInfo() {
+        return this.$store.state.pages.home
       }
     },
+    async fetch() {
+      let list = this.$store.state.programs.list
+      if (!list) {
+        await this.$store.dispatch("programs/fetch")
+      }
+      this.programs = this.$store.state.programs.list
+    }
   }
 </script>
 
