@@ -154,7 +154,8 @@ export default {
   timeCard: {
     title: 'Date and Time',
     from: 'From',
-    to: 'To'
+    to: 'To',
+    gmt: 'GMT',
   },
   // Location Card
   locationCard: {
@@ -294,8 +295,5 @@ export default {
   },
   tooltip: {
     copied: 'Copied!'
-  },
-  timeString:{
-    time:'Amman time'
   }
 }

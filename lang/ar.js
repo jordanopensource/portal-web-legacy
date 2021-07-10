@@ -18,7 +18,8 @@ export default {
   timeCard: {
     title: 'التاريخ والوقت',
     from: 'من',
-    to: 'إلى'
+    to: 'إلى',
+    gmt: 'توقيت غرينتش',
   },
   // Location Card
   locationCard: {
@@ -190,7 +191,4 @@ export default {
   tooltip: {
     copied: 'تم النسخ!'
   },
-  timeString:{
-    time:'بتوقيت عمان'
-  }
 }

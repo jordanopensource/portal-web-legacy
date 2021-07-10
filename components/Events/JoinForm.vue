@@ -71,7 +71,8 @@
                     <p>{{ $t('events.waitMessage')}}</p>
                     <p class="font-bold">{{ from | dayFullDate($i18n.locale) }}</p>
                     <p class="font-bold">{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }}
-                        {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} {{ $t('timeString.time') }}</p>
+                        {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }}
+                        ({{ $t('timeCard.gmt') }}{{ to | timezone($i18n.locale) }})</p>
                 </div>
             </div>
         </div>
