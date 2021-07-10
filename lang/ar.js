@@ -110,7 +110,7 @@ export default {
   // Meta
   meta: {
     writtenBy: 'بقلم',
-    readTheReport: 'إقرأ التقرير',
+    readTheReport:'اقرأ التقرير',
     readMore: 'اقرأ المزيد',
     knowMore: 'اعرف أكثر',
     knowMoreAboutUs: 'اعرف أكثر عنا',
