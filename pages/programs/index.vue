@@ -25,8 +25,8 @@
           'الجمعية الأردنية للمصدر المفتوح' : 'Jordan Open Source Association'),
         meta: [{
             name: 'description',
-            content: this.programsMeta['metaDescription_' + this.$i18n.locale] ? this.programsMeta[
-              'metaDescription_' + this.$i18n.locale] : ''
+            content: this.programsMeta['metaDescription_' + this.$i18n.locale] ? this.programsMeta['metaDescription_' + this
+              .$i18n.locale] : ''
           },
           ...i18nSeo.meta
         ]

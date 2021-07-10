@@ -38,6 +38,23 @@
                 </appButton>
             </form>
         </div>
+        <div v-else-if="isFinishedEvent()" class="w-full p-8">
+            <h3>{{event['title_' + $i18n.locale]}}</h3>
+            <p class="">{{ $t('events.hostedBy') }}</p>
+            <div class="flex flex-col lg:flex-row mt-8 mb-4">
+                <appImage v-if="event.thumbnail" :image="event.thumbnail" size="small"
+                    class="thumbnail w-full lg:w-1/2 lg:ltr:mr-2 lg:rtl:ml-2" />
+                <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
+                <div class="w-full lg:w-1/2 lg:ltr:ml-2 lg:rtl:mr-2 mt-4">
+                    <div class="flex items-center mb-4">
+                        <font-awesome-icon class="flex ltr:mr-2 rtl:ml-2"
+                            :icon="['fas', 'exclamation-triangle']" />
+                        <h6 class="text-lg uppercase">{{ $t('events.hasFinished')}}</h6>
+                    </div>
+                    <p>{{ $t('events.finishedMessage')}}</p>
+                </div>
+            </div>
+        </div>
         <div v-else class="w-full p-8">
             <h3>{{event['title_' + $i18n.locale]}}</h3>
             <p class="">{{ $t('events.hostedBy') }}</p>
@@ -54,7 +71,8 @@
                     <p>{{ $t('events.waitMessage')}}</p>
                     <p class="font-bold">{{ from | dayFullDate($i18n.locale) }}</p>
                     <p class="font-bold">{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }}
-                        {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} {{ $t('timeString.time') }}</p>
+                        {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }}
+                        ({{ $t('timeCard.gmt') }}{{ to | timezone($i18n.locale) }})</p>
                 </div>
             </div>
         </div>
@@ -99,6 +117,11 @@
             }
         },
         methods: {
+            isFinishedEvent(){
+                let endDate = new Date(this.to).getTime();
+                let currentDate = new Date().getTime();
+                return currentDate > endDate; 
+            },
             removeJoin() {
                 this.$route.query.join == 'false'
             },
