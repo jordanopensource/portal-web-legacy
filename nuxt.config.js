@@ -103,7 +103,7 @@ export default {
     lazy: true,
     langDir: 'lang/',
     detectBrowserLanguage: false,
-    baseUrl: 'https://jordanopensource.org',
+    baseUrl: 'https://josa.ngo',
     seo: true
   },
   moment: {
