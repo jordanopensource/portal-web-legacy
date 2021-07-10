@@ -181,6 +181,8 @@ export default {
     here: 'here',
     onlineEvent: 'Online Event',
     notStarted:'the event has not started yet',
+    hasFinished:'the event has finished',
+    finishedMessage:'The event you are trying to join has already been concluded.',
     waitMessage:'Please wait, this event has not started yet. The event is scheduled to start on:'
   },
   eventCats: {
