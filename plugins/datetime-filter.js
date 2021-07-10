@@ -50,7 +50,11 @@ const monthDate = (dt, lang) => {
 }
 
 const time = (dt, lang) => {
-  return moment(dt).locale(lang).format("H:mm A");
+  return moment(dt).locale(lang).format("h:mm A");
+}
+
+const timezone = (dt, lang) => {
+  return moment(dt).locale(lang).format("Z");
 }
 
 const day = (dt, lang) => {
@@ -63,4 +67,5 @@ Vue.filter('dayFullDate', dayFullDate)
 Vue.filter('monthYearDate', monthYearDate)
 Vue.filter('monthDate', monthDate)
 Vue.filter('time', time)
+Vue.filter('timezone', timezone)
 Vue.filter('day', day)
