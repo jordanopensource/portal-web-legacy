@@ -191,4 +191,16 @@ export default {
   tooltip: {
     copied: 'تم النسخ!'
   },
+  timeString:{
+    time:'بتوقيت عمان'
+  },
+  addToCalendar:{
+    add:'أضف إلى التقويم',
+    google:'جوجل',
+    outlook:'أوتلوك',
+    office:'أوفيس 365',
+    apple:'آبل',
+    android:'أندرويد',
+    others:'تقويم آخر'
+  }
 }

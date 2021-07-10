@@ -295,5 +295,17 @@ export default {
   },
   tooltip: {
     copied: 'Copied!'
+  },
+  timeString:{
+    time:'Amman time'
+  },
+  addToCalendar:{
+    add:'Add to Calendar',
+    google:'Google',
+    outlook:'Outlook',
+    office:'Office 365',
+    apple:'Apple',
+    android:'Android',
+    others:'Other Calendar'
   }
 }
