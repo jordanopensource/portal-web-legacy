@@ -18,7 +18,8 @@ export default {
   timeCard: {
     title: 'التاريخ والوقت',
     from: 'من',
-    to: 'إلى'
+    to: 'إلى',
+    gmt: 'توقيت غرينتش',
   },
   // Location Card
   locationCard: {
@@ -109,7 +110,7 @@ export default {
   // Meta
   meta: {
     writtenBy: 'بقلم',
-    readTheReport: 'إقرأ التقرير',
+    readTheReport:'اقرأ التقرير',
     readMore: 'اقرأ المزيد',
     knowMore: 'اعرف أكثر',
     knowMoreAboutUs: 'اعرف أكثر عنا',
@@ -192,5 +193,14 @@ export default {
   },
   timeString:{
     time:'بتوقيت عمان'
+  },
+  addToCalendar:{
+    add:'أضف إلى التقويم',
+    google:'جوجل',
+    outlook:'أوتلوك',
+    office:'أوفيس 365',
+    apple:'آبل',
+    android:'أندرويد',
+    others:'تقويم آخر'
   }
 }
