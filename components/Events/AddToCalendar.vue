@@ -69,17 +69,18 @@
         var event = new Date(date).toISOString();
         event = event.replaceAll(":", "");
         event = event.replaceAll("-", "");
-        event = event.replaceAll(".", "");
+        // Remove milliseconds in the time value
+        event = event.replace(event.substring(event.length-5, event.length-1),"");
         return event;
       },
       googleEncode(Url) {
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
-        desc = desc.substring(0,1200)+"...";
+        desc = desc.substring(0, 1200) + "...";
         let URL =
-          `${Url}action=TEMPLATE&text=${this.event['title_' + this.$i18n.locale]}`+
-          `&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(this.event.endDate)}`+
+          `${Url}action=TEMPLATE&text=${this.event['title_' + this.$i18n.locale]}` +
+          `&dates=${this.convertDate(this.event.startDate)}/${this.convertDate(this.event.endDate)}` +
           `&details=${desc}&sf=true&output=xml`;
         let encoded = encodeURI(URL)
         window.open(encoded, '_blank');
@@ -95,10 +96,10 @@
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
-        desc = desc.substring(0,1200)+"...";
+        desc = desc.substring(0, 1200) + "...";
         var title = this.event['title_' + this.$i18n.locale];
         let URL =
-          `${Url}rru=addevent&subject=${title}&startdt=${this.outlookDate(this.event.startDate)}`+
+          `${Url}rru=addevent&subject=${title}&startdt=${this.outlookDate(this.event.startDate)}` +
           `&enddt=${this.outlookDate(this.event.endDate)}&body=${desc}`;
         let encoded = URL
         encoded = encodeURI(encoded)
@@ -108,32 +109,40 @@
         var div = document.createElement("div");
         div.innerHTML = this.event['description_' + this.$i18n.locale];
         var desc = div.textContent || div.innerText || "";
+        // Keep newlines by not escaping them
+        desc = desc.replaceAll("\n","\\" + "n");
+        // \u000D\u000A is Unicode for CRLF, split lines should start with a
+        // space
+        desc = desc.replace(/(.{62})/, "$1\u000D\u000A ");
+        desc = desc.replace(/(.{74})/g, "$1\u000D\u000A ");
         var icsFile = null;
         var test =
-          "BEGIN:VCALENDAR\n" +
-          "CALSCALE:GREGORIAN\n" +
-          "METHOD:PUBLISH\n" +
-          "X-WR-TIMEZONE:Asia/Amman" +
-          "PRODID:-//Test Cal//EN\n" +
-          "VERSION:2.0\n" +
-          "BEGIN:VEVENT\n" +
-          "UID:test-1\n" +
+          "BEGIN:VCALENDAR\u000D\u000A" +
+          "CALSCALE:GREGORIAN\u000D\u000A" +
+          "METHOD:PUBLISH\u000D\u000A" +
+          "PRODID:JOSA\u000D\u000A" +
+          "VERSION:2.0\u000D\u000A" +
+          "BEGIN:VEVENT\u000D\u000A" +
+          "UID:event-" +
+          this.event.id +
+          "\u000D\u000A" +
+          "DTSTAMP:" +
+          this.convertDate(this.event.published_at) +
+          "\u000D\u000A" +
           "DTSTART:" +
           this.convertDate(this.event.startDate) +
-          "\n" +
+          "\u000D\u000A" +
           "DTEND:" +
           this.convertDate(this.event.endDate) +
-          "\n" +
+          "\u000D\u000A" +
           "SUMMARY:" +
           this.event['title_' + this.$i18n.locale] +
-          "\n" +
-          "DESCRIPTION:" +
-          desc.substring(0, 200) + "..." +
-          "\n" +
-          "END:VEVENT\n" +
+          "\u000D\u000A" +
+          "DESCRIPTION:" + desc + "\u000D\u000A" +
+          "END:VEVENT\u000D\u000A" +
           "END:VCALENDAR";
-        var data = new File([test], {
-          type: "text/plain"
+        var data = new Blob([test], {
+          type: "text/calendar"
         });
         if (icsFile !== null) {
           window.URL.revokeObjectURL(icsFile);
