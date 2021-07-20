@@ -4,8 +4,8 @@
     <div>
       <h5>{{ $t('timeCard.title') }}</h5>
       <p>{{ from | dayFullDate($i18n.locale) }}</p>
-      <p>{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} {{ $t('timeString.time') }}</p>
-              ({{ $t('timeCard.gmt') }}{{ to | timezone($i18n.locale) }})</p>
+      <p>{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }} 
+      ({{ $t('timeCard.gmt') }}{{ to | timezone($i18n.locale) }})</p>
       <addToCalendar class="mt-4" :event="event"/>
     </div>
   </div>
