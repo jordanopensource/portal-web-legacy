@@ -10,12 +10,14 @@
         <p>{{ from | dayFullDate($i18n.locale) }}</p>
         <p>{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }}
         ({{ $t('timeCard.gmt') }}{{ to | timezone($i18n.locale) }})</p>
-      </div>      
+      </div>
+      <addToCalendar class="mt-4" :event="event"/>
     </div>
   </div>
 </template>
 
 <script>
+  import addToCalendar from '~/components/Events/AddToCalendar';
   export default {
     name: 'TimeCard',
     props: {
@@ -24,7 +26,13 @@
       },
       to: {
         required: true
+      },
+      event:{
+        required: true
       }
+    },
+    components:{
+      addToCalendar
     }
   }
 
