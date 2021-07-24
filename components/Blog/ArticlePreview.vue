@@ -11,20 +11,30 @@
         </span>
       </h5>
       <nuxt-link :to="articleLink">
-        <h3 class="mb-4">{{ article.title }}</h3>
+        <h3 class="mb-2">{{ article.title }}</h3>
       </nuxt-link>
       <p v-if="article.excerpt">{{article.excerpt}}</p>
       <p v-else>{{article.body | truncate(200) }}</p>
-      <nuxt-link :to="articleLink" class="py-4 display-more">
-        {{ $t('meta.readTheReport') }}
-        <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
-      </nuxt-link>
+      <div v-if="article.authors.length || article.translators.length" class="flex flex-wrap items-center flex-row mb-t mb-2 mt-4">
+        <p class="text-sm opacity-80 ltr:mr-4 rtl:ml-4 mb-2">
+          {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</p>
+        <template v-if="article.authors.length">
+          <author v-for="author in article.authors" :key="author.id" class="ltr:mr-4 rtl:ml-4 flex-shrink-0"
+            :name="author['name_' + $i18n.locale]" :picture="author.picture" />
+        </template>
+        <template  v-if="article.translators.length">
+          <author v-for="translator in article.translators" :key="translator.id"
+            class="ltr:mr-6 rtl:ml-6 flex-shrink-0" :name="translator['name_' + $i18n.locale]"
+            :picture="translator.picture" :translatedBy="true" v-bind:writtenBy="false" />
+        </template>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   import appImage from '~/components/UI/appImage';
+  import author from '~/components/Blog/AuthorFeatured';
   export default {
     name: 'BlogPreview',
     data() {
@@ -33,7 +43,8 @@
       }
     },
     components: {
-      appImage
+      appImage,
+      author
     },
     props: {
       article: {

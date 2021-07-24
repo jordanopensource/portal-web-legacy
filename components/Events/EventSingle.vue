@@ -25,7 +25,7 @@
             <div v-if="event.onlineEvent && running == true" class="mb-8">
               <joinFormCard :event="event" />
             </div>
-            <timeCard v-if="event.startDate" class="mb-8" :from="event.startDate" :to="event.endDate" />
+            <timeCard v-if="event.startDate" class="mb-8" :from="event.startDate" :to="event.endDate" :event="event" />
             <locationCard v-if="event.address" :address="event.address" />
             <onlineEventCard v-if="event.onlineEvent" />
           </div>

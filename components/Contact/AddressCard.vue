@@ -18,7 +18,8 @@
               <h5>{{ $t('contact.workingHours') }}:</h5>
               <p>{{ info.workingTime.from | day($i18n.locale) }} - {{ info.workingTime.to | day($i18n.locale) }}</p>
               <p>{{ $t('timeCard.from') }} {{ info.workingTime.from | time($i18n.locale) }} {{ $t('timeCard.to') }}
-                {{ info.workingTime.to | time($i18n.locale) }}</p>
+                {{ info.workingTime.to | time($i18n.locale) }}
+                ({{ $t('timeCard.gmt') }}{{ info.workingTime.to | timezone($i18n.locale) }})</p>
             </div>
           </div>
           <div class="mb-6">

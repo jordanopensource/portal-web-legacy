@@ -13,7 +13,7 @@
         <p class="ltr:mr-4 rtl:ml-4">
           <font-awesome-icon class="icon rtl:ml-2 ltr:mr-2" :icon="['fas', 'clock']" />
           {{ event.startDate | time($i18n.locale) }} - {{ event.endDate | time($i18n.locale) }}
-          {{ $t('timeString.time') }}
+          ({{ $t('timeCard.gmt') }}{{ to | timezone($i18n.locale) }})
         </p>
         <p v-if="event.address">
           <font-awesome-icon class="icon rtl:ml-2 ltr:mr-2" :icon="['fas', 'map-marker-alt']" />
