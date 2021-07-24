@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-no-wrap items-center mt-4 ">  
+  <div class="flex flex-no-wrap items-center mb-2">  
     <appImage v-if="picture" :image="picture" size="small" class="profilePicture" />
     <img v-else size="small" class="profilePicture" src="/images/icons/authorimage_default.png" />
     <div class="flex items-center opacity-80">

@@ -15,10 +15,10 @@
       </nuxt-link>
       <p v-if="article.excerpt">{{article.excerpt}}</p>
       <p v-else>{{article.body | truncate(200) }}</p>
-      <div v-if="article.authors.length || article.translators.length" class="flex flex-no-wrap items-center flex-row mb-t mb-2">
-        <template v-if="article.authors.length">
-          <p class="text-sm opacity-80 ltr:mr-4 rtl:ml-4 mt-4">
+      <div v-if="article.authors.length || article.translators.length" class="flex flex-wrap items-center flex-row mb-t mb-2 mt-4">
+        <p class="text-sm opacity-80 ltr:mr-4 rtl:ml-4 mb-2">
           {{ article.publishDate ? article.publishDate: article.created_at | fullDate($i18n.locale) }}</p>
+        <template v-if="article.authors.length">
           <author v-for="author in article.authors" :key="author.id" class="ltr:mr-4 rtl:ml-4 flex-shrink-0"
             :name="author['name_' + $i18n.locale]" :picture="author.picture" />
         </template>
