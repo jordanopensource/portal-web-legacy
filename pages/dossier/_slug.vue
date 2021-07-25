@@ -4,7 +4,7 @@
     <div id="banner" :style="{backgroundImage: `url(${backgroundUrl})`}">
       <div class="overlay"></div>
       <div class="container">
-        <div class="px-12">
+        <div class="px-6">
           <div class="my-auto w-full lg:max-w-1/2">
             <h4 class="mb-2">{{$t('dossier.dossier')}}</h4>
             <h1 class="mb-4">{{ dossier['title_' + $i18n.locale] }}</h1>
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="container py-20">
-      <div class="px-12">
+      <div class="px-6">
         <div class="flex flex-wrap lg:flex-no-wrap">
           <!-- Description -->
           <div class="w-full lg:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
