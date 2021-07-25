@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="container py-20">
-      <div class="px-12">
+      <div class="px-6">
         <div class="flex flex-wrap lg:flex-no-wrap">
           <!-- Description -->
           <div class="w-full lg:w-3/5 ltr:mr-8 rtl:ml-8 mb-8">
