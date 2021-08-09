@@ -7,9 +7,9 @@ function ogData(type, content, path, lang) {
   var description = ''
   // Set image url
   if (content.ogData && content.ogData.image) {
-    imageUrl = process.env.baseUrl + content.ogData.image.url
+    imageUrl = content.ogData.image.url
   } else if (content.thumbnail) {
-    imageUrl = process.env.baseUrl + content.thumbnail.url
+    imageUrl = content.thumbnail.url
   } else {
     imageUrl = ''
   }

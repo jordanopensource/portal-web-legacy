@@ -21,7 +21,7 @@
     name: 'PartnerPreview',
     data() {
       return {
-        placeholderImage: process.env.baseUrl + '/uploads/josabots_88f0a93786.jpeg'
+        placeholderImage: process.env.bucketUrl + '/josabots_88f0a93786.jpeg'
       }
     },
     components: {
