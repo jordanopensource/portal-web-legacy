@@ -146,6 +146,7 @@ export default {
   },
   env: {
     baseUrl: process.env.API_BASE_URL,
+    bucketUrl: process.env.BUCKET_URL,
   },
 
   /*

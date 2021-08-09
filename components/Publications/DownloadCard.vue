@@ -18,7 +18,7 @@
     },
     computed: {
       fileUrl() {
-        return process.env.baseUrl + this.fileLink
+        return this.fileLink
       }
     }
   }
