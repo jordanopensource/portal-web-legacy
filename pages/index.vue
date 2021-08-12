@@ -2,6 +2,15 @@
   <div>
     <!-- Banner -->
     <homeBanner :pageMeta="homeMeta" :programs="programs" />
+    <!-- Upcoming Events -->
+    <div class="container pb-8 mt-20">
+      <div class="px-6 md:px-12">
+        <eventListUpcoming v-if="activeCat=='all'" category="all" :showMonths="false" />
+        <template v-for="cat in eventCategories" >
+          <eventListUpcoming v-if="activeCat==cat.name" :category="cat.name" :key="cat.id" :showMonths="false" />
+        </template>
+      </div>
+    </div>
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
@@ -42,17 +51,24 @@
   import ourWork from '~/components/Programs/OurWork';
   import homeBanner from "~/components/UI/HomeBanner";
   import joinUs from "~/components/JoinUs/JoinUs";
+  import eventListUpcoming from "@/components/Events/EventList";
 
 
   export default {
     layout: 'general',
+    data() {
+      return {
+        activeCat: 'all'
+      }
+    },
     components: {
       ourWork,
       homeBanner,
       articlesSpotlight,
       lastestPublications,
       upcomingEvents,
-      joinUs
+      joinUs,
+      eventListUpcoming
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
@@ -70,11 +86,18 @@
     async asyncData(context) {
       const pageMeta = await axios.get(process.env.baseUrl + '/page-metas?pageId=home');
       const programs = await axios.get(process.env.baseUrl + '/programs');
+      const cats = await axios.get(process.env.baseUrl + '/event-categories');
       return {
         homeMeta: pageMeta.data[0],
-        programs: programs.data
+        programs: programs.data,
+        eventCategories: cats.data
       }
     },
+    methods: {
+      setActiveCat(cat) {
+        this.activeCat = cat
+      }
+    }
   }
 </script>
 
