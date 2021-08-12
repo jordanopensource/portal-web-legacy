@@ -2,8 +2,16 @@
 <template>
   <section>
     <div v-if="ifNotEmpty()">
+      <div v-if="showTitle" class="flex justify-between items-baseline">
+        <h2 class="mb-8">{{ $t('events.upcoming') }}</h2>
+          <nuxt-link :to="localePath('events')">
+            <h6 class="display-more">{{ $t('eventCats.all') }}
+              <font-awesome-icon class="ltr:ml-2 rtl:mr-2 align-middle" :icon="['fas', arrowIcon ]" />
+            </h6>
+          </nuxt-link>
+      </div>
       <div v-for="month in months" :key="month" class="mb-20">
-        <h3>{{ month }}</h3>
+        <h3 v-if="showMonths">{{ month }}</h3>
         <eventPreview v-for="event in sortedEvents[month]" :key="event.id" :id="event.id" :event="event" />
         <div v-if="pageCount > 1" class="pagination pt-6 text-center border-t border-dotted">
           <span class="py-2" v-if="currentPage > 1"><a
@@ -51,6 +59,14 @@
       limit: {
         type: Number,
         default: 10
+      },
+      showMonths: {
+        type: Boolean,
+        default: true
+      },
+      showTitle: {
+        type: Boolean,
+        default: true
       }
     },
     created() {
@@ -153,6 +169,13 @@
       },
       pageCount() {
         return Math.ceil(this.count / this.limit)
+      },
+      arrowIcon() {
+        if (this.$i18n.locale == "ar") {
+          return 'long-arrow-alt-left'
+        } else {
+          return 'long-arrow-alt-right'
+        }
       }
     }
   }
