@@ -17,9 +17,9 @@
     <div class="container pb-8 mt-20">
       <div class="px-6 md:px-12">
         <h2 class="mb-8">{{ $t('events.upcoming') }}</h2>
-        <eventListUpcoming v-if="activeCat=='all'" category="all" />
+        <eventListUpcoming v-if="activeCat=='all'" category="all" :showTitle="false" />
         <template v-for="cat in eventCategories" >
-          <eventListUpcoming v-if="activeCat==cat.name" :category="cat.name" :key="cat.id" />
+          <eventListUpcoming v-if="activeCat==cat.name" :category="cat.name" :key="cat.id" :showTitle="false" />
         </template>
       </div>
     </div>
