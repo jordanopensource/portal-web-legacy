@@ -1,7 +1,7 @@
 <template>
   <div class="links">
-    <span v-for="(item ,index) in orderBy(menu.menuItems,'name')" :key="index">
-      <a v-if="external(item.path,item.weight)" :href="item.path" active-class="active" :class="menuItemClass">{{ item['label_' + $i18n.locale] }}</a>
+    <span v-for="(item ,index) in orderBy(menu.menuItems, 'name')" :key="index">
+      <a v-if="external(item.path)" :href="item.path" active-class="active" :class="menuItemClass">{{ item['label_' + $i18n.locale] }}</a>
       <nuxt-link v-else :to="localePath(item.path)" active-class="active" :class="menuItemClass">{{ item['label_' + $i18n.locale] }}</nuxt-link>
     </span>
   </div>
@@ -21,8 +21,7 @@
       }
     },
     methods: {
-      external(path,wieght) {
-        console.log(path+': '+wieght)
+      external(path) {
         var re = new RegExp("^(http|https)://", "i");
         return re.test(path);
       }
