@@ -3,7 +3,8 @@
     <font-awesome-icon class="icon ltr:mr-3 rtl:ml-3" :icon="['fas', 'clock']" />
     <div>
       <h5>{{ $t('timeCard.title') }}</h5>
-      <p>{{ from | dayFullDateAmman($i18n.locale) }}</p>
+      <p v-if="isRecurringEvent()">{{ from | dayFullDateAmman($i18n.locale) }} - {{ to | dayFullDateAmman($i18n.locale) }}</p>
+      <p v-else>{{ from | dayFullDateAmman($i18n.locale) }}</p>
       <p>{{ $t('timeCard.from') }} {{ from | timeAmman($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | timeAmman($i18n.locale) }} ({{ $t('timeString.time') }})</p>
       <br/>
       <div v-if="new Date().getTimezoneOffset() !== -180">
@@ -39,6 +40,11 @@
         let endDate = new Date(this.to).getTime();
         let currentDate = new Date().getTime();
         return currentDate < endDate;
+      },
+      isRecurringEvent() {
+        let startDate = new Date(this.from).getDate();
+        let endDate = new Date(this.to).getDate();
+        return startDate !== endDate;
       }
     }
   }
