@@ -8,7 +8,7 @@
           <div class="ltr:pl-8 rtl:pr-8">
             <p>{{ info.address['addressOne_' + $i18n.locale] }}</p>
             <p>{{ info.address['addressTwo_' + $i18n.locale] }}</p>
-            <p class="mt-4">{{ info.address['street_' + $i18n.locale] }}, {{ info.address['city_' + $i18n.locale] }}</p>
+            <p class="mt-4">{{ info.address['street_' + $i18n.locale] }}{{ $t('contact.comma') }} {{ info.address['city_' + $i18n.locale] }}</p>
           </div>
         </div>
         <div class="mb-6 w-full">
