@@ -54,7 +54,7 @@
       }
     },
     mounted() {
-      this.$store.commit('setFeaturedBlogs', this.article.id)
+      this.$store.commit('blog/setFeaturedArticles', this.article.id)
     }
   }
 

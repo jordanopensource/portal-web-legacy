@@ -1,17 +1,24 @@
-import Vuex from 'vuex';
-import blog from './modules/blog';
-import events from './modules/events';
-import menus from './modules/menus';
-import modal from './modules/modal';
+// Index Store
+import axios from 'axios';
 
-const createStore = () => {
-  return new Vuex.Store({
-    modules: {
-        events,
-        blog,
-        menus,
-        modal
-    }
-  })
+export const state = () => ({
+  loadedMenus: []
+})
+
+export const mutations = {
+  setMenus(state, menus) {
+    const obj = {}
+    menus.forEach(m => {
+      obj[m.menuId] = m;
+    });
+    state.loadedMenus = obj
+  }
 }
-export default createStore
+
+export const actions = {
+  async nuxtServerInit({commit}) {
+    const menusRes = await axios.get(process.env.baseUrl + "/menus");
+    const menusArray = menusRes.data;
+    commit("setMenus", menusArray);
+  }
+}

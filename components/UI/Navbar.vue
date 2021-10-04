@@ -18,7 +18,7 @@
     },
     computed: {
       mainMenu() {
-        return this.$store.getters.loadedMenus.mainMenu;
+        return this.$store.state.loadedMenus.mainMenu;
       }
     }
   }

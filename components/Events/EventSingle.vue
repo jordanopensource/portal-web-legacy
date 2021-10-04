@@ -54,7 +54,7 @@
       return {
         placeholderImage: process.env.bucketUrl + '/josabots_88f0a93786.jpeg',
         url: null,
-        running: 'true',
+        running: false,
       }
     },
     methods: {
@@ -104,15 +104,15 @@
     },
     computed: {
       showModal() {
-        return this.$store.getters.getShowModal
+        return this.$store.state.modal.showModal
       }
     },
     mounted() {
       this.url = window.location.href;
       if ('join' in this.$route.query) {
-        this.$store.dispatch('setShowModal', true)
+        this.$store.dispatch('modal/setShowModal', true)
       } else {
-        this.$store.dispatch('setShowModal', false)
+        this.$store.dispatch('modal/setShowModal', false)
       }
     }
   }
