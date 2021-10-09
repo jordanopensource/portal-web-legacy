@@ -26,7 +26,7 @@
             <font-awesome-icon class="icon" :icon="['fas', 'phone-alt']" />
             <div class="ltr:pl-10 rtl:pr-10">
               <h5>{{ $t('contact.voice') }}:</h5>
-              <p><bdo dir="ltr">{{ info.phone }}</bdo></p>
+              <a :href="`tel:${info.phone}`"><p><bdo dir="ltr">{{ info.phone }}</bdo></p></a>
             </div>
           </div>
           <div class="mb-6">
