@@ -25,8 +25,6 @@
         <trivia v-if="program.trivia[0]" :info="program.trivia[0]" />
         <trivia v-if="program.trivia[1]" :info="program.trivia[1]" alt />
       </div>
-      <!-- Upcoming Events -->
-      <upcomingEvents :title="$t('events.upcoming')" category="all" :numberOfEvents="2" />
     </div>
   </div>
 </template>
@@ -34,7 +32,6 @@
 <script>
   import pageBanner from "~/components/UI/PageBannerNoImage";
   import trivia from '~/components/UI/Trivia';
-  import upcomingEvents from '~/components/Events/UpcomingEvents';
   import latestArticles from "~/components/Blog/LatestArticlesNoFetch";
   import activitiesList from '@/components/Activities/ActivitiesList';
   import Vue2Filters from 'vue2-filters';
@@ -44,7 +41,6 @@
     components: {
       pageBanner,
       trivia,
-      upcomingEvents,
       latestArticles,
       activitiesList
     },

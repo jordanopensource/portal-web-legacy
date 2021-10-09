@@ -25,12 +25,6 @@
         </div>
       </div>
     </div>
-    <!-- Upcoming Events -->
-    <div class="container">
-      <div class="row pb-20">
-        <upcomingEvents :title="$t('events.upcoming')" category="all" :numberOfEvents="2" />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -38,7 +32,6 @@
   import axios from 'axios';
   import articlesSpotlight from "~/components/Blog/ArticlesSpotlight";
   import lastestPublications from '~/components/Publications/LastestPublications';
-  import upcomingEvents from '~/components/Events/UpcomingEvents';
   import ourWork from '~/components/Programs/OurWork';
   import homeBanner from "~/components/UI/HomeBanner";
   import joinUs from "~/components/JoinUs/JoinUs";
@@ -51,7 +44,6 @@
       homeBanner,
       articlesSpotlight,
       lastestPublications,
-      upcomingEvents,
       joinUs
     },
     head() {
