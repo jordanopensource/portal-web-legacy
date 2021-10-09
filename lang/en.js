@@ -154,7 +154,7 @@ export default {
   timeCard: {
     title: 'Date and Time',
     from: 'From',
-    to: 'To',
+    to: 'to',
     gmt: 'GMT',
   },
   // Location Card
