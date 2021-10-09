@@ -101,7 +101,7 @@
     },
     computed: {
       backgroundUrl() {
-        return process.env.baseUrl + this.dossier.thumbnail.url
+        return this.dossier.thumbnail.url
       },
       articlesByLanguage() {
         let articlesByLanguage = this.dossier.blogs.filter(article => article.language == this.$i18n.locale)
