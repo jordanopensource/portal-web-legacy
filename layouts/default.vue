@@ -3,6 +3,7 @@
     <mainHeader />
     <FlashMessage :position="'right top'" />
     <nuxt class="content-wrapper md:px-0 bg-white" />
+    <back-to-top />
     <mainFooter />
   </div>
 </template>
@@ -10,6 +11,7 @@
 <script>
   import mainHeader from '~/components/UI/Header';
   import mainFooter from '~/components/UI/Footer';
+  import BackToTop from '../components/UI/BackToTop.vue';
 
   export default {
     head() {
@@ -20,7 +22,8 @@
     },
     components: {
       mainHeader,
-      mainFooter
+      mainFooter,
+      BackToTop
     },
   }
 
