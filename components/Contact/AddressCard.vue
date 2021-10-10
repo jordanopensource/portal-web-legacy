@@ -33,7 +33,7 @@
             <font-awesome-icon class="icon" :icon="['fas', 'envelope']" />
             <div class="ltr:pl-10 rtl:pr-10">
               <h5>{{ $t('contact.email') }}:</h5>
-              <p>{{ info.email }}</p>
+              <a :href="`mailto:${info.email}`"><p>{{ info.email }}</p></a>
             </div>
           </div>
         </div>
