@@ -194,7 +194,8 @@ export default {
     workingHours: 'Working Hours',
     voice: 'Voice',
     email: 'Email',
-    connect: 'Connect with us'
+    connect: 'Connect with us',
+    comma: ',',
   },
   feedback: {
     title: 'Feedback and Inquiries',
