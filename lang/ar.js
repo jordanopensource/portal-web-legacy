@@ -54,7 +54,8 @@ export default {
     workingHours: 'ساعات العمل',
     voice: 'هاتف',
     email: 'البريد الإلكتروني',
-    connect: 'تواصل معنا'
+    connect: 'تواصل معنا',
+    comma: '،'
   },
   // Feedback
   feedback: {
