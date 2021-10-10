@@ -11,7 +11,7 @@
         <p>{{ $t('timeCard.from') }} {{ from | time($i18n.locale) }} {{ $t('timeCard.to') }} {{ to | time($i18n.locale) }}
         ({{ $t('timeCard.gmt') }}{{ to | timezone($i18n.locale) }})</p>
       </div>
-      <addToCalendar class="mt-4" :event="event"/>
+      <addToCalendar v-if="isOngoingEvent()" class="mt-4" :event="event"/>
     </div>
   </div>
 </template>
@@ -33,6 +33,13 @@
     },
     components:{
       addToCalendar
+    },
+    methods: {
+      isOngoingEvent() {
+        let endDate = new Date(this.to).getTime();
+        let currentDate = new Date().getTime();
+        return currentDate < endDate;
+      }
     }
   }
 
