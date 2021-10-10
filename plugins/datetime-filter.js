@@ -9,7 +9,7 @@ function lang2locale(lang) {
 
 const fullDate = (dt, lang) => {
   // 25 May 2021
-  const options = { 
+  const options = {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -26,7 +26,7 @@ const dayDate = (dt, lang) => {
 
 const dayFullDate = (dt, lang) => {
   // Tuesday, 25 May 2021
-  const options = { 
+  const options = {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -41,7 +41,7 @@ const dayFullDateAmman = (dt, lang) => {
 
 const monthYearDate = (dt, lang) => {
   // May 2021
-  const options = { 
+  const options = {
     month: 'long',
     year: 'numeric',
   }
@@ -54,11 +54,11 @@ const monthDate = (dt, lang) => {
 }
 
 const time = (dt, lang) => {
-  return moment(dt).locale(lang).format("H:mm A");
+  return moment(dt).locale(lang).format("HH:mm");
 }
 
 const timeAmman = (dt, lang) => {
-  return moment(dt).utcOffset("+03:00").locale(lang).format("H:mm A");
+  return moment(dt).utcOffset("+03:00").locale(lang).format("HH:mm");
 }
 
 const day = (dt, lang) => {
