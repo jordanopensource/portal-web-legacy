@@ -22,9 +22,7 @@ const mutations = {
 };
 
 const actions = {
-  nuxtServerInit({
-    commit
-  }) {
+  nuxtServerInit({commit}, context) {
     return axios
       .get(process.env.baseUrl + "/menus")
       .then(res => {

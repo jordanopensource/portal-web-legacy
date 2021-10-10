@@ -54,7 +54,8 @@ export default {
     workingHours: 'ساعات العمل',
     voice: 'هاتف',
     email: 'البريد الإلكتروني',
-    connect: 'تواصل معنا'
+    connect: 'تواصل معنا',
+    comma: '،'
   },
   // Feedback
   feedback: {
@@ -65,7 +66,7 @@ export default {
       subject: 'ما موضوع اقتراحك أو استفسارك؟',
       inquiry: 'نرجو إضافة أي تفاصيل عنه',
       name: 'اسمك',
-      email: 'بريدك الألكتروني',
+      email: 'بريدك الإلكتروني',
       submit: 'إرسال'
     }
   },
