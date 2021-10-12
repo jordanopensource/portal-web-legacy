@@ -83,6 +83,20 @@
         return this.$store.getters.getFeaturedBlogs
       }
     },
+    watch: {
+      /**
+       * On currentPage change, add ?page=x in URL to add browser history on page change
+       */
+      currentPage(currentPage) {
+        this.$router.push({
+          path: this.$route.path,
+          query: {
+            ...this.$route.query,
+            page: currentPage
+          }
+        })
+      },
+    },
     created() {
       this.fetchArticles()
       this.countArticles()
