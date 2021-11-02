@@ -2,7 +2,7 @@
   <div>
     <h3>{{ $t('speakers') }}</h3>
     <div class="info" v-for="speaker in speakers" :key='speaker.id'>
-      <appImage class="profilePicture w-12 h-12 flex-shrink-0" :image="speaker.picture" />
+      <appImage class="profilePicture w-12 h-12 flex-shrink-0 object-cover" :image="speaker.picture" />
       <div>
         <h4 class="font-medium">{{ speaker['fullName_' + $i18n.locale] }}</h4>
         <p>{{ speaker['title_' + $i18n.locale] }}</p>
