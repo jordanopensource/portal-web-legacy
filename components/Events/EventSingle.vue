@@ -20,7 +20,7 @@
                   :to="event.endDate" />
               </slot>
             </modal>
-            <registerationForm v-if="event.showRegisterationForm" class="mb-8" :eventId="event.id"
+            <registerationForm v-if="event.showRegisterationForm && isNotFinished()" class="mb-8" :eventId="event.id"
               :registrants="event.registrants" />
             <div v-if="event.onlineEvent && running == true" class="mb-8">
               <joinFormCard :event="event" />
@@ -58,6 +58,11 @@
       }
     },
     methods: {
+      isNotFinished() {
+        let endDate = new Date(this.to).getTime();
+        let currentDate = new Date().getTime();
+        return currentDate < endDate;
+      },
       createHash(data) {
         const crypto = require('crypto');
         const hash = crypto.createHash('sha1');
