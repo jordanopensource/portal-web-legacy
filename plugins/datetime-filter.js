@@ -58,7 +58,7 @@ const time = (dt, lang) => {
 }
 
 const timeAmman = (dt, lang) => {
-  return moment(dt).utcOffset("+03:00").locale(lang).format("HH:mm");
+  return moment(dt).utcOffset("+02:00").locale(lang).format("HH:mm");
 }
 
 const day = (dt, lang) => {
