@@ -18,8 +18,10 @@
           <div class="w-full md:w-2/5 mb-8">
             <publishDateCard class="mb-8" :date="publication.publishDate" />
             <downloadCard class="mb-8" :fileLink="publication.report.url" />
+            <a :href="publication.report.url" target="_blank">
             <appImage v-if="publication.thumbnail" :image="publication.thumbnail" size="large" class="thumbnail" />
             <img v-else class="thumbnail md:ltr:mr-6 md:rtl:ml-6 w-full" :src="placeholderImage" />
+            </a>
           </div>
         </div>
       </div>
