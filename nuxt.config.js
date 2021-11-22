@@ -121,6 +121,9 @@ export default {
     },
     routes: async () => {
       const apiURL = process.env.API_BASE_URL
+
+      console.log(`API URL is: ${apiURL}`)
+
       const articles = await axios.get(`${apiURL}/blogs`)
       const events = await axios.get(`${apiURL}/events`)
       const careers = await axios.get(`${apiURL}/careers`)
@@ -144,6 +147,9 @@ export default {
   */
   axios: {
   },
+  env: {
+    baseUrl: process.env.API_BASE_URL,
+  },
   /*
   ** Healthcheck
   */
@@ -154,7 +160,15 @@ export default {
       return JSON.stringify({ result: 'pong' })
     }
   },
-
+  publicRuntimeConfig: {
+    baseUrl: process.env.API_BASE_URL,
+    bucketUrl: process.env.BUCKET_URL,
+    bbbAPIUrl: process.env.BBB_API_URL,
+    bbbAPISecret: process.env.BBB_API_SECRET
+  },
+  privateRuntimeConfig: {
+    baseUrl: process.env.API_BASE_URL,
+  },
   /*
   ** Build configuration
   */
@@ -164,11 +178,5 @@ export default {
     */
     extend(config, ctx) {
     }
-  },
-  publicRuntimeConfig: {
-    baseUrl: process.env.API_BASE_URL,
-    bucketUrl: process.env.BUCKET_URL,
-    bbbAPIUrl: process.env.BBB_API_URL,
-    bbbAPISecret: process.env.BBB_API_SECRET
   }
 }
