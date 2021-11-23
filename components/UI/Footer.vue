@@ -1,25 +1,27 @@
 <template>
   <div id="footer">
     <!-- Primary Footer - Menus -->
-    <div class="container flex flex-col md:flex-row flex-wrap md:flex-no-wrap justify-between">
+    <div
+      class="container flex flex-col md:flex-row flex-wrap md:flex-nowrap justify-between"
+    >
       <!-- About Menu -->
       <section :id="'footer-menu-' + menus.about.menuId">
-        <h5>{{ menus.about['menuName_' + $i18n.locale] }}</h5>
+        <h5>{{ menus.about["menuName_" + $i18n.locale] }}</h5>
         <menuItems :menu="menus.about" />
         <div class="block md:hidden py-8">
-          <hr>
+          <hr />
         </div>
       </section>
       <!-- Impact Menu -->
       <section :id="'footer-menu-' + menus.impact1.menuId">
-        <h5>{{ menus.impact1['menuName_' + $i18n.locale] }}</h5>
+        <h5>{{ menus.impact1["menuName_" + $i18n.locale] }}</h5>
         <menuItems :menu="menus.impact2" />
         <div class="block py-4">
-          <hr>
+          <hr />
         </div>
         <menuItems :menu="menus.impact1" />
         <div class="block md:hidden py-8">
-          <hr>
+          <hr />
         </div>
       </section>
       <!-- Support Menu -->
@@ -32,17 +34,26 @@
       </section> -->
       <!-- Connect Menu -->
       <section :id="'footer-menu-' + menus.connect.menuId">
-        <h5>{{ menus.connect['menuName_' + $i18n.locale] }}</h5>
+        <h5>{{ menus.connect["menuName_" + $i18n.locale] }}</h5>
         <menuItems :menu="menus.connect" />
         <div class="block py-4">
-          <hr>
+          <hr />
         </div>
         <!-- Social Media Links -->
         <div class="links en">
-          <a class="whitespace-no-wrap" v-for="link in socialMediaLinks" :key="link.id" :href="link.path"
-            target="_blank">
-            <font-awesome-icon class="ltr:mr-2 rtl:ml-2" :icon="['fab', link.icon ]" />
-            {{ link.id }}</a>
+          <a
+            class="whitespace-no-wrap"
+            v-for="link in socialMediaLinks"
+            :key="link.id"
+            :href="link.path"
+            target="_blank"
+          >
+            <font-awesome-icon
+              class="ltr:mr-2 rtl:ml-2"
+              :icon="['fab', link.icon]"
+            />
+            {{ link.id }}</a
+          >
         </div>
       </section>
     </div>
@@ -50,15 +61,23 @@
     <div id="site-info">
       <div class="container flex flex-col md:flex-row">
         <div class="logo">
-          <img v-if="$i18n.locale == 'ar'" src="~/static/logo/logo-white-ar.svg" alt="جوسا">
-          <img v-else src="~/static/logo/logo-white-en.svg" alt="JOSA Logo">
+          <img
+            v-if="$i18n.locale == 'ar'"
+            src="~/static/logo/logo-white-ar.svg"
+            alt="جوسا"
+          />
+          <img v-else src="~/static/logo/logo-white-en.svg" alt="JOSA Logo" />
         </div>
         <div class="block md:hidden py-8">
-          <hr>
+          <hr />
         </div>
         <div id="copyright-info" class="">
-          <img class="cc-logo ltr:pr-4 rtl:pl-4" src="~/static/logo/cc.svg" alt="cc-logo">
-          <p>{{ $t('copyright.info') }}</p>
+          <img
+            class="cc-logo ltr:pr-4 rtl:pl-4"
+            src="~/static/logo/cc.svg"
+            alt="cc-logo"
+          />
+          <p>{{ $t("copyright.info") }}</p>
         </div>
       </div>
     </div>
@@ -66,141 +85,139 @@
 </template>
 
 <script>
-  import menuItems from '~/components/Menu/MenuItems';
-  export default {
-    name: 'Footer',
-    data() {
-      return {
-        socialMediaLinks: [{
-            icon: 'facebook-square',
-            path: 'https://facebook.com/jordanopensource',
-            id: '/jordanopensource'
-          },
-          {
-            icon: 'twitter',
-            path: 'https://twitter.com/jo_osa',
-            id: '@jo_osa'
-          },
-          {
-            icon: 'instagram',
-            path: 'https://instagram.com/jordanopensource',
-            id: '/jordanopensource'
-          },
-            {
-            icon: 'github',
-            path: 'https://github.com/jordanopensource/josa-portal-web',
-            id: '/josa-portal-web'
-          },
-        ]
-      }
+import menuItems from "~/components/Menu/MenuItems";
+export default {
+  name: "Footer",
+  data() {
+    return {
+      socialMediaLinks: [
+        {
+          icon: "facebook-square",
+          path: "https://facebook.com/jordanopensource",
+          id: "/jordanopensource",
+        },
+        {
+          icon: "twitter",
+          path: "https://twitter.com/jo_osa",
+          id: "@jo_osa",
+        },
+        {
+          icon: "instagram",
+          path: "https://instagram.com/jordanopensource",
+          id: "/jordanopensource",
+        },
+        {
+          icon: "github",
+          path: "https://github.com/jordanopensource/josa-portal-web",
+          id: "/josa-portal-web",
+        },
+      ],
+    };
+  },
+  components: {
+    menuItems,
+  },
+  computed: {
+    menus() {
+      return this.$store.getters.loadedMenus;
     },
-    components: {
-      menuItems
-    },
-    computed: {
-      menus() {
-        return this.$store.getters.loadedMenus
-      }
-    }
-  }
-
+  },
+};
 </script>
 
 <style scoped>
-  #footer {
-    @apply bg-josa-black text-josa-warm-grey-light;
-    line-height: 1.6;
-  }
+#footer {
+  @apply bg-josa-black text-josa-warm-grey-light;
+  line-height: 1.6;
+}
 
+.container {
+  @apply px-6 py-24 !important;
+}
+@screen md {
   .container {
-    @apply px-6 py-24 !important;
-  }
-  @screen md{
-    .container {
     @apply px-12 py-24 !important;
   }
+}
 
-  }
+#site-info {
+  background-color: #282e30;
+}
 
-  #site-info {
-    background-color: #282e30;
-  }
+#site-info .container {
+  @apply py-10 !important;
+}
 
-  #site-info .container {
-    @apply py-10 !important;
-  }
+section {
+  @apply flex-grow;
+}
 
-  section {
-    @apply flex-grow;
-  }
+[dir="ltr"] section:first-child {
+  @apply pl-0;
+}
 
-  [dir="ltr"] section:first-child {
-    @apply pl-0;
-  }
+[dir="ltr"] section:last-child {
+  @apply pr-0;
+}
 
-  [dir="ltr"] section:last-child {
-    @apply pr-0;
-  }
+[dir="rtl"] section:first-child {
+  @apply pr-0;
+}
 
-  [dir="rtl"] section:first-child {
-    @apply pr-0;
-  }
+[dir="rtl"] section:last-child {
+  @apply pl-0;
+}
 
-  [dir="rtl"] section:last-child {
-    @apply pl-0;
-  }
+h5 {
+  @apply uppercase pb-2 text-josa-warm-grey-light;
+}
 
-  h5 {
-    @apply uppercase pb-2 text-josa-warm-grey-light;
-  }
+hr {
+  @apply border-dotted;
+}
 
-  hr {
-    @apply border-dotted;
-  }
+img {
+  max-width: 240px;
+}
 
-  img {
-    max-width: 240px;
-  }
+/deep/ a {
+  @apply block;
+}
 
-  /deep/ a {
-    @apply block;
-  }
+.logo,
+#copyright-info {
+  @apply w-full flex align-middle justify-center text-sm;
+}
 
+@screen md {
   .logo,
   #copyright-info {
-    @apply w-full flex align-middle justify-center text-sm;
+    @apply w-1/2 justify-start;
+  }
+}
+
+@screen md {
+  section {
+    @apply px-4;
+  }
+}
+
+@screen lg {
+  .logo {
+    @apply w-2/3;
   }
 
-  @screen md {
-
-      .logo,
-      #copyright-info {
-        @apply w-1/2 justify-start;
-      }
-    }
-
-  @screen md {
-    section {
-      @apply px-4;
-    }
+  #copyright-info {
+    @apply w-1/3;
+  }
+}
+@screen lg {
+  .logo {
+    @apply w-2/3;
   }
 
-  @screen lg {
-    .logo {
-      @apply w-2/3;
-    }
-
-    #copyright-info {
-      @apply w-1/3;
-    }
+  #copyright-info {
+    @apply w-1/3;
   }
-  @screen lg {
-      .logo {
-        @apply w-2/3;
-      }
-
-      #copyright-info {
-        @apply w-1/3;
-      }
-    }
+}
 </style>
