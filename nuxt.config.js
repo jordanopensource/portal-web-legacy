@@ -10,13 +10,13 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { 'http-equiv': 'onion-location', content: 'http://josavtlxyxjgeqbo.onion' },
-      { name: 'robots', content:'all' }
+      { name: 'robots', content: 'all' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
     script: [
-      { src:'/js/matomo.js' },
+      { src: '/js/matomo.js' },
     ],
   },
   /*
@@ -60,18 +60,18 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     ['nuxt-fontawesome',
-    {
-      imports: [
-       {
-         set: '@fortawesome/free-solid-svg-icons',
-         icons: ['fas']
-       },
-       {
-         set:'@fortawesome/free-brands-svg-icons',
-         icons: ['fab']
-       }
-     ]
-    }],
+      {
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['fas']
+          },
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['fab']
+          }
+        ]
+      }],
     'nuxt-i18n',
     '@nuxtjs/moment',
     '@nuxtjs/redirect-module',
@@ -120,21 +120,25 @@ export default {
       lastmod: new Date()
     },
     routes: async () => {
-      const articles = await axios.get('https://portal.api.jordanopensource.org/blogs')
-      const events = await axios.get('https://portal.api.jordanopensource.org/events')
-      const careers = await axios.get('https://portal.api.jordanopensource.org/careers')
-      const publications = await axios.get('https://portal.api.jordanopensource.org/publications')
-      const programs = await axios.get('https://portal.api.jordanopensource.org/programs')
-      const infoPages = await axios.get('https://portal.api.jordanopensource.org/info-pages')
+      const apiURL = process.env.API_BASE_URL
 
-      const articlesRoutes = articles.data.map((article) => `${article.language == 'ar' ? '/ar':''}/blog/${article.id}`)
+      console.log(`API URL is: ${apiURL}`)
+
+      const articles = await axios.get(`${apiURL}/blogs`)
+      const events = await axios.get(`${apiURL}/events`)
+      const careers = await axios.get(`${apiURL}/careers`)
+      const publications = await axios.get(`${apiURL}/publications`)
+      const programs = await axios.get(`${apiURL}/programs`)
+      const infoPages = await axios.get(`${apiURL}/info-pages`)
+
+      const articlesRoutes = articles.data.map((article) => `${article.language == 'ar' ? '/ar' : ''}/blog/${article.id}`)
       const eventsRoutes = events.data.map((event) => `/events/${event.id}`)
       const careersRoutes = careers.data.map((career) => `/careers/${career.id}`)
       const publicationsRoutes = publications.data.map((publication) => `/publications/${publication.id}`)
       const programsRoutes = programs.data.map((program) => `/programs/${program.id}`)
       const infoPagesRoutes = infoPages.data.map((page) => `/info/${page.pageId}`)
 
-      return [ ...articlesRoutes, ...eventsRoutes, ...careersRoutes, ...publicationsRoutes, ...programsRoutes, ...infoPagesRoutes]
+      return [...articlesRoutes, ...eventsRoutes, ...careersRoutes, ...publicationsRoutes, ...programsRoutes, ...infoPagesRoutes]
     }
   },
   /*
@@ -145,9 +149,7 @@ export default {
   },
   env: {
     baseUrl: process.env.API_BASE_URL,
-    bucketUrl: process.env.BUCKET_URL,
   },
-
   /*
   ** Healthcheck
   */
@@ -158,7 +160,15 @@ export default {
       return JSON.stringify({ result: 'pong' })
     }
   },
-  
+  publicRuntimeConfig: {
+    baseUrl: process.env.API_BASE_URL,
+    bucketUrl: process.env.BUCKET_URL,
+    bbbAPIUrl: process.env.BBB_API_URL,
+    bbbAPISecret: process.env.BBB_API_SECRET
+  },
+  privateRuntimeConfig: {
+    baseUrl: process.env.API_BASE_URL,
+  },
   /*
   ** Build configuration
   */
@@ -166,11 +176,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
-  },
-  publicRuntimeConfig: {
-    bbbAPIUrl: process.env.BBB_API_URL,
-    bbbAPISecret: process.env.BBB_API_SECRET
   }
 }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: portal.dev.jordanopensource.org
-Sitemap: https://www.jordanopensource.org/sitemap.xml
+Disallow: portal.api.prod.josa.ngo
+Sitemap: https://josa.ngo/sitemap
