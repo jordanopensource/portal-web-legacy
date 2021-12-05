@@ -11,7 +11,7 @@
         </a>
         <span class="share-button tooltip" @click="copyToClipboard(url)">
             <font-awesome-icon icon="link" :size="faSize" />
-            <span ref="copyButton" class="copy-tooltip-text copied invisible"></span>
+            <span ref="copyButton" class="copy-tooltip-text invisible"></span>
         </span>
     </div>
 </template>
@@ -62,9 +62,5 @@
 
     [dir="rtl"] .share-button {
         @apply mr-4 ml-0;
-    }
-    [dir="ltr"] .copied {
-      right: 0;
-      bottom: -37px;
     }
 </style>
