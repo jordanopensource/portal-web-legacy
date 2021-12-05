@@ -24,7 +24,7 @@
       </div>
       <div class="ltr:ml-3 rtl:mr-3">
         <h5 class="leading-none mb-1">{{ $t('careers.type') }}</h5>
-        <p>{{ career.careerType['title_' + $i18n.locale] }}/ {{ career['period_' + $i18n.locale] }} </p>
+        <p>{{ career.careerType['title_' + $i18n.locale] }} {{ career['period_' + $i18n.locale] }} </p>
       </div>
     </div>
     <div class="info-card">
