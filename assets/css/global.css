@@ -310,13 +310,15 @@ ul {
 }
 
 [dir="ltr"] .copy-tooltip-text {
-  right: -75px;
+  right: 0px;
   left: unset;
+  bottom: -37px;
 }
 
 [dir="rtl"] .copy-tooltip-text {
-  left: -75px;
-  right: unset;
+  right: -37px;
+  left: unset;
+  bottom: -37px;
 }
 
 /*****/
