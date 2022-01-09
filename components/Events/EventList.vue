@@ -3,7 +3,7 @@
   <section>
     <div v-if="ifNotEmpty()">
       <div v-for="month in months" :key="month" class="mb-20">
-        <h3>{{ month }}</h3>
+        <h3 v-show="showTitle">{{ month }}</h3>
         <eventPreview v-for="event in sortedEvents[month]" :key="event.id" :id="event.id" :event="event" />
         <div v-if="pageCount > 1" class="pagination pt-6 text-center border-t border-dotted">
           <span class="py-2" v-if="currentPage > 1"><a
@@ -51,6 +51,10 @@
       limit: {
         type: Number,
         default: 10
+      },
+      showTitle: {
+        type: Boolean,
+        default: true
       }
     },
     created() {

@@ -2,6 +2,10 @@
   <div>
     <!-- Banner -->
     <homeBanner :pageMeta="homeMeta" :programs="programs" />
+    <!-- Upcoming Events -->
+    <div class="container mt-20">
+      <eventsSpotlight />
+    </div>
     <!-- Latest Articles -->
     <div class="container">
       <div class="row">
@@ -30,6 +34,7 @@
 
 <script>
   import axios from 'axios';
+  import eventsSpotlight from "@/components/Events/EventsSpotlight";
   import articlesSpotlight from "~/components/Blog/ArticlesSpotlight";
   import lastestPublications from '~/components/Publications/LastestPublications';
   import ourWork from '~/components/Programs/OurWork';
@@ -44,7 +49,8 @@
       homeBanner,
       articlesSpotlight,
       lastestPublications,
-      joinUs
+      joinUs,
+      eventsSpotlight
     },
     head() {
       const i18nSeo = this.$nuxtI18nSeo()
