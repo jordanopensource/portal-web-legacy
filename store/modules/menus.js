@@ -22,11 +22,18 @@ const mutations = {
 };
 
 const actions = {
-  nuxtServerInit({
-    commit
-  }) {
+  nuxtServerInit({ commit }, context) {
+
+    console.log(`context.$config.baseUrl is: ${context.$config.baseUrl}`)
+    console.log(`process.env.baseUrl is: ${process.env.baseUrl}`)
+
+    console.log(`this.$config.baseUrl is: ${this.$config.baseUrl}`)
+
+    const baseUrl = context.$config.baseUrl
+    console.log(`baseUrl is: ${baseUrl}`)
+
     return axios
-      .get(process.env.baseUrl + "/menus")
+      .get(`${baseUrl}/menus`)
       .then(res => {
         const menusArray = res.data;
         commit("setMenus", menusArray);
